@@ -57,14 +57,14 @@ export default async function LocaleLayout({ children, params }: Props) {
               Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing
             </a>
             <div className="flex items-center gap-6">
-              <div className="hidden sm:flex items-center gap-4 text-sm">
-                <a href={`/${locale}/speed-test`} className="text-zinc-400 hover:text-white transition-colors">
+              <div className="hidden sm:flex items-center gap-4 text-sm font-medium">
+                <a href={`/${locale}/speed-test`} className="text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.speedTest}
                 </a>
-                <a href={`/${locale}/lessons/1`} className="text-zinc-400 hover:text-white transition-colors">
+                <a href={`/${locale}/lessons/1`} className="text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.lessons}
                 </a>
-                <a href={`/${locale}/practice`} className="text-zinc-400 hover:text-white transition-colors">
+                <a href={`/${locale}/practice`} className="text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.practice}
                 </a>
               </div>
@@ -77,13 +77,13 @@ export default async function LocaleLayout({ children, params }: Props) {
           <div className="mx-auto max-w-5xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
             <p>&copy; {new Date().getFullYear()} Fast Forward Typing</p>
             <div className="flex gap-6">
-              <a href={`/${locale}/privacy`} className="hover:text-white transition-colors">
+              <a href={`/${locale}/privacy`} className="hover:text-indigo transition-colors">
                 {dict.footer.privacy}
               </a>
-              <a href={`/${locale}/terms`} className="hover:text-white transition-colors">
+              <a href={`/${locale}/terms`} className="hover:text-indigo transition-colors">
                 {dict.footer.terms}
               </a>
-              <a href={`/${locale}/imprint`} className="hover:text-white transition-colors">
+              <a href={`/${locale}/imprint`} className="hover:text-indigo transition-colors">
                 {dict.footer.imprint}
               </a>
             </div>

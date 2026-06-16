@@ -24,8 +24,8 @@ export function LanguageSwitcher({ currentLocale }: Props) {
           href={switchedPath(locale)}
           className={`px-2 py-1 rounded transition-colors ${
             locale === currentLocale
-              ? "text-white bg-dark-surface"
-              : "text-zinc-500 hover:text-white"
+              ? "text-indigo bg-indigo/10"
+              : "text-zinc-500 hover:text-indigo"
           }`}
         >
           {localeNames[locale]}
