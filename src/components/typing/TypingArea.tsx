@@ -42,12 +42,26 @@ export function TypingArea({
   const [timeUp, setTimeUp] = useState(false);
   const [shake, setShake] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const currentCharRef = useRef<HTMLSpanElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
     setState(createTypingState(text));
     setTimeUp(false);
   }, [text]);
+
+  useEffect(() => {
+    if (currentCharRef.current && containerRef.current) {
+      const container = containerRef.current;
+      const char = currentCharRef.current;
+      const charTop = char.offsetTop;
+      const containerScroll = container.scrollTop;
+      const containerHeight = container.clientHeight;
+      if (charTop < containerScroll + 40 || charTop > containerScroll + containerHeight - 60) {
+        container.scrollTo({ top: Math.max(0, charTop - 60), behavior: "smooth" });
+      }
+    }
+  }, [state.position]);
 
   useEffect(() => {
     if (state.startTime && !state.isComplete && !timeUp) {
@@ -141,7 +155,7 @@ export function TypingArea({
       <div
         ref={containerRef}
         tabIndex={0}
-        className={`rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none ${
+        className={`rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none max-h-[280px] overflow-hidden ${
           isFinished ? "opacity-60" : ""
         }`}
       >
@@ -154,6 +168,7 @@ export function TypingArea({
           {state.text.split("").map((char, i) => (
             <span
               key={i}
+              ref={charStatuses[i] === "current" ? currentCharRef : undefined}
               className={`${charStatusColors[charStatuses[i]]} ${
                 char === " " && charStatuses[i] === "incorrect" ? "bg-peach/30" : ""
               } ${charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""}`}

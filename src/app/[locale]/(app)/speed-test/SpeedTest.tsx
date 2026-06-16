@@ -97,22 +97,22 @@ const i18n: Record<Locale, {
 };
 
 export function SpeedTest({ locale }: Props) {
-  const [text, setText] = useState(() => getRandomText(locale));
-  const [result, setResult] = useState<TypingState | null>(null);
   const [seconds, setSeconds] = useState<(typeof durations)[number]>(60);
+  const [text, setText] = useState(() => getRandomText(locale, 60));
+  const [result, setResult] = useState<TypingState | null>(null);
 
   const handleComplete = useCallback((state: TypingState) => {
     setResult(state);
   }, []);
 
   function handleNewText() {
-    setText(getRandomText(locale));
+    setText(getRandomText(locale, seconds));
     setResult(null);
   }
 
   function handleDuration(s: (typeof durations)[number]) {
     setSeconds(s);
-    setText(getRandomText(locale));
+    setText(getRandomText(locale, s));
     setResult(null);
   }
 
