@@ -224,6 +224,7 @@ export function SpeedTest({ locale }: Props) {
         text={text}
         mode="countdown"
         countdownSeconds={seconds}
+        hideStats
         onComplete={handleComplete}
         onReset={() => setResult(null)}
       />

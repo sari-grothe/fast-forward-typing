@@ -91,16 +91,13 @@ export function calculateWPM(state: TypingState, now?: number): number {
   if (!state.startTime) return 0;
   const elapsed = ((now ?? state.endTime ?? Date.now()) - state.startTime) / 1000;
   if (elapsed < 1) return 0;
-  const correctChars = state.typed
-    .split("")
-    .filter((char, i) => char === state.text[i]).length;
-  return Math.round((correctChars / 5) / (elapsed / 60));
+  return Math.round((state.position / 5) / (elapsed / 60));
 }
 
 export function calculateAccuracy(state: TypingState): number {
-  if (state.position === 0) return 100;
-  const correct = state.position - state.errors.length;
-  return Math.round((correct / state.position) * 100);
+  const totalKeystrokes = state.position + state.errors.length;
+  if (totalKeystrokes === 0) return 100;
+  return Math.round((state.position / totalKeystrokes) * 100);
 }
 
 export function getElapsedSeconds(state: TypingState, now?: number): number {

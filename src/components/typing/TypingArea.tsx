@@ -17,6 +17,7 @@ type Props = {
   text: string;
   mode: "countdown" | "freeform";
   countdownSeconds?: number;
+  hideStats?: boolean;
   onComplete?: (state: TypingState) => void;
   onReset?: () => void;
 };
@@ -32,6 +33,7 @@ export function TypingArea({
   text,
   mode,
   countdownSeconds = 60,
+  hideStats = false,
   onComplete,
   onReset,
 }: Props) {
@@ -127,12 +129,14 @@ export function TypingArea({
 
   return (
     <div className="space-y-6">
-      <Stats
-        wpm={wpm}
-        accuracy={accuracy}
-        timeDisplay={timeDisplay}
-        errors={state.errors.length}
-      />
+      {!hideStats && (
+        <Stats
+          wpm={wpm}
+          accuracy={accuracy}
+          timeDisplay={timeDisplay}
+          errors={state.errors.length}
+        />
+      )}
 
       <div
         ref={containerRef}
