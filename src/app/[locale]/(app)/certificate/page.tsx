@@ -29,7 +29,7 @@ const i18n: Record<Locale, {
     benefit3Title: "Share your achievement",
     benefit3Desc: "Post your results on social media or send them to friends.",
     stripeNote: "Stripe checkout will be embedded here.",
-    upgradeNote: "To get a certificate, purchase it separately or upgrade to Fast Forward Pro, which includes certificates.",
+    upgradeNote: "The certificate can be purchased individually or is included in the annual typing course subscription.",
   },
   de: {
     title: "Mach deine Tippfähigkeiten offiziell",
@@ -41,7 +41,7 @@ const i18n: Record<Locale, {
     benefit3Title: "Teile deine Leistung",
     benefit3Desc: "Poste deine Ergebnisse in sozialen Medien oder sende sie an Freunde.",
     stripeNote: "Stripe Checkout wird hier eingebettet.",
-    upgradeNote: "Für ein Zertifikat kaufe es einzeln oder upgrade auf Fast Forward Pro, das Zertifikate enthält.",
+    upgradeNote: "Das Zertifikat kann einzeln erworben werden oder ist inklusive in der Jahresgebühr für den Tippkurs.",
   },
   fr: {
     title: "Rends tes compétences de frappe officielles",
@@ -53,7 +53,7 @@ const i18n: Record<Locale, {
     benefit3Title: "Partage ta réussite",
     benefit3Desc: "Publie tes résultats sur les réseaux sociaux ou envoie-les à tes amis.",
     stripeNote: "Stripe Checkout sera intégré ici.",
-    upgradeNote: "Pour obtenir un certificat, achète-le séparément ou passe à Fast Forward Pro, qui inclut les certificats.",
+    upgradeNote: "Le certificat peut être acheté séparément ou est inclus dans l'abonnement annuel au cours de frappe.",
   },
 };
 

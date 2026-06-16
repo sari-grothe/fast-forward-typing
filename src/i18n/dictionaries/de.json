@@ -7,7 +7,8 @@
     "home": "Startseite",
     "typingTest": "Tipptest",
     "typingCourse": "Tippkurs",
-    "typingTips": "Tipptipps"
+    "typingTips": "Tipptipps",
+    "pricing": "Preise"
   },
   "home": {
     "headline": "Was, wenn du so schnell tippen könntest wie du denkst?",
@@ -26,7 +27,7 @@
     "forCompanies": "Für Unternehmen",
     "teamTraining": "Team-Training",
     "employeeReports": "Mitarbeiterberichte",
-    "volumePricing": "Volumenpreise",
+    "pricing": "Preise",
     "resources": "Ressourcen",
     "blog": "Blog",
     "helpCenter": "Hilfecenter",
@@ -35,6 +36,6 @@
     "privacy": "Datenschutz",
     "terms": "AGB",
     "imprint": "Impressum",
-    "darkMode": "Dunkelmodus"
+    "darkMode": "Dark Mode"
   }
 }

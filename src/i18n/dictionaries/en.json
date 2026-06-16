@@ -7,7 +7,8 @@
     "home": "Home",
     "typingTest": "Typing Test",
     "typingCourse": "Typing Course",
-    "typingTips": "Typing Tips"
+    "typingTips": "Typing Tips",
+    "pricing": "Pricing"
   },
   "home": {
     "headline": "What if you could type as fast as you think?",
@@ -26,7 +27,7 @@
     "forCompanies": "For Companies",
     "teamTraining": "Team Training",
     "employeeReports": "Employee Reports",
-    "volumePricing": "Volume Pricing",
+    "pricing": "Pricing",
     "resources": "Resources",
     "blog": "Blog",
     "helpCenter": "Help Center",

@@ -7,7 +7,8 @@
     "home": "Accueil",
     "typingTest": "Test de frappe",
     "typingCourse": "Cours de frappe",
-    "typingTips": "Astuces de frappe"
+    "typingTips": "Astuces de frappe",
+    "pricing": "Tarifs"
   },
   "home": {
     "headline": "Et si tu tapais aussi vite que tu penses ?",
@@ -26,7 +27,7 @@
     "forCompanies": "Pour entreprises",
     "teamTraining": "Formation d'équipe",
     "employeeReports": "Rapports employés",
-    "volumePricing": "Tarifs volume",
+    "pricing": "Tarifs",
     "resources": "Ressources",
     "blog": "Blog",
     "helpCenter": "Centre d'aide",
@@ -35,6 +36,6 @@
     "privacy": "Politique de confidentialité",
     "terms": "CGV",
     "imprint": "Mentions légales",
-    "darkMode": "Mode sombre"
+    "darkMode": "Dark Mode"
   }
 }
