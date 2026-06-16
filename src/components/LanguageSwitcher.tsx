@@ -17,15 +17,15 @@ export function LanguageSwitcher({ currentLocale }: Props) {
   }
 
   return (
-    <div className="flex items-center gap-1 text-sm">
+    <div className="flex items-center rounded-lg border border-dark-border dark:border-dark-border bg-white/5 dark:bg-dark-surface p-0.5 text-sm">
       {locales.map((locale) => (
         <a
           key={locale}
           href={switchedPath(locale)}
-          className={`px-2 py-1 rounded transition-colors ${
+          className={`px-3 py-1.5 rounded-md transition-all ${
             locale === currentLocale
-              ? "text-indigo bg-indigo/10"
-              : "text-zinc-500 hover:text-indigo"
+              ? "bg-indigo text-white font-medium shadow-sm"
+              : "text-zinc-500 hover:text-white"
           }`}
         >
           {localeNames[locale]}

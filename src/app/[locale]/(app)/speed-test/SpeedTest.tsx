@@ -84,7 +84,7 @@ export function SpeedTest({ locale }: Props) {
 
       {result && (
         <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-6 space-y-3">
-          <p className="text-lg font-semibold text-white">
+          <p className="text-lg font-semibold text-dark-text dark:text-white">
             {funFacts[locale](wpm)}
           </p>
           <p className="text-sm text-zinc-400">
@@ -104,7 +104,7 @@ export function SpeedTest({ locale }: Props) {
 
       <button
         onClick={handleNewText}
-        className="rounded-lg border border-dark-border bg-dark-surface px-4 py-2 text-sm text-zinc-400 hover:text-white hover:border-indigo/30 transition-colors"
+        className="rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
       >
         {l.newTest}
       </button>

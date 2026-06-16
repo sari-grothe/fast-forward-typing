@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import "../globals.css";
 
 type Props = {
@@ -49,31 +50,33 @@ export default async function LocaleLayout({ children, params }: Props) {
           <link key={l} rel="alternate" hrefLang={l} href={`/${l}`} />
         ))}
         <link rel="alternate" hrefLang="x-default" href="/en" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.classList.remove('dark');else document.documentElement.classList.add('dark')}catch(e){}})()` }} />
       </head>
-      <body className="bg-dark text-white font-sans antialiased">
-        <header className="fixed top-0 w-full z-50 border-b border-dark-border bg-dark/80 backdrop-blur-sm">
-          <nav className="mx-auto max-w-5xl flex items-center justify-between px-6 py-4">
-            <a href={`/${locale}`} className="text-lg font-semibold tracking-tight">
-              Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing
+      <body className="bg-lavender text-dark-text dark:bg-dark dark:text-white font-sans antialiased transition-colors">
+        <header className="fixed top-0 w-full z-50 border-b border-zinc-200 dark:border-dark-border bg-white/80 dark:bg-dark/80 backdrop-blur-sm">
+          <nav className="mx-auto max-w-5xl flex items-center justify-between px-4 sm:px-6 py-3">
+            <a href={`/${locale}`} className="text-base sm:text-lg font-semibold tracking-tight whitespace-nowrap shrink-0">
+              FF<span className="text-indigo">&gt;&gt;</span><span className="hidden sm:inline">Typing</span>
             </a>
-            <div className="flex items-center gap-6">
-              <div className="hidden sm:flex items-center gap-4 text-sm font-medium">
-                <a href={`/${locale}/speed-test`} className="text-zinc-400 hover:text-indigo transition-colors">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="hidden md:flex items-center gap-4 text-sm font-medium">
+                <a href={`/${locale}/speed-test`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.speedTest}
                 </a>
-                <a href={`/${locale}/lessons/1`} className="text-zinc-400 hover:text-indigo transition-colors">
+                <a href={`/${locale}/lessons/1`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.lessons}
                 </a>
-                <a href={`/${locale}/practice`} className="text-zinc-400 hover:text-indigo transition-colors">
+                <a href={`/${locale}/practice`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.practice}
                 </a>
               </div>
               <LanguageSwitcher currentLocale={locale as Locale} />
+              <ThemeToggle />
             </div>
           </nav>
         </header>
         <main className="pt-20">{children}</main>
-        <footer className="border-t border-dark-border mt-32">
+        <footer className="border-t border-zinc-200 dark:border-dark-border mt-32">
           <div className="mx-auto max-w-5xl px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
             <p>&copy; {new Date().getFullYear()} Fast Forward Typing</p>
             <div className="flex gap-6">

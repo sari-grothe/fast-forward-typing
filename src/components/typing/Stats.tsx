@@ -22,8 +22,8 @@ export function Stats({ wpm, accuracy, timeDisplay, errors }: Props) {
         <p className="text-2xl font-bold text-electric-yellow">{timeDisplay}</p>
         <p className="text-xs text-zinc-500">Time</p>
       </div>
-      <div className="rounded-lg bg-dark-surface border border-dark-border px-4 py-3 text-center min-w-[80px]">
-        <p className="text-2xl font-bold text-zinc-300">{errors}</p>
+      <div className="rounded-lg bg-zinc-100 dark:bg-dark-surface border border-zinc-200 dark:border-dark-border px-4 py-3 text-center min-w-[80px]">
+        <p className="text-2xl font-bold text-zinc-700 dark:text-zinc-300">{errors}</p>
         <p className="text-xs text-zinc-500">Errors</p>
       </div>
     </div>

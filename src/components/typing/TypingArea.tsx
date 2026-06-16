@@ -24,8 +24,8 @@ type Props = {
 const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
   incorrect: "text-peach bg-peach/20",
-  current: "text-white bg-indigo/30 border-b-2 border-indigo",
-  upcoming: "text-zinc-600",
+  current: "text-dark-text dark:text-white bg-indigo/20 dark:bg-indigo/30 border-b-2 border-indigo",
+  upcoming: "text-zinc-400 dark:text-zinc-600",
 };
 
 export function TypingArea({
@@ -132,7 +132,7 @@ export function TypingArea({
       <div
         ref={containerRef}
         tabIndex={0}
-        className={`rounded-xl border border-dark-border bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none ${
+        className={`rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none ${
           isFinished ? "opacity-60" : ""
         }`}
       >
