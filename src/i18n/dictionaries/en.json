@@ -14,6 +14,10 @@
     "subheadline": "We'll help you get there. The modern typing tutor built for adults."
   },
   "footer": {
+    "typingTest": "Typing Test",
+    "typingCourse": "Typing Course",
+    "typingTips": "Typing Tips",
+    "certificate": "Certificate",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "imprint": "Imprint"
