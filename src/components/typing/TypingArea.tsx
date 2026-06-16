@@ -44,6 +44,8 @@ export function TypingArea({
   const containerRef = useRef<HTMLDivElement>(null);
   const currentCharRef = useRef<HTMLSpanElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
+  const stateRef = useRef(state);
+  stateRef.current = state;
 
   useEffect(() => {
     setState(createTypingState(text));
@@ -74,7 +76,7 @@ export function TypingArea({
           if (elapsed >= countdownSeconds) {
             setTimeUp(true);
             clearInterval(intervalRef.current!);
-            onComplete?.(state);
+            onComplete?.(stateRef.current);
           }
         }
       }, 100);

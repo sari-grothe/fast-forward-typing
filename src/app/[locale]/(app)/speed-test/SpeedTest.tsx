@@ -45,8 +45,12 @@ const i18n: Record<Locale, {
   wpmUnit: string;
   weakKeys: string;
   errors: string;
-  certificate: string;
-  improveCta: string;
+  trainingTitle: string;
+  trainingDesc: string;
+  trainingCta: string;
+  certTitle: string;
+  certDesc: string;
+  certCta: string;
   tryAgain: string;
 }> = {
   de: {
@@ -60,8 +64,12 @@ const i18n: Record<Locale, {
     wpmUnit: "WPM",
     weakKeys: "Schwache Tasten",
     errors: "Fehler",
-    certificate: "Zertifikat holen - 5 €",
-    improveCta: "Zum Tippkurs",
+    trainingTitle: "Tipptraining starten",
+    trainingDesc: "Eine Übung am Tag reicht, um schneller und sicherer zu tippen.",
+    trainingCta: "Starten",
+    certTitle: "Zertifikat holen",
+    certDesc: "Mach deine Tippfähigkeiten offiziell. Für CV, LinkedIn oder Arbeitgeber.",
+    certCta: "Zertifikat - 5 €",
     tryAgain: "Nochmal tippen",
   },
   en: {
@@ -75,8 +83,12 @@ const i18n: Record<Locale, {
     wpmUnit: "WPM",
     weakKeys: "Weak keys",
     errors: "Errors",
-    certificate: "Get a certificate - 5 €",
-    improveCta: "Start typing course",
+    trainingTitle: "Start typing training",
+    trainingDesc: "One exercise a day and you're on your way to faster, more accurate typing.",
+    trainingCta: "Start",
+    certTitle: "Get your certificate",
+    certDesc: "Make your typing skills official. For your CV, LinkedIn, or employers.",
+    certCta: "Certificate - 5 €",
     tryAgain: "Try again",
   },
   fr: {
@@ -90,8 +102,12 @@ const i18n: Record<Locale, {
     wpmUnit: "MPM",
     weakKeys: "Touches faibles",
     errors: "Erreurs",
-    certificate: "Obtenir un certificat - 5 €",
-    improveCta: "Commencer le cours",
+    trainingTitle: "Commencer l'entraînement",
+    trainingDesc: "Un exercice par jour suffit pour taper plus vite et plus précisément.",
+    trainingCta: "Commencer",
+    certTitle: "Obtenir ton certificat",
+    certDesc: "Rends tes compétences de frappe officielles. Pour ton CV, LinkedIn ou employeurs.",
+    certCta: "Certificat - 5 €",
     tryAgain: "Réessayer",
   },
 };
@@ -163,18 +179,36 @@ export function SpeedTest({ locale }: Props) {
           </div>
         )}
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 max-w-md mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
           <a
             href={`/${locale}/lessons/1`}
-            className="w-full sm:w-auto text-center rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
+            className="rounded-xl bg-indigo p-6 text-center text-white hover:bg-indigo/90 transition-colors group"
           >
-            {l.improveCta}
+            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
+              </svg>
+            </div>
+            <p className="font-bold text-lg">{l.trainingTitle}</p>
+            <p className="text-sm opacity-80 mt-1.5">{l.trainingDesc}</p>
+            <span className="inline-block mt-4 rounded-lg bg-white/20 px-5 py-2 text-sm font-semibold group-hover:bg-white/30 transition-colors">
+              {l.trainingCta}
+            </span>
           </a>
           <a
             href={`/${locale}/certificate`}
-            className="w-full sm:w-auto text-center rounded-lg bg-electric-yellow px-6 py-3 text-sm font-semibold text-dark-text hover:bg-electric-yellow/80 transition-colors"
+            className="rounded-xl bg-electric-yellow p-6 text-center text-dark-text hover:bg-electric-yellow/80 transition-colors group"
           >
-            {l.certificate}
+            <div className="w-10 h-10 rounded-full bg-dark-text/10 flex items-center justify-center mx-auto mb-3">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+              </svg>
+            </div>
+            <p className="font-bold text-lg">{l.certTitle}</p>
+            <p className="text-sm opacity-70 mt-1.5">{l.certDesc}</p>
+            <span className="inline-block mt-4 rounded-lg bg-dark-text/10 px-5 py-2 text-sm font-semibold group-hover:bg-dark-text/20 transition-colors">
+              {l.certCta}
+            </span>
           </a>
         </div>
 
