@@ -5,9 +5,9 @@
   },
   "nav": {
     "home": "Home",
-    "speedTest": "Speed Test",
-    "lessons": "Lessons",
-    "practice": "Practice"
+    "typingTest": "Typing Test",
+    "typingCourse": "Typing Course",
+    "typingTips": "Typing Tips"
   },
   "home": {
     "headline": "What if you could type as fast as you think?",

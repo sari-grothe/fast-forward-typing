@@ -5,9 +5,9 @@
   },
   "nav": {
     "home": "Startseite",
-    "speedTest": "Tipptest",
-    "lessons": "Lektionen",
-    "practice": "Übung"
+    "typingTest": "Tipptest",
+    "typingCourse": "Tippkurs",
+    "typingTips": "Tipptipps"
   },
   "home": {
     "headline": "Was, wenn du so schnell tippen könntest wie du denkst?",

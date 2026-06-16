@@ -53,6 +53,12 @@ export function processKeystroke(
       position: state.position,
     });
     newErrorsByKey[expected] = (newErrorsByKey[expected] || 0) + 1;
+    return {
+      ...state,
+      startTime,
+      errors: newErrors,
+      errorsByKey: newErrorsByKey,
+    };
   }
 
   const newPosition = state.position + 1;

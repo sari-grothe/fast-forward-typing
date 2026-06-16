@@ -5,9 +5,9 @@
   },
   "nav": {
     "home": "Accueil",
-    "speedTest": "Test de frappe",
-    "lessons": "Leçons",
-    "practice": "Exercice"
+    "typingTest": "Test de frappe",
+    "typingCourse": "Cours de frappe",
+    "typingTips": "Astuces de frappe"
   },
   "home": {
     "headline": "Et si tu tapais aussi vite que tu penses ?",

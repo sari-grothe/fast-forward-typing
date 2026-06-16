@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  75% { transform: translateX(2px); }
+}
+
+@utility animate-shake {
+  animation: shake 0.3s ease-in-out;
+}
+
 @theme {
   --color-indigo: #3f0ff2;
   --color-peach: #f8a37c;

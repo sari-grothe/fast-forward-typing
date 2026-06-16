@@ -32,27 +32,33 @@ const funFacts: Record<Locale, (wpm: number) => string> = {
   },
 };
 
-const labels: Record<Locale, { title: string; subtitle: string; newTest: string }> = {
+const durations = [60, 120, 300] as const;
+
+const labels: Record<Locale, { title: string; subtitle: (mins: number) => string; newTest: string; minLabel: string }> = {
   de: {
     title: "Tipptest",
-    subtitle: "60 Sekunden. Tipp so schnell und genau wie möglich.",
+    subtitle: (mins) => `${mins} ${mins === 1 ? "Minute" : "Minuten"}. Tipp so schnell und genau wie möglich.`,
     newTest: "Neuer Text",
+    minLabel: "Min",
   },
   en: {
-    title: "Speed Test",
-    subtitle: "60 seconds. Type as fast and accurately as you can.",
+    title: "Typing Test",
+    subtitle: (mins) => `${mins} ${mins === 1 ? "minute" : "minutes"}. Type as fast and accurately as you can.`,
     newTest: "New text",
+    minLabel: "min",
   },
   fr: {
     title: "Test de frappe",
-    subtitle: "60 secondes. Tape aussi vite et précisément que possible.",
+    subtitle: (mins) => `${mins} ${mins === 1 ? "minute" : "minutes"}. Tape aussi vite et précisément que possible.`,
     newTest: "Nouveau texte",
+    minLabel: "min",
   },
 };
 
 export function SpeedTest({ locale }: Props) {
   const [text, setText] = useState(() => getRandomText(locale));
   const [result, setResult] = useState<TypingState | null>(null);
+  const [seconds, setSeconds] = useState<(typeof durations)[number]>(60);
 
   const handleComplete = useCallback((state: TypingState) => {
     setResult(state);
@@ -63,21 +69,45 @@ export function SpeedTest({ locale }: Props) {
     setResult(null);
   }
 
+  function handleDuration(s: (typeof durations)[number]) {
+    setSeconds(s);
+    setText(getRandomText(locale));
+    setResult(null);
+  }
+
   const l = labels[locale];
+  const mins = seconds / 60;
   const wpm = result ? calculateWPM(result) : 0;
   const accuracy = result ? calculateAccuracy(result) : 0;
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold">{l.title}</h1>
-        <p className="mt-2 text-zinc-400">{l.subtitle}</p>
+      <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+        <div>
+          <h1 className="text-3xl font-bold">{l.title}</h1>
+          <p className="mt-2 text-zinc-400">{l.subtitle(mins)}</p>
+        </div>
+        <div className="flex items-center rounded-lg border border-zinc-200 dark:border-dark-border bg-white/5 dark:bg-dark-surface p-0.5 text-sm">
+          {durations.map((d) => (
+            <button
+              key={d}
+              onClick={() => handleDuration(d)}
+              className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
+                d === seconds
+                  ? "bg-indigo text-white shadow-sm"
+                  : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+              }`}
+            >
+              {d / 60} {l.minLabel}
+            </button>
+          ))}
+        </div>
       </div>
 
       <TypingArea
         text={text}
         mode="countdown"
-        countdownSeconds={60}
+        countdownSeconds={seconds}
         onComplete={handleComplete}
         onReset={() => setResult(null)}
       />
@@ -104,8 +134,14 @@ export function SpeedTest({ locale }: Props) {
 
       <button
         onClick={handleNewText}
-        className="rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+        className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
       >
+        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 2v6h-6" />
+          <path d="M3 12a9 9 0 0 1 15-6.7L21 8" />
+          <path d="M3 22v-6h6" />
+          <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
+        </svg>
         {l.newTest}
       </button>
     </div>

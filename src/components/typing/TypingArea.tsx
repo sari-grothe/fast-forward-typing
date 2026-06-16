@@ -25,7 +25,7 @@ const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
   incorrect: "text-peach bg-peach/20",
   current: "text-dark-text dark:text-white bg-indigo/20 dark:bg-indigo/30 border-b-2 border-indigo",
-  upcoming: "text-zinc-400 dark:text-zinc-600",
+  upcoming: "text-zinc-400 dark:text-zinc-500",
 };
 
 export function TypingArea({
@@ -38,6 +38,7 @@ export function TypingArea({
   const [state, setState] = useState(() => createTypingState(text));
   const [now, setNow] = useState(Date.now());
   const [timeUp, setTimeUp] = useState(false);
+  const [shake, setShake] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
 
@@ -78,6 +79,10 @@ export function TypingArea({
       if (e.key.length === 1) {
         setState((prev) => {
           const next = processKeystroke(prev, e.key);
+          if (next.position === prev.position) {
+            setShake(true);
+            setTimeout(() => setShake(false), 300);
+          }
           if (next.isComplete) {
             onComplete?.(next);
           }
@@ -147,7 +152,7 @@ export function TypingArea({
               key={i}
               className={`${charStatusColors[charStatuses[i]]} ${
                 char === " " && charStatuses[i] === "incorrect" ? "bg-peach/30" : ""
-              }`}
+              } ${charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""}`}
             >
               {char}
             </span>
