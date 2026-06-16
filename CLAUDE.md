@@ -17,12 +17,15 @@ Trilingual typing tutor for adults (DE/EN/FR).
 - URL slugs are language-native (e.g. /de/tipptest, /en/typing-test, /fr/test-de-frappe)
 - hreflang tags in locale layout for SEO
 
-## Design
+## Design and Brand Voice
 
-- Dark mode (Linear/Superhuman inspired)
+**Read [DESIGN.md](DESIGN.md) before building any UI, writing any copy, or producing any branded surface.** It contains the complete visual identity (colors, typography, design direction) and tone of voice (per-language guidelines, humor model, copy examples, consistency checks).
+
+Quick reference:
+- Dark mode default, Linear/Superhuman aesthetic
 - Font: Poppins (Google Fonts)
 - Colors: indigo #3f0ff2, peach #f8a37c, electric yellow #edf656, lavender #eeecfe
-- Dark bg #0a0a0b, dark surface #141416, dark border #27272a
+- Tone: positive, data-driven, punchy. Never call someone out. Never remind where they started.
 
 ## Legal (French auto-entrepreneur)
 
