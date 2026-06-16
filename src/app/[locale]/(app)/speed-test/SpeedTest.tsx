@@ -16,19 +16,19 @@ const funFacts: Record<Locale, (wpm: number) => string> = {
     if (wpm >= 80) return "Journalisten-Tempo auf einer Pressekonferenz.";
     if (wpm >= 60) return "Schneller als ein professioneller Telegrafist im Jahr 1920.";
     if (wpm >= 40) return "Das ist der weltweite Durchschnitt. Solide Basis.";
-    return "Jeder fängt irgendwo an. Mit Übung wird das schnell mehr.";
+    return "Fun Fact: Die erste Schreibmaschine hatte die Buchstaben alphabetisch sortiert. Du tippst bereits auf dem besseren Layout.";
   },
   en: (wpm) => {
     if (wpm >= 80) return "That's journalist speed at a live press conference.";
     if (wpm >= 60) return "Faster than a professional telegraph operator in 1920.";
     if (wpm >= 40) return "That's the global average. Solid foundation.";
-    return "Everyone starts somewhere. With practice, this goes up fast.";
+    return "Fun fact: the first typewriter had keys in alphabetical order. You're already using the better layout.";
   },
   fr: (wpm) => {
     if (wpm >= 80) return "C'est la vitesse d'un journaliste en conférence de presse.";
     if (wpm >= 60) return "Plus rapide qu'un télégraphiste professionnel en 1920.";
     if (wpm >= 40) return "C'est la moyenne mondiale. Une base solide.";
-    return "Tout le monde commence quelque part. Avec de la pratique, ça monte vite.";
+    return "Fun fact : la première machine à écrire avait les touches dans l'ordre alphabétique. Tu utilises déjà le meilleur clavier.";
   },
 };
 
