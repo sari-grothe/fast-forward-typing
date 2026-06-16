@@ -18,6 +18,7 @@ type Props = {
   mode: "countdown" | "freeform";
   countdownSeconds?: number;
   hideStats?: boolean;
+  locale?: string;
   onComplete?: (state: TypingState) => void;
   onReset?: () => void;
 };
@@ -29,11 +30,24 @@ const charStatusColors: Record<CharStatus, string> = {
   upcoming: "text-zinc-400 dark:text-zinc-500",
 };
 
+function formatTime(totalSeconds: number): string {
+  const m = Math.floor(totalSeconds / 60);
+  const s = Math.floor(totalSeconds % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+const startPrompt: Record<string, string> = {
+  de: "Hier klicken und lostippen...",
+  en: "Click here and start typing...",
+  fr: "Clique ici et commence à taper...",
+};
+
 export function TypingArea({
   text,
   mode,
   countdownSeconds = 60,
   hideStats = false,
+  locale = "en",
   onComplete,
   onReset,
 }: Props) {
@@ -154,6 +168,16 @@ export function TypingArea({
         />
       )}
 
+      {hideStats && mode === "countdown" && state.startTime && !isFinished && (
+        <div className="flex items-center justify-center">
+          <span className={`text-2xl font-bold font-mono tabular-nums ${
+            Math.max(0, countdownSeconds - elapsed) <= 10 ? "text-peach" : "text-indigo"
+          }`}>
+            {formatTime(Math.max(0, countdownSeconds - elapsed))}
+          </span>
+        </div>
+      )}
+
       <div
         ref={containerRef}
         tabIndex={0}
@@ -163,7 +187,7 @@ export function TypingArea({
       >
         {!state.startTime && !isFinished && (
           <p className="text-zinc-500 text-sm mb-4 font-sans">
-            Click here and start typing...
+            {startPrompt[locale] || startPrompt.en}
           </p>
         )}
         <p className="break-words">

@@ -50,13 +50,11 @@ export function getRandomText(locale: string, durationSeconds = 60): string {
   const pool = texts[locale] || texts.en;
   const shuffled = shuffle(pool);
 
-  if (durationSeconds <= 60) {
-    return shuffled[0];
-  }
+  const charsPerSecond = 2;
+  const targetChars = durationSeconds * charsPerSecond;
 
   let combined = "";
   let i = 0;
-  const targetChars = durationSeconds <= 120 ? 600 : 1500;
   while (combined.length < targetChars) {
     combined += (combined ? " " : "") + shuffled[i % shuffled.length];
     i++;
