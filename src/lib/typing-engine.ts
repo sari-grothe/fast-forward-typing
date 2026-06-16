@@ -97,7 +97,10 @@ export function calculateWPM(state: TypingState, now?: number): number {
 export function calculateAccuracy(state: TypingState): number {
   const totalKeystrokes = state.position + state.errors.length;
   if (totalKeystrokes === 0) return 100;
-  return Math.round((state.position / totalKeystrokes) * 100);
+  if (state.errors.length > 0) {
+    return Math.min(99, Math.floor((state.position / totalKeystrokes) * 100));
+  }
+  return 100;
 }
 
 export function getElapsedSeconds(state: TypingState, now?: number): number {
