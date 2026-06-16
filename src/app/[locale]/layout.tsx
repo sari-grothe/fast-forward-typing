@@ -71,16 +71,15 @@ export default async function LocaleLayout({ children, params }: Props) {
                 </a>
               </div>
               <LanguageSwitcher currentLocale={locale as Locale} />
-              <ThemeToggle />
             </div>
           </nav>
         </header>
         <main className="pt-20 flex-1">{children}</main>
         <footer className="border-t border-zinc-200 dark:border-dark-border mt-auto">
           <div className="mx-auto max-w-5xl px-6 py-10">
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 mb-8 text-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8 text-sm">
               <div>
-                <p className="font-semibold text-dark-text dark:text-white mb-3">Product</p>
+                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.product}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <a href={`/${locale}/speed-test`} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</a>
                   <a href={`/${locale}/lessons/1`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</a>
@@ -89,7 +88,31 @@ export default async function LocaleLayout({ children, params }: Props) {
                 </div>
               </div>
               <div>
-                <p className="font-semibold text-dark-text dark:text-white mb-3">Legal</p>
+                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forTeachers}</p>
+                <div className="flex flex-col gap-2 text-zinc-500">
+                  <a href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.classroomLicenses}</a>
+                  <a href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.progressReports}</a>
+                  <a href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.lessonPlans}</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forCompanies}</p>
+                <div className="flex flex-col gap-2 text-zinc-500">
+                  <a href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</a>
+                  <a href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.employeeReports}</a>
+                  <a href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.volumePricing}</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.resources}</p>
+                <div className="flex flex-col gap-2 text-zinc-500">
+                  <a href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.blog}</a>
+                  <a href={`/${locale}/help`} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</a>
+                  <a href={`/${locale}/contact`} className="hover:text-indigo transition-colors">{dict.footer.contact}</a>
+                </div>
+              </div>
+              <div>
+                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.legal}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <a href={`/${locale}/privacy`} className="hover:text-indigo transition-colors">{dict.footer.privacy}</a>
                   <a href={`/${locale}/terms`} className="hover:text-indigo transition-colors">{dict.footer.terms}</a>
@@ -97,8 +120,9 @@ export default async function LocaleLayout({ children, params }: Props) {
                 </div>
               </div>
             </div>
-            <div className="border-t border-zinc-200 dark:border-dark-border pt-6 text-sm text-zinc-500 text-center">
+            <div className="border-t border-zinc-200 dark:border-dark-border pt-6 flex items-center justify-between text-sm text-zinc-500">
               <p>&copy; {new Date().getFullYear()} Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing</p>
+              <ThemeToggle label={dict.footer.darkMode} />
             </div>
           </div>
         </footer>

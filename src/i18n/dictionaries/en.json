@@ -14,12 +14,27 @@
     "subheadline": "We'll help you get there. The modern typing tutor built for adults."
   },
   "footer": {
+    "product": "Product",
     "typingTest": "Typing Test",
     "typingCourse": "Typing Course",
     "typingTips": "Typing Tips",
     "certificate": "Certificate",
+    "forTeachers": "For Teachers",
+    "classroomLicenses": "Classroom Licenses",
+    "progressReports": "Progress Reports",
+    "lessonPlans": "Lesson Plans",
+    "forCompanies": "For Companies",
+    "teamTraining": "Team Training",
+    "employeeReports": "Employee Reports",
+    "volumePricing": "Volume Pricing",
+    "resources": "Resources",
+    "blog": "Blog",
+    "helpCenter": "Help Center",
+    "contact": "Contact",
+    "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "imprint": "Imprint"
+    "imprint": "Imprint",
+    "darkMode": "Dark mode"
   }
 }

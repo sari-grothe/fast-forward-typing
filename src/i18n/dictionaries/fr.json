@@ -14,12 +14,27 @@
     "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes."
   },
   "footer": {
+    "product": "Produit",
     "typingTest": "Test de frappe",
     "typingCourse": "Cours de frappe",
     "typingTips": "Astuces de frappe",
     "certificate": "Certificat",
+    "forTeachers": "Pour enseignants",
+    "classroomLicenses": "Licences de classe",
+    "progressReports": "Rapports de progression",
+    "lessonPlans": "Plans de cours",
+    "forCompanies": "Pour entreprises",
+    "teamTraining": "Formation d'équipe",
+    "employeeReports": "Rapports employés",
+    "volumePricing": "Tarifs volume",
+    "resources": "Ressources",
+    "blog": "Blog",
+    "helpCenter": "Centre d'aide",
+    "contact": "Contact",
+    "legal": "Juridique",
     "privacy": "Politique de confidentialité",
     "terms": "CGV",
-    "imprint": "Mentions légales"
+    "imprint": "Mentions légales",
+    "darkMode": "Mode sombre"
   }
 }

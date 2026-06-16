@@ -14,12 +14,27 @@
     "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene."
   },
   "footer": {
+    "product": "Produkt",
     "typingTest": "Tipptest",
     "typingCourse": "Tippkurs",
     "typingTips": "Tipptipps",
     "certificate": "Zertifikat",
+    "forTeachers": "Für Lehrkräfte",
+    "classroomLicenses": "Klassenlizenzen",
+    "progressReports": "Fortschrittsberichte",
+    "lessonPlans": "Unterrichtspläne",
+    "forCompanies": "Für Unternehmen",
+    "teamTraining": "Team-Training",
+    "employeeReports": "Mitarbeiterberichte",
+    "volumePricing": "Volumenpreise",
+    "resources": "Ressourcen",
+    "blog": "Blog",
+    "helpCenter": "Hilfecenter",
+    "contact": "Kontakt",
+    "legal": "Rechtliches",
     "privacy": "Datenschutz",
     "terms": "AGB",
-    "imprint": "Impressum"
+    "imprint": "Impressum",
+    "darkMode": "Dunkelmodus"
   }
 }
