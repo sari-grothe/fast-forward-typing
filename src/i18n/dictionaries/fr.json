@@ -6,16 +6,16 @@
   "nav": {
     "home": "Accueil",
     "speedTest": "Test de frappe",
-    "lessons": "Lecons",
+    "lessons": "Leçons",
     "practice": "Exercice"
   },
   "home": {
     "headline": "Et si tu tapais aussi vite que tu penses ?",
-    "subheadline": "On t'aide a y arriver. Le tuteur de frappe moderne pour adultes."
+    "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes."
   },
   "footer": {
-    "privacy": "Politique de confidentialite",
+    "privacy": "Politique de confidentialité",
     "terms": "CGV",
-    "imprint": "Mentions legales"
+    "imprint": "Mentions légales"
   }
 }

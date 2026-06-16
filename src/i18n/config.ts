@@ -5,5 +5,5 @@ export const defaultLocale: Locale = "en";
 export const localeNames: Record<Locale, string> = {
   de: "Deutsch",
   en: "English",
-  fr: "Francais",
+  fr: "Français",
 };
