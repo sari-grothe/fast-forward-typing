@@ -5,13 +5,13 @@
   },
   "nav": {
     "home": "Home",
-    "switchLanguage": "Language"
+    "speedTest": "Speed Test",
+    "lessons": "Lessons",
+    "practice": "Practice"
   },
   "home": {
     "headline": "What if you could type as fast as you think?",
-    "subheadline": "We'll help you get there. The modern typing tutor built for adults.",
-    "comingSoon": "Coming soon",
-    "notifyMe": "Notify me at launch"
+    "subheadline": "We'll help you get there. The modern typing tutor built for adults."
   },
   "footer": {
     "privacy": "Privacy Policy",

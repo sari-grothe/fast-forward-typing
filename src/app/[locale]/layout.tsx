@@ -56,7 +56,20 @@ export default async function LocaleLayout({ children, params }: Props) {
             <a href={`/${locale}`} className="text-lg font-semibold tracking-tight">
               Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing
             </a>
-            <LanguageSwitcher currentLocale={locale as Locale} />
+            <div className="flex items-center gap-6">
+              <div className="hidden sm:flex items-center gap-4 text-sm">
+                <a href={`/${locale}/speed-test`} className="text-zinc-400 hover:text-white transition-colors">
+                  {dict.nav.speedTest}
+                </a>
+                <a href={`/${locale}/lessons/1`} className="text-zinc-400 hover:text-white transition-colors">
+                  {dict.nav.lessons}
+                </a>
+                <a href={`/${locale}/practice`} className="text-zinc-400 hover:text-white transition-colors">
+                  {dict.nav.practice}
+                </a>
+              </div>
+              <LanguageSwitcher currentLocale={locale as Locale} />
+            </div>
           </nav>
         </header>
         <main className="pt-20">{children}</main>

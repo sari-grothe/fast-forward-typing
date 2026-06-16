@@ -5,13 +5,13 @@
   },
   "nav": {
     "home": "Startseite",
-    "switchLanguage": "Sprache"
+    "speedTest": "Tipptest",
+    "lessons": "Lektionen",
+    "practice": "Uebung"
   },
   "home": {
     "headline": "Was, wenn du so schnell tippen koenntest wie du denkst?",
-    "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer fuer Erwachsene.",
-    "comingSoon": "Bald verfuegbar",
-    "notifyMe": "Benachrichtige mich zum Start"
+    "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer fuer Erwachsene."
   },
   "footer": {
     "privacy": "Datenschutz",
