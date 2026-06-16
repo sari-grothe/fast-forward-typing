@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Fast Forward >> Typing",
+    "description": "Apprenez a taper plus vite. Le tuteur de frappe moderne pour adultes."
+  },
+  "nav": {
+    "home": "Accueil",
+    "switchLanguage": "Langue"
+  },
+  "home": {
+    "headline": "Tapez plus vite. Travaillez mieux.",
+    "subheadline": "Le tuteur de frappe moderne concu pour les adultes qui veulent progresser.",
+    "comingSoon": "Bientot disponible",
+    "notifyMe": "Me prevenir au lancement"
+  },
+  "footer": {
+    "privacy": "Politique de confidentialite",
+    "terms": "CGV",
+    "imprint": "Mentions legales"
+  }
+}

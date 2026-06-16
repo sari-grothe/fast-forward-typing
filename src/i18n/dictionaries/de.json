@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "title": "Fast Forward >> Typing",
+    "description": "Schneller tippen lernen. Der moderne Tipptrainer fur Erwachsene."
+  },
+  "nav": {
+    "home": "Startseite",
+    "switchLanguage": "Sprache"
+  },
+  "home": {
+    "headline": "Schneller tippen. Smarter arbeiten.",
+    "subheadline": "Der moderne Tipptrainer fur Erwachsene, die mehr aus sich rausholen wollen.",
+    "comingSoon": "Bald verfugbar",
+    "notifyMe": "Benachrichtige mich zum Start"
+  },
+  "footer": {
+    "privacy": "Datenschutz",
+    "terms": "AGB",
+    "imprint": "Impressum"
+  }
+}
