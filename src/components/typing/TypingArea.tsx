@@ -11,6 +11,7 @@ import {
   type TypingState,
   type CharStatus,
 } from "@/lib/typing-engine";
+import { getRandomText } from "@/lib/sample-texts";
 import { Stats } from "./Stats";
 
 type Props = {
@@ -115,6 +116,15 @@ export function TypingArea({
             setShake(true);
             setTimeout(() => setShake(false), 300);
           }
+          if (next.isComplete && mode === "countdown") {
+            const moreText = getRandomText(locale, countdownSeconds);
+            return {
+              ...next,
+              text: next.text + " " + moreText,
+              isComplete: false,
+              endTime: null,
+            };
+          }
           if (next.isComplete) {
             onComplete?.(next);
           }
@@ -122,7 +132,7 @@ export function TypingArea({
         });
       }
     },
-    [state.isComplete, timeUp, onComplete]
+    [state.isComplete, timeUp, onComplete, mode, locale, countdownSeconds]
   );
 
   useEffect(() => {
