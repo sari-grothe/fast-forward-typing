@@ -6,6 +6,8 @@ import { getRandomText } from "@/lib/sample-texts";
 import type { TypingState } from "@/lib/typing-engine";
 import { calculateWPM, calculateAccuracy } from "@/lib/typing-engine";
 import type { Locale } from "@/i18n/config";
+import { FAQ } from "@/components/FAQ";
+import { speedTestFAQ } from "@/lib/faq-data";
 
 type Props = {
   locale: Locale;
@@ -276,6 +278,10 @@ export function SpeedTest({ locale }: Props) {
         </svg>
         {l.newTest}
       </button>
+
+      <div className="pt-12">
+        <FAQ title={speedTestFAQ[locale]?.title || speedTestFAQ.en.title} items={speedTestFAQ[locale]?.items || speedTestFAQ.en.items} />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
+import { FAQ } from "@/components/FAQ";
+import { homeFAQ } from "@/lib/faq-data";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -30,6 +32,10 @@ export default async function HomePage({ params }: Props) {
 
       <section className="pb-20">
         <TestimonialSlider locale={locale} />
+      </section>
+
+      <section className="pb-20">
+        <FAQ title={homeFAQ[locale]?.title || homeFAQ.en.title} items={homeFAQ[locale]?.items || homeFAQ.en.items} />
       </section>
     </div>
   );

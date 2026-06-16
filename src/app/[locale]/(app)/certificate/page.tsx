@@ -1,5 +1,7 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { FAQ } from "@/components/FAQ";
+import { certificateFAQ } from "@/lib/faq-data";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -138,6 +140,10 @@ export default async function CertificatePage({ params }: Props) {
       <p className="mt-12 text-center text-sm text-zinc-400">
         {l.upgradeNote}
       </p>
+
+      <div className="mt-16">
+        <FAQ title={certificateFAQ[locale as Locale]?.title || certificateFAQ.en.title} items={certificateFAQ[locale as Locale]?.items || certificateFAQ.en.items} />
+      </div>
     </div>
   );
 }
