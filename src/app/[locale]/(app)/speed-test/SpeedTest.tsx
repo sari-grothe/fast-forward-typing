@@ -45,8 +45,10 @@ const i18n: Record<Locale, {
   speed: string;
   accuracy: string;
   wpmUnit: string;
-  weakKeys: string;
   errors: string;
+  focusTitle: string;
+  focusNudge: (count: number) => string;
+  focusPerfect: string;
   trainingTitle: string;
   trainingDesc: string;
   trainingCta: string;
@@ -64,8 +66,10 @@ const i18n: Record<Locale, {
     speed: "Tempo",
     accuracy: "Genauigkeit",
     wpmUnit: "WPM",
-    weakKeys: "Schwache Tasten",
     errors: "Fehler",
+    focusTitle: "Dein Fokus fürs Training",
+    focusNudge: (n) => `${n} ${n === 1 ? "Taste braucht" : "Tasten brauchen"} Übung - der Tippkurs trainiert genau diese.`,
+    focusPerfect: "Keine Fehler - perfekt getippt. Bereit für die nächste Stufe?",
     trainingTitle: "Tipptraining starten",
     trainingDesc: "Eine Übung am Tag reicht, um schneller und sicherer zu tippen.",
     trainingCta: "Starten",
@@ -83,8 +87,10 @@ const i18n: Record<Locale, {
     speed: "Speed",
     accuracy: "Accuracy",
     wpmUnit: "WPM",
-    weakKeys: "Weak keys",
     errors: "Errors",
+    focusTitle: "Your training focus",
+    focusNudge: (n) => `${n} ${n === 1 ? "key needs" : "keys need"} practice - the typing course targets exactly these.`,
+    focusPerfect: "Zero errors - perfectly typed. Ready for the next level?",
     trainingTitle: "Start typing training",
     trainingDesc: "One exercise a day and you're on your way to faster, more accurate typing.",
     trainingCta: "Start",
@@ -102,8 +108,10 @@ const i18n: Record<Locale, {
     speed: "Vitesse",
     accuracy: "Précision",
     wpmUnit: "MPM",
-    weakKeys: "Touches faibles",
     errors: "Erreurs",
+    focusTitle: "Ton focus pour l'entraînement",
+    focusNudge: (n) => `${n} ${n === 1 ? "touche a besoin" : "touches ont besoin"} de pratique - le cours cible exactement celles-ci.`,
+    focusPerfect: "Zéro erreur - parfaitement tapé. Prêt pour le niveau suivant ?",
     trainingTitle: "Commencer l'entraînement",
     trainingDesc: "Un exercice par jour suffit pour taper plus vite et plus précisément.",
     trainingCta: "Commencer",
@@ -165,21 +173,33 @@ export function SpeedTest({ locale }: Props) {
           </div>
         </div>
 
-        {weakKeys.length > 0 && (
-          <div className="max-w-md mx-auto">
-            <p className="text-sm font-medium text-zinc-500 mb-2">{l.weakKeys}</p>
-            <div className="flex gap-2 flex-wrap">
-              {weakKeys.map(([key, count]) => (
-                <span
-                  key={key}
-                  className="rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-1.5 text-sm font-mono"
-                >
-                  {key === " " ? "Space" : key} <span className="text-peach ml-1">{count}x</span>
-                </span>
-              ))}
+        <div className="max-w-lg mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-9 h-9 rounded-lg bg-peach/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+              </svg>
             </div>
+            <p className="font-semibold text-dark-text dark:text-white">{l.focusTitle}</p>
           </div>
-        )}
+          {weakKeys.length > 0 ? (
+            <>
+              <div className="flex gap-2 flex-wrap mb-4">
+                {weakKeys.map(([key, count]) => (
+                  <span
+                    key={key}
+                    className="rounded-lg bg-peach/10 border border-peach/20 px-4 py-2 text-base font-mono font-semibold text-dark-text dark:text-white"
+                  >
+                    {key === " " ? "Space" : key} <span className="text-peach ml-1.5 text-sm">{count}x</span>
+                  </span>
+                ))}
+              </div>
+              <p className="text-sm text-zinc-500 leading-relaxed">{l.focusNudge(weakKeys.length)}</p>
+            </>
+          ) : (
+            <p className="text-sm text-zinc-500 leading-relaxed">{l.focusPerfect}</p>
+          )}
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
           <a
