@@ -22,7 +22,7 @@ export default async function HomePage({ params }: Props) {
           href={`/${locale}/speed-test`}
           className="mt-10 inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
         >
-          {dict.nav.speedTest}
+          {dict.nav.typingTest}
           <span className="text-electric-yellow">&gt;&gt;</span>
         </a>
       </section>
