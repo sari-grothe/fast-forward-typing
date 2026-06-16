@@ -35,4 +35,4 @@ Trilingual typing tutor for adults (DE/EN/FR).
 - Push directly to main, no PRs
 - Never use em dashes
 - Never make up product copy - ask if unclear
-- Planning docs live in sari-grothe/business-ideas (private), not here
+- Planning docs (research, competitor analysis, engineering plan, decisions) live in sari-grothe/business-ideas (private) under skip-the-manual/type/. Read them before building anything - they contain product decisions, sprint plan, and positioning.
