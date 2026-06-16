@@ -1,5 +1,6 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { TestimonialSlider } from "@/components/TestimonialSlider";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -25,6 +26,10 @@ export default async function HomePage({ params }: Props) {
           {dict.nav.typingTest}
           <span className="text-electric-yellow">&gt;&gt;</span>
         </a>
+      </section>
+
+      <section className="pb-20">
+        <TestimonialSlider locale={locale} />
       </section>
     </div>
   );
