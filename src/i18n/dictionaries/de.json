@@ -12,7 +12,9 @@
   },
   "home": {
     "headline": "Was, wenn du so schnell tippen könntest wie du denkst?",
-    "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene."
+    "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene.",
+    "ctaLearn": "Tippen lernen",
+    "ctaTest": "Kostenloser Tipptest"
   },
   "footer": {
     "learnTyping": "Tippen lernen",

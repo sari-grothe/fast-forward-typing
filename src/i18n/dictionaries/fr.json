@@ -12,7 +12,9 @@
   },
   "home": {
     "headline": "Et si tu tapais aussi vite que tu penses ?",
-    "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes."
+    "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes.",
+    "ctaLearn": "Apprendre à taper",
+    "ctaTest": "Test de frappe gratuit"
   },
   "footer": {
     "learnTyping": "Apprendre à taper",

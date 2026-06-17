@@ -47,30 +47,7 @@ function charToKey(ch: string, locale: string): string | null {
   return null;
 }
 
-const fingerMaps: Record<string, Record<string, number>> = {
-  de: {
-    Q: 0, W: 1, E: 2, R: 3, T: 3, Z: 6, U: 6, I: 7, O: 8, P: 9, Ü: 9,
-    A: 0, S: 1, D: 2, F: 3, G: 3, H: 6, J: 6, K: 7, L: 8, Ö: 9, Ä: 9,
-    "<": 0, Y: 0, X: 1, C: 2, V: 3, B: 3, N: 6, M: 6, ",": 7, ".": 8, "-": 9, "ß": 9,
-    SPACE: 5,
-  },
-  en: {
-    Q: 0, W: 1, E: 2, R: 3, T: 3, Y: 6, U: 6, I: 7, O: 8, P: 9,
-    A: 0, S: 1, D: 2, F: 3, G: 3, H: 6, J: 6, K: 7, L: 8, ";": 9, "'": 9,
-    Z: 0, X: 1, C: 2, V: 3, B: 3, N: 6, M: 6, ",": 7, ".": 8, "/": 9,
-    SPACE: 5,
-  },
-  fr: {
-    A: 0, Z: 1, E: 2, R: 3, T: 3, Y: 6, U: 6, I: 7, O: 8, P: 9,
-    Q: 0, S: 1, D: 2, F: 3, G: 3, H: 6, J: 6, K: 7, L: 8, M: 9, Ù: 9,
-    "<": 0, W: 0, X: 1, C: 2, V: 3, B: 3, N: 6, ",": 6, ";": 7, ":": 8, "!": 9,
-    SPACE: 5,
-  },
-};
-
-const fingerToHomeCol: Record<number, number> = { 0: 0, 1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8, 9: 9 };
 const bumpCols = new Set([3, 6]);
-const fingerIds = [0, 1, 2, 3, 6, 7, 8, 9];
 
 const S = 38;
 const G = 2;
@@ -80,17 +57,16 @@ const PAD = 14;
 type Props = {
   locale: string;
   subheadline: string;
-  ctaText: string;
+  ctaLearn: string;
+  ctaTest: string;
 };
 
-export function TypingHero({ locale, subheadline, ctaText }: Props) {
+export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
   const [idx, setIdx] = useState(0);
   const [phase, setPhase] = useState<"typing" | "pause" | "deleting" | "wait">("wait");
   const [activeKey, setActiveKey] = useState<string | null>(null);
 
   const { static: prefix, typed } = splits[locale] || splits.en;
-  const fMap = fingerMaps[locale] || fingerMaps.en;
-  const activeFinger = activeKey != null && fMap[activeKey] != null ? fMap[activeKey] : null;
 
   useEffect(() => {
     let t: ReturnType<typeof setTimeout>;
@@ -138,18 +114,13 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
     });
   });
 
-  const keyPos: Record<string, { x: number; y: number; w: number }> = {};
-  rows.forEach((row) => row.forEach((k) => { keyPos[k.l] = k; }));
-
   const homeLetters = rows[2].slice(1, -1);
   const kbW = 15 * S;
   const spaceW = 6.25 * S - G;
   const spaceX = PAD + (kbW - spaceW) / 2;
   const spaceY = PAD + 4 * S;
   const svgW = PAD * 2 + kbW;
-  const svgH = PAD + 5 * S + 55;
-
-  const homeY = PAD + 2 * S + KS / 2;
+  const svgH = PAD + 5 * S + PAD;
 
   const isMod = (label: string) => modifiers.has(label);
 
@@ -165,12 +136,21 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
         />
       </h1>
       <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl">{subheadline}</p>
-      <a
-        href={`/${locale}/speed-test`}
-        className="mt-10 inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
-      >
-        {ctaText} <span className="text-electric-yellow">&gt;&gt;</span>
-      </a>
+
+      <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
+        <a
+          href={`/${locale}/lessons/1`}
+          className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
+        >
+          {ctaLearn} <span className="text-electric-yellow">&gt;&gt;</span>
+        </a>
+        <a
+          href={`/${locale}/speed-test`}
+          className="inline-flex items-center gap-2 rounded-lg border-2 border-indigo px-8 py-4 text-base font-semibold text-indigo hover:bg-indigo/5 transition-colors dark:text-white dark:border-white/30 dark:hover:bg-white/5"
+        >
+          {ctaTest}
+        </a>
+      </div>
 
       <div className="mt-12 w-full max-w-xl px-4" aria-hidden="true">
         <svg
@@ -277,105 +257,6 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
               strokeWidth={0.5}
             />
           )}
-
-          {/* Hand outlines + fingertip indicators */}
-          {(() => {
-            const hcs = fingerIds.map((fid) => {
-              const hk = homeLetters[fingerToHomeCol[fid]];
-              return hk ? { fid, cx: hk.x + hk.w / 2, cy: homeY } : null;
-            }).filter(Boolean) as { fid: number; cx: number; cy: number }[];
-
-            const left = hcs.filter((h) => h.fid <= 3);
-            const right = hcs.filter((h) => h.fid >= 6);
-            const palmDrop = 42;
-            const thumbSpaceY = spaceY + KS / 2;
-
-            function handOutline(fingers: typeof left, side: "left" | "right") {
-              if (fingers.length < 4) return null;
-              const f = fingers;
-              const palmY2 = f[0].cy + palmDrop;
-              const outer = side === "left" ? f[0].cx - 14 : f[3].cx + 14;
-              const inner = side === "left" ? f[3].cx + 14 : f[0].cx - 14;
-              const thumbCx = side === "left"
-                ? f[3].cx + 28
-                : f[0].cx - 28;
-              const midX = (f[0].cx + f[3].cx) / 2;
-
-              return (
-                <path
-                  d={[
-                    `M${outer},${f[0].cy + 8}`,
-                    `Q${outer - 4},${palmY2} ${midX},${palmY2 + 8}`,
-                    `Q${inner + 4},${palmY2} ${inner},${f[3].cy + 8}`,
-                    `Q${thumbCx},${palmY2 - 8} ${thumbCx},${thumbSpaceY}`,
-                  ].join(" ")}
-                  fill="none"
-                  className="stroke-zinc-300 dark:stroke-zinc-600"
-                  strokeWidth={1.5}
-                  strokeLinecap="round"
-                />
-              );
-            }
-
-            const tipR = 7;
-
-            return (
-              <>
-                {handOutline(left, "left")}
-                {handOutline(right, "right")}
-
-                {/* Reach trail */}
-                {activeFinger !== null && activeKey && activeKey !== "SPACE" && (() => {
-                  const col = fingerToHomeCol[activeFinger];
-                  const hk = homeLetters[col];
-                  const target = keyPos[activeKey];
-                  if (!hk || !target) return null;
-                  const hx = hk.x + hk.w / 2;
-                  const tx = target.x + target.w / 2;
-                  const ty = target.y + KS / 2;
-                  if (Math.abs(tx - hx) < 5 && Math.abs(ty - homeY) < 5) return null;
-                  return (
-                    <line x1={hx} y1={homeY} x2={tx} y2={ty}
-                      stroke="#3f0ff2" strokeWidth={12} strokeLinecap="round" opacity={0.08} />
-                  );
-                })()}
-
-                {/* Fingertip circles */}
-                {fingerIds.map((fid) => {
-                  const col = fingerToHomeCol[fid];
-                  const hk = homeLetters[col];
-                  if (!hk) return null;
-                  const homeCx = hk.x + hk.w / 2;
-                  let cx = homeCx;
-                  let cy = homeY;
-
-                  if (activeFinger === fid && activeKey && activeKey !== "SPACE") {
-                    const target = keyPos[activeKey];
-                    if (target) {
-                      cx = target.x + target.w / 2;
-                      cy = target.y + KS / 2;
-                    }
-                  }
-
-                  const pressing = activeFinger === fid;
-                  return (
-                    <circle key={`tip-${fid}`} cx={cx} cy={cy} r={tipR}
-                      fill={pressing ? "#3f0ff2" : "#d4d4d8"}
-                      opacity={pressing ? 0.5 : 0.45}
-                    />
-                  );
-                })}
-
-                {/* Thumb circles */}
-                <circle cx={spaceX + spaceW * 0.35} cy={thumbSpaceY} r={tipR}
-                  fill={activeKey === "SPACE" ? "#3f0ff2" : "#d4d4d8"}
-                  opacity={activeKey === "SPACE" ? 0.5 : 0.4} />
-                <circle cx={spaceX + spaceW * 0.65} cy={thumbSpaceY} r={tipR}
-                  fill={activeKey === "SPACE" ? "#3f0ff2" : "#d4d4d8"}
-                  opacity={activeKey === "SPACE" ? 0.5 : 0.4} />
-              </>
-            );
-          })()}
         </svg>
       </div>
     </section>

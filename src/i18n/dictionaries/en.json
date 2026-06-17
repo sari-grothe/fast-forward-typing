@@ -12,7 +12,9 @@
   },
   "home": {
     "headline": "What if you could type as fast as you think?",
-    "subheadline": "We'll help you get there. The modern typing tutor built for adults."
+    "subheadline": "We'll help you get there. The modern typing tutor built for adults.",
+    "ctaLearn": "Start learning",
+    "ctaTest": "Free typing test"
   },
   "footer": {
     "learnTyping": "Learn to type",

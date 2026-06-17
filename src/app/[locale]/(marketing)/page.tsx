@@ -19,7 +19,8 @@ export default async function HomePage({ params }: Props) {
         <TypingHero
           locale={locale}
           subheadline={dict.home.subheadline}
-          ctaText={dict.nav.typingTest}
+          ctaLearn={dict.home.ctaLearn}
+          ctaTest={dict.home.ctaTest}
         />
       </div>
 
