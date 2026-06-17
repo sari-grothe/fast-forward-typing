@@ -4,6 +4,7 @@ import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { KeyCharacter } from "@/components/KeyCharacter";
 import "../globals.css";
 
 type Props = {
@@ -80,6 +81,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main className="pt-20 flex-1">{children}</main>
         <footer className="border-t border-zinc-200 dark:border-dark-border mt-auto">
           <div className="mx-auto max-w-5xl px-6 py-10">
+            <div className="mb-8">
+              <a href={`/${locale}`} className="text-lg font-semibold tracking-tight">
+                <span className="text-indigo">&gt;&gt;</span>Typing
+              </a>
+              <KeyCharacter pose="sitting" size={56} className="mt-2" />
+            </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8 text-sm">
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.product}</p>

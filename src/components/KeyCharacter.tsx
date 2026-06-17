@@ -1,4 +1,4 @@
-type Pose = "waving" | "running";
+type Pose = "waving" | "running" | "sitting" | "leaning" | "sitting-waving";
 
 type Props = {
   pose?: Pose;
@@ -33,6 +33,84 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
         <circle cx="-47" cy="42" r="6" fill="#f8a37c" opacity="0.25" />
         <circle cx="-58" cy="36" r="4" fill="#f8a37c" opacity="0.15" />
         <circle cx="-42" cy="48" r="5" fill="#f8a37c" opacity="0.2" />
+      </svg>
+    );
+  }
+
+  if (pose === "sitting") {
+    return (
+      <svg
+        width={size}
+        height={size * 0.9}
+        viewBox="-55 -38 110 100"
+        fill="none"
+        className={className}
+        aria-hidden="true"
+      >
+        <rect x="-32" y="-32" width="64" height="64" rx="12" fill="white" stroke="#3f0ff2" strokeWidth="2" />
+        <rect x="-26" y="-26" width="52" height="46" rx="8" fill="#eeecfe" />
+        <text x="0" y="1" fontFamily="Poppins, sans-serif" fontSize="24" fontWeight="800" fill="#3f0ff2" textAnchor="middle">&gt;&gt;</text>
+        <circle cx="-7" cy="14" r="2.5" fill="#050111" />
+        <circle cx="7" cy="14" r="2.5" fill="#050111" />
+        <path d="M-5 20 Q0 25 5 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
+        <line x1="-32" y1="20" x2="-42" y2="30" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="32" y1="20" x2="42" y2="30" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-10" y1="32" x2="-14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="10" y1="32" x2="14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-14" y1="52" x2="-22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="14" y1="52" x2="22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (pose === "leaning") {
+    return (
+      <svg
+        width={size * 0.55}
+        height={size * 0.85}
+        viewBox="-28 -30 56 84"
+        fill="none"
+        className={className}
+        aria-hidden="true"
+      >
+        <g transform="rotate(12)">
+          <rect x="-22" y="-22" width="44" height="44" rx="8" fill="white" stroke="#3f0ff2" strokeWidth="1.5" />
+          <rect x="-18" y="-18" width="36" height="32" rx="6" fill="#eeecfe" />
+          <text x="0" y="-2" fontFamily="Poppins, sans-serif" fontSize="15" fontWeight="800" fill="#3f0ff2" textAnchor="middle">&gt;&gt;</text>
+          <circle cx="-5" cy="8" r="1.8" fill="#050111" />
+          <line x1="3" y1="7" x2="8" y2="9" stroke="#050111" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M-3 13 Q1 16 5 13" stroke="#050111" strokeWidth="1.3" strokeLinecap="round" />
+        </g>
+        <line x1="-14" y1="16" x2="-18" y2="26" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="16" y1="20" x2="20" y2="36" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="8" y1="22" x2="4" y2="38" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="4" y1="38" x2="20" y2="36" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (pose === "sitting-waving") {
+    return (
+      <svg
+        width={size}
+        height={size * 0.9}
+        viewBox="-55 -38 110 100"
+        fill="none"
+        className={className}
+        aria-hidden="true"
+      >
+        <rect x="-32" y="-32" width="64" height="64" rx="12" fill="white" stroke="#3f0ff2" strokeWidth="2" />
+        <rect x="-26" y="-26" width="52" height="46" rx="8" fill="#eeecfe" />
+        <text x="0" y="1" fontFamily="Poppins, sans-serif" fontSize="24" fontWeight="800" fill="#3f0ff2" textAnchor="middle">&gt;&gt;</text>
+        <circle cx="-7" cy="14" r="2.5" fill="#050111" />
+        <circle cx="7" cy="14" r="2.5" fill="#050111" />
+        <path d="M-5 20 Q0 25 5 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
+        <line x1="-32" y1="6" x2="-46" y2="-8" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="32" y1="14" x2="42" y2="24" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-10" y1="32" x2="-14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="10" y1="32" x2="14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-14" y1="52" x2="-22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="14" y1="52" x2="22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
       </svg>
     );
   }
