@@ -14,7 +14,59 @@
     "headline": "What if you could type as fast as you think?",
     "subheadline": "We'll help you get there. The modern typing tutor built for adults.",
     "ctaLearn": "Start learning",
-    "ctaTest": "Free typing test"
+    "ctaTest": "Free typing test",
+    "howItWorks": {
+      "title": "How it works",
+      "step1Title": "Test your speed",
+      "step1Desc": "Take the free typing test. In 60 seconds you'll know exactly where you stand.",
+      "step2Title": "Learn with structure",
+      "step2Desc": "Guided lessons take you step by step to touch typing. At your own pace.",
+      "step3Title": "Get your certificate",
+      "step3Desc": "Complete the course and earn a certificate that proves your typing speed."
+    },
+    "features": {
+      "title": "What you get",
+      "structured": "Structured lessons",
+      "structuredDesc": "30 progressive lessons. Each builds on the last - no guessing, no skipping ahead.",
+      "guidance": "Real-time feedback",
+      "guidanceDesc": "See exactly which keys give you trouble. Targeted exercises for your specific weak spots.",
+      "progress": "Visible progress",
+      "progressDesc": "WPM, accuracy, lesson progress - all at a glance. You see exactly how you're improving.",
+      "outcomes": "Real outcomes",
+      "outcomesDesc": "No endless practice without a goal. Clear milestones, measurable progress, a certificate at the end.",
+      "guarantee": "30-day money-back guarantee. Zero risk."
+    },
+    "speedTest": {
+      "title": "How fast do you type?",
+      "desc": "Find out. 60 seconds, free, no sign-up required.",
+      "cta": "Take the test",
+      "wpm": "WPM",
+      "avgLabel": "Average",
+      "avgValue": "40",
+      "proLabel": "Pro",
+      "proValue": "80+"
+    },
+    "certificate": {
+      "title": "Your proof",
+      "desc": "Complete the course and receive a certificate with your typing speed. For job applications, employers and your LinkedIn profile.",
+      "certTitle": "Certificate",
+      "certName": "Jane Smith",
+      "certText": "has successfully completed the touch typing course",
+      "certWpm": "85 WPM",
+      "certAccuracy": "98% Accuracy"
+    },
+    "teams": {
+      "forTeachers": "For teachers",
+      "teachersDesc": "Typing belongs in the classroom. Manage classes, track progress and integrate typing into your curriculum.",
+      "teachersCta": "Learn more",
+      "forCompanies": "For companies",
+      "companiesDesc": "Faster typing, higher productivity. Set up teams, track results and boost efficiency across your organisation.",
+      "companiesCta": "Get in touch"
+    },
+    "finalCta": {
+      "title": "Ready to type faster?",
+      "desc": "Start now - you'll see results after your very first lesson."
+    }
   },
   "footer": {
     "learnTyping": "Learn to type",

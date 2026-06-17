@@ -14,7 +14,59 @@
     "headline": "Was, wenn du so schnell tippen könntest wie du denkst?",
     "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene.",
     "ctaLearn": "Tippen lernen",
-    "ctaTest": "Kostenloser Tipptest"
+    "ctaTest": "Kostenloser Tipptest",
+    "howItWorks": {
+      "title": "So funktioniert es",
+      "step1Title": "Teste dein Level",
+      "step1Desc": "Starte mit dem kostenlosen Tipptest. In 60 Sekunden weißt du, wo du stehst.",
+      "step2Title": "Lerne mit System",
+      "step2Desc": "Strukturierte Lektionen führen dich Schritt für Schritt zum 10-Finger-System. In deinem Tempo.",
+      "step3Title": "Hol dir dein Zertifikat",
+      "step3Desc": "Schließ den Kurs ab und erhalte ein Zertifikat, das deine Tippgeschwindigkeit belegt."
+    },
+    "features": {
+      "title": "Was dich erwartet",
+      "structured": "Strukturierte Lektionen",
+      "structuredDesc": "30 aufeinander aufbauende Lektionen. Jede baut auf der vorherigen auf - kein Raten, kein Springen.",
+      "guidance": "Echtzeit-Feedback",
+      "guidanceDesc": "Sieh sofort, welche Tasten Probleme machen. Gezielte Übungen für genau deine Schwachstellen.",
+      "progress": "Sichtbarer Fortschritt",
+      "progressDesc": "WPM, Genauigkeit, Lektionsfortschritt - alles auf einen Blick. Du siehst genau, wie du dich verbesserst.",
+      "outcomes": "Echte Ergebnisse",
+      "outcomesDesc": "Kein endloses Üben ohne Ziel. Klare Meilensteine, messbarer Fortschritt, ein Zertifikat am Ende.",
+      "guarantee": "30 Tage Geld-zurück-Garantie. Kein Risiko."
+    },
+    "speedTest": {
+      "title": "Wie schnell tippst du?",
+      "desc": "Finde es heraus. 60 Sekunden, kostenlos, ohne Anmeldung.",
+      "cta": "Jetzt testen",
+      "wpm": "WPM",
+      "avgLabel": "Durchschnitt",
+      "avgValue": "40",
+      "proLabel": "Profi",
+      "proValue": "80+"
+    },
+    "certificate": {
+      "title": "Dein Nachweis",
+      "desc": "Nach Abschluss des Kurses erhältst du ein Zertifikat mit deiner Tippgeschwindigkeit. Für Bewerbungen, Arbeitgeber und dein LinkedIn-Profil.",
+      "certTitle": "Zertifikat",
+      "certName": "Max Mustermann",
+      "certText": "hat das 10-Finger-Tipptraining erfolgreich abgeschlossen",
+      "certWpm": "85 WPM",
+      "certAccuracy": "98% Genauigkeit"
+    },
+    "teams": {
+      "forTeachers": "Für Lehrkräfte",
+      "teachersDesc": "Tippen gehört in den Unterricht. Verwalte Klassen, verfolge Fortschritte und integriere Tipptraining in deinen Lehrplan.",
+      "teachersCta": "Mehr erfahren",
+      "forCompanies": "Für Unternehmen",
+      "companiesDesc": "Schnelleres Tippen, höhere Produktivität. Richte Teams ein, verfolge Ergebnisse und steigere die Effizienz in deinem Unternehmen.",
+      "companiesCta": "Kontakt aufnehmen"
+    },
+    "finalCta": {
+      "title": "Bereit, schneller zu tippen?",
+      "desc": "Starte jetzt - die ersten Ergebnisse siehst du schon nach der ersten Lektion."
+    }
   },
   "footer": {
     "learnTyping": "Tippen lernen",

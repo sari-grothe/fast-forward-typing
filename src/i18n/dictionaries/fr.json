@@ -14,7 +14,59 @@
     "headline": "Et si tu tapais aussi vite que tu penses ?",
     "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes.",
     "ctaLearn": "Apprendre à taper",
-    "ctaTest": "Test de frappe gratuit"
+    "ctaTest": "Test de frappe gratuit",
+    "howItWorks": {
+      "title": "Comment ça marche",
+      "step1Title": "Teste ta vitesse",
+      "step1Desc": "Fais le test de frappe gratuit. En 60 secondes, tu sais où tu en es.",
+      "step2Title": "Apprends pas à pas",
+      "step2Desc": "Des leçons structurées te guident vers la frappe à dix doigts. À ton rythme.",
+      "step3Title": "Obtiens ton certificat",
+      "step3Desc": "Termine le cours et reçois un certificat qui atteste ta vitesse de frappe."
+    },
+    "features": {
+      "title": "Ce qui t'attend",
+      "structured": "Leçons structurées",
+      "structuredDesc": "30 leçons progressives. Chacune s'appuie sur la précédente - pas de devinettes, pas de raccourcis.",
+      "guidance": "Feedback en temps réel",
+      "guidanceDesc": "Vois immédiatement quelles touches te posent problème. Des exercices ciblés pour tes points faibles.",
+      "progress": "Progrès visibles",
+      "progressDesc": "MPM, précision, progression des leçons - tout en un coup d'œil. Tu vois exactement comment tu progresses.",
+      "outcomes": "Des résultats concrets",
+      "outcomesDesc": "Pas de pratique sans fin. Des jalons clairs, des progrès mesurables, un certificat à la fin.",
+      "guarantee": "Garantie satisfait ou remboursé 30 jours. Zéro risque."
+    },
+    "speedTest": {
+      "title": "À quelle vitesse tapes-tu ?",
+      "desc": "Découvre-le. 60 secondes, gratuit, sans inscription.",
+      "cta": "Faire le test",
+      "wpm": "MPM",
+      "avgLabel": "Moyenne",
+      "avgValue": "40",
+      "proLabel": "Pro",
+      "proValue": "80+"
+    },
+    "certificate": {
+      "title": "Ta preuve",
+      "desc": "Termine le cours et reçois un certificat avec ta vitesse de frappe. Pour tes candidatures, employeurs et ton profil LinkedIn.",
+      "certTitle": "Certificat",
+      "certName": "Marie Dupont",
+      "certText": "a terminé avec succès la formation de frappe à dix doigts",
+      "certWpm": "85 MPM",
+      "certAccuracy": "98% Précision"
+    },
+    "teams": {
+      "forTeachers": "Pour enseignants",
+      "teachersDesc": "La frappe a sa place en classe. Gère tes classes, suis les progrès et intègre la frappe dans ton programme.",
+      "teachersCta": "En savoir plus",
+      "forCompanies": "Pour entreprises",
+      "companiesDesc": "Frappe plus rapide, productivité plus élevée. Configure des équipes, suis les résultats et booste l'efficacité dans ton entreprise.",
+      "companiesCta": "Nous contacter"
+    },
+    "finalCta": {
+      "title": "Prêt à taper plus vite ?",
+      "desc": "Commence maintenant - tu verras des résultats dès ta première leçon."
+    }
   },
   "footer": {
     "learnTyping": "Apprendre à taper",
