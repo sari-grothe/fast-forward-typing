@@ -145,7 +145,7 @@ export function TestimonialSlider({ locale }: Props) {
     <div className="space-y-10">
       <div className="text-center space-y-3">
         <div className="flex justify-center">
-          <KeyCharacter pose="running" size={72} />
+          <KeyCharacter pose="running" size={120} />
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold">{l.title}</h2>
         <p className="text-zinc-400 max-w-lg mx-auto">{l.subtitle}</p>
