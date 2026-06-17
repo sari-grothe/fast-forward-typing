@@ -69,8 +69,8 @@ const fingerMaps: Record<string, Record<string, number>> = {
 };
 
 const fingerToHomeCol: Record<number, number> = { 0: 0, 1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8, 9: 9 };
-const homeColSet = new Set([0, 1, 2, 3, 6, 7, 8]);
 const bumpCols = new Set([3, 6]);
+const fingerIds = [0, 1, 2, 3, 6, 7, 8, 9];
 
 const S = 38;
 const G = 2;
@@ -138,6 +138,9 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
     });
   });
 
+  const keyPos: Record<string, { x: number; y: number; w: number }> = {};
+  rows.forEach((row) => row.forEach((k) => { keyPos[k.l] = k; }));
+
   const homeLetters = rows[2].slice(1, -1);
   const kbW = 15 * S;
   const spaceW = 6.25 * S - G;
@@ -146,21 +149,30 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
   const svgW = PAD * 2 + kbW;
   const svgH = PAD + 5 * S + 55;
 
-  const leftCols = [0, 1, 2, 3];
-  const rightCols = [6, 7, 8, 9].map((c) => Math.min(c, homeLetters.length - 1));
+  const homePositions: Record<number, { cx: number; cy: number }> = {};
+  for (const fid of fingerIds) {
+    const col = fingerToHomeCol[fid];
+    const hk = homeLetters[col];
+    if (hk) homePositions[fid] = { cx: hk.x + hk.w / 2, cy: hk.y + KS / 2 };
+  }
 
-  const lFingers = leftCols.map((c) => ({
-    cx: homeLetters[c].x + homeLetters[c].w / 2,
-    cy: homeLetters[c].y + KS / 2,
-  }));
-  const rFingers = rightCols.map((c) => ({
-    cx: homeLetters[c].x + homeLetters[c].w / 2,
-    cy: homeLetters[c].y + KS / 2,
-  }));
+  const thumbY = spaceY + KS / 2;
+  const thumbLx = spaceX + spaceW * 0.35;
+  const thumbRx = spaceX + spaceW * 0.65;
 
-  const lPalmCx = (lFingers[0].cx + lFingers[3].cx) / 2;
-  const rPalmCx = (rFingers[0].cx + rFingers[3].cx) / 2;
-  const palmCy = homeLetters[0].y + KS + 30;
+  const fingerPositions: Record<number, { cx: number; cy: number }> = {};
+  for (const fid of fingerIds) {
+    if (activeFinger === fid && activeKey) {
+      const target = activeKey === "SPACE" ? null : keyPos[activeKey];
+      if (target) {
+        fingerPositions[fid] = { cx: target.x + target.w / 2, cy: target.y + KS / 2 };
+      } else {
+        fingerPositions[fid] = homePositions[fid];
+      }
+    } else {
+      fingerPositions[fid] = homePositions[fid];
+    }
+  }
 
   const isMod = (label: string) => modifiers.has(label);
 
@@ -204,10 +216,7 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
               const active = activeKey === key.l;
               const isHome = ri === 2 && ki > 0 && ki < rows[2].length - 1;
               const letterIdx = isHome ? ki - 1 : -1;
-              const showDot = isHome && homeColSet.has(letterIdx);
               const showBump = isHome && bumpCols.has(letterIdx);
-              const fingerGlow =
-                showDot && activeFinger !== null && fingerToHomeCol[activeFinger] === letterIdx;
 
               return (
                 <g key={`${ri}-${ki}`}>
@@ -265,21 +274,12 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
                       className="fill-zinc-300 dark:fill-zinc-600"
                     />
                   )}
-                  {showDot && (
-                    <ellipse
-                      cx={key.x + key.w / 2}
-                      cy={key.y - 3}
-                      rx={7}
-                      ry={4}
-                      fill="#f8a37c"
-                      opacity={fingerGlow ? 0.85 : 0.2}
-                    />
-                  )}
                 </g>
               );
             })
           )}
 
+          {/* Space bar */}
           <rect
             x={spaceX}
             y={spaceY}
@@ -301,59 +301,34 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
             />
           )}
 
-          {/* Left hand */}
-          <g opacity={0.22} className="fill-zinc-400 dark:fill-zinc-500">
-            <ellipse cx={lPalmCx} cy={palmCy} rx={62} ry={16} />
-            {lFingers.map((f, i) => {
-              const h = [42, 50, 56, 50][i];
-              const w = [10, 11, 12, 11][i];
-              const a = [-10, -4, 0, 5][i];
-              return (
-                <ellipse
-                  key={i}
-                  cx={f.cx}
-                  cy={f.cy + h / 2 - 4}
-                  rx={w / 2}
-                  ry={h / 2}
-                  transform={`rotate(${a} ${f.cx} ${f.cy + h / 2 - 4})`}
-                />
-              );
-            })}
-            <ellipse
-              cx={lFingers[3].cx + 30}
-              cy={palmCy - 2}
-              rx={6}
-              ry={16}
-              transform={`rotate(55 ${lFingers[3].cx + 30} ${palmCy - 2})`}
-            />
-          </g>
+          {/* Fingertips - move to active key */}
+          {fingerIds.map((fid) => {
+            const pos = fingerPositions[fid];
+            if (!pos) return null;
+            const isActive = activeFinger === fid;
+            return (
+              <ellipse
+                key={`finger-${fid}`}
+                cx={pos.cx}
+                cy={pos.cy}
+                rx={10}
+                ry={12}
+                fill="#f8a37c"
+                opacity={isActive ? 0.7 : 0.3}
+                style={{ transition: "cx 0.06s ease-out, cy 0.06s ease-out, opacity 0.06s" }}
+              />
+            );
+          })}
 
-          {/* Right hand */}
-          <g opacity={0.22} className="fill-zinc-400 dark:fill-zinc-500">
-            <ellipse cx={rPalmCx} cy={palmCy} rx={62} ry={16} />
-            {rFingers.map((f, i) => {
-              const h = [50, 56, 50, 42][i];
-              const w = [11, 12, 11, 10][i];
-              const a = [-5, 0, 4, 10][i];
-              return (
-                <ellipse
-                  key={i}
-                  cx={f.cx}
-                  cy={f.cy + h / 2 - 4}
-                  rx={w / 2}
-                  ry={h / 2}
-                  transform={`rotate(${a} ${f.cx} ${f.cy + h / 2 - 4})`}
-                />
-              );
-            })}
-            <ellipse
-              cx={rFingers[0].cx - 30}
-              cy={palmCy - 2}
-              rx={6}
-              ry={16}
-              transform={`rotate(-55 ${rFingers[0].cx - 30} ${palmCy - 2})`}
-            />
-          </g>
+          {/* Thumbs on space bar */}
+          <ellipse cx={thumbLx} cy={thumbY} rx={12} ry={8} fill="#f8a37c"
+            opacity={activeKey === "SPACE" ? 0.7 : 0.25}
+            style={{ transition: "opacity 0.06s" }}
+          />
+          <ellipse cx={thumbRx} cy={thumbY} rx={12} ry={8} fill="#f8a37c"
+            opacity={activeKey === "SPACE" ? 0.7 : 0.25}
+            style={{ transition: "opacity 0.06s" }}
+          />
         </svg>
       </div>
     </section>
