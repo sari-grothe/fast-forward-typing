@@ -123,7 +123,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 </div>
               </div>
             </div>
-            <div className="border-t border-zinc-200 dark:border-dark-border pt-4 mb-4 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
+            <div className="border-t border-zinc-200 dark:border-dark-border pt-4 mb-4 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-400">
               <a href={`/${locale}/privacy`} className="hover:text-indigo transition-colors">{dict.footer.privacy}</a>
               <span className="text-zinc-300 dark:text-dark-border">·</span>
               <a href={`/${locale}/terms`} className="hover:text-indigo transition-colors">{dict.footer.terms}</a>
