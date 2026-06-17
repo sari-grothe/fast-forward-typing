@@ -1,5 +1,6 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { TypingHero } from "@/components/TypingHero";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { homeFAQ } from "@/lib/faq-data";
@@ -15,21 +16,11 @@ export default async function HomePage({ params }: Props) {
   return (
     <div>
       <div className="mx-auto max-w-5xl px-6">
-        <section className="flex flex-col items-center justify-center min-h-[70vh] text-center">
-          <h1 className="text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
-            {dict.home.headline}
-          </h1>
-          <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl">
-            {dict.home.subheadline}
-          </p>
-          <a
-            href={`/${locale}/speed-test`}
-            className="mt-10 inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
-          >
-            {dict.nav.typingTest}
-            <span className="text-electric-yellow">&gt;&gt;</span>
-          </a>
-        </section>
+        <TypingHero
+          locale={locale}
+          subheadline={dict.home.subheadline}
+          ctaText={dict.nav.typingTest}
+        />
       </div>
 
       <section className="pb-20 overflow-hidden">
