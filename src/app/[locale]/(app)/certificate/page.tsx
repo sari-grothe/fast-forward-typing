@@ -18,6 +18,7 @@ const i18n: Record<Locale, {
   benefit3Desc: string;
   stripeNote: string;
   upgradeNote: string;
+  buyCta: string;
 }> = {
   en: {
     title: "Make your typing skills official",
@@ -30,6 +31,7 @@ const i18n: Record<Locale, {
     benefit3Desc: "Post your results on social media or send them to friends.",
     stripeNote: "Stripe checkout will be embedded here.",
     upgradeNote: "The certificate can be purchased individually or is included in the annual typing course subscription.",
+    buyCta: "Buy certificate",
   },
   de: {
     title: "Mach deine Tippfähigkeiten offiziell",
@@ -42,6 +44,7 @@ const i18n: Record<Locale, {
     benefit3Desc: "Poste deine Ergebnisse in sozialen Medien oder sende sie an Freunde.",
     stripeNote: "Stripe Checkout wird hier eingebettet.",
     upgradeNote: "Das Zertifikat kann einzeln erworben werden oder ist inklusive in der Jahresgebühr für den Tippkurs.",
+    buyCta: "Zertifikat kaufen",
   },
   fr: {
     title: "Rends tes compétences de frappe officielles",
@@ -54,6 +57,7 @@ const i18n: Record<Locale, {
     benefit3Desc: "Publie tes résultats sur les réseaux sociaux ou envoie-les à tes amis.",
     stripeNote: "Stripe Checkout sera intégré ici.",
     upgradeNote: "Le certificat peut être acheté séparément ou est inclus dans l'abonnement annuel au cours de frappe.",
+    buyCta: "Acheter le certificat",
   },
 };
 
@@ -130,9 +134,9 @@ export default async function CertificatePage({ params }: Props) {
 
           <button
             disabled
-            className="mt-6 w-full rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white opacity-50 cursor-not-allowed"
+            className="mt-6 w-full inline-flex items-center justify-center gap-2 rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white opacity-50 cursor-not-allowed"
           >
-            Buy your certificate
+            {l.buyCta} <span className="text-electric-yellow">&gt;&gt;</span>
           </button>
         </div>
       </div>

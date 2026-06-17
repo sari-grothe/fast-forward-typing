@@ -213,8 +213,8 @@ export function SpeedTest({ locale }: Props) {
             </div>
             <p className="font-bold text-lg">{l.trainingTitle}</p>
             <p className="text-sm opacity-80 mt-1.5">{l.trainingDesc}</p>
-            <span className="inline-block mt-4 rounded-lg bg-white/20 px-5 py-2 text-sm font-semibold group-hover:bg-white/30 transition-colors">
-              {l.trainingCta}
+            <span className="inline-flex items-center gap-2 mt-4 rounded-lg bg-white/20 px-5 py-2 text-sm font-semibold group-hover:bg-white/30 transition-colors">
+              {l.trainingCta} <span className="text-electric-yellow">&gt;&gt;</span>
             </span>
           </a>
           <a
@@ -228,8 +228,8 @@ export function SpeedTest({ locale }: Props) {
             </div>
             <p className="font-bold text-lg">{l.certTitle}</p>
             <p className="text-sm opacity-70 mt-1.5">{l.certDesc}</p>
-            <span className="inline-block mt-4 rounded-lg bg-dark-text/10 px-5 py-2 text-sm font-semibold group-hover:bg-dark-text/20 transition-colors">
-              {l.certCta}
+            <span className="inline-flex items-center gap-2 mt-4 rounded-lg bg-dark-text/10 px-5 py-2 text-sm font-semibold group-hover:bg-dark-text/20 transition-colors">
+              {l.certCta} <span className="text-indigo">&gt;&gt;</span>
             </span>
           </a>
         </div>

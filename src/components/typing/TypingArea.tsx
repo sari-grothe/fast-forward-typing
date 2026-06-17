@@ -219,12 +219,12 @@ export function TypingArea({
         <div className="flex items-center gap-4">
           <button
             onClick={handleReset}
-            className="rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
           >
-            Try again
+            {locale === "fr" ? "Recommencer" : locale === "de" ? "Nochmal" : "Try again"} <span className="text-electric-yellow">&gt;&gt;</span>
           </button>
           <p className="text-sm text-zinc-500">
-            {wpm} WPM · {accuracy}% accuracy · {state.errors.length} errors
+            {wpm} WPM · {accuracy}% {locale === "fr" ? "précision" : locale === "de" ? "Genauigkeit" : "accuracy"} · {state.errors.length} {locale === "fr" ? "erreurs" : locale === "de" ? "Fehler" : "errors"}
           </p>
         </div>
       )}
