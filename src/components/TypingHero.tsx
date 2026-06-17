@@ -72,17 +72,6 @@ const fingerToHomeCol: Record<number, number> = { 0: 0, 1: 1, 2: 2, 3: 3, 6: 6, 
 const bumpCols = new Set([3, 6]);
 const fingerIds = [0, 1, 2, 3, 6, 7, 8, 9];
 
-const SKIN = "#c4967e";
-const FTYPE: Record<number, number> = { 0: 0, 1: 1, 2: 2, 3: 3, 6: 3, 7: 2, 8: 1, 9: 0 };
-const FLEN = [32, 40, 46, 40];
-const FTR = [5, 5.5, 6, 5.5];
-const FBR = [6.5, 7.5, 8, 7.5];
-
-function fingerPath(tx: number, ty: number, bx: number, by: number, tr: number, br: number): string {
-  const c = (by - ty) * 0.4;
-  return `M${bx - br},${by} C${bx - br},${by - c} ${tx - tr},${ty + c} ${tx - tr},${ty + 2} A${tr},${tr + 1} 0 0,1 ${tx + tr},${ty + 2} C${tx + tr},${ty + c} ${bx + br},${by - c} ${bx + br},${by} Z`;
-}
-
 const S = 38;
 const G = 2;
 const KS = S - G;
@@ -289,90 +278,101 @@ export function TypingHero({ locale, subheadline, ctaText }: Props) {
             />
           )}
 
-          {/* Reach trail */}
-          {activeFinger !== null && activeKey && activeKey !== "SPACE" && (() => {
-            const col = fingerToHomeCol[activeFinger];
-            const hk = homeLetters[col];
-            const target = keyPos[activeKey];
-            if (!hk || !target) return null;
-            const hx = hk.x + hk.w / 2;
-            const tx = target.x + target.w / 2;
-            const ty = target.y + KS / 2;
-            if (Math.abs(tx - hx) < 5 && Math.abs(ty - homeY) < 5) return null;
-            return (
-              <line x1={hx} y1={homeY} x2={tx} y2={ty}
-                stroke="#3f0ff2" strokeWidth={14} strokeLinecap="round" opacity={0.1} />
-            );
-          })()}
-
-          {/* Palms */}
+          {/* Hand outlines + fingertip indicators */}
           {(() => {
-            const lCx = fingerIds.slice(0, 4).reduce((s, fid) => {
+            const hcs = fingerIds.map((fid) => {
               const hk = homeLetters[fingerToHomeCol[fid]];
-              return s + (hk ? hk.x + hk.w / 2 : 0);
-            }, 0) / 4;
-            const rCx = fingerIds.slice(4).reduce((s, fid) => {
-              const hk = homeLetters[fingerToHomeCol[fid]];
-              return s + (hk ? hk.x + hk.w / 2 : 0);
-            }, 0) / 4;
-            const palmY = homeY + 48;
-            const lMin = homeLetters[0]?.x ?? 0;
-            const lMax = (homeLetters[3]?.x ?? 0) + (homeLetters[3]?.w ?? 0);
-            const rMin = homeLetters[6]?.x ?? 0;
-            const rMax = (homeLetters[9]?.x ?? 0) + (homeLetters[9]?.w ?? 0);
-            return (
-              <>
-                <ellipse cx={lCx} cy={palmY} rx={(lMax - lMin) / 2 + 14} ry={20} fill={SKIN} opacity={0.25} />
-                <ellipse cx={rCx} cy={palmY} rx={(rMax - rMin) / 2 + 14} ry={20} fill={SKIN} opacity={0.25} />
-              </>
-            );
-          })()}
+              return hk ? { fid, cx: hk.x + hk.w / 2, cy: homeY } : null;
+            }).filter(Boolean) as { fid: number; cx: number; cy: number }[];
 
-          {/* Fingers */}
-          {fingerIds.map((fid) => {
-            const col = fingerToHomeCol[fid];
-            const hk = homeLetters[col];
-            if (!hk) return null;
-            const homeCx = hk.x + hk.w / 2;
-            const t = FTYPE[fid];
-            const len = FLEN[t];
-            const tr = FTR[t];
-            const br = FBR[t];
+            const left = hcs.filter((h) => h.fid <= 3);
+            const right = hcs.filter((h) => h.fid >= 6);
+            const palmDrop = 42;
+            const thumbSpaceY = spaceY + KS / 2;
 
-            let tipCx = homeCx;
-            let tipCy = homeY;
+            function handOutline(fingers: typeof left, side: "left" | "right") {
+              if (fingers.length < 4) return null;
+              const f = fingers;
+              const palmY2 = f[0].cy + palmDrop;
+              const outer = side === "left" ? f[0].cx - 14 : f[3].cx + 14;
+              const inner = side === "left" ? f[3].cx + 14 : f[0].cx - 14;
+              const thumbCx = side === "left"
+                ? f[3].cx + 28
+                : f[0].cx - 28;
+              const midX = (f[0].cx + f[3].cx) / 2;
 
-            if (activeFinger === fid && activeKey && activeKey !== "SPACE") {
-              const target = keyPos[activeKey];
-              if (target) {
-                tipCx = target.x + target.w / 2;
-                tipCy = target.y + KS / 2;
-              }
+              return (
+                <path
+                  d={[
+                    `M${outer},${f[0].cy + 8}`,
+                    `Q${outer - 4},${palmY2} ${midX},${palmY2 + 8}`,
+                    `Q${inner + 4},${palmY2} ${inner},${f[3].cy + 8}`,
+                    `Q${thumbCx},${palmY2 - 8} ${thumbCx},${thumbSpaceY}`,
+                  ].join(" ")}
+                  fill="none"
+                  className="stroke-zinc-300 dark:stroke-zinc-600"
+                  strokeWidth={1.5}
+                  strokeLinecap="round"
+                />
+              );
             }
 
-            return (
-              <path key={`finger-${fid}`}
-                d={fingerPath(tipCx, tipCy, homeCx, homeY + len, tr, br)}
-                fill={SKIN}
-                opacity={activeFinger === fid ? 0.4 : 0.28}
-              />
-            );
-          })}
+            const tipR = 7;
 
-          {/* Thumbs */}
-          {(() => {
-            const lThCx = (homeLetters[3]?.x ?? 0) + (homeLetters[3]?.w ?? 0) + 20;
-            const rThCx = (homeLetters[6]?.x ?? 0) - 20;
-            const thY = homeY + 44;
-            const thActive = activeKey === "SPACE";
             return (
               <>
-                <ellipse cx={lThCx} cy={thY} rx={7} ry={18} fill={SKIN}
-                  opacity={thActive ? 0.4 : 0.25}
-                  transform={`rotate(50 ${lThCx} ${thY})`} />
-                <ellipse cx={rThCx} cy={thY} rx={7} ry={18} fill={SKIN}
-                  opacity={thActive ? 0.4 : 0.25}
-                  transform={`rotate(-50 ${rThCx} ${thY})`} />
+                {handOutline(left, "left")}
+                {handOutline(right, "right")}
+
+                {/* Reach trail */}
+                {activeFinger !== null && activeKey && activeKey !== "SPACE" && (() => {
+                  const col = fingerToHomeCol[activeFinger];
+                  const hk = homeLetters[col];
+                  const target = keyPos[activeKey];
+                  if (!hk || !target) return null;
+                  const hx = hk.x + hk.w / 2;
+                  const tx = target.x + target.w / 2;
+                  const ty = target.y + KS / 2;
+                  if (Math.abs(tx - hx) < 5 && Math.abs(ty - homeY) < 5) return null;
+                  return (
+                    <line x1={hx} y1={homeY} x2={tx} y2={ty}
+                      stroke="#3f0ff2" strokeWidth={12} strokeLinecap="round" opacity={0.08} />
+                  );
+                })()}
+
+                {/* Fingertip circles */}
+                {fingerIds.map((fid) => {
+                  const col = fingerToHomeCol[fid];
+                  const hk = homeLetters[col];
+                  if (!hk) return null;
+                  const homeCx = hk.x + hk.w / 2;
+                  let cx = homeCx;
+                  let cy = homeY;
+
+                  if (activeFinger === fid && activeKey && activeKey !== "SPACE") {
+                    const target = keyPos[activeKey];
+                    if (target) {
+                      cx = target.x + target.w / 2;
+                      cy = target.y + KS / 2;
+                    }
+                  }
+
+                  const pressing = activeFinger === fid;
+                  return (
+                    <circle key={`tip-${fid}`} cx={cx} cy={cy} r={tipR}
+                      fill={pressing ? "#3f0ff2" : "#d4d4d8"}
+                      opacity={pressing ? 0.5 : 0.45}
+                    />
+                  );
+                })}
+
+                {/* Thumb circles */}
+                <circle cx={spaceX + spaceW * 0.35} cy={thumbSpaceY} r={tipR}
+                  fill={activeKey === "SPACE" ? "#3f0ff2" : "#d4d4d8"}
+                  opacity={activeKey === "SPACE" ? 0.5 : 0.4} />
+                <circle cx={spaceX + spaceW * 0.65} cy={thumbSpaceY} r={tipR}
+                  fill={activeKey === "SPACE" ? "#3f0ff2" : "#d4d4d8"}
+                  opacity={activeKey === "SPACE" ? 0.5 : 0.4} />
               </>
             );
           })()}
