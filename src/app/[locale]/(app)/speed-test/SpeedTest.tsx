@@ -36,6 +36,116 @@ const funFacts: Record<Locale, (wpm: number) => string> = {
 
 const durations = [60, 120, 300] as const;
 
+type BenchmarkTier = {
+  label: string;
+  percentile: string;
+  comparison: string;
+};
+
+function getBenchmarkTier(wpm: number, locale: Locale): BenchmarkTier {
+  const tiers: Record<Locale, { min: number; label: string; percentile: string; comparison: string }[]> = {
+    de: [
+      { min: 100, label: "Elite", percentile: "Top 5%", comparison: "Schneller als 95% aller Menschen" },
+      { min: 81, label: "Sehr schnell", percentile: "Top 10%", comparison: "Schneller als 90% aller Menschen" },
+      { min: 61, label: "Schnell", percentile: "Top 25%", comparison: "Schneller als 75% aller Menschen" },
+      { min: 41, label: "Gut", percentile: "Top 50%", comparison: "Schneller als die Hälfte aller Menschen" },
+      { min: 26, label: "Durchschnitt", percentile: "Durchschnitt", comparison: "Auf dem Level der meisten Büroangestellten" },
+      { min: 0, label: "Anfänger", percentile: "Untere 25%", comparison: "Hier starten die meisten - der Tippkurs bringt dich weiter" },
+    ],
+    en: [
+      { min: 100, label: "Elite", percentile: "Top 5%", comparison: "Faster than 95% of all people" },
+      { min: 81, label: "Very fast", percentile: "Top 10%", comparison: "Faster than 90% of all people" },
+      { min: 61, label: "Fast", percentile: "Top 25%", comparison: "Faster than 75% of all people" },
+      { min: 41, label: "Good", percentile: "Top 50%", comparison: "Faster than half of all people" },
+      { min: 26, label: "Average", percentile: "Average", comparison: "On par with most office workers" },
+      { min: 0, label: "Beginner", percentile: "Bottom 25%", comparison: "This is where most people start - the course will get you further" },
+    ],
+    fr: [
+      { min: 100, label: "Elite", percentile: "Top 5%", comparison: "Plus rapide que 95% des gens" },
+      { min: 81, label: "Tres rapide", percentile: "Top 10%", comparison: "Plus rapide que 90% des gens" },
+      { min: 61, label: "Rapide", percentile: "Top 25%", comparison: "Plus rapide que 75% des gens" },
+      { min: 41, label: "Bon", percentile: "Top 50%", comparison: "Plus rapide que la moitie des gens" },
+      { min: 26, label: "Moyen", percentile: "Moyenne", comparison: "Au niveau de la plupart des employes de bureau" },
+      { min: 0, label: "Debutant", percentile: "Quart inferieur", comparison: "C'est la que la plupart commencent - le cours t'amenera plus loin" },
+    ],
+  };
+  const tier = tiers[locale].find((t) => wpm >= t.min)!;
+  return tier;
+}
+
+function getPercentilePosition(wpm: number): number {
+  if (wpm <= 20) return 10;
+  if (wpm <= 35) return 25;
+  if (wpm <= 44) return 50;
+  if (wpm <= 65) return 75;
+  if (wpm <= 90) return 90;
+  if (wpm <= 110) return 95;
+  return 99;
+}
+
+type ProfessionMatch = { profession: string; wpmRange: string };
+
+function getProfessionMatch(wpm: number, locale: Locale): ProfessionMatch {
+  const professions: Record<Locale, { min: number; max: number; profession: string; wpmRange: string }[]> = {
+    de: [
+      { min: 90, max: 999, profession: "Gerichtsstenograf", wpmRange: "90-100+" },
+      { min: 70, max: 89, profession: "Journalist / Anwaltssekretariat", wpmRange: "70-100" },
+      { min: 55, max: 69, profession: "Assistenz der Geschäftsführung", wpmRange: "55-70" },
+      { min: 45, max: 54, profession: "Sachbearbeitung / Dateneingabe", wpmRange: "45-60" },
+      { min: 40, max: 44, profession: "Allgemeine Büroarbeit", wpmRange: "40-55" },
+      { min: 0, max: 39, profession: "Unter dem Büro-Minimum", wpmRange: "40+" },
+    ],
+    en: [
+      { min: 90, max: 999, profession: "Court reporter territory", wpmRange: "90-100+" },
+      { min: 70, max: 89, profession: "Journalist / legal secretary", wpmRange: "70-100" },
+      { min: 55, max: 69, profession: "Executive assistant", wpmRange: "55-70" },
+      { min: 45, max: 54, profession: "Data entry / office admin", wpmRange: "45-60" },
+      { min: 40, max: 44, profession: "General office work", wpmRange: "40-55" },
+      { min: 0, max: 39, profession: "Below office minimum", wpmRange: "40+" },
+    ],
+    fr: [
+      { min: 90, max: 999, profession: "Stenographe judiciaire", wpmRange: "90-100+" },
+      { min: 70, max: 89, profession: "Journaliste / secretaire juridique", wpmRange: "70-100" },
+      { min: 55, max: 69, profession: "Assistant de direction", wpmRange: "55-70" },
+      { min: 45, max: 54, profession: "Saisie de donnees / admin", wpmRange: "45-60" },
+      { min: 40, max: 44, profession: "Travail de bureau general", wpmRange: "40-55" },
+      { min: 0, max: 39, profession: "Sous le minimum bureau", wpmRange: "40+" },
+    ],
+  };
+  const match = professions[locale].find((p) => wpm >= p.min && wpm <= p.max)!;
+  return match;
+}
+
+const benchmarkLabels: Record<Locale, {
+  title: string;
+  yourSpeed: string;
+  globalAvg: string;
+  proLevel: string;
+  matchesLevel: string;
+}> = {
+  de: {
+    title: "Dein Vergleich",
+    yourSpeed: "Dein Tempo",
+    globalAvg: "Durchschnitt",
+    proLevel: "Profi-Level",
+    matchesLevel: "Entspricht dem Level",
+  },
+  en: {
+    title: "How you compare",
+    yourSpeed: "Your speed",
+    globalAvg: "Average",
+    proLevel: "Pro level",
+    matchesLevel: "Matches the level of",
+  },
+  fr: {
+    title: "Ton classement",
+    yourSpeed: "Ta vitesse",
+    globalAvg: "Moyenne",
+    proLevel: "Niveau pro",
+    matchesLevel: "Correspond au niveau de",
+  },
+};
+
 const i18n: Record<Locale, {
   title: string;
   subtitle: (mins: number) => string;
@@ -172,6 +282,68 @@ export function SpeedTest({ locale }: Props) {
             <p className="text-sm opacity-70 mt-0.5">{result.errors.length} {l.errors.toLowerCase()}</p>
           </div>
         </div>
+
+        {(() => {
+          const tier = getBenchmarkTier(wpm, locale);
+          const percentilePos = getPercentilePosition(wpm);
+          const profession = getProfessionMatch(wpm, locale);
+          const bl = benchmarkLabels[locale];
+          const barPercent = Math.min(Math.max((wpm / 130) * 100, 5), 100);
+          const avgPercent = (42 / 130) * 100;
+          const proPercent = (80 / 130) * 100;
+
+          return (
+            <div className="max-w-lg mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
+              <div className="flex items-center justify-between mb-4">
+                <p className="font-semibold text-dark-text dark:text-white">{bl.title}</p>
+                <span className="text-sm font-semibold text-indigo bg-indigo/10 px-3 py-1 rounded-full">
+                  {tier.percentile}
+                </span>
+              </div>
+
+              <div className="relative mb-2">
+                <div className="h-3 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-700"
+                    style={{
+                      width: `${barPercent}%`,
+                      background: wpm >= 80
+                        ? "linear-gradient(90deg, #3f0ff2, #8b5cf6)"
+                        : wpm >= 60
+                        ? "linear-gradient(90deg, #3f0ff2, #6366f1)"
+                        : wpm >= 40
+                        ? "#3f0ff2"
+                        : "#f8a37c",
+                    }}
+                  />
+                </div>
+                <div
+                  className="absolute top-0 h-3 w-px bg-zinc-400 dark:bg-zinc-500"
+                  style={{ left: `${avgPercent}%` }}
+                />
+                <div
+                  className="absolute top-0 h-3 w-px bg-indigo/50"
+                  style={{ left: `${proPercent}%` }}
+                />
+              </div>
+
+              <div className="flex justify-between text-[11px] text-zinc-400 mb-5">
+                <span>0</span>
+                <span style={{ position: "relative", left: `${avgPercent - 50}%` }}>{bl.globalAvg} (42)</span>
+                <span style={{ position: "relative", left: `${proPercent - 80}%` }}>{bl.proLevel} (80)</span>
+                <span>130+</span>
+              </div>
+
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">{tier.comparison}</p>
+
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-zinc-400">{bl.matchesLevel}:</span>
+                <span className="font-medium text-dark-text dark:text-white">{profession.profession}</span>
+                <span className="text-zinc-400">({profession.wpmRange} WPM)</span>
+              </div>
+            </div>
+          );
+        })()}
 
         <div className="max-w-lg mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
           <div className="flex items-center gap-3 mb-4">
