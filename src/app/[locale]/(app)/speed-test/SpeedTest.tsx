@@ -73,16 +73,6 @@ function getBenchmarkTier(wpm: number, locale: Locale): BenchmarkTier {
   return tier;
 }
 
-function getPercentilePosition(wpm: number): number {
-  if (wpm <= 20) return 10;
-  if (wpm <= 35) return 25;
-  if (wpm <= 44) return 50;
-  if (wpm <= 65) return 75;
-  if (wpm <= 90) return 90;
-  if (wpm <= 110) return 95;
-  return 99;
-}
-
 type ProfessionMatch = { profession: string; wpmRange: string };
 
 function getProfessionMatch(wpm: number, locale: Locale): ProfessionMatch {
@@ -116,35 +106,6 @@ function getProfessionMatch(wpm: number, locale: Locale): ProfessionMatch {
   return match;
 }
 
-const benchmarkLabels: Record<Locale, {
-  title: string;
-  yourSpeed: string;
-  globalAvg: string;
-  proLevel: string;
-  matchesLevel: string;
-}> = {
-  de: {
-    title: "Dein Vergleich",
-    yourSpeed: "Dein Tempo",
-    globalAvg: "Durchschnitt",
-    proLevel: "Profi-Level",
-    matchesLevel: "Entspricht dem Level",
-  },
-  en: {
-    title: "How you compare",
-    yourSpeed: "Your speed",
-    globalAvg: "Average",
-    proLevel: "Pro level",
-    matchesLevel: "Matches the level of",
-  },
-  fr: {
-    title: "Ton classement",
-    yourSpeed: "Ta vitesse",
-    globalAvg: "Moyenne",
-    proLevel: "Niveau pro",
-    matchesLevel: "Correspond au niveau de",
-  },
-};
 
 const i18n: Record<Locale, {
   title: string;
@@ -156,9 +117,16 @@ const i18n: Record<Locale, {
   accuracy: string;
   wpmUnit: string;
   errors: string;
+  benchmarkSection: string;
+  benchmarkYou: string;
+  benchmarkAvg: string;
+  benchmarkPro: string;
+  benchmarkMatches: string;
+  focusSection: string;
   focusTitle: string;
   focusNudge: (count: number) => string;
   focusPerfect: string;
+  nextStepSection: string;
   trainingTitle: string;
   trainingDesc: string;
   trainingCta: string;
@@ -173,18 +141,25 @@ const i18n: Record<Locale, {
     newTest: "Neuer Text",
     minLabel: "Min",
     resultsTitle: "Ergebnis",
-    speed: "Tempo",
+    speed: "Wörter pro Minute",
     accuracy: "Genauigkeit",
     wpmUnit: "WPM",
     errors: "Fehler",
+    benchmarkSection: "Dein Vergleich",
+    benchmarkYou: "Du",
+    benchmarkAvg: "Durchschnitt",
+    benchmarkPro: "Profi",
+    benchmarkMatches: "Entspricht dem Level",
+    focusSection: "Was wir beim Test gesehen haben",
     focusTitle: "Dein Fokus fürs Training",
     focusNudge: (n) => `${n} ${n === 1 ? "Taste braucht" : "Tasten brauchen"} Übung - der Tippkurs trainiert genau diese.`,
     focusPerfect: "Keine Fehler - perfekt getippt. Bereit für die nächste Stufe?",
+    nextStepSection: "Dein nächster Schritt",
     trainingTitle: "Tipptraining starten",
-    trainingDesc: "Eine Übung am Tag reicht, um schneller und sicherer zu tippen.",
-    trainingCta: "Starten",
+    trainingDesc: "15 Min. am Tag, 4 Wochen. Danach tippst du mit 10 Fingern, ohne auf die Tastatur zu schauen.",
+    trainingCta: "Kurs starten",
     certTitle: "Zertifikat holen",
-    certDesc: "Mach deine Tippfähigkeiten offiziell. Für CV, LinkedIn oder Arbeitgeber.",
+    certDesc: "Mach dein Tempo offiziell. Für CV, LinkedIn oder Arbeitgeber.",
     certCta: "Zertifikat - 5 €",
     tryAgain: "Nochmal tippen",
   },
@@ -194,18 +169,25 @@ const i18n: Record<Locale, {
     newTest: "New text",
     minLabel: "min",
     resultsTitle: "Your result",
-    speed: "Speed",
+    speed: "Words per minute",
     accuracy: "Accuracy",
     wpmUnit: "WPM",
     errors: "Errors",
+    benchmarkSection: "How you compare",
+    benchmarkYou: "You",
+    benchmarkAvg: "Average",
+    benchmarkPro: "Pro",
+    benchmarkMatches: "Matches the level of",
+    focusSection: "What we spotted during your test",
     focusTitle: "Your training focus",
     focusNudge: (n) => `${n} ${n === 1 ? "key needs" : "keys need"} practice - the typing course targets exactly these.`,
     focusPerfect: "Zero errors - perfectly typed. Ready for the next level?",
-    trainingTitle: "Start typing training",
-    trainingDesc: "One exercise a day and you're on your way to faster, more accurate typing.",
-    trainingCta: "Start",
+    nextStepSection: "Your next step",
+    trainingTitle: "Start the typing course",
+    trainingDesc: "15 min a day, 4 weeks. After that, you'll touch type without looking at the keyboard.",
+    trainingCta: "Start course",
     certTitle: "Get your certificate",
-    certDesc: "Make your typing skills official. For your CV, LinkedIn, or employers.",
+    certDesc: "Make your speed official. For your CV, LinkedIn, or employers.",
     certCta: "Certificate - 5 €",
     tryAgain: "Try again",
   },
@@ -215,18 +197,25 @@ const i18n: Record<Locale, {
     newTest: "Nouveau texte",
     minLabel: "min",
     resultsTitle: "Ton résultat",
-    speed: "Vitesse",
+    speed: "Mots par minute",
     accuracy: "Précision",
     wpmUnit: "MPM",
     errors: "Erreurs",
+    benchmarkSection: "Ton classement",
+    benchmarkYou: "Toi",
+    benchmarkAvg: "Moyenne",
+    benchmarkPro: "Pro",
+    benchmarkMatches: "Correspond au niveau de",
+    focusSection: "Ce qu'on a repéré pendant ton test",
     focusTitle: "Ton focus pour l'entraînement",
     focusNudge: (n) => `${n} ${n === 1 ? "touche a besoin" : "touches ont besoin"} de pratique - le cours cible exactement celles-ci.`,
     focusPerfect: "Zéro erreur - parfaitement tapé. Prêt pour le niveau suivant ?",
-    trainingTitle: "Commencer l'entraînement",
-    trainingDesc: "Un exercice par jour suffit pour taper plus vite et plus précisément.",
-    trainingCta: "Commencer",
+    nextStepSection: "Ta prochaine étape",
+    trainingTitle: "Commencer le cours",
+    trainingDesc: "15 min par jour, 4 semaines. Après, tu taperas sans regarder le clavier.",
+    trainingCta: "Commencer le cours",
     certTitle: "Obtenir ton certificat",
-    certDesc: "Rends tes compétences de frappe officielles. Pour ton CV, LinkedIn ou employeurs.",
+    certDesc: "Rends ta vitesse officielle. Pour ton CV, LinkedIn ou employeurs.",
     certCta: "Certificat - 5 €",
     tryAgain: "Réessayer",
   },
@@ -261,155 +250,150 @@ export function SpeedTest({ locale }: Props) {
     const weakKeys = Object.entries(result.errorsByKey)
       .sort(([, a], [, b]) => b - a)
       .slice(0, 5);
+    const tier = getBenchmarkTier(wpm, locale);
+    const profession = getProfessionMatch(wpm, locale);
+    const barPercent = Math.min(Math.max((wpm / 130) * 100, 5), 100);
+    const avgPercent = (42 / 130) * 100;
+    const proPercent = (80 / 130) * 100;
 
     return (
-      <div className="space-y-8">
-        <div className="text-center space-y-3 pt-4">
+      <div className="space-y-12 pb-8">
+        {/* --- Section 1: Result headline --- */}
+        <div className="text-center space-y-4 pt-6">
           <div className="text-5xl">&#9889;</div>
-          <h2 className="text-3xl font-bold">{l.resultsTitle}</h2>
-          <p className="text-zinc-400 max-w-md mx-auto">{funFacts[locale](wpm)}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold">{l.resultsTitle}</h2>
+          <p className="text-zinc-500 dark:text-zinc-400 text-lg max-w-lg mx-auto">{funFacts[locale](wpm)}</p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-          <div className="rounded-xl bg-indigo p-6 text-center text-white">
-            <p className="text-xs font-medium uppercase tracking-wider opacity-80">{l.speed}</p>
-            <p className="text-4xl font-bold mt-1">{wpm}</p>
-            <p className="text-sm opacity-70 mt-0.5">{l.wpmUnit}</p>
+        {/* --- Section 2: WPM + Accuracy big cards --- */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-6">
+          <div className="rounded-2xl bg-indigo p-6 sm:p-8 text-center text-white">
+            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">{wpm}</p>
+            <p className="text-base sm:text-lg font-medium mt-2">{l.speed}</p>
           </div>
-          <div className="rounded-xl bg-peach p-6 text-center text-white">
-            <p className="text-xs font-medium uppercase tracking-wider opacity-80">{l.accuracy}</p>
-            <p className="text-4xl font-bold mt-1">{accuracy}%</p>
-            <p className="text-sm opacity-70 mt-0.5">{result.errors.length} {l.errors.toLowerCase()}</p>
+          <div className="rounded-2xl bg-peach p-6 sm:p-8 text-center text-white">
+            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">{accuracy}%</p>
+            <p className="text-base sm:text-lg font-medium mt-2">
+              {l.accuracy} · {result.errors.length} {l.errors.toLowerCase()}
+            </p>
           </div>
         </div>
 
-        {(() => {
-          const tier = getBenchmarkTier(wpm, locale);
-          const percentilePos = getPercentilePosition(wpm);
-          const profession = getProfessionMatch(wpm, locale);
-          const bl = benchmarkLabels[locale];
-          const barPercent = Math.min(Math.max((wpm / 130) * 100, 5), 100);
-          const avgPercent = (42 / 130) * 100;
-          const proPercent = (80 / 130) * 100;
-
-          return (
-            <div className="max-w-lg mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
-              <div className="flex items-center justify-between mb-4">
-                <p className="font-semibold text-dark-text dark:text-white">{bl.title}</p>
-                <span className="text-sm font-semibold text-indigo bg-indigo/10 px-3 py-1 rounded-full">
-                  {tier.percentile}
-                </span>
-              </div>
-
-              <div className="relative mb-2">
-                <div className="h-3 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{
-                      width: `${barPercent}%`,
-                      background: wpm >= 80
-                        ? "linear-gradient(90deg, #3f0ff2, #8b5cf6)"
-                        : wpm >= 60
-                        ? "linear-gradient(90deg, #3f0ff2, #6366f1)"
-                        : wpm >= 40
-                        ? "#3f0ff2"
-                        : "#f8a37c",
-                    }}
-                  />
-                </div>
-                <div
-                  className="absolute top-0 h-3 w-px bg-zinc-400 dark:bg-zinc-500"
-                  style={{ left: `${avgPercent}%` }}
-                />
-                <div
-                  className="absolute top-0 h-3 w-px bg-indigo/50"
-                  style={{ left: `${proPercent}%` }}
-                />
-              </div>
-
-              <div className="flex justify-between text-[11px] text-zinc-400 mb-5">
-                <span>0</span>
-                <span style={{ position: "relative", left: `${avgPercent - 50}%` }}>{bl.globalAvg} (42)</span>
-                <span style={{ position: "relative", left: `${proPercent - 80}%` }}>{bl.proLevel} (80)</span>
-                <span>130+</span>
-              </div>
-
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-3">{tier.comparison}</p>
-
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-zinc-400">{bl.matchesLevel}:</span>
-                <span className="font-medium text-dark-text dark:text-white">{profession.profession}</span>
-                <span className="text-zinc-400">({profession.wpmRange} WPM)</span>
-              </div>
-            </div>
-          );
-        })()}
-
-        <div className="max-w-lg mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-peach/10 flex items-center justify-center">
-              <svg className="w-5 h-5 text-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-              </svg>
-            </div>
-            <p className="font-semibold text-dark-text dark:text-white">{l.focusTitle}</p>
+        {/* --- Section 3: Benchmark --- */}
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8">
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-xl font-bold text-dark-text dark:text-white">{l.benchmarkSection}</h3>
+            <span className="text-sm font-bold text-indigo bg-indigo/10 px-4 py-1.5 rounded-full">
+              {tier.percentile}
+            </span>
           </div>
+
+          <div className="relative mb-3">
+            <div className="h-4 rounded-full bg-zinc-100 dark:bg-zinc-800 overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-700"
+                style={{
+                  width: `${barPercent}%`,
+                  background: wpm >= 80
+                    ? "linear-gradient(90deg, #3f0ff2, #8b5cf6)"
+                    : wpm >= 60
+                    ? "linear-gradient(90deg, #3f0ff2, #6366f1)"
+                    : wpm >= 40
+                    ? "#3f0ff2"
+                    : "#f8a37c",
+                }}
+              />
+            </div>
+            <div
+              className="absolute top-0 h-4 w-0.5 bg-zinc-400 dark:bg-zinc-500"
+              style={{ left: `${avgPercent}%` }}
+            />
+            <div
+              className="absolute top-0 h-4 w-0.5 bg-indigo/40"
+              style={{ left: `${proPercent}%` }}
+            />
+          </div>
+
+          <div className="flex justify-between text-xs text-zinc-400 mt-2 mb-6">
+            <span>0</span>
+            <span>{l.benchmarkAvg} (42)</span>
+            <span>{l.benchmarkPro} (80)</span>
+            <span>130+</span>
+          </div>
+
+          <p className="text-base text-dark-text dark:text-white font-medium mb-2">{tier.comparison}</p>
+          <div className="flex flex-wrap items-center gap-x-2 text-sm text-zinc-500">
+            <span>{l.benchmarkMatches}:</span>
+            <span className="font-semibold text-dark-text dark:text-white">{profession.profession}</span>
+            <span>({profession.wpmRange} {l.wpmUnit})</span>
+          </div>
+        </div>
+
+        {/* --- Section 4: Training focus --- */}
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8">
+          <h3 className="text-xl font-bold text-dark-text dark:text-white mb-2">{l.focusSection}</h3>
           {weakKeys.length > 0 ? (
             <>
-              <div className="flex gap-2 flex-wrap mb-4">
+              <p className="text-sm text-zinc-500 mb-5">{l.focusNudge(weakKeys.length)}</p>
+              <div className="flex gap-3 flex-wrap">
                 {weakKeys.map(([key, count]) => (
-                  <span
+                  <div
                     key={key}
-                    className="rounded-lg bg-peach/10 border border-peach/20 px-4 py-2 text-base font-mono font-semibold text-dark-text dark:text-white"
+                    className="rounded-xl bg-peach/10 border border-peach/20 px-5 py-3 text-center min-w-[64px]"
                   >
-                    {key === " " ? "Space" : key} <span className="text-peach ml-1.5 text-sm">{count}x</span>
-                  </span>
+                    <span className="block text-xl font-mono font-bold text-dark-text dark:text-white">
+                      {key === " " ? "Space" : key}
+                    </span>
+                    <span className="block text-sm text-peach font-semibold mt-0.5">{count}x</span>
+                  </div>
                 ))}
               </div>
-              <p className="text-sm text-zinc-500 leading-relaxed">{l.focusNudge(weakKeys.length)}</p>
             </>
           ) : (
-            <p className="text-sm text-zinc-500 leading-relaxed">{l.focusPerfect}</p>
+            <p className="text-base text-zinc-500 leading-relaxed">{l.focusPerfect}</p>
           )}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-lg mx-auto">
+        {/* --- Section 5: CTAs --- */}
+        <div>
+          <h3 className="text-xl font-bold text-dark-text dark:text-white text-center mb-6">{l.nextStepSection}</h3>
+
           <a
             href={`/${locale}/lessons/1`}
-            className="rounded-xl bg-indigo p-6 text-center text-white hover:bg-indigo/90 transition-colors group"
+            className="block rounded-2xl bg-indigo p-6 sm:p-8 text-white hover:bg-indigo/90 transition-colors group"
           >
-            <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342" />
-              </svg>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p className="text-xl sm:text-2xl font-bold">{l.trainingTitle}</p>
+                <p className="text-base text-white/80 mt-1">{l.trainingDesc}</p>
+              </div>
+              <span className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-white/20 px-6 py-3 text-base font-bold group-hover:bg-white/30 transition-colors">
+                {l.trainingCta} <span className="text-electric-yellow">&gt;&gt;</span>
+              </span>
             </div>
-            <p className="font-bold text-lg">{l.trainingTitle}</p>
-            <p className="text-sm opacity-80 mt-1.5">{l.trainingDesc}</p>
-            <span className="inline-flex items-center gap-2 mt-4 rounded-lg bg-white/20 px-5 py-2 text-sm font-semibold group-hover:bg-white/30 transition-colors">
-              {l.trainingCta} <span className="text-electric-yellow">&gt;&gt;</span>
-            </span>
           </a>
+
           <a
             href={`/${locale}/certificate`}
-            className="rounded-xl bg-electric-yellow p-6 text-center text-dark-text hover:bg-electric-yellow/80 transition-colors group"
+            className="block mt-4 rounded-2xl border-2 border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 hover:border-indigo/30 transition-colors group"
           >
-            <div className="w-10 h-10 rounded-full bg-dark-text/10 flex items-center justify-center mx-auto mb-3">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
-              </svg>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <div>
+                <p className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white">{l.certTitle}</p>
+                <p className="text-base text-zinc-500 mt-1">{l.certDesc}</p>
+              </div>
+              <span className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-electric-yellow px-6 py-3 text-base font-bold text-dark-text group-hover:bg-electric-yellow/80 transition-colors">
+                {l.certCta} <span className="text-indigo">&gt;&gt;</span>
+              </span>
             </div>
-            <p className="font-bold text-lg">{l.certTitle}</p>
-            <p className="text-sm opacity-70 mt-1.5">{l.certDesc}</p>
-            <span className="inline-flex items-center gap-2 mt-4 rounded-lg bg-dark-text/10 px-5 py-2 text-sm font-semibold group-hover:bg-dark-text/20 transition-colors">
-              {l.certCta} <span className="text-indigo">&gt;&gt;</span>
-            </span>
           </a>
         </div>
 
-        <div className="flex items-center justify-center gap-4 pt-2">
+        {/* --- Try again --- */}
+        <div className="flex items-center justify-center pt-2">
           <button
             onClick={handleNewText}
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 2v6h-6" />
