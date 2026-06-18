@@ -84,7 +84,7 @@ export function CertificateStack({ locale }: Props) {
   const [backLeft, backRight, front] = order[locale] ?? order.en;
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full overflow-hidden">
       {/* Invisible spacer to give container height based on front cert */}
       <div className="invisible w-[88%] mx-auto">
         <CertificateVisual {...certs[front]} />
