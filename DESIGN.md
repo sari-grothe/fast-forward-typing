@@ -47,6 +47,25 @@ Dark mode is the default. Light mode uses lavender bg with dark-text body.
 
 A cheetah mascot is planned (flat 2D vector, Duolingo/Ratatype energy). Not yet created. When it exists, it appears in different poses across the site (typing, celebrating, running, thinking, waving).
 
+## Target Persona
+
+**Read the full persona doc** in business-ideas/skip-the-manual-type/persona.md before writing any copy.
+
+**Primary:** Adults 25-55 who type every day but never learned touch typing. Professionals, freelancers, career changers. They are NOT students, NOT kids, NOT speed junkies. They are productive people who know they could be faster.
+
+**Key messaging rules (from persona):**
+- Never say "learn to type" - say "type faster", "type smarter", "master touch typing"
+- Never infantilize - no cartoon rewards, no "great job!" popups
+- Lead with the outcome - "Imagine typing twice as fast" not "Welcome to our course"
+- The typing test is the hook, the course is the product, the certificate is the proof
+- Time-bound: "4 weeks, 15 min/day" not "lifetime access to 500 lessons"
+- Data over hype: "Touch typists are 40-60% faster" not "Become a typing master!"
+
+**Anti-personas (do NOT design for):**
+- Speed junkies (80+ WPM, want 120+) - they use Monkeytype
+- Schools/teachers - requires admin dashboards, COPPA, procurement (future opportunity)
+- Young children under 10 - needs fully gamified, story-driven UX
+
 ## Tone of Voice
 
 ### Core principles (all languages)
