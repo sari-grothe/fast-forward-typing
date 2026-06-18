@@ -84,25 +84,29 @@ export function CertificateStack({ locale }: Props) {
   const [backLeft, backRight, front] = order[locale] ?? order.en;
 
   return (
-    <div className="relative w-full" style={{ aspectRatio: "4/3" }}>
+    <div className="relative w-full">
+      {/* Invisible spacer to give container height based on front cert */}
+      <div className="invisible w-[88%] mx-auto">
+        <CertificateVisual {...certs[front]} />
+      </div>
       {/* Back left */}
       <div
-        className="absolute w-[75%] left-0 bottom-[12%]"
-        style={{ transform: "rotate(-5deg)", zIndex: 1 }}
+        className="absolute w-[80%] top-[4%]"
+        style={{ transform: "rotate(-5deg)", zIndex: 1, left: "-2%" }}
       >
         <CertificateVisual {...certs[backLeft]} />
       </div>
       {/* Back right */}
       <div
-        className="absolute w-[75%] right-0 bottom-[8%]"
-        style={{ transform: "rotate(4deg)", zIndex: 2 }}
+        className="absolute w-[80%] top-[6%]"
+        style={{ transform: "rotate(4deg)", zIndex: 2, right: "-2%" }}
       >
         <CertificateVisual {...certs[backRight]} />
       </div>
       {/* Front center */}
       <div
-        className="absolute w-[85%] left-1/2 bottom-0"
-        style={{ transform: "translateX(-50%)", zIndex: 3 }}
+        className="absolute w-[88%] left-1/2 top-1/2"
+        style={{ transform: "translate(-50%, -50%)", zIndex: 3 }}
       >
         <CertificateVisual {...certs[front]} />
       </div>
