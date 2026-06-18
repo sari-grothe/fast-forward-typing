@@ -23,7 +23,7 @@ export default async function HomePage({ params }: Props) {
   const final_ = h.finalCta as Record<string, string>;
 
   return (
-    <div>
+    <div style={{ background: "linear-gradient(180deg, #eeecfe 0%, #f3f0ff 15%, #fde8d8 30%, #f5f0ff 45%, #eeecfe 55%, #fde8d8 70%, #f3f0ff 85%, #eeecfe 100%)" }}>
       {/* Hero */}
       <div className="mx-auto max-w-5xl px-6">
         <TypingHero
@@ -35,7 +35,7 @@ export default async function HomePage({ params }: Props) {
       </div>
 
       {/* How it works */}
-      <section className="py-20" style={{ background: "linear-gradient(135deg, #eeecfe 0%, #f5f0ff 40%, #fde8d8 100%)" }}>
+      <section className="py-20">
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">{how.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -94,7 +94,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* Speed test teaser */}
-      <section className="py-20" style={{ background: "linear-gradient(135deg, #fde8d8 0%, #f5f0ff 40%, #eeecfe 100%)" }}>
+      <section className="py-20">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left: copy */}
@@ -183,7 +183,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #eeecfe 0%, #f5f0ff 40%, #fde8d8 100%)" }}>
+      <section className="py-20 overflow-hidden">
         <TestimonialSlider locale={locale} />
       </section>
 
@@ -233,7 +233,7 @@ export default async function HomePage({ params }: Props) {
       </div>
 
       {/* Final CTA */}
-      <section className="py-20" style={{ background: "linear-gradient(135deg, #fde8d8 0%, #f5f0ff 40%, #eeecfe 100%)" }}>
+      <section className="py-20">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <TypingHeadline text={final_.title} className="text-3xl sm:text-4xl font-bold mb-4" />
           <p className="text-zinc-500 dark:text-zinc-400 text-lg mb-10 max-w-lg mx-auto">{final_.desc}</p>
