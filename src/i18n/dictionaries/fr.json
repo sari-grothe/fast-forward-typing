@@ -18,11 +18,12 @@
     "howItWorks": {
       "title": "Comment ça marche",
       "step1Title": "Teste ta vitesse",
-      "step1Desc": "Fais le test de frappe gratuit. En 60 secondes, tu sais où tu en es.",
+      "step1Desc": "Fais le test de frappe gratuit. En quelques minutes, tu sais où tu en es.",
       "step2Title": "Apprends pas à pas",
       "step2Desc": "Des leçons structurées te guident vers la frappe à dix doigts. À ton rythme.",
       "step3Title": "Obtiens ton certificat",
-      "step3Desc": "Termine le cours et reçois un certificat qui atteste ta vitesse de frappe."
+      "step3Desc": "Termine le cours et reçois un certificat qui atteste ta vitesse de frappe.",
+      "cta": "Commencer le cours"
     },
     "features": {
       "title": "Ce qui t'attend",

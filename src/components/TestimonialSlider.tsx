@@ -151,7 +151,13 @@ export function TestimonialSlider({ locale }: Props) {
         <p className="text-zinc-400 max-w-lg mx-auto">{l.subtitle}</p>
       </div>
 
-      <div className="space-y-4 overflow-hidden -mx-6">
+      <div
+        className="relative space-y-4 overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+        }}
+      >
         {/* Row 1 - scrolls left */}
         <div className="animate-marquee-left flex gap-4 w-max hover:[animation-play-state:paused]">
           {[...items, ...items, ...items, ...items].map((t, i) => (

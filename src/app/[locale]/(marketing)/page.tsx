@@ -56,6 +56,14 @@ export default async function HomePage({ params }: Props) {
               </div>
             ))}
           </div>
+          <div className="mt-12 flex justify-center">
+            <a
+              href={`/${locale}/lessons/1`}
+              className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
+            >
+              {how.cta} <span className="text-electric-yellow">&gt;&gt;</span>
+            </a>
+          </div>
         </div>
       </section>
 

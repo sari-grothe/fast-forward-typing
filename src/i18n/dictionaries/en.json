@@ -18,11 +18,12 @@
     "howItWorks": {
       "title": "How it works",
       "step1Title": "Test your speed",
-      "step1Desc": "Take the free typing test. In 60 seconds you'll know exactly where you stand.",
+      "step1Desc": "Take the free typing test. In just a few minutes you'll know exactly where you stand.",
       "step2Title": "Learn with structure",
       "step2Desc": "Guided lessons take you step by step to touch typing. At your own pace.",
       "step3Title": "Get your certificate",
-      "step3Desc": "Complete the course and earn a certificate that proves your typing speed."
+      "step3Desc": "Complete the course and earn a certificate that proves your typing speed.",
+      "cta": "Start typing course"
     },
     "features": {
       "title": "What you get",

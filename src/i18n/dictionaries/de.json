@@ -18,11 +18,12 @@
     "howItWorks": {
       "title": "So funktioniert es",
       "step1Title": "Teste dein Level",
-      "step1Desc": "Starte mit dem kostenlosen Tipptest. In 60 Sekunden weißt du, wo du stehst.",
+      "step1Desc": "Starte mit dem kostenlosen Tipptest. In wenigen Minuten weißt du, wo du stehst.",
       "step2Title": "Lerne mit System",
       "step2Desc": "Strukturierte Lektionen führen dich Schritt für Schritt zum 10-Finger-System. In deinem Tempo.",
       "step3Title": "Hol dir dein Zertifikat",
-      "step3Desc": "Schließ den Kurs ab und erhalte ein Zertifikat, das deine Tippgeschwindigkeit belegt."
+      "step3Desc": "Schließ den Kurs ab und erhalte ein Zertifikat, das deine Tippgeschwindigkeit belegt.",
+      "cta": "Tippkurs starten"
     },
     "features": {
       "title": "Was dich erwartet",
