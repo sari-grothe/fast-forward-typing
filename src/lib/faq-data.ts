@@ -202,7 +202,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
       },
       {
         question: "Wie bekomme ich mein Zertifikat?",
-        answer: "Nach dem Kauf absolvierst du einen offiziellen Tipptest. Das Zertifikat wird sofort als PDF generiert und kann heruntergeladen werden.",
+        answer: "Du machst zuerst den Tipptest. Wenn du mit deinem Ergebnis zufrieden bist, kaufst du das Zertifikat - und bekommst es sofort als PDF per E-Mail.",
       },
       {
         question: "Kann ich das Zertifikat in meinen Lebenslauf aufnehmen?",
@@ -223,7 +223,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
       },
       {
         question: "How do I get my certificate?",
-        answer: "After purchase, you take an official typing test. The certificate is generated instantly as a PDF and can be downloaded.",
+        answer: "You take the typing test first. If you're happy with your result, you buy the certificate - and receive it instantly as a PDF via email.",
       },
       {
         question: "Can I add the certificate to my CV?",
@@ -244,7 +244,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
       },
       {
         question: "Comment obtenir mon certificat ?",
-        answer: "Après l'achat, tu passes un test de frappe officiel. Le certificat est généré instantanément en PDF et peut être téléchargé.",
+        answer: "Tu passes d'abord le test de frappe. Si tu es content de ton résultat, tu achètes le certificat - et tu le reçois instantanément en PDF par e-mail.",
       },
       {
         question: "Puis-je ajouter le certificat à mon CV ?",
