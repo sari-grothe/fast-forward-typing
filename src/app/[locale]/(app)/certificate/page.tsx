@@ -195,17 +195,72 @@ export default async function CertificatePage({ params }: Props) {
   return (
     <div className="mx-auto max-w-5xl px-6 py-12 space-y-20">
 
-      {/* Hero */}
-      <div className="text-center space-y-4">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-          {l.heroTitle}
-        </h1>
-        <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-          {l.heroSubtitle}
-        </p>
-        <p className="inline-block rounded-full bg-electric-yellow/20 px-4 py-1.5 text-sm font-semibold text-dark-text dark:text-white">
-          {l.heroHighlight}
-        </p>
+      {/* Hero + Pricing card - first thing visible */}
+      <div className="grid md:grid-cols-2 gap-10 items-start">
+        {/* Left: headline + subtitle */}
+        <div className="space-y-4 md:pt-6">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            {l.heroTitle}
+          </h1>
+          <p className="text-lg text-zinc-500 dark:text-zinc-400">
+            {l.heroSubtitle}
+          </p>
+          <p className="inline-block rounded-full bg-electric-yellow/20 px-4 py-1.5 text-sm font-semibold text-dark-text dark:text-white">
+            {l.heroHighlight}
+          </p>
+        </div>
+
+        {/* Right: Pricing card */}
+        <div className="rounded-2xl border-2 border-indigo/20 bg-white dark:bg-dark-surface p-8 space-y-6">
+          <div className="flex items-start justify-between">
+            <div>
+              <p className="text-sm font-medium text-indigo">{l.priceLabel}</p>
+              <p className="text-lg font-bold text-dark-text dark:text-white mt-0.5">Fast Forward Typing</p>
+            </div>
+            <div className="text-right">
+              <p className="text-4xl font-extrabold text-dark-text dark:text-white">5 <span className="text-2xl">€</span></p>
+              <p className="text-xs text-zinc-400 mt-0.5">{l.priceNote}</p>
+            </div>
+          </div>
+
+          <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
+            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
+              {l.includesTitle}
+            </p>
+            <ul className="space-y-2.5">
+              {l.includes.map((item, i) => (
+                <li key={i} className="flex items-start gap-2.5 text-sm text-dark-text dark:text-zinc-300">
+                  <svg className="w-4 h-4 mt-0.5 text-indigo flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Stripe embed placeholder */}
+          <div className="rounded-lg border-2 border-dashed border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark/50 p-8 text-center">
+            <svg className="w-8 h-8 mx-auto text-zinc-300 dark:text-zinc-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+            </svg>
+            <p className="text-xs text-zinc-400">Stripe Checkout</p>
+          </div>
+
+          <button
+            disabled
+            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3.5 text-base font-semibold text-white opacity-50 cursor-not-allowed"
+          >
+            {l.buyCta} <span className="text-electric-yellow">&gt;&gt;</span>
+          </button>
+
+          <p className="text-center text-xs text-zinc-400 flex items-center justify-center gap-1.5">
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            {l.trustLine}
+          </p>
+        </div>
       </div>
 
       {/* How it works - 3 steps */}
@@ -269,60 +324,6 @@ export default async function CertificatePage({ params }: Props) {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-
-      {/* Pricing card */}
-      <div className="max-w-md mx-auto">
-        <div className="rounded-2xl border-2 border-indigo/20 bg-white dark:bg-dark-surface p-8 space-y-6">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm font-medium text-indigo">{l.priceLabel}</p>
-              <p className="text-lg font-bold text-dark-text dark:text-white mt-0.5">Fast Forward Typing</p>
-            </div>
-            <div className="text-right">
-              <p className="text-4xl font-extrabold text-dark-text dark:text-white">5 <span className="text-2xl">€</span></p>
-              <p className="text-xs text-zinc-400 mt-0.5">{l.priceNote}</p>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
-              {l.includesTitle}
-            </p>
-            <ul className="space-y-2.5">
-              {l.includes.map((item, i) => (
-                <li key={i} className="flex items-start gap-2.5 text-sm text-dark-text dark:text-zinc-300">
-                  <svg className="w-4 h-4 mt-0.5 text-indigo flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Stripe embed placeholder */}
-          <div className="rounded-lg border-2 border-dashed border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark/50 p-8 text-center">
-            <svg className="w-8 h-8 mx-auto text-zinc-300 dark:text-zinc-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-            </svg>
-            <p className="text-xs text-zinc-400">Stripe Checkout</p>
-          </div>
-
-          <button
-            disabled
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3.5 text-base font-semibold text-white opacity-50 cursor-not-allowed"
-          >
-            {l.buyCta} <span className="text-electric-yellow">&gt;&gt;</span>
-          </button>
-
-          <p className="text-center text-xs text-zinc-400 flex items-center justify-center gap-1.5">
-            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-            {l.trustLine}
-          </p>
         </div>
       </div>
 
