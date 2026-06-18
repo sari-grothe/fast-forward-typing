@@ -39,13 +39,21 @@
     },
     "speedTest": {
       "title": "How fast do you type?",
-      "desc": "Find out. 60 seconds, free, no sign-up required.",
+      "desc": "Find out in just a few minutes. Free, no sign-up required.",
       "cta": "Take the test",
+      "bullet1": "Choose 1, 2 or 5 minutes",
+      "bullet2": "Type real text, not random words",
+      "bullet3": "Instant result: WPM and accuracy",
       "wpm": "WPM",
       "avgLabel": "Average",
       "avgValue": "40",
       "proLabel": "Pro",
-      "proValue": "80+"
+      "proValue": "80+",
+      "mockTimer": "0:40",
+      "mockText": "The keyboard is the most important tool in our digital daily life. Every finger has its place, every key its purpose.",
+      "mockDuration1": "1 Min",
+      "mockDuration2": "2 Min",
+      "mockDuration3": "5 Min"
     },
     "certificate": {
       "title": "Get your certificate",

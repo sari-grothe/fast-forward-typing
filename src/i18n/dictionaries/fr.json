@@ -39,13 +39,21 @@
     },
     "speedTest": {
       "title": "À quelle vitesse tapes-tu ?",
-      "desc": "Découvre-le. 60 secondes, gratuit, sans inscription.",
+      "desc": "Découvre-le en quelques minutes. Gratuit, sans inscription.",
       "cta": "Faire le test",
+      "bullet1": "Choisis 1, 2 ou 5 minutes",
+      "bullet2": "Tape du vrai texte, pas des mots aléatoires",
+      "bullet3": "Résultat immédiat: MPM et précision",
       "wpm": "MPM",
       "avgLabel": "Moyenne",
       "avgValue": "40",
       "proLabel": "Pro",
-      "proValue": "80+"
+      "proValue": "80+",
+      "mockTimer": "0:40",
+      "mockText": "Le clavier est l'outil le plus important de notre quotidien numérique. Chaque doigt a sa place, chaque touche son rôle.",
+      "mockDuration1": "1 Min",
+      "mockDuration2": "2 Min",
+      "mockDuration3": "5 Min"
     },
     "certificate": {
       "title": "Obtiens ton certificat",

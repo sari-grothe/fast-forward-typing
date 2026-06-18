@@ -35,7 +35,7 @@ export default async function HomePage({ params }: Props) {
       </div>
 
       {/* How it works */}
-      <section className="py-20 bg-white dark:bg-dark-surface">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #ffffff 0%, #f5f3ff 50%, #fef3ec 100%)" }}>
         <div className="mx-auto max-w-5xl px-6">
           <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">{how.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -94,36 +94,61 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* Speed test teaser */}
-      <section className="py-20 bg-white dark:bg-dark-surface">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #fef3ec 0%, #f5f3ff 50%, #ffffff 100%)" }}>
         <div className="mx-auto max-w-5xl px-6">
-          <div className="rounded-3xl bg-indigo p-10 sm:p-16 text-center text-white">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">{speed.title}</h2>
-            <p className="text-indigo-100 text-lg mb-8 max-w-lg mx-auto opacity-80">{speed.desc}</p>
-
-            <div className="flex items-end justify-center gap-8 sm:gap-12 mb-10">
-              <div className="text-center">
-                <p className="text-sm opacity-60 mb-1">{speed.avgLabel}</p>
-                <p className="text-4xl sm:text-5xl font-extrabold">{speed.avgValue}</p>
-                <p className="text-xs opacity-50 mt-1">{speed.wpm}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm opacity-60 mb-1">?</p>
-                <p className="text-5xl sm:text-6xl font-extrabold text-electric-yellow">_</p>
-                <p className="text-xs opacity-50 mt-1">{speed.wpm}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm opacity-60 mb-1">{speed.proLabel}</p>
-                <p className="text-4xl sm:text-5xl font-extrabold">{speed.proValue}</p>
-                <p className="text-xs opacity-50 mt-1">{speed.wpm}</p>
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* Left: copy */}
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">{speed.title}</h2>
+              <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-6">{speed.desc}</p>
+              <ul className="space-y-3 mb-8">
+                {[speed.bullet1, speed.bullet2, speed.bullet3].map((b, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-indigo mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                    <span className="text-zinc-600 dark:text-zinc-300">{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`/${locale}/speed-test`}
+                className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
+              >
+                {speed.cta} <span className="text-electric-yellow">&gt;&gt;</span>
+              </a>
             </div>
 
-            <a
-              href={`/${locale}/speed-test`}
-              className="inline-flex items-center gap-2 rounded-lg bg-electric-yellow px-8 py-4 text-base font-semibold text-dark-text hover:bg-electric-yellow/90 transition-colors"
-            >
-              {speed.cta} <span>&gt;&gt;</span>
-            </a>
+            {/* Right: typing test mockup */}
+            <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+              {/* Duration toggle */}
+              <div className="flex items-center gap-2 mb-4">
+                <span className="rounded-lg bg-indigo px-3 py-1.5 text-xs font-semibold text-white">{speed.mockDuration1}</span>
+                <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-500">{speed.mockDuration2}</span>
+                <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-500">{speed.mockDuration3}</span>
+              </div>
+              {/* Timer */}
+              <p className="text-center text-2xl font-bold text-indigo mb-4 font-mono">{speed.mockTimer}</p>
+              {/* Text area mockup */}
+              <div className="rounded-xl border-2 border-indigo/20 p-4 sm:p-5">
+                <p className="font-mono text-sm sm:text-base leading-relaxed">
+                  <span className="text-indigo">{speed.mockText.slice(0, 45)}</span>
+                  <span className="border-l-2 border-indigo" />
+                  <span className="text-zinc-400">{speed.mockText.slice(45)}</span>
+                </p>
+              </div>
+              {/* Result preview */}
+              <div className="mt-4 flex justify-center gap-6">
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-dark-text">56</p>
+                  <p className="text-xs text-zinc-400">{speed.wpm}</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-dark-text">98.2</p>
+                  <p className="text-xs text-zinc-400">%</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -158,7 +183,7 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 overflow-hidden bg-white dark:bg-dark-surface">
+      <section className="py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #ffffff 0%, #f5f3ff 50%, #fef3ec 100%)" }}>
         <TestimonialSlider locale={locale} />
       </section>
 
@@ -208,7 +233,7 @@ export default async function HomePage({ params }: Props) {
       </div>
 
       {/* Final CTA */}
-      <section className="py-20 bg-white dark:bg-dark-surface">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #fef3ec 0%, #f5f3ff 50%, #ffffff 100%)" }}>
         <div className="mx-auto max-w-5xl px-6 text-center">
           <TypingHeadline text={final_.title} className="text-3xl sm:text-4xl font-bold mb-4" />
           <p className="text-zinc-500 dark:text-zinc-400 text-lg mb-10 max-w-lg mx-auto">{final_.desc}</p>

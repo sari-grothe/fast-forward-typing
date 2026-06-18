@@ -39,13 +39,21 @@
     },
     "speedTest": {
       "title": "Wie schnell tippst du?",
-      "desc": "Finde es heraus. 60 Sekunden, kostenlos, ohne Anmeldung.",
+      "desc": "Finde es in wenigen Minuten heraus. Kostenlos, ohne Anmeldung.",
       "cta": "Jetzt testen",
+      "bullet1": "Wähle 1, 2 oder 5 Minuten",
+      "bullet2": "Tippe echten Text, keine zufälligen Wörter",
+      "bullet3": "Sofort dein Ergebnis: WPM und Genauigkeit",
       "wpm": "WPM",
       "avgLabel": "Durchschnitt",
       "avgValue": "40",
       "proLabel": "Profi",
-      "proValue": "80+"
+      "proValue": "80+",
+      "mockTimer": "0:40",
+      "mockText": "Die Tastatur ist das wichtigste Werkzeug im digitalen Alltag. Jeder Finger hat seinen Platz, jede Taste ihren Zweck.",
+      "mockDuration1": "1 Min",
+      "mockDuration2": "2 Min",
+      "mockDuration3": "5 Min"
     },
     "certificate": {
       "title": "Hol dir dein Zertifikat",
