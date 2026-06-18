@@ -4,6 +4,8 @@ import { TypingHero } from "@/components/TypingHero";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { homeFAQ } from "@/lib/faq-data";
+import { TypingHeadline } from "@/components/TypingHeadline";
+import { CertificateStack } from "@/components/CertificateStack";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -127,25 +129,8 @@ export default async function HomePage({ params }: Props) {
               <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">{cert.desc}</p>
             </div>
             <div className="flex justify-center">
-              <div className="w-full max-w-sm rounded-2xl border-2 border-indigo/20 bg-white dark:bg-dark-surface p-8 text-center shadow-lg shadow-indigo/5">
-                <div className="mb-4">
-                  <span className="text-indigo font-semibold text-sm">&gt;&gt;</span>
-                  <span className="text-sm font-semibold ml-1">Fast Forward Typing</span>
-                </div>
-                <p className="text-xs uppercase tracking-widest text-zinc-400 mb-6">{cert.certTitle}</p>
-                <p className="text-xl font-bold mb-2">{cert.certName}</p>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-6">{cert.certText}</p>
-                <div className="flex justify-center gap-6 mb-6">
-                  <div className="rounded-xl bg-indigo/5 dark:bg-indigo/10 px-4 py-2">
-                    <p className="text-lg font-bold text-indigo">{cert.certWpm}</p>
-                  </div>
-                  <div className="rounded-xl bg-indigo/5 dark:bg-indigo/10 px-4 py-2">
-                    <p className="text-lg font-bold text-indigo">{cert.certAccuracy}</p>
-                  </div>
-                </div>
-                <div className="border-t border-zinc-200 dark:border-dark-border pt-4">
-                  <p className="text-xs text-zinc-400">fastforwardtyping.com</p>
-                </div>
+              <div className="w-full max-w-lg">
+                <CertificateStack locale={locale} />
               </div>
             </div>
           </div>
@@ -205,7 +190,7 @@ export default async function HomePage({ params }: Props) {
       {/* Final CTA */}
       <section className="py-20 bg-white dark:bg-dark-surface">
         <div className="mx-auto max-w-5xl px-6 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">{final_.title}</h2>
+          <TypingHeadline text={final_.title} className="text-3xl sm:text-4xl font-bold mb-4" />
           <p className="text-zinc-500 dark:text-zinc-400 text-lg mb-10 max-w-lg mx-auto">{final_.desc}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a

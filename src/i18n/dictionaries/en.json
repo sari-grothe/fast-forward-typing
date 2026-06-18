@@ -47,13 +47,23 @@
       "proValue": "80+"
     },
     "certificate": {
-      "title": "Your proof",
-      "desc": "Complete the course and receive a certificate with your typing speed. For job applications, employers and your LinkedIn profile.",
-      "certTitle": "Certificate",
+      "title": "Get your certificate",
+      "desc": "Take a typing test and receive an official certificate with your speed and accuracy. Or complete the typing course - your certificate is included.",
+      "brandName": "FAST FORWARD >> TYPING",
+      "certTitle": "CERTIFICATE OF ACHIEVEMENT",
+      "awardedTo": "Certificate awarded to",
       "certName": "Jane Smith",
-      "certText": "has successfully completed the touch typing course",
-      "certWpm": "85 WPM",
-      "certAccuracy": "98% Accuracy"
+      "certText": "for typing in English",
+      "certNumber": "FF-0012-EN",
+      "certWpm": "85",
+      "wpmLabel": "wpm",
+      "certAccuracy": "96.1",
+      "accuracyLabel": "%",
+      "certDuration": "2",
+      "durationLabel": "min",
+      "certDate": "June 18, 2026",
+      "certDateLabel": "CERTIFICATION DATE",
+      "tierLabel": "GOLD"
     },
     "teams": {
       "forTeachers": "For teachers",

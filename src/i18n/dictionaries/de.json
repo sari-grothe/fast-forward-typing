@@ -47,13 +47,23 @@
       "proValue": "80+"
     },
     "certificate": {
-      "title": "Dein Nachweis",
-      "desc": "Nach Abschluss des Kurses erhältst du ein Zertifikat mit deiner Tippgeschwindigkeit. Für Bewerbungen, Arbeitgeber und dein LinkedIn-Profil.",
-      "certTitle": "Zertifikat",
-      "certName": "Max Mustermann",
-      "certText": "hat das 10-Finger-Tipptraining erfolgreich abgeschlossen",
-      "certWpm": "85 WPM",
-      "certAccuracy": "98% Genauigkeit"
+      "title": "Hol dir dein Zertifikat",
+      "desc": "Mach einen Tipptest und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Tippkurs ab - dein Zertifikat ist inklusive.",
+      "brandName": "FAST FORWARD >> TYPING",
+      "certTitle": "LEISTUNGSZERTIFIKAT",
+      "awardedTo": "Zertifikat verliehen an",
+      "certName": "Thomas Klein",
+      "certText": "für das Zehnfingersystem auf Deutsch",
+      "certNumber": "FF-0513-DE",
+      "certWpm": "56",
+      "wpmLabel": "wpm",
+      "certAccuracy": "98.9",
+      "accuracyLabel": "%",
+      "certDuration": "2",
+      "durationLabel": "min",
+      "certDate": "18. Juni 2026",
+      "certDateLabel": "ZERTIFIZIERUNGSDATUM",
+      "tierLabel": "GOLD"
     },
     "teams": {
       "forTeachers": "Für Lehrkräfte",

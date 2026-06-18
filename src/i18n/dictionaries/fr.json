@@ -47,13 +47,23 @@
       "proValue": "80+"
     },
     "certificate": {
-      "title": "Ta preuve",
-      "desc": "Termine le cours et reçois un certificat avec ta vitesse de frappe. Pour tes candidatures, employeurs et ton profil LinkedIn.",
-      "certTitle": "Certificat",
+      "title": "Obtiens ton certificat",
+      "desc": "Passe un test de frappe et reçois un certificat officiel avec ta vitesse et ta précision. Ou termine le cours de frappe - ton certificat est inclus.",
+      "brandName": "FAST FORWARD >> TYPING",
+      "certTitle": "CERTIFICAT DE RÉUSSITE",
+      "awardedTo": "Certificat décerné à",
       "certName": "Marie Dupont",
-      "certText": "a terminé avec succès la formation de frappe à dix doigts",
-      "certWpm": "85 MPM",
-      "certAccuracy": "98% Précision"
+      "certText": "pour la dactylographie en français",
+      "certNumber": "FF-0847-FR",
+      "certWpm": "72",
+      "wpmLabel": "mpm",
+      "certAccuracy": "95.0",
+      "accuracyLabel": "%",
+      "certDuration": "5",
+      "durationLabel": "min",
+      "certDate": "18 juin 2026",
+      "certDateLabel": "DATE DE CERTIFICATION",
+      "tierLabel": "GOLD"
     },
     "teams": {
       "forTeachers": "Pour enseignants",
