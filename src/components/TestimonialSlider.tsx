@@ -154,8 +154,8 @@ export function TestimonialSlider({ locale }: Props) {
       <div
         className="relative space-y-4 overflow-hidden"
         style={{
-          maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
-          WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)",
         }}
       >
         {/* Row 1 - scrolls left */}
