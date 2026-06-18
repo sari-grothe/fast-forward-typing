@@ -5,7 +5,7 @@ import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { FAQ } from "@/components/FAQ";
 import { homeFAQ } from "@/lib/faq-data";
 import { TypingHeadline } from "@/components/TypingHeadline";
-import { CertificateStack } from "@/components/CertificateStack";
+import { CertificateStackSVG } from "@/components/CertificateStackSVG";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -128,10 +128,8 @@ export default async function HomePage({ params }: Props) {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
               <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">{cert.desc}</p>
             </div>
-            <div className="flex justify-center">
-              <div className="w-full max-w-lg">
-                <CertificateStack locale={locale} />
-              </div>
+            <div className="w-full max-w-lg mx-auto">
+              <CertificateStackSVG locale={locale} />
             </div>
           </div>
         </div>
