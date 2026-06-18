@@ -89,6 +89,21 @@
       "desc": "Starte jetzt - die ersten Ergebnisse siehst du schon nach der ersten Lektion."
     }
   },
+  "about": {
+    "title": "Schneller tippen. Weniger Stress.",
+    "intro": "Millionen von Menschen tippen jeden Tag - E-Mails, Nachrichten, Dokumente, Code. Aber die wenigsten haben es je richtig gelernt. Sie schauen auf die Tastatur, nutzen ein paar Finger, und es funktioniert. Irgendwie.",
+    "missionTitle": "Warum es uns gibt",
+    "missionText": "Zehnfinger-Tipper sind 40-60% schneller als Selbstlerner. Das ist kein Motivationsspruch, das sind Daten. Die Lücke ist real - und die Werkzeuge, um sie zu schließen, sind längst überfällig.",
+    "missionText2": "Wir haben Fast Forward >> Typing gebaut, weil es noch kein Werkzeug gab, das wirklich passt. Kein Schulprogramm. Kein Kinderspiel. Kein Geschwindigkeitstest ohne Struktur. Sondern ein moderner Kurs für Erwachsene, die ihren Alltag am Computer verbringen und einfach besser tippen wollen.",
+    "howTitle": "Wie es funktioniert",
+    "howText": "Ein kostenloser Tipptest zeigt dir, wo du stehst. Ein strukturierter 4-Wochen-Kurs, 15 Minuten am Tag, bringt dir das Zehnfingersystem bei. Ein Zertifikat belegt, dass du es geschafft hast.",
+    "howText2": "Kein Abo. Kein Account nötig zum Starten. Keine Schuldgefühle, wenn du mal einen Tag aussetzt.",
+    "languagesTitle": "Drei Sprachen, kein Kompromiss",
+    "languagesText": "Deutsch, Englisch, Französisch - nicht übersetzt, sondern nativ geschrieben. Weil \"du\" nicht \"you\" ist und nicht \"tu\".",
+    "ctaTitle": "Bereit?",
+    "ctaText": "Starte mit dem kostenlosen Tipptest. Dauert weniger als 5 Minuten.",
+    "ctaButton": "Tipptest starten"
+  },
   "footer": {
     "learnTyping": "Tippen lernen",
     "typingTest": "Tipptest",

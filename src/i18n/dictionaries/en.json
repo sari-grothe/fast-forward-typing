@@ -89,6 +89,21 @@
       "desc": "Start now - you'll see results after your very first lesson."
     }
   },
+  "about": {
+    "title": "Type faster. Stress less.",
+    "intro": "Millions of people type every single day - emails, messages, documents, code. But most never learned to do it properly. They look at the keyboard, use a few fingers, and it works. Sort of.",
+    "missionTitle": "Why we exist",
+    "missionText": "Touch typists are 40-60% faster than self-taught typists. That's not a motivational quote, that's data. The skill gap is real - and the tools to close it are long overdue.",
+    "missionText2": "We built Fast Forward >> Typing because there was no tool that truly fit. Not a school program. Not a kids game. Not a speed test with no structure. A modern course for adults who spend their days at a computer and simply want to get better at it.",
+    "howTitle": "How it works",
+    "howText": "A free typing test shows you where you stand. A structured 4-week course, 15 minutes a day, teaches you touch typing from scratch. A certificate proves you did it.",
+    "howText2": "No subscription. No account required to start. No guilt trips when you skip a day.",
+    "languagesTitle": "Three languages, zero compromise",
+    "languagesText": "German, English, French - not translated, but natively written for each language. Because \"du\" is not \"you\" is not \"tu\".",
+    "ctaTitle": "Ready?",
+    "ctaText": "Start with the free typing test. Takes less than 5 minutes.",
+    "ctaButton": "Start typing test"
+  },
   "footer": {
     "learnTyping": "Learn to type",
     "typingTest": "Typing Test",
