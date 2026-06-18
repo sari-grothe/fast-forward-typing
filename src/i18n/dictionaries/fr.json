@@ -49,6 +49,8 @@
     "certificate": {
       "title": "Obtiens ton certificat",
       "desc": "Passe un test de frappe et reçois un certificat officiel avec ta vitesse et ta précision. Ou termine le cours de frappe - ton certificat est inclus.",
+      "ctaLearn": "Apprendre à taper",
+      "ctaTest": "Test de frappe gratuit",
       "brandName": "FAST FORWARD >> TYPING",
       "certTitle": "CERTIFICAT DE RÉUSSITE",
       "awardedTo": "Certificat décerné à",

@@ -49,6 +49,8 @@
     "certificate": {
       "title": "Hol dir dein Zertifikat",
       "desc": "Mach einen Tipptest und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Tippkurs ab - dein Zertifikat ist inklusive.",
+      "ctaLearn": "Tippen lernen",
+      "ctaTest": "Kostenloser Tipptest",
       "brandName": "FAST FORWARD >> TYPING",
       "certTitle": "LEISTUNGSZERTIFIKAT",
       "awardedTo": "Zertifikat verliehen an",

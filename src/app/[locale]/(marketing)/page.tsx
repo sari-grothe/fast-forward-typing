@@ -126,7 +126,21 @@ export default async function HomePage({ params }: Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
-              <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">{cert.desc}</p>
+              <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={`/${locale}/lessons/1`}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo px-6 py-3 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
+                >
+                  {cert.ctaLearn} <span className="text-electric-yellow">&gt;&gt;</span>
+                </a>
+                <a
+                  href={`/${locale}/speed-test`}
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-indigo px-6 py-3 text-base font-semibold text-indigo hover:bg-indigo/5 transition-colors"
+                >
+                  {cert.ctaTest}
+                </a>
+              </div>
             </div>
             <div className="w-full max-w-lg mx-auto">
               <CertificateStackSVG locale={locale} />

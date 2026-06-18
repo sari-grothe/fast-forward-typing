@@ -49,6 +49,8 @@
     "certificate": {
       "title": "Get your certificate",
       "desc": "Take a typing test and receive an official certificate with your speed and accuracy. Or complete the typing course - your certificate is included.",
+      "ctaLearn": "Start learning",
+      "ctaTest": "Free typing test",
       "brandName": "FAST FORWARD >> TYPING",
       "certTitle": "CERTIFICATE OF ACHIEVEMENT",
       "awardedTo": "Certificate awarded to",
