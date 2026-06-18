@@ -56,15 +56,25 @@ export function TypingArea({
   const [now, setNow] = useState(Date.now());
   const [timeUp, setTimeUp] = useState(false);
   const [shake, setShake] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const currentCharRef = useRef<HTMLSpanElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
   const stateRef = useRef(state);
   stateRef.current = state;
 
+  const IDLE_THRESHOLD_MS = 3000;
+  const lastKeystrokeRef = useRef<number>(0);
+  const pausedTotalRef = useRef<number>(0);
+  const pauseStartRef = useRef<number | null>(null);
+
   useEffect(() => {
     setState(createTypingState(text));
     setTimeUp(false);
+    setIsPaused(false);
+    lastKeystrokeRef.current = 0;
+    pausedTotalRef.current = 0;
+    pauseStartRef.current = null;
   }, [text]);
 
   useEffect(() => {
@@ -86,9 +96,18 @@ export function TypingArea({
         const current = Date.now();
         setNow(current);
 
+        const lastKey = lastKeystrokeRef.current;
+        if (lastKey > 0 && current - lastKey > IDLE_THRESHOLD_MS) {
+          if (!pauseStartRef.current) {
+            pauseStartRef.current = lastKey + IDLE_THRESHOLD_MS;
+          }
+          setIsPaused(true);
+        }
+
         if (mode === "countdown" && state.startTime) {
-          const elapsed = (current - state.startTime) / 1000;
-          if (elapsed >= countdownSeconds) {
+          const currentPause = pauseStartRef.current ? (current - pauseStartRef.current) : 0;
+          const effectiveElapsed = (current - state.startTime - pausedTotalRef.current - currentPause) / 1000;
+          if (effectiveElapsed >= countdownSeconds) {
             setTimeUp(true);
             clearInterval(intervalRef.current!);
             onComplete?.(stateRef.current);
@@ -110,6 +129,15 @@ export function TypingArea({
       e.preventDefault();
 
       if (e.key.length === 1) {
+        const keyTime = Date.now();
+
+        if (pauseStartRef.current) {
+          pausedTotalRef.current += keyTime - pauseStartRef.current;
+          pauseStartRef.current = null;
+        }
+        lastKeystrokeRef.current = keyTime;
+        setIsPaused(false);
+
         setState((prev) => {
           const next = processKeystroke(prev, e.key);
           if (next.position === prev.position) {
@@ -145,9 +173,12 @@ export function TypingArea({
   }, [handleKeyDown]);
 
   const charStatuses = getCharStatuses(state);
-  const wpm = calculateWPM(state, now);
+  const currentPauseDuration = pauseStartRef.current ? (now - pauseStartRef.current) : 0;
+  const totalPaused = pausedTotalRef.current + currentPauseDuration;
+  const effectiveNow = now - totalPaused;
+  const wpm = calculateWPM(state, effectiveNow);
   const accuracy = calculateAccuracy(state);
-  const elapsed = getElapsedSeconds(state, now);
+  const elapsed = getElapsedSeconds(state, effectiveNow);
 
   let timeDisplay: string;
   if (mode === "countdown") {
@@ -162,10 +193,20 @@ export function TypingArea({
   function handleReset() {
     setState(createTypingState(text));
     setTimeUp(false);
+    setIsPaused(false);
     setNow(Date.now());
+    lastKeystrokeRef.current = 0;
+    pausedTotalRef.current = 0;
+    pauseStartRef.current = null;
     onReset?.();
     containerRef.current?.focus();
   }
+
+  const pauseLabel: Record<string, string> = {
+    de: "Pausiert - tippe weiter zum Fortfahren",
+    en: "Paused - keep typing to continue",
+    fr: "En pause - continue de taper pour reprendre",
+  };
 
   return (
     <div className="space-y-6">
@@ -188,12 +229,23 @@ export function TypingArea({
         </div>
       )}
 
+      {isPaused && !isFinished && (
+        <div className="flex items-center justify-center gap-2 py-2 text-sm text-peach font-medium animate-pulse">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+          </svg>
+          {pauseLabel[locale] || pauseLabel.en}
+        </div>
+      )}
+
       <div
         ref={containerRef}
         tabIndex={0}
-        className={`rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none max-h-[280px] overflow-hidden ${
-          isFinished ? "opacity-60" : ""
-        }`}
+        className={[
+          "rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:ring-2 focus:ring-indigo/50 cursor-text select-none max-h-[280px] overflow-hidden",
+          isFinished ? "opacity-60" : "",
+          isPaused && !isFinished ? "border-peach/50" : "",
+        ].join(" ")}
       >
         {!state.startTime && !isFinished && (
           <p className="text-zinc-500 text-sm mb-4 font-sans">
