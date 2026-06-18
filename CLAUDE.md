@@ -38,5 +38,5 @@ Quick reference:
 - Push directly to main, no PRs
 - Never use em dashes
 - Never make up product copy - ask if unclear
-- Planning docs (research, competitor analysis, engineering plan, decisions, persona) live in sari-grothe/business-ideas (private) under skip-the-manual/type/. Read them before building anything - they contain product decisions, sprint plan, persona, and positioning.
-- **Always read skip-the-manual/type/persona.md before writing any copy.** It defines the target audience, messaging rules, and anti-personas.
+- Planning docs (research, competitor analysis, engineering plan, decisions, persona) live in sari-grothe/business-ideas (private) under fast-forward-typing/type/. Read them before building anything - they contain product decisions, sprint plan, persona, and positioning.
+- **Always read fast-forward-typing/type/persona.md before writing any copy.** It defines the target audience, messaging rules, and anti-personas.

@@ -49,7 +49,7 @@ A cheetah mascot is planned (flat 2D vector, Duolingo/Ratatype energy). Not yet 
 
 ## Target Persona
 
-**Read the full persona doc** in business-ideas/skip-the-manual-type/persona.md before writing any copy.
+**Read the full persona doc** in business-ideas/fast-forward-typing/type/persona.md before writing any copy.
 
 **Primary:** Adults 25-55 who type every day but never learned touch typing. Professionals, freelancers, career changers. They are NOT students, NOT kids, NOT speed junkies. They are productive people who know they could be faster.
 
