@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { FAQ } from "@/components/FAQ";
 import { certificateFAQ } from "@/lib/faq-data";
-import { CertificateStack } from "@/components/CertificateStack";
+import { CertificateStackSVG } from "@/components/CertificateStackSVG";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -297,7 +297,7 @@ export default async function CertificatePage({ params }: Props) {
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* Left: Certificate visual */}
         <div className="space-y-4">
-          <CertificateStack locale={locale} />
+          <CertificateStackSVG locale={locale} />
         </div>
 
         {/* Right: Value props */}
