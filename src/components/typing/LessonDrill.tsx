@@ -53,10 +53,10 @@ const i18n: Record<Locale, {
   time: string;
 }> = {
   de: {
-    drill: "Uebung",
+    drill: "Übung",
     of: "von",
     startTyping: "Einfach lostippen",
-    startHint: "Die erste Taste startet die Uebung",
+    startHint: "Die erste Taste startet die Übung",
     accuracy: "Genauigkeit",
     minAccuracy: "Mindestens {threshold}% Genauigkeit",
     belowThreshold: "Unter {threshold}% - nochmal versuchen",
@@ -83,12 +83,12 @@ const i18n: Record<Locale, {
   fr: {
     drill: "Exercice",
     of: "sur",
-    startTyping: "Commence a taper",
-    startHint: "La premiere touche lance l'exercice",
-    accuracy: "Precision",
-    minAccuracy: "Minimum {threshold}% de precision",
+    startTyping: "Commence à taper",
+    startHint: "La première touche lance l'exercice",
+    accuracy: "Précision",
+    minAccuracy: "Minimum {threshold}% de précision",
     belowThreshold: "Sous {threshold}% - encore une fois",
-    passed: "Reussi",
+    passed: "Réussi",
     tryAgain: "Encore",
     continue: "Continuer",
     errors: "Erreurs",

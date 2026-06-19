@@ -129,17 +129,17 @@ const i18n: Record<Locale, {
     explainColorIntro: "Jeder Finger hat seine Zone",
     leftHand: "Linke Hand",
     rightHand: "Rechte Hand",
-    explainStart: "Druecke ENTER um zu starten",
+    explainStart: "Drücke ENTER um zu starten",
     useYour: "Benutze deinen",
     typeThe: "Tippe die Taste",
     rememberKey: "Merk dir, wo die Taste",
-    rememberBecause: "liegt - gleich ueben wir damit.",
-    pressEnter: "Druecke ENTER",
+    rememberBecause: "liegt - gleich üben wir damit.",
+    pressEnter: "Drücke ENTER",
     nowLeftHand: "Jetzt die linke Hand",
-    nowLeftHandDesc: "Gleiche Uebung, andere Seite. Dein linker Zeigefinger liegt auf F.",
+    nowLeftHandDesc: "Gleiche Übung, andere Seite. Dein linker Zeigefinger liegt auf F.",
     allDone: "Alle Finger platziert",
-    allDoneDesc: "Das ist deine Grundposition. Von hier aus erreichst du jede Taste. Jetzt ueben wir.",
-    startDrills: "Weiter zu den Uebungen",
+    allDoneDesc: "Das ist deine Grundposition. Von hier aus erreichst du jede Taste. Jetzt üben wir.",
+    startDrills: "Weiter zu den Übungen",
   },
   en: {
     explainTitle: "The Home Position",
@@ -164,21 +164,21 @@ const i18n: Record<Locale, {
   fr: {
     explainTitle: "La position de base",
     explainP1: "Les touches F et J ont de petites bosses. Pose tes index dessus - gauche sur F, droit sur J.",
-    explainP2: "Depuis cette position, chaque doigt couvre sa propre zone du clavier. Les couleurs montrent quel doigt gere quelles touches.",
+    explainP2: "Depuis cette position, chaque doigt couvre sa propre zone du clavier. Les couleurs montrent quel doigt gère quelles touches.",
     explainP3: "On va placer chaque doigt un par un. D'abord la main droite, puis la gauche.",
     explainColorIntro: "Chaque doigt a sa zone",
     leftHand: "Main gauche",
     rightHand: "Main droite",
-    explainStart: "Appuie sur ENTREE pour commencer",
+    explainStart: "Appuie sur ENTRÉE pour commencer",
     useYour: "Utilise ton",
     typeThe: "Tape la touche",
     rememberKey: "Retiens ou se trouve la touche",
     rememberBecause: "- on va s'entrainer maintenant.",
-    pressEnter: "Appuie sur ENTREE",
+    pressEnter: "Appuie sur ENTRÉE",
     nowLeftHand: "Maintenant la main gauche",
-    nowLeftHandDesc: "Meme exercice, autre cote. Ton index gauche se pose sur F.",
-    allDone: "Tous les doigts places",
-    allDoneDesc: "C'est ta position de base. Chaque touche est accessible d'ici. Passons a la pratique.",
+    nowLeftHandDesc: "Même exercice, autre côté. Ton index gauche se pose sur F.",
+    allDone: "Tous les doigts placés",
+    allDoneDesc: "C'est ta position de base. Chaque touche est accessible d'ici. Passons à la pratique.",
     startDrills: "Passer aux exercices",
   },
 };
@@ -320,7 +320,7 @@ export function KeyIntro({ locale, onComplete }: Props) {
             <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
               ENTER
             </kbd>
-            <span>{l.explainStart.replace(/.*ENTER\s*/, "").replace(/.*ENTREE\s*/, "")}</span>
+            <span>{l.explainStart.replace(/.*ENTER\s*/, "").replace(/.*ENTRÉE\s*/, "")}</span>
           </div>
         </div>
       )}
