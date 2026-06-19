@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
+import { KeyCharacter } from "@/components/KeyCharacter";
 import { getLesson, getNextLesson, lessonMeta, phaseNames } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
@@ -118,10 +119,8 @@ export function LessonView({ lessonId, locale }: Props) {
       <div className="space-y-8">
         {/* Lesson complete */}
         <div className="rounded-2xl border-2 border-indigo/20 bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-4">
-          <div className="w-16 h-16 mx-auto rounded-full bg-indigo/10 flex items-center justify-center">
-            <svg className="w-8 h-8 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+          <div className="flex justify-center">
+            <KeyCharacter pose={nextLesson ? "sitting-waving" : "waving"} size={80} />
           </div>
           <h2 className="text-2xl font-bold text-dark-text dark:text-white">
             {meta?.completionMessage ?? "Complete!"}

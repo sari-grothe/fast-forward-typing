@@ -64,7 +64,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <a href={`/${locale}/speed-test`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.typingTest}
                 </a>
-                <a href={`/${locale}/lessons/1`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
+                <a href={`/${locale}/lessons`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                   {dict.nav.typingCourse}
                 </a>
                 <a href={`/${locale}/tips`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
@@ -92,7 +92,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.learnTyping}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <a href={`/${locale}/speed-test`} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</a>
-                  <a href={`/${locale}/lessons/1`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</a>
+                  <a href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</a>
                   <a href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.typingTips}</a>
                   <a href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</a>
                   <a href={`/${locale}/pricing`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</a>

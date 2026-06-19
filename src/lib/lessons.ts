@@ -80,9 +80,10 @@ export const fingerColors: Record<Finger, string> = {
 const HOME_ROW = ["a", "s", "d", "f", "j", "k", "l", ";", " "];
 const TOP_ROW = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"];
 const BOTTOM_ROW = ["z", "x", "c", "v", "b", "n", "m", ",", ".", "/"];
+const ALL_LETTERS = [...HOME_ROW, ...TOP_ROW, ...BOTTOM_ROW];
 
 export const lessons: Lesson[] = [
-  // Phase 0: Introduction
+  // === Phase 0: Introduction ===
   {
     id: 0,
     phase: 0,
@@ -96,7 +97,7 @@ export const lessons: Lesson[] = [
     completionThreshold: 90,
     isFree: true,
   },
-  // Phase 1: Home Row
+  // === Phase 1: Home Row ===
   {
     id: 1,
     phase: 1,
@@ -162,7 +163,7 @@ export const lessons: Lesson[] = [
     completionThreshold: 90,
     isFree: true,
   },
-  // Phase 2: Top Row
+  // === Phase 2: Top Row ===
   {
     id: 6,
     phase: 2,
@@ -184,7 +185,7 @@ export const lessons: Lesson[] = [
     drills: [
       { type: "keys", content: "r u r u u r r u u r r u" },
       { type: "keys", content: "fr ju rf uj fur rue ruf" },
-      { type: "words", content: "rulefire sure ride user друг" },
+      { type: "words", content: "rule fire sure ride user" },
     ],
     completionThreshold: 90,
     isFree: false,
@@ -228,7 +229,7 @@ export const lessons: Lesson[] = [
     completionThreshold: 90,
     isFree: false,
   },
-  // Phase 3: Bottom Row
+  // === Phase 3: Bottom Row ===
   {
     id: 11,
     phase: 3,
@@ -268,31 +269,191 @@ export const lessons: Lesson[] = [
     completionThreshold: 90,
     isFree: false,
   },
-  // Phase 4: Speed + Fluency
+  // === Phase 4: Common Words ===
   {
     id: 14,
     phase: 4,
     newKeys: [],
-    allKeys: [...HOME_ROW, ...TOP_ROW, ...BOTTOM_ROW],
+    allKeys: [...ALL_LETTERS],
     drills: [
-      { type: "sentences", content: "typing is a skill that improves with daily practice. every session builds on the last." },
-      { type: "sentences", content: "the best way to type faster is to type correctly first. speed follows accuracy." },
-      { type: "sentences", content: "your fingers know the keys now. trust them and keep your eyes on the screen." },
+      { type: "words", content: "the and for are but not you all can her was one our" },
+      { type: "words", content: "have from this will your been each make like long" },
+      { type: "words", content: "time very when come could people than first water been" },
     ],
-    completionThreshold: 92,
+    completionThreshold: 90,
     isFree: false,
   },
   {
     id: 15,
     phase: 4,
     newKeys: [],
-    allKeys: [...HOME_ROW, ...TOP_ROW, ...BOTTOM_ROW],
+    allKeys: [...ALL_LETTERS],
     drills: [
-      { type: "sentences", content: "a well written email saves time for everyone. clear writing starts with confident typing." },
-      { type: "sentences", content: "the difference between a fast typist and a slow one is not talent. it is practice." },
-      { type: "sentences", content: "you have completed every lesson. your fingers move with purpose now. this is your new normal." },
+      { type: "words", content: "about their which would there other into more some" },
+      { type: "words", content: "after also back because before between both came" },
+      { type: "words", content: "should still through under where while work three" },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 16,
+    phase: 4,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "words", content: "open close begin start focus clear build solve plan" },
+      { type: "words", content: "window problem button review number project example" },
+      { type: "words", content: "computer software keyboard monitor display settings" },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  // === Phase 5: Capitalization ===
+  {
+    id: 17,
+    phase: 5,
+    newKeys: ["Shift"],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "words", content: "The And For Are But Not You All Can Her Was One" },
+      { type: "words", content: "Monday Tuesday Wednesday Thursday Friday Saturday Sunday" },
+      { type: "sentences", content: "The quick fox jumps. A red car drives fast. My dog runs." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 18,
+    phase: 5,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Berlin is the capital of Germany. Paris is in France." },
+      { type: "sentences", content: "Sarah likes to code in Python. Tom prefers JavaScript." },
+      { type: "sentences", content: "On Monday we start the project. By Friday it ships." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  // === Phase 6: Punctuation ===
+  {
+    id: 19,
+    phase: 6,
+    newKeys: [".", ",", "?", "!"],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Is this correct? Yes, it works. That is great!" },
+      { type: "sentences", content: "Wait, what? Are you sure? Yes! Let me check." },
+      { type: "sentences", content: "Hello, world. How are you? I am fine, thanks!" },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 20,
+    phase: 6,
+    newKeys: ["'", "\"", "-", ":"],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "It's a good day. Don't stop now. I can't wait." },
+      { type: "sentences", content: "She said: \"Hello.\" He replied: \"Hi there.\"" },
+      { type: "sentences", content: "The well-known fact: practice makes perfect." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 21,
+    phase: 6,
+    newKeys: ["(", ")", "@", "&"],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Send it to name@email.com for review." },
+      { type: "sentences", content: "The result (see below) is clear & correct." },
+      { type: "sentences", content: "Call us at (555) 123-4567 or email info@company.com." },
     ],
     completionThreshold: 92,
+    isFree: false,
+  },
+  // === Phase 7: Sentences + Paragraphs ===
+  {
+    id: 22,
+    phase: 7,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "The best way to learn is to practice every day." },
+      { type: "sentences", content: "A clear mind and steady fingers make fast typing." },
+      { type: "sentences", content: "Focus on accuracy first. Speed follows naturally." },
+    ],
+    completionThreshold: 92,
+    isFree: false,
+  },
+  {
+    id: 23,
+    phase: 7,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Good writing starts with confident typing. When your fingers move without thinking, your mind stays on the message." },
+      { type: "sentences", content: "The difference between a fast typist and a slow one is not talent. It is thousands of small, correct repetitions." },
+      { type: "sentences", content: "Every email you write, every message you send, every document you draft builds your speed. Typing is a daily skill." },
+    ],
+    completionThreshold: 92,
+    isFree: false,
+  },
+  {
+    id: 24,
+    phase: 7,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Meeting notes from today: We discussed the new project timeline. The deadline is set for March. Everyone agreed on the approach. Action items were assigned to each team member." },
+      { type: "sentences", content: "Dear team, please review the attached document before our meeting on Thursday. Let me know if you have any questions or concerns. Looking forward to your feedback." },
+      { type: "sentences", content: "The quarterly report shows strong growth in all areas. Revenue increased by twelve percent compared to last year. Customer satisfaction scores remain high across all regions." },
+    ],
+    completionThreshold: 92,
+    isFree: false,
+  },
+  // === Phase 8: Speed + Fluency ===
+  {
+    id: 25,
+    phase: 8,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "words", content: "the of and to in is it you that he was for on are with" },
+      { type: "words", content: "as his they be at one have this from or had by not but" },
+      { type: "words", content: "some what there we can out other were all your when up" },
+    ],
+    completionThreshold: 92,
+    isFree: false,
+  },
+  {
+    id: 26,
+    phase: 8,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "Speed comes from muscle memory, not from trying harder. Relax your hands and let your fingers do the work." },
+      { type: "sentences", content: "The quick brown fox jumps over the lazy dog. Pack my box with five dozen liquor jugs." },
+      { type: "sentences", content: "Typing is like riding a bike. Once you learn it properly, you never forget. The skill stays with you for life." },
+    ],
+    completionThreshold: 94,
+    isFree: false,
+  },
+  {
+    id: 27,
+    phase: 8,
+    newKeys: [],
+    allKeys: [...ALL_LETTERS],
+    drills: [
+      { type: "sentences", content: "A well-written email saves time for everyone. Clear writing starts with confident typing. When you type fast, you think fast." },
+      { type: "sentences", content: "The final test: type this paragraph as fast and as accurately as you can. Do not look at the keyboard. Trust your fingers." },
+      { type: "sentences", content: "You have completed every lesson in this course. Your fingers move with purpose now. This is your new normal. Go type something great." },
+    ],
+    completionThreshold: 94,
     isFree: false,
   },
 ];
@@ -313,21 +474,33 @@ export const phaseNames: Record<Locale, Record<number, string>> = {
     1: "Grundreihe",
     2: "Obere Reihe",
     3: "Untere Reihe",
-    4: "Geschwindigkeit",
+    4: "Haeufige Woerter",
+    5: "Grossschreibung",
+    6: "Satzzeichen",
+    7: "Saetze + Absaetze",
+    8: "Geschwindigkeit",
   },
   en: {
     0: "Introduction",
     1: "Home Row",
     2: "Top Row",
     3: "Bottom Row",
-    4: "Speed + Fluency",
+    4: "Common Words",
+    5: "Capitalization",
+    6: "Punctuation",
+    7: "Sentences + Paragraphs",
+    8: "Speed + Fluency",
   },
   fr: {
     0: "Introduction",
     1: "Rangee de base",
     2: "Rangee superieure",
     3: "Rangee inferieure",
-    4: "Vitesse + Fluidite",
+    4: "Mots courants",
+    5: "Majuscules",
+    6: "Ponctuation",
+    7: "Phrases + Paragraphes",
+    8: "Vitesse + Fluidite",
   },
 };
 
@@ -418,12 +591,84 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
       completionMessage: "Alle Tasten gelernt. Jedes Wort ist jetzt moeglich.",
     },
     14: {
-      title: "Geschwindigkeit aufbauen",
-      subtitle: "Alle Tasten sitzen. Jetzt geht es um Tempo und Fluessigkeit.",
-      newKeysLabel: "Alle Tasten",
-      completionMessage: "Deine Geschwindigkeit steigt. Weiter so.",
+      title: "Die 100 haeufigsten Woerter",
+      subtitle: "Die Woerter, die du am meisten tippst. Schnell und sicher.",
+      newKeysLabel: "Haeufige Woerter",
+      completionMessage: "Diese Woerter sitzen. Deine Alltagstexte werden schneller.",
     },
     15: {
+      title: "Woerter mit zwei Silben",
+      subtitle: "Laengere Woerter, die fliessend getippt werden muessen.",
+      newKeysLabel: "Zwei-Silben-Woerter",
+      completionMessage: "Laengere Woerter sind kein Problem mehr.",
+    },
+    16: {
+      title: "Alltags-Vokabular",
+      subtitle: "Woerter aus dem Arbeitsalltag: Computer, Software, Projekt.",
+      newKeysLabel: "Arbeit + Technik",
+      completionMessage: "Dein Arbeitsvokabular sitzt. Weiter mit Grossbuchstaben.",
+    },
+    17: {
+      title: "Shift-Taste und Grossbuchstaben",
+      subtitle: "Halte Shift mit dem kleinen Finger und tippe den Buchstaben.",
+      newKeysLabel: "Shift",
+      completionMessage: "Grossbuchstaben gemeistert. Wochentage, Namen, Satzanfaenge.",
+    },
+    18: {
+      title: "Saetze mit Grossbuchstaben",
+      subtitle: "Echte Saetze mit korrekter Gross- und Kleinschreibung.",
+      newKeysLabel: "Wiederholung",
+      completionMessage: "Grossschreibung ist jetzt automatisch. Gut.",
+    },
+    19: {
+      title: "Punkt, Komma, Frage, Ausruf",
+      subtitle: "Die vier wichtigsten Satzzeichen im Alltag.",
+      newKeysLabel: ". , ? !",
+      completionMessage: "Grundlegende Satzzeichen sitzen.",
+    },
+    20: {
+      title: "Apostroph, Anfuehrung, Bindestrich",
+      subtitle: "Satzzeichen fuer Zitate und zusammengesetzte Woerter.",
+      newKeysLabel: "' \" - :",
+      completionMessage: "Du kannst jetzt auch komplexere Texte korrekt tippen.",
+    },
+    21: {
+      title: "Klammern, @, &",
+      subtitle: "Sonderzeichen fuer E-Mails und technische Texte.",
+      newKeysLabel: "( ) @ &",
+      completionMessage: "E-Mail-Adressen und technische Zeichen sind kein Problem.",
+    },
+    22: {
+      title: "Kurze Saetze",
+      subtitle: "Fliessend tippen, Satz fuer Satz.",
+      newKeysLabel: "Saetze",
+      completionMessage: "Kurze Saetze fliessen. Weiter mit laengeren Texten.",
+    },
+    23: {
+      title: "Laengere Saetze",
+      subtitle: "Zwei bis drei Saetze am Stueck. Konzentration halten.",
+      newKeysLabel: "Laengere Saetze",
+      completionMessage: "Du haeltst die Konzentration ueber laengere Texte.",
+    },
+    24: {
+      title: "Absaetze",
+      subtitle: "Ganze Absaetze tippen: E-Mails, Berichte, Notizen.",
+      newKeysLabel: "Absaetze",
+      completionMessage: "Du tippst jetzt ganze Absaetze fliessend und korrekt.",
+    },
+    25: {
+      title: "Geschwindigkeit: Haeufige Woerter",
+      subtitle: "Die haeufigsten Woerter so schnell wie moeglich tippen.",
+      newKeysLabel: "Speed Drill",
+      completionMessage: "Deine Geschwindigkeit steigt. Weiter so.",
+    },
+    26: {
+      title: "Geschwindigkeit: Saetze",
+      subtitle: "Saetze auf Tempo tippen. Genauigkeit bleibt wichtig.",
+      newKeysLabel: "Speed Drill",
+      completionMessage: "Tempo und Genauigkeit im Gleichgewicht. Stark.",
+    },
+    27: {
       title: "Der letzte Test",
       subtitle: "Zeig, was du gelernt hast. Tippe fliessend und sicher.",
       newKeysLabel: "Alle Tasten",
@@ -516,12 +761,84 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
       completionMessage: "Every key learned. Every word is now possible.",
     },
     14: {
-      title: "Building Speed",
-      subtitle: "You know all the keys. Now it's about tempo and flow.",
-      newKeysLabel: "All keys",
-      completionMessage: "Your speed is rising. Keep it up.",
+      title: "100 Most Common Words",
+      subtitle: "The words you type most. Fast and confident.",
+      newKeysLabel: "Common words",
+      completionMessage: "These words are second nature now.",
     },
     15: {
+      title: "Two-Syllable Words",
+      subtitle: "Longer words that need to flow smoothly.",
+      newKeysLabel: "Two-syllable words",
+      completionMessage: "Longer words are no longer a challenge.",
+    },
+    16: {
+      title: "Everyday Vocabulary",
+      subtitle: "Words from work and tech: computer, software, project.",
+      newKeysLabel: "Work + tech",
+      completionMessage: "Your work vocabulary is solid. On to capitalization.",
+    },
+    17: {
+      title: "Shift Key and Capital Letters",
+      subtitle: "Hold Shift with your pinky, type the letter.",
+      newKeysLabel: "Shift",
+      completionMessage: "Capitals mastered. Weekdays, names, sentence starts.",
+    },
+    18: {
+      title: "Sentences with Capitals",
+      subtitle: "Real sentences with proper capitalization.",
+      newKeysLabel: "Review",
+      completionMessage: "Capitalization is now automatic. Good.",
+    },
+    19: {
+      title: "Period, Comma, Question, Exclamation",
+      subtitle: "The four most important punctuation marks.",
+      newKeysLabel: ". , ? !",
+      completionMessage: "Basic punctuation is solid.",
+    },
+    20: {
+      title: "Apostrophe, Quotes, Hyphen",
+      subtitle: "Punctuation for quotes and compound words.",
+      newKeysLabel: "' \" - :",
+      completionMessage: "You can now type more complex texts correctly.",
+    },
+    21: {
+      title: "Brackets, @, &",
+      subtitle: "Special characters for emails and technical text.",
+      newKeysLabel: "( ) @ &",
+      completionMessage: "Email addresses and special characters are no problem.",
+    },
+    22: {
+      title: "Quick Sentences",
+      subtitle: "Type fluently, sentence by sentence.",
+      newKeysLabel: "Sentences",
+      completionMessage: "Short sentences flow. On to longer texts.",
+    },
+    23: {
+      title: "Longer Sentences",
+      subtitle: "Two to three sentences at a time. Stay focused.",
+      newKeysLabel: "Longer sentences",
+      completionMessage: "You hold focus over longer texts.",
+    },
+    24: {
+      title: "Short Paragraphs",
+      subtitle: "Type full paragraphs: emails, reports, notes.",
+      newKeysLabel: "Paragraphs",
+      completionMessage: "You type full paragraphs fluently and correctly.",
+    },
+    25: {
+      title: "Speed: Common Words",
+      subtitle: "The most common words as fast as possible.",
+      newKeysLabel: "Speed drill",
+      completionMessage: "Your speed is climbing. Keep going.",
+    },
+    26: {
+      title: "Speed: Sentences",
+      subtitle: "Type sentences at speed. Accuracy still matters.",
+      newKeysLabel: "Speed drill",
+      completionMessage: "Speed and accuracy in balance. Strong.",
+    },
+    27: {
       title: "The Final Test",
       subtitle: "Show what you've learned. Type with confidence.",
       newKeysLabel: "All keys",
@@ -614,12 +931,84 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
       completionMessage: "Toutes les touches apprises. Chaque mot est possible.",
     },
     14: {
-      title: "Construire la vitesse",
-      subtitle: "Tu connais toutes les touches. Place au tempo et a la fluidite.",
-      newKeysLabel: "Toutes les touches",
-      completionMessage: "Ta vitesse augmente. Continue comme ca.",
+      title: "Les 100 mots les plus courants",
+      subtitle: "Les mots que tu tapes le plus. Rapide et sur.",
+      newKeysLabel: "Mots courants",
+      completionMessage: "Ces mots sont automatiques maintenant.",
     },
     15: {
+      title: "Mots de deux syllabes",
+      subtitle: "Des mots plus longs qui doivent couler naturellement.",
+      newKeysLabel: "Mots bi-syllabiques",
+      completionMessage: "Les mots plus longs ne posent plus de probleme.",
+    },
+    16: {
+      title: "Vocabulaire du quotidien",
+      subtitle: "Mots du travail et de la tech : ordinateur, logiciel, projet.",
+      newKeysLabel: "Travail + tech",
+      completionMessage: "Ton vocabulaire professionnel est solide.",
+    },
+    17: {
+      title: "Touche Shift et majuscules",
+      subtitle: "Maintiens Shift avec l'auriculaire, tape la lettre.",
+      newKeysLabel: "Shift",
+      completionMessage: "Majuscules maitrisees. Jours, noms, debuts de phrase.",
+    },
+    18: {
+      title: "Phrases avec majuscules",
+      subtitle: "De vraies phrases avec les majuscules correctes.",
+      newKeysLabel: "Revision",
+      completionMessage: "Les majuscules sont maintenant automatiques.",
+    },
+    19: {
+      title: "Point, virgule, question, exclamation",
+      subtitle: "Les quatre signes de ponctuation les plus importants.",
+      newKeysLabel: ". , ? !",
+      completionMessage: "La ponctuation de base est solide.",
+    },
+    20: {
+      title: "Apostrophe, guillemets, tiret",
+      subtitle: "Ponctuation pour les citations et mots composes.",
+      newKeysLabel: "' \" - :",
+      completionMessage: "Tu peux maintenant taper des textes plus complexes.",
+    },
+    21: {
+      title: "Parentheses, @, &",
+      subtitle: "Caracteres speciaux pour emails et textes techniques.",
+      newKeysLabel: "( ) @ &",
+      completionMessage: "Adresses email et caracteres speciaux, pas de probleme.",
+    },
+    22: {
+      title: "Phrases courtes",
+      subtitle: "Taper avec fluidite, phrase par phrase.",
+      newKeysLabel: "Phrases",
+      completionMessage: "Les phrases courtes coulent. Passons aux textes plus longs.",
+    },
+    23: {
+      title: "Phrases plus longues",
+      subtitle: "Deux a trois phrases d'affilee. Garde ta concentration.",
+      newKeysLabel: "Phrases longues",
+      completionMessage: "Tu gardes la concentration sur des textes plus longs.",
+    },
+    24: {
+      title: "Paragraphes courts",
+      subtitle: "Tape des paragraphes entiers : emails, rapports, notes.",
+      newKeysLabel: "Paragraphes",
+      completionMessage: "Tu tapes des paragraphes entiers avec fluidite et precision.",
+    },
+    25: {
+      title: "Vitesse : mots courants",
+      subtitle: "Les mots les plus courants aussi vite que possible.",
+      newKeysLabel: "Speed drill",
+      completionMessage: "Ta vitesse augmente. Continue.",
+    },
+    26: {
+      title: "Vitesse : phrases",
+      subtitle: "Des phrases a pleine vitesse. La precision reste importante.",
+      newKeysLabel: "Speed drill",
+      completionMessage: "Vitesse et precision en equilibre. Solide.",
+    },
+    27: {
       title: "Le test final",
       subtitle: "Montre ce que tu as appris. Tape avec confiance.",
       newKeysLabel: "Toutes les touches",

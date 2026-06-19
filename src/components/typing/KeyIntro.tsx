@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Keyboard } from "./Keyboard";
+import { KeyCharacter } from "@/components/KeyCharacter";
 import { fingerColors, type Finger } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
@@ -440,10 +441,8 @@ export function KeyIntro({ locale, onComplete }: Props) {
       {/* === PHASE: Done === */}
       {phase === "done" && (
         <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-4">
-          <div className="w-14 h-14 mx-auto rounded-full bg-indigo/10 flex items-center justify-center">
-            <svg className="w-7 h-7 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-            </svg>
+          <div className="flex justify-center">
+            <KeyCharacter pose="sitting-waving" size={80} />
           </div>
           <h2 className="text-xl font-bold text-dark-text dark:text-white">{l.allDone}</h2>
           <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">{l.allDoneDesc}</p>
