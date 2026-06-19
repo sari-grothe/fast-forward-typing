@@ -335,7 +335,7 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
   de: {
     0: {
       title: "Finde die Markierungen",
-      subtitle: "Deine Zeigefinger gehoeren auf F und J. Fuehle die kleinen Erhebungen.",
+      subtitle: "Schau auf deine Tastatur: Auf den Tasten F und J sind kleine Noppen. Lege deine Zeigefinger darauf - links auf F, rechts auf J. Von dieser Position aus erreichst du alle anderen Tasten.",
       newKeysLabel: "F und J",
       completionMessage: "Gut. Deine Finger wissen jetzt, wo sie hingehoeren.",
     },
@@ -433,7 +433,7 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
   en: {
     0: {
       title: "Find the Bumps",
-      subtitle: "Your index fingers belong on F and J. Feel the small ridges.",
+      subtitle: "Look at your keyboard: the F and J keys have small bumps on them. Place your index fingers there - left on F, right on J. This is your home position for reaching every other key.",
       newKeysLabel: "F and J",
       completionMessage: "Good. Your fingers know where they belong now.",
     },
@@ -531,7 +531,7 @@ export const lessonMeta: Record<Locale, Record<number, LessonMeta>> = {
   fr: {
     0: {
       title: "Trouve les reperes",
-      subtitle: "Tes index se posent sur F et J. Sens les petites bosses.",
+      subtitle: "Regarde ton clavier : les touches F et J ont de petites bosses. Pose tes index dessus - gauche sur F, droit sur J. C'est ta position de depart pour atteindre toutes les autres touches.",
       newKeysLabel: "F et J",
       completionMessage: "Bien. Tes doigts savent ou se placer.",
     },

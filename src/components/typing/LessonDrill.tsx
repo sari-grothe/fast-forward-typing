@@ -239,6 +239,7 @@ export function LessonDrill({
         activeKeys={allKeys}
         pressedKey={pressedKey}
         showFingers={true}
+        locale={locale}
       />
 
       {/* Completion panel */}
