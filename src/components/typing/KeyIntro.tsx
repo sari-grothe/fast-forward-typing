@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Keyboard } from "./Keyboard";
-import { fingerForKey, fingerColors, type Finger } from "@/lib/lessons";
+import { fingerColors, type Finger } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
 type KeyStep = {
@@ -10,16 +10,21 @@ type KeyStep = {
   finger: Finger;
 };
 
-const HOME_KEY_STEPS: KeyStep[] = [
+const RIGHT_HAND_STEPS: KeyStep[] = [
   { key: "j", finger: "right-index" },
-  { key: "f", finger: "left-index" },
   { key: "k", finger: "right-middle" },
-  { key: "d", finger: "left-middle" },
   { key: "l", finger: "right-ring" },
-  { key: "s", finger: "left-ring" },
   { key: ";", finger: "right-pinky" },
+];
+
+const LEFT_HAND_STEPS: KeyStep[] = [
+  { key: "f", finger: "left-index" },
+  { key: "d", finger: "left-middle" },
+  { key: "s", finger: "left-ring" },
   { key: "a", finger: "left-pinky" },
 ];
+
+const ALL_STEPS = [...RIGHT_HAND_STEPS, ...LEFT_HAND_STEPS];
 
 const fingerNames: Record<Locale, Record<Finger, string>> = {
   de: {
@@ -57,45 +62,123 @@ const fingerNames: Record<Locale, Record<Finger, string>> = {
   },
 };
 
+const fingerLabelShort: Record<Locale, Record<Finger, string>> = {
+  de: {
+    "left-pinky": "Kl. Finger",
+    "left-ring": "Ringfinger",
+    "left-middle": "Mittelfinger",
+    "left-index": "Zeigefinger",
+    "right-index": "Zeigefinger",
+    "right-middle": "Mittelfinger",
+    "right-ring": "Ringfinger",
+    "right-pinky": "Kl. Finger",
+    thumb: "Daumen",
+  },
+  en: {
+    "left-pinky": "Pinky",
+    "left-ring": "Ring",
+    "left-middle": "Middle",
+    "left-index": "Index",
+    "right-index": "Index",
+    "right-middle": "Middle",
+    "right-ring": "Ring",
+    "right-pinky": "Pinky",
+    thumb: "Thumb",
+  },
+  fr: {
+    "left-pinky": "Auriculaire",
+    "left-ring": "Annulaire",
+    "left-middle": "Majeur",
+    "left-index": "Index",
+    "right-index": "Index",
+    "right-middle": "Majeur",
+    "right-ring": "Annulaire",
+    "right-pinky": "Auriculaire",
+    thumb: "Pouce",
+  },
+};
+
+type Phase = "explain" | "typing" | "confirm" | "done";
+
 const i18n: Record<Locale, {
+  explainTitle: string;
+  explainP1: string;
+  explainP2: string;
+  explainP3: string;
+  explainColorIntro: string;
+  leftHand: string;
+  rightHand: string;
+  explainStart: string;
   useYour: string;
-  toType: string;
   typeThe: string;
-  key: string;
-  correct: string;
+  rememberKey: string;
+  rememberBecause: string;
+  pressEnter: string;
+  nowLeftHand: string;
+  nowLeftHandDesc: string;
   allDone: string;
   allDoneDesc: string;
   startDrills: string;
 }> = {
   de: {
+    explainTitle: "Die Grundposition",
+    explainP1: "Auf den Tasten F und J befinden sich kleine Noppen. Lege deine Zeigefinger darauf - links auf F, rechts auf J.",
+    explainP2: "Von dieser Position aus deckt jeder Finger eine eigene Zone der Tastatur ab. Die Farben zeigen dir, welcher Finger welche Tasten bedient.",
+    explainP3: "Wir platzieren jetzt jeden Finger einzeln. Zuerst die rechte Hand, dann die linke.",
+    explainColorIntro: "Jeder Finger hat seine Zone",
+    leftHand: "Linke Hand",
+    rightHand: "Rechte Hand",
+    explainStart: "Druecke ENTER um zu starten",
     useYour: "Benutze deinen",
-    toType: "",
     typeThe: "Tippe die Taste",
-    key: "",
-    correct: "Richtig",
+    rememberKey: "Merk dir, wo die Taste",
+    rememberBecause: "liegt - gleich ueben wir damit.",
+    pressEnter: "Druecke ENTER",
+    nowLeftHand: "Jetzt die linke Hand",
+    nowLeftHandDesc: "Gleiche Uebung, andere Seite. Dein linker Zeigefinger liegt auf F.",
     allDone: "Alle Finger platziert",
-    allDoneDesc: "Deine Finger kennen jetzt ihre Position. Weiter mit den Uebungen.",
-    startDrills: "Weiter",
+    allDoneDesc: "Das ist deine Grundposition. Von hier aus erreichst du jede Taste. Jetzt ueben wir.",
+    startDrills: "Weiter zu den Uebungen",
   },
   en: {
+    explainTitle: "The Home Position",
+    explainP1: "The F and J keys have small bumps on them. Place your index fingers there - left on F, right on J.",
+    explainP2: "From this position, each finger covers its own zone of the keyboard. The colors show you which finger handles which keys.",
+    explainP3: "We'll place each finger one by one. Right hand first, then left.",
+    explainColorIntro: "Each finger has its zone",
+    leftHand: "Left hand",
+    rightHand: "Right hand",
+    explainStart: "Press ENTER to start",
     useYour: "Use your",
-    toType: "to type",
     typeThe: "Type the",
-    key: "key",
-    correct: "Correct",
+    rememberKey: "Remember where the",
+    rememberBecause: "key is - we'll practice it now.",
+    pressEnter: "Press ENTER",
+    nowLeftHand: "Now the left hand",
+    nowLeftHandDesc: "Same exercise, other side. Your left index finger sits on F.",
     allDone: "All fingers placed",
-    allDoneDesc: "Your fingers know their home position now. Let's practice.",
-    startDrills: "Continue",
+    allDoneDesc: "This is your home position. Every key is reachable from here. Let's practice.",
+    startDrills: "Continue to drills",
   },
   fr: {
+    explainTitle: "La position de base",
+    explainP1: "Les touches F et J ont de petites bosses. Pose tes index dessus - gauche sur F, droit sur J.",
+    explainP2: "Depuis cette position, chaque doigt couvre sa propre zone du clavier. Les couleurs montrent quel doigt gere quelles touches.",
+    explainP3: "On va placer chaque doigt un par un. D'abord la main droite, puis la gauche.",
+    explainColorIntro: "Chaque doigt a sa zone",
+    leftHand: "Main gauche",
+    rightHand: "Main droite",
+    explainStart: "Appuie sur ENTREE pour commencer",
     useYour: "Utilise ton",
-    toType: "pour taper",
     typeThe: "Tape la touche",
-    key: "",
-    correct: "Correct",
+    rememberKey: "Retiens ou se trouve la touche",
+    rememberBecause: "- on va s'entrainer maintenant.",
+    pressEnter: "Appuie sur ENTREE",
+    nowLeftHand: "Maintenant la main gauche",
+    nowLeftHandDesc: "Meme exercice, autre cote. Ton index gauche se pose sur F.",
     allDone: "Tous les doigts places",
-    allDoneDesc: "Tes doigts connaissent leur position. Passons aux exercices.",
-    startDrills: "Continuer",
+    allDoneDesc: "C'est ta position de base. Chaque touche est accessible d'ici. Passons a la pratique.",
+    startDrills: "Passer aux exercices",
   },
 };
 
@@ -105,41 +188,59 @@ type Props = {
 };
 
 export function KeyIntro({ locale, onComplete }: Props) {
+  const [phase, setPhase] = useState<Phase>("explain");
   const [stepIndex, setStepIndex] = useState(0);
-  const [showCorrect, setShowCorrect] = useState(false);
   const [pressedKey, setPressedKey] = useState<string | undefined>();
   const [completedKeys, setCompletedKeys] = useState<string[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const l = i18n[locale];
   const names = fingerNames[locale];
+  const shortNames = fingerLabelShort[locale];
 
-  const isDone = stepIndex >= HOME_KEY_STEPS.length;
-  const currentStep = isDone ? null : HOME_KEY_STEPS[stepIndex];
+  const currentStep = stepIndex < ALL_STEPS.length ? ALL_STEPS[stepIndex] : null;
+  const isRightHandDone = stepIndex === RIGHT_HAND_STEPS.length;
+  const showLeftHandTransition = phase === "confirm" && isRightHandDone && stepIndex > 0;
 
   useEffect(() => {
     containerRef.current?.focus();
-  }, []);
+  }, [phase]);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (isDone || !currentStep) return;
       if (e.key === "Tab" || e.key === "Escape") return;
       e.preventDefault();
 
-      const typed = e.key.toLowerCase();
-      setPressedKey(typed);
-      setTimeout(() => setPressedKey(undefined), 150);
+      if (phase === "explain") {
+        if (e.key === "Enter") {
+          setPhase("typing");
+        }
+        return;
+      }
 
-      if (typed === currentStep.key) {
-        setShowCorrect(true);
-        setCompletedKeys((prev) => [...prev, currentStep.key]);
-        setTimeout(() => {
-          setShowCorrect(false);
+      if (phase === "confirm") {
+        if (e.key === "Enter") {
+          if (stepIndex >= ALL_STEPS.length) {
+            setPhase("done");
+          } else {
+            setPhase("typing");
+          }
+        }
+        return;
+      }
+
+      if (phase === "typing" && currentStep) {
+        const typed = e.key.toLowerCase();
+        setPressedKey(typed);
+        setTimeout(() => setPressedKey(undefined), 150);
+
+        if (typed === currentStep.key) {
+          setCompletedKeys((prev) => [...prev, currentStep.key]);
           setStepIndex((prev) => prev + 1);
-        }, 600);
+          setPhase("confirm");
+        }
       }
     },
-    [isDone, currentStep]
+    [phase, currentStep, stepIndex]
   );
 
   useEffect(() => {
@@ -150,6 +251,8 @@ export function KeyIntro({ locale, onComplete }: Props) {
   }, [handleKeyDown]);
 
   const fingerColor = currentStep ? fingerColors[currentStep.finger] : "#3f0ff2";
+  const justCompletedStep = stepIndex > 0 ? ALL_STEPS[stepIndex - 1] : null;
+  const justCompletedColor = justCompletedStep ? fingerColors[justCompletedStep.finger] : "#3f0ff2";
 
   return (
     <div
@@ -157,96 +260,212 @@ export function KeyIntro({ locale, onComplete }: Props) {
       tabIndex={0}
       className="space-y-6 focus:outline-none"
     >
-      {/* Instruction card */}
-      <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 text-center">
-        {isDone ? (
-          <div className="space-y-3">
-            <div className="w-14 h-14 mx-auto rounded-full bg-indigo/10 flex items-center justify-center">
-              <svg className="w-7 h-7 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-              </svg>
-            </div>
-            <h2 className="text-xl font-bold text-dark-text dark:text-white">{l.allDone}</h2>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">{l.allDoneDesc}</p>
-            <button
-              onClick={onComplete}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors shadow-lg shadow-indigo/20"
-            >
-              {l.startDrills} <span className="text-electric-yellow">&gt;&gt;</span>
-            </button>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {/* Finger instruction */}
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              {l.useYour}{" "}
-              <span className="font-semibold" style={{ color: fingerColor }}>
-                {names[currentStep!.finger]}
-              </span>
-              {l.toType ? ` ${l.toType}` : ""}:
+      {/* === PHASE: Explanation === */}
+      {phase === "explain" && (
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 space-y-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white text-center">
+            {l.explainTitle}
+          </h2>
+
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
+            {l.explainP1}
+          </p>
+
+          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
+            {l.explainP2}
+          </p>
+
+          {/* Color zone legend */}
+          <div className="space-y-3 pt-2">
+            <p className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider text-center">
+              {l.explainColorIntro}
             </p>
-
-            {/* Big key prompt */}
-            <div className="flex items-center justify-center gap-4">
-              <span className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">
-                {l.typeThe}
-              </span>
-              <kbd
-                className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 text-2xl sm:text-3xl font-mono font-bold shadow-lg transition-all duration-200"
-                style={{
-                  borderColor: fingerColor,
-                  color: fingerColor,
-                  backgroundColor: fingerColor + "10",
-                  boxShadow: `0 0 20px ${fingerColor}30`,
-                }}
-              >
-                {currentStep!.key === ";" ? ";" : currentStep!.key.toUpperCase()}
-              </kbd>
-              {l.key && (
-                <span className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">
-                  {l.key}
-                </span>
-              )}
-            </div>
-
-            {/* Correct feedback */}
-            {showCorrect && (
-              <div className="flex items-center justify-center gap-1.5 text-indigo font-semibold animate-fade-in">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                </svg>
-                {l.correct}
+            <div className="flex justify-center gap-8">
+              {/* Left hand */}
+              <div className="space-y-1.5">
+                <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 text-center">{l.leftHand}</p>
+                {(["left-pinky", "left-ring", "left-middle", "left-index"] as Finger[]).map((f) => (
+                  <div key={f} className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: fingerColors[f] }} />
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{shortNames[f]}</span>
+                    <kbd className="ml-auto text-xs font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark">
+                      {f === "left-pinky" ? "A" : f === "left-ring" ? "S" : f === "left-middle" ? "D" : "F"}
+                    </kbd>
+                  </div>
+                ))}
               </div>
-            )}
-
-            {/* Progress dots */}
-            <div className="flex items-center justify-center gap-1.5 pt-2">
-              {HOME_KEY_STEPS.map((step, i) => (
-                <div
-                  key={step.key}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    i < stepIndex
-                      ? "scale-100"
-                      : i === stepIndex
-                        ? "scale-125 ring-2 ring-offset-2 ring-offset-white dark:ring-offset-dark-surface"
-                        : "bg-zinc-200 dark:bg-dark-border"
-                  }`}
-                  style={
-                    i <= stepIndex
-                      ? { backgroundColor: fingerColors[step.finger], ringColor: i === stepIndex ? fingerColors[step.finger] : undefined }
-                      : undefined
-                  }
-                />
-              ))}
+              {/* Right hand */}
+              <div className="space-y-1.5">
+                <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 text-center">{l.rightHand}</p>
+                {(["right-index", "right-middle", "right-ring", "right-pinky"] as Finger[]).map((f) => (
+                  <div key={f} className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: fingerColors[f] }} />
+                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{shortNames[f]}</span>
+                    <kbd className="ml-auto text-xs font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark">
+                      {f === "right-index" ? "J" : f === "right-middle" ? "K" : f === "right-ring" ? "L" : ";"}
+                    </kbd>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        )}
-      </div>
 
-      {/* Keyboard */}
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
+            {l.explainP3}
+          </p>
+
+          {/* Press ENTER */}
+          <div className="flex items-center justify-center gap-2 pt-2 text-sm text-zinc-400 dark:text-zinc-500">
+            <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
+              ENTER
+            </kbd>
+            <span>{l.explainStart.replace(/.*ENTER\s*/, "").replace(/.*ENTREE\s*/, "")}</span>
+          </div>
+        </div>
+      )}
+
+      {/* === PHASE: Typing a key === */}
+      {phase === "typing" && currentStep && (
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-5">
+          {/* Left hand transition message */}
+          {isRightHandDone && stepIndex === RIGHT_HAND_STEPS.length && (
+            <div className="mb-4 pb-4 border-b border-zinc-100 dark:border-dark-border">
+              <p className="font-semibold text-dark-text dark:text-white">{l.nowLeftHand}</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{l.nowLeftHandDesc}</p>
+            </div>
+          )}
+
+          {/* Finger instruction */}
+          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            {l.useYour}{" "}
+            <span className="font-semibold" style={{ color: fingerColor }}>
+              {names[currentStep.finger]}
+            </span>:
+          </p>
+
+          {/* Big key prompt */}
+          <div className="flex items-center justify-center gap-4">
+            <span className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">
+              {l.typeThe}
+            </span>
+            <kbd
+              className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl border-2 text-2xl sm:text-3xl font-mono font-bold shadow-lg transition-all duration-200"
+              style={{
+                borderColor: fingerColor,
+                color: fingerColor,
+                backgroundColor: fingerColor + "10",
+                boxShadow: `0 0 20px ${fingerColor}30`,
+              }}
+            >
+              {currentStep.key === ";" ? ";" : currentStep.key.toUpperCase()}
+            </kbd>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex items-center justify-center gap-1.5 pt-2">
+            {ALL_STEPS.map((step, i) => (
+              <div
+                key={step.key}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  i < stepIndex
+                    ? ""
+                    : i === stepIndex
+                      ? "scale-125 ring-2 ring-offset-2 ring-offset-white dark:ring-offset-dark-surface"
+                      : "bg-zinc-200 dark:bg-dark-border"
+                }`}
+                style={
+                  i <= stepIndex
+                    ? { backgroundColor: fingerColors[step.finger] }
+                    : undefined
+                }
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* === PHASE: Confirm (remember + press ENTER) === */}
+      {phase === "confirm" && justCompletedStep && (
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-5">
+          {/* Checkmark */}
+          <div
+            className="w-12 h-12 mx-auto rounded-full flex items-center justify-center"
+            style={{ backgroundColor: justCompletedColor + "15" }}
+          >
+            <svg className="w-6 h-6" style={{ color: justCompletedColor }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+
+          {/* Remember message */}
+          <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400">
+            {l.rememberKey}{" "}
+            <kbd
+              className="inline-flex items-center justify-center w-8 h-8 rounded-lg border-2 text-sm font-mono font-bold mx-1"
+              style={{
+                borderColor: justCompletedColor,
+                color: justCompletedColor,
+                backgroundColor: justCompletedColor + "10",
+              }}
+            >
+              {justCompletedStep.key === ";" ? ";" : justCompletedStep.key.toUpperCase()}
+            </kbd>{" "}
+            {l.rememberBecause}
+          </p>
+
+          <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
+            <div className="flex items-center justify-center gap-2 text-sm text-zinc-400 dark:text-zinc-500">
+              <span>{l.pressEnter}</span>
+              <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
+                ENTER
+              </kbd>
+            </div>
+          </div>
+
+          {/* Progress dots */}
+          <div className="flex items-center justify-center gap-1.5">
+            {ALL_STEPS.map((step, i) => (
+              <div
+                key={step.key}
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  i < stepIndex ? "" : "bg-zinc-200 dark:bg-dark-border"
+                }`}
+                style={i < stepIndex ? { backgroundColor: fingerColors[step.finger] } : undefined}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* === PHASE: Done === */}
+      {phase === "done" && (
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-4">
+          <div className="w-14 h-14 mx-auto rounded-full bg-indigo/10 flex items-center justify-center">
+            <svg className="w-7 h-7 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-bold text-dark-text dark:text-white">{l.allDone}</h2>
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">{l.allDoneDesc}</p>
+          <button
+            onClick={onComplete}
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors shadow-lg shadow-indigo/20"
+          >
+            {l.startDrills} <span className="text-electric-yellow">&gt;&gt;</span>
+          </button>
+        </div>
+      )}
+
+      {/* Keyboard - always visible */}
       <Keyboard
-        activeKey={currentStep?.key}
-        activeKeys={isDone ? ["a", "s", "d", "f", "j", "k", "l", ";"] : [currentStep?.key ?? "", ...completedKeys]}
+        activeKey={phase === "typing" ? currentStep?.key : undefined}
+        activeKeys={
+          phase === "explain"
+            ? ["a", "s", "d", "f", "j", "k", "l", ";"]
+            : phase === "done"
+              ? ["a", "s", "d", "f", "j", "k", "l", ";"]
+              : [currentStep?.key ?? "", ...completedKeys]
+        }
         pressedKey={pressedKey}
         showFingers={true}
         locale={locale}
