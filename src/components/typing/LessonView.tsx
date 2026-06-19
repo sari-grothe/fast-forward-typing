@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LessonDrill } from "./LessonDrill";
+import { KeyIntro } from "./KeyIntro";
 import { getLesson, getNextLesson, lessonMeta, phaseNames } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
@@ -71,6 +72,7 @@ const i18n: Record<Locale, {
 };
 
 export function LessonView({ lessonId, locale }: Props) {
+  const [introComplete, setIntroComplete] = useState(lessonId !== 0);
   const [currentDrill, setCurrentDrill] = useState(0);
   const [results, setResults] = useState<DrillResult[]>([]);
   const [isLessonComplete, setIsLessonComplete] = useState(false);
@@ -187,17 +189,24 @@ export function LessonView({ lessonId, locale }: Props) {
         )}
       </div>
 
+      {/* Key intro for lesson 0 */}
+      {!introComplete && lessonId === 0 && (
+        <KeyIntro locale={locale} onComplete={() => setIntroComplete(true)} />
+      )}
+
       {/* Current drill */}
-      <LessonDrill
-        key={`${lessonId}-${currentDrill}`}
-        drill={lesson.drills[currentDrill]}
-        drillIndex={currentDrill}
-        totalDrills={lesson.drills.length}
-        allKeys={lesson.allKeys}
-        locale={locale}
-        completionThreshold={lesson.completionThreshold}
-        onComplete={handleDrillComplete}
-      />
+      {introComplete && (
+        <LessonDrill
+          key={`${lessonId}-${currentDrill}`}
+          drill={lesson.drills[currentDrill]}
+          drillIndex={currentDrill}
+          totalDrills={lesson.drills.length}
+          allKeys={lesson.allKeys}
+          locale={locale}
+          completionThreshold={lesson.completionThreshold}
+          onComplete={handleDrillComplete}
+        />
+      )}
     </div>
   );
 }
