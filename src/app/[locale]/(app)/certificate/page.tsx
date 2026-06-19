@@ -11,13 +11,6 @@ const i18n: Record<Locale, {
   heroTitle: string;
   heroSubtitle: string;
   heroHighlight: string;
-  stepLabel: string;
-  step1Title: string;
-  step1Desc: string;
-  step2Title: string;
-  step2Desc: string;
-  step3Title: string;
-  step3Desc: string;
   previewTitle: string;
   previewSubtitle: string;
   benefit1Title: string;
@@ -40,15 +33,8 @@ const i18n: Record<Locale, {
 }> = {
   de: {
     heroTitle: "Mach deine Tippfähigkeiten offiziell",
-    heroSubtitle: "Ein verifiziertes Zertifikat mit deinem Tempo und deiner Genauigkeit - als PDF direkt in dein Postfach.",
+    heroSubtitle: "Du hast den Tipptest gemacht - jetzt sichere dir dein Ergebnis. Nach dem Kauf bekommst du dein personalisiertes Zertifikat sofort als PDF per E-Mail.",
     heroHighlight: "Einmalig 5 Euro. Kein Abo.",
-    stepLabel: "Schritt",
-    step1Title: "Tipptest machen",
-    step1Desc: "Kostenloser 60-Sekunden-Test. Dein Tempo und deine Genauigkeit werden gemessen.",
-    step2Title: "Zertifikat kaufen",
-    step2Desc: "Zufrieden mit dem Ergebnis? Sichere es dir für 5 Euro.",
-    step3Title: "PDF per E-Mail",
-    step3Desc: "Dein Zertifikat kommt sofort als PDF an deine E-Mail-Adresse.",
     previewTitle: "So sieht dein Zertifikat aus",
     previewSubtitle: "Professionell. Mit deinem Namen, Tempo, Genauigkeit und Datum.",
     benefit1Title: "Lebenslauf und LinkedIn",
@@ -71,20 +57,13 @@ const i18n: Record<Locale, {
     ],
     trustLine: "Sichere Zahlung über Stripe. Deine Daten bleiben bei dir.",
     testFirst: "Noch keinen Test gemacht?",
-    testFirstDesc: "Mach zuerst den kostenlosen Tipptest - in 60 Sekunden weisst du, wo du stehst.",
+    testFirstDesc: "Mach zuerst den kostenlosen Tipptest - in wenigen Minuten weisst du, wo du stehst.",
     testCta: "Zum Tipptest",
   },
   en: {
     heroTitle: "Make your typing skills official",
-    heroSubtitle: "A verified certificate with your speed and accuracy - delivered as a PDF straight to your inbox.",
+    heroSubtitle: "You took the typing test - now lock in your result. After purchase, you'll receive your personalised certificate instantly as a PDF via email.",
     heroHighlight: "One-time 5 euros. No subscription.",
-    stepLabel: "Step",
-    step1Title: "Take the typing test",
-    step1Desc: "Free 60-second test. Your speed and accuracy are measured.",
-    step2Title: "Buy your certificate",
-    step2Desc: "Happy with the result? Lock it in for 5 euros.",
-    step3Title: "PDF via email",
-    step3Desc: "Your certificate arrives instantly as a PDF to your email address.",
     previewTitle: "This is what your certificate looks like",
     previewSubtitle: "Professional. With your name, speed, accuracy, and date.",
     benefit1Title: "CV and LinkedIn",
@@ -107,20 +86,13 @@ const i18n: Record<Locale, {
     ],
     trustLine: "Secure payment via Stripe. Your data stays with you.",
     testFirst: "Haven't taken the test yet?",
-    testFirstDesc: "Take the free typing test first - in 60 seconds you'll know where you stand.",
+    testFirstDesc: "Take the free typing test first - in just a few minutes you'll know where you stand.",
     testCta: "Take the typing test",
   },
   fr: {
     heroTitle: "Rends tes compétences de frappe officielles",
-    heroSubtitle: "Un certificat vérifié avec ta vitesse et ta précision - en PDF directement dans ta boîte mail.",
+    heroSubtitle: "Tu as passé le test de frappe - maintenant garde ton résultat. Après l'achat, tu reçois ton certificat personnalisé instantanément en PDF par e-mail.",
     heroHighlight: "5 euros en une fois. Pas d'abonnement.",
-    stepLabel: "Étape",
-    step1Title: "Passe le test de frappe",
-    step1Desc: "Test gratuit de 60 secondes. Ta vitesse et ta précision sont mesurées.",
-    step2Title: "Achète ton certificat",
-    step2Desc: "Content du résultat ? Garde-le pour 5 euros.",
-    step3Title: "PDF par e-mail",
-    step3Desc: "Ton certificat arrive instantanément en PDF à ton adresse e-mail.",
     previewTitle: "Voici à quoi ressemble ton certificat",
     previewSubtitle: "Professionnel. Avec ton nom, ta vitesse, ta précision et la date.",
     benefit1Title: "CV et LinkedIn",
@@ -143,22 +115,10 @@ const i18n: Record<Locale, {
     ],
     trustLine: "Paiement sécurisé via Stripe. Tes données restent chez toi.",
     testFirst: "Tu n'as pas encore passé le test ?",
-    testFirstDesc: "Passe d'abord le test de frappe gratuit - en 60 secondes tu sauras où tu en es.",
+    testFirstDesc: "Passe d'abord le test de frappe gratuit - en quelques minutes tu sauras où tu en es.",
     testCta: "Passer le test de frappe",
   },
 };
-
-const stepIcons = [
-  <svg key="1" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-  </svg>,
-  <svg key="2" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-  </svg>,
-  <svg key="3" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-  </svg>,
-];
 
 const benefitIcons = [
   <svg key="cv" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -179,12 +139,6 @@ export default async function CertificatePage({ params }: Props) {
   const { locale } = await params;
   const l = i18n[locale as Locale];
 
-  const steps = [
-    { title: l.step1Title, desc: l.step1Desc },
-    { title: l.step2Title, desc: l.step2Desc },
-    { title: l.step3Title, desc: l.step3Desc },
-  ];
-
   const benefits = [
     { title: l.benefit1Title, desc: l.benefit1Desc },
     { title: l.benefit2Title, desc: l.benefit2Desc },
@@ -193,7 +147,7 @@ export default async function CertificatePage({ params }: Props) {
   ];
 
   return (
-    <div className="mx-auto max-w-5xl px-6 py-12 space-y-20">
+    <div className="mx-auto max-w-5xl px-6 py-12 space-y-14">
 
       {/* Hero + Pricing card - first thing visible */}
       <div className="grid md:grid-cols-2 gap-10 items-start">
@@ -261,36 +215,6 @@ export default async function CertificatePage({ params }: Props) {
             {l.trustLine}
           </p>
         </div>
-      </div>
-
-      {/* How it works - 3 steps */}
-      <div className="grid sm:grid-cols-3 gap-6">
-        {steps.map((step, i) => (
-          <div
-            key={i}
-            className="relative rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 text-center space-y-3"
-          >
-            <div className="mx-auto w-12 h-12 rounded-xl bg-indigo/10 flex items-center justify-center text-indigo">
-              {stepIcons[i]}
-            </div>
-            <p className="text-xs font-semibold text-indigo uppercase tracking-wider">
-              {l.stepLabel} {i + 1}
-            </p>
-            <p className="text-base font-bold text-dark-text dark:text-white">
-              {step.title}
-            </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
-              {step.desc}
-            </p>
-            {i < 2 && (
-              <div className="hidden sm:block absolute -right-3 top-1/2 -translate-y-1/2 z-10 text-zinc-300 dark:text-zinc-600">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </div>
-            )}
-          </div>
-        ))}
       </div>
 
       {/* Certificate preview + benefits */}
