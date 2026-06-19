@@ -39,6 +39,11 @@
   animation: cursor-blink 0.8s ease-in-out infinite;
 }
 
+@keyframes pulse-key {
+  0%, 100% { box-shadow: 0 0 0 2px #3f0ff2, 0 0 8px rgba(63, 15, 242, 0.3); }
+  50% { box-shadow: 0 0 0 3px #3f0ff2, 0 0 16px rgba(63, 15, 242, 0.5); }
+}
+
 @theme {
   --color-indigo: #3f0ff2;
   --color-peach: #f8a37c;
