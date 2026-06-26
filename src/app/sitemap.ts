@@ -7,7 +7,7 @@ const BASE_URL = "https://fastforwardtyping.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  const staticPages = ["", "/speed-test", "/lessons", "/tips", "/about"];
+  const staticPages = ["", "/speed-test", "/lessons", "/tips", "/about", "/tools/keyboard-layouts"];
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
