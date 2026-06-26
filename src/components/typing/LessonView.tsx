@@ -117,11 +117,11 @@ export function LessonView({ lessonId, locale }: Props) {
 
   if (isLessonComplete) {
     return (
-      <div className="space-y-8">
+      <div className="space-y-8 animate-fade-up">
         {/* Lesson complete */}
-        <div className="rounded-2xl border-2 border-indigo/20 bg-white dark:bg-dark-surface p-8 sm:p-10 text-center space-y-4">
-          <div className="flex justify-center">
-            <KeyCharacter pose={nextLesson ? "sitting-waving" : "waving"} size={80} />
+        <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-b from-white to-lavender/30 dark:from-dark-surface dark:to-dark p-8 sm:p-10 text-center space-y-4 shadow-xl shadow-indigo/5">
+          <div className="flex justify-center animate-float">
+            <KeyCharacter pose={nextLesson ? "sitting-waving" : "waving"} size={100} />
           </div>
           <h2 className="text-2xl font-bold text-dark-text dark:text-white">
             {meta?.completionMessage ?? "Complete!"}
@@ -135,9 +135,9 @@ export function LessonView({ lessonId, locale }: Props) {
             {nextLesson ? (
               <Link
                 href={`/${locale}/lessons/${nextLesson.id}`}
-                className="inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
+                className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
-                {l.nextLesson} <span className="text-electric-yellow">&gt;&gt;</span>
+                {l.nextLesson} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
               </Link>
             ) : (
               <div className="space-y-2">

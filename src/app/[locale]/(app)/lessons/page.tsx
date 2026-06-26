@@ -174,12 +174,12 @@ export default async function LessonsPage({ params }: Props) {
           </div>
           <Link
             href={`/${locale}/lessons/0`}
-            className="inline-flex items-center gap-2 rounded-xl bg-indigo px-7 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors shadow-lg shadow-indigo/20 mt-2"
+            className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-2"
           >
-            {l.startCourse} <span className="text-electric-yellow">&gt;&gt;</span>
+            {l.startCourse} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
           </Link>
         </div>
-        <div className="hidden sm:block shrink-0 pt-2">
+        <div className="hidden sm:block shrink-0 pt-2 animate-float">
           <KeyCharacter pose="waving" size={100} />
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from "react";
 import Link from "next/link";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingArea } from "@/components/typing/TypingArea";
 import { getRandomText } from "@/lib/sample-texts";
 import type { TypingState } from "@/lib/typing-engine";
@@ -277,13 +278,17 @@ export function SpeedTest({ locale }: Props) {
 
         {/* --- Section 2: WPM + Accuracy big cards --- */}
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
-          <div className="rounded-2xl bg-indigo p-6 sm:p-8 text-center text-white">
-            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">{wpm}</p>
-            <p className="text-base sm:text-lg font-medium mt-2">{l.speed}</p>
+          <div className="rounded-2xl bg-gradient-to-br from-indigo to-indigo/80 p-6 sm:p-8 text-center text-white shadow-xl shadow-indigo/20 animate-scale-in">
+            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">
+              <AnimatedCounter value={wpm} duration={1200} />
+            </p>
+            <p className="text-base sm:text-lg font-medium mt-2 text-white/80">{l.speed}</p>
           </div>
-          <div className="rounded-2xl bg-peach p-6 sm:p-8 text-center text-white">
-            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">{accuracy}%</p>
-            <p className="text-base sm:text-lg font-medium mt-2">
+          <div className="rounded-2xl bg-gradient-to-br from-peach to-peach/80 p-6 sm:p-8 text-center text-white shadow-xl shadow-peach/20 animate-scale-in" style={{ animationDelay: "100ms" }}>
+            <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">
+              <AnimatedCounter value={accuracy} duration={1200} suffix="%" />
+            </p>
+            <p className="text-base sm:text-lg font-medium mt-2 text-white/80">
               {l.accuracy} · {result.errors.length} {l.errors.toLowerCase()}
             </p>
           </div>
@@ -370,7 +375,7 @@ export function SpeedTest({ locale }: Props) {
 
           <Link
             href={`/${locale}/lessons/1`}
-            className="block rounded-2xl bg-indigo p-6 sm:p-8 text-white hover:bg-indigo/90 transition-colors group"
+            className="block rounded-2xl bg-gradient-to-r from-indigo to-indigo/90 p-6 sm:p-8 text-white shadow-lg shadow-indigo/20 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
