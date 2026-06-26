@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import { lessons, lessonMeta, phaseNames } from "@/lib/lessons";
 import { KeyCharacter } from "@/components/KeyCharacter";
@@ -171,12 +172,12 @@ export default async function LessonsPage({ params }: Props) {
               {l.paidLessons}
             </span>
           </div>
-          <a
+          <Link
             href={`/${locale}/lessons/0`}
             className="inline-flex items-center gap-2 rounded-xl bg-indigo px-7 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors shadow-lg shadow-indigo/20 mt-2"
           >
             {l.startCourse} <span className="text-electric-yellow">&gt;&gt;</span>
-          </a>
+          </Link>
         </div>
         <div className="hidden sm:block shrink-0 pt-2">
           <KeyCharacter pose="waving" size={100} />
@@ -211,7 +212,7 @@ export default async function LessonsPage({ params }: Props) {
               {phaseLessons.map((lesson) => {
                 const meta = lessonMeta[locale as Locale]?.[lesson.id] ?? lessonMeta.en[lesson.id];
                 return (
-                  <a
+                  <Link
                     key={lesson.id}
                     href={`/${locale}/lessons/${lesson.id}`}
                     className="group flex items-center gap-3.5 rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-3.5 hover:border-indigo/30 hover:bg-indigo/5 dark:hover:bg-indigo/5 transition-all duration-150"
@@ -248,7 +249,7 @@ export default async function LessonsPage({ params }: Props) {
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                       </svg>
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

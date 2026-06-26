@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const splits: Record<string, { static: string; typed: string }> = {
   de: { static: "Was, wenn du so schnell tippen könntest ", typed: "wie du denkst?" },
@@ -138,18 +139,18 @@ export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
       <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl">{subheadline}</p>
 
       <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
-        <a
+        <Link
           href={`/${locale}/lessons/1`}
           className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
         >
           {ctaLearn} <span className="text-electric-yellow">&gt;&gt;</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href={`/${locale}/speed-test`}
           className="inline-flex items-center gap-2 rounded-lg border-2 border-indigo px-8 py-4 text-base font-semibold text-indigo hover:bg-indigo/5 transition-colors dark:text-white dark:border-white/30 dark:hover:bg-white/5"
         >
           {ctaTest}
-        </a>
+        </Link>
       </div>
 
       <div className="mt-12 w-full max-w-xl px-4" aria-hidden="true">

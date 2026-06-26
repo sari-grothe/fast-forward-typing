@@ -43,9 +43,9 @@ Dark mode is the default. Light mode uses lavender bg with dark-text body.
 - Smooth transitions (150-200ms)
 - No clutter, no decoration for decoration's sake
 
-### Future: Mascot
+### Mascot: KeyCharacter
 
-A cheetah mascot is planned (flat 2D vector, Duolingo/Ratatype energy). Not yet created. When it exists, it appears in different poses across the site (typing, celebrating, running, thinking, waving).
+The KeyCharacter is the product mascot (flat 2D vector, Duolingo/Ratatype energy). It appears in different poses across the site: sitting, waving, sitting-waving, typing, celebrating. Used in lesson completion screens, course overview, footer, and onboarding flows.
 
 ## Target Persona
 

@@ -20,41 +20,119 @@ type KeyDef = {
   isModifier?: boolean;
 };
 
-const NUMBER_ROW: KeyDef[] = [
-  { key: "`", label: "`", width: 36 },
-  { key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }, { key: "5" },
-  { key: "6" }, { key: "7" }, { key: "8" }, { key: "9" }, { key: "0" },
-  { key: "-", label: "-" }, { key: "=", label: "=" },
-  { key: "Backspace", label: "←", width: 72, isModifier: true },
-];
+type KeyboardLayout = {
+  numberRow: KeyDef[];
+  topRow: KeyDef[];
+  homeRow: KeyDef[];
+  bottomRow: KeyDef[];
+  spaceRow: KeyDef[];
+  homeKeys: string[];
+};
 
-const TOP_ROW: KeyDef[] = [
-  { key: "Tab", label: "Tab", width: 54, isModifier: true },
-  { key: "q" }, { key: "w" }, { key: "e" }, { key: "r" }, { key: "t" },
-  { key: "y" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" },
-  { key: "[", label: "[" }, { key: "]", label: "]" },
-  { key: "\\", label: "\\", width: 54 },
-];
+const QWERTY: KeyboardLayout = {
+  numberRow: [
+    { key: "`", label: "`", width: 36 },
+    { key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }, { key: "5" },
+    { key: "6" }, { key: "7" }, { key: "8" }, { key: "9" }, { key: "0" },
+    { key: "-", label: "-" }, { key: "=", label: "=" },
+    { key: "Backspace", label: "←", width: 72, isModifier: true },
+  ],
+  topRow: [
+    { key: "Tab", label: "Tab", width: 54, isModifier: true },
+    { key: "q" }, { key: "w" }, { key: "e" }, { key: "r" }, { key: "t" },
+    { key: "y" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" },
+    { key: "[", label: "[" }, { key: "]", label: "]" },
+    { key: "\\", label: "\\", width: 54 },
+  ],
+  homeRow: [
+    { key: "CapsLock", label: "Caps", width: 66, isModifier: true },
+    { key: "a" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
+    { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }, { key: ";", label: ";" },
+    { key: "'", label: "'" },
+    { key: "Enter", label: "↵", width: 78, isModifier: true },
+  ],
+  bottomRow: [
+    { key: "ShiftL", label: "Shift", width: 84, isModifier: true },
+    { key: "z" }, { key: "x" }, { key: "c" }, { key: "v" }, { key: "b" },
+    { key: "n" }, { key: "m" }, { key: ",", label: "," }, { key: ".", label: "." },
+    { key: "/", label: "/" },
+    { key: "ShiftR", label: "Shift", width: 96, isModifier: true },
+  ],
+  spaceRow: [{ key: " ", label: "", width: 320 }],
+  homeKeys: ["a", "s", "d", "f", "j", "k", "l", ";"],
+};
 
-const HOME_ROW: KeyDef[] = [
-  { key: "CapsLock", label: "Caps", width: 66, isModifier: true },
-  { key: "a" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
-  { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }, { key: ";", label: ";" },
-  { key: "'", label: "'" },
-  { key: "Enter", label: "↵", width: 78, isModifier: true },
-];
+const QWERTZ: KeyboardLayout = {
+  numberRow: [
+    { key: "^", label: "^", width: 36 },
+    { key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }, { key: "5" },
+    { key: "6" }, { key: "7" }, { key: "8" }, { key: "9" }, { key: "0" },
+    { key: "ß", label: "ß" }, { key: "´", label: "´" },
+    { key: "Backspace", label: "←", width: 72, isModifier: true },
+  ],
+  topRow: [
+    { key: "Tab", label: "Tab", width: 54, isModifier: true },
+    { key: "q" }, { key: "w" }, { key: "e" }, { key: "r" }, { key: "t" },
+    { key: "z" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" },
+    { key: "ü", label: "ü" }, { key: "+", label: "+" },
+    { key: "#", label: "#", width: 54 },
+  ],
+  homeRow: [
+    { key: "CapsLock", label: "Caps", width: 66, isModifier: true },
+    { key: "a" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
+    { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }, { key: "ö", label: "ö" },
+    { key: "ä", label: "ä" },
+    { key: "Enter", label: "↵", width: 78, isModifier: true },
+  ],
+  bottomRow: [
+    { key: "ShiftL", label: "Shift", width: 84, isModifier: true },
+    { key: "y" }, { key: "x" }, { key: "c" }, { key: "v" }, { key: "b" },
+    { key: "n" }, { key: "m" }, { key: ",", label: "," }, { key: ".", label: "." },
+    { key: "-", label: "-" },
+    { key: "ShiftR", label: "Shift", width: 96, isModifier: true },
+  ],
+  spaceRow: [{ key: " ", label: "", width: 320 }],
+  homeKeys: ["a", "s", "d", "f", "j", "k", "l", "ö"],
+};
 
-const BOTTOM_ROW: KeyDef[] = [
-  { key: "ShiftL", label: "Shift", width: 84, isModifier: true },
-  { key: "z" }, { key: "x" }, { key: "c" }, { key: "v" }, { key: "b" },
-  { key: "n" }, { key: "m" }, { key: ",", label: "," }, { key: ".", label: "." },
-  { key: "/", label: "/" },
-  { key: "ShiftR", label: "Shift", width: 96, isModifier: true },
-];
+const AZERTY: KeyboardLayout = {
+  numberRow: [
+    { key: "²", label: "²", width: 36 },
+    { key: "&", label: "&" }, { key: "é", label: "é" }, { key: "\"", label: "\"" }, { key: "'", label: "'" }, { key: "(", label: "(" },
+    { key: "-", label: "-" }, { key: "è", label: "è" }, { key: "_", label: "_" }, { key: "ç", label: "ç" }, { key: "à", label: "à" },
+    { key: ")", label: ")" }, { key: "=", label: "=" },
+    { key: "Backspace", label: "←", width: 72, isModifier: true },
+  ],
+  topRow: [
+    { key: "Tab", label: "Tab", width: 54, isModifier: true },
+    { key: "a" }, { key: "z" }, { key: "e" }, { key: "r" }, { key: "t" },
+    { key: "y" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" },
+    { key: "^", label: "^" }, { key: "$", label: "$" },
+    { key: "*", label: "*", width: 54 },
+  ],
+  homeRow: [
+    { key: "CapsLock", label: "Verr", width: 66, isModifier: true },
+    { key: "q" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
+    { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }, { key: "m" },
+    { key: "ù", label: "ù" },
+    { key: "Enter", label: "↵", width: 78, isModifier: true },
+  ],
+  bottomRow: [
+    { key: "ShiftL", label: "Maj", width: 84, isModifier: true },
+    { key: "w" }, { key: "x" }, { key: "c" }, { key: "v" }, { key: "b" },
+    { key: "n" }, { key: ",", label: "," }, { key: ";", label: ";" }, { key: ":", label: ":" },
+    { key: "!", label: "!" },
+    { key: "ShiftR", label: "Maj", width: 96, isModifier: true },
+  ],
+  spaceRow: [{ key: " ", label: "", width: 320 }],
+  homeKeys: ["q", "s", "d", "f", "j", "k", "l", "m"],
+};
 
-const SPACE_ROW: KeyDef[] = [
-  { key: " ", label: "", width: 320 },
-];
+const layouts: Record<string, KeyboardLayout> = {
+  en: QWERTY,
+  de: QWERTZ,
+  fr: AZERTY,
+};
 
 const fingerLabels: Record<Locale, Record<string, string>> = {
   de: {
@@ -206,22 +284,24 @@ export function Keyboard({
   activeKeys,
   pressedKey,
   showFingers = true,
-  homeKeys = ["a", "s", "d", "f", "j", "k", "l", ";"],
+  homeKeys,
   locale = "en",
   className = "",
 }: Props) {
+  const layout = layouts[locale] ?? layouts.en;
+  const effectiveHomeKeys = homeKeys ?? layout.homeKeys;
   const labels = fingerLabels[locale] ?? fingerLabels.en;
 
-  const leftKeys = homeKeys.filter((k) => {
+  const leftKeys = effectiveHomeKeys.filter((k) => {
     const f = fingerForKey[k];
     return f?.startsWith("left");
   });
-  const rightKeys = homeKeys.filter((k) => {
+  const rightKeys = effectiveHomeKeys.filter((k) => {
     const f = fingerForKey[k];
     return f?.startsWith("right");
   });
 
-  const keyCapProps = { activeKey, activeKeys, pressedKey, showFingers, homeKeys };
+  const keyCapProps = { activeKey, activeKeys, pressedKey, showFingers, homeKeys: effectiveHomeKeys };
 
   return (
     <div className={`select-none ${className}`}>
@@ -247,33 +327,28 @@ export function Keyboard({
 
       {/* Keyboard */}
       <div className="flex flex-col items-center gap-[3px] p-3 sm:p-4 rounded-2xl border border-zinc-200 dark:border-dark-border bg-zinc-100/80 dark:bg-dark/60">
-        {/* Number row */}
         <div className="flex gap-[3px]">
-          {NUMBER_ROW.map((k, i) => (
+          {layout.numberRow.map((k, i) => (
             <KeyCap key={`num-${i}`} keyDef={k} {...keyCapProps} />
           ))}
         </div>
-        {/* Top row */}
         <div className="flex gap-[3px]">
-          {TOP_ROW.map((k, i) => (
+          {layout.topRow.map((k, i) => (
             <KeyCap key={`top-${i}`} keyDef={k} {...keyCapProps} />
           ))}
         </div>
-        {/* Home row */}
         <div className="flex gap-[3px]">
-          {HOME_ROW.map((k, i) => (
+          {layout.homeRow.map((k, i) => (
             <KeyCap key={`home-${i}`} keyDef={k} {...keyCapProps} />
           ))}
         </div>
-        {/* Bottom row */}
         <div className="flex gap-[3px]">
-          {BOTTOM_ROW.map((k, i) => (
+          {layout.bottomRow.map((k, i) => (
             <KeyCap key={`bot-${i}`} keyDef={k} {...keyCapProps} />
           ))}
         </div>
-        {/* Space row */}
         <div className="flex gap-[3px]">
-          <KeyCap keyDef={SPACE_ROW[0]} {...keyCapProps} />
+          <KeyCap keyDef={layout.spaceRow[0]} {...keyCapProps} />
         </div>
       </div>
 

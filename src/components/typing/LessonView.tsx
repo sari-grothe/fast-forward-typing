@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
@@ -85,9 +86,9 @@ export function LessonView({ lessonId, locale }: Props) {
     return (
       <div className="text-center py-20">
         <p className="text-zinc-500">{l.lessonNotFound}</p>
-        <a href={`/${locale}/lessons`} className="text-indigo hover:underline mt-2 inline-block">
+        <Link href={`/${locale}/lessons`} className="text-indigo hover:underline mt-2 inline-block">
           {l.backToLessons}
-        </a>
+        </Link>
       </div>
     );
   }
@@ -132,24 +133,24 @@ export function LessonView({ lessonId, locale }: Props) {
 
           <div className="flex items-center justify-center gap-3 pt-2">
             {nextLesson ? (
-              <a
+              <Link
                 href={`/${locale}/lessons/${nextLesson.id}`}
                 className="inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
               >
                 {l.nextLesson} <span className="text-electric-yellow">&gt;&gt;</span>
-              </a>
+              </Link>
             ) : (
               <div className="space-y-2">
                 <p className="text-lg font-bold text-indigo">{l.courseComplete}</p>
                 <p className="text-sm text-zinc-500">{l.courseCompleteDesc}</p>
               </div>
             )}
-            <a
+            <Link
               href={`/${locale}/lessons`}
               className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-dark-border px-6 py-3 text-sm font-semibold hover:bg-zinc-50 dark:hover:bg-dark-surface transition-colors"
             >
               {l.backToLessons}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

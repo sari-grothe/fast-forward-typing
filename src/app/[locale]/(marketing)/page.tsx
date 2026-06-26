@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { TypingHero } from "@/components/TypingHero";
@@ -22,8 +23,35 @@ export default async function HomePage({ params }: Props) {
   const teams = h.teams as Record<string, string>;
   const final_ = h.finalCta as Record<string, string>;
 
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: dict.meta.title,
+    description: dict.meta.description,
+    provider: {
+      "@type": "Organization",
+      name: "Fast Forward >> Typing",
+    },
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      courseWorkload: "PT15M",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+    },
+    inLanguage: [locale],
+  };
+
   return (
     <div style={{ background: "linear-gradient(180deg, #eeecfe 0%, #f3f0ff 15%, #fde8d8 30%, #f5f0ff 45%, #eeecfe 55%, #fde8d8 70%, #f3f0ff 85%, #eeecfe 100%)" }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+      />
       {/* Hero */}
       <div className="mx-auto max-w-5xl px-6">
         <TypingHero
@@ -57,12 +85,12 @@ export default async function HomePage({ params }: Props) {
             ))}
           </div>
           <div className="mt-12 flex justify-center">
-            <a
+            <Link
               href={`/${locale}/lessons/1`}
               className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
             >
               {how.cta} <span className="text-electric-yellow">&gt;&gt;</span>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -111,12 +139,12 @@ export default async function HomePage({ params }: Props) {
                   </li>
                 ))}
               </ul>
-              <a
+              <Link
                 href={`/${locale}/speed-test`}
                 className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
               >
                 {speed.cta} <span className="text-electric-yellow">&gt;&gt;</span>
-              </a>
+              </Link>
             </div>
 
             {/* Right: typing test mockup */}
@@ -161,18 +189,18 @@ export default async function HomePage({ params }: Props) {
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
               <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a
+                <Link
                   href={`/${locale}/lessons/1`}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo px-6 py-3 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
                 >
                   {cert.ctaLearn} <span className="text-electric-yellow">&gt;&gt;</span>
-                </a>
-                <a
+                </Link>
+                <Link
                   href={`/${locale}/speed-test`}
                   className="inline-flex items-center justify-center gap-2 rounded-lg border-2 border-indigo px-6 py-3 text-base font-semibold text-indigo hover:bg-indigo/5 transition-colors"
                 >
                   {cert.ctaTest}
-                </a>
+                </Link>
               </div>
             </div>
             <div className="w-full max-w-lg mx-auto">
@@ -199,12 +227,12 @@ export default async function HomePage({ params }: Props) {
               </div>
               <h3 className="text-xl font-bold mb-3">{teams.forTeachers}</h3>
               <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">{teams.teachersDesc}</p>
-              <a
+              <Link
                 href={`/${locale}/teachers`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-indigo hover:text-indigo/80 transition-colors"
               >
                 {teams.teachersCta} <span>&rarr;</span>
-              </a>
+              </Link>
             </div>
             <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10">
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo/10">
@@ -214,12 +242,12 @@ export default async function HomePage({ params }: Props) {
               </div>
               <h3 className="text-xl font-bold mb-3">{teams.forCompanies}</h3>
               <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">{teams.companiesDesc}</p>
-              <a
+              <Link
                 href={`/${locale}/contact`}
                 className="inline-flex items-center gap-2 text-sm font-semibold text-indigo hover:text-indigo/80 transition-colors"
               >
                 {teams.companiesCta} <span>&rarr;</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -238,18 +266,18 @@ export default async function HomePage({ params }: Props) {
           <TypingHeadline text={final_.title} className="text-3xl sm:text-4xl font-bold mb-4" />
           <p className="text-zinc-500 dark:text-zinc-400 text-lg mb-10 max-w-lg mx-auto">{final_.desc}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <a
+            <Link
               href={`/${locale}/lessons/1`}
               className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
             >
               {h.ctaLearn as string} <span className="text-electric-yellow">&gt;&gt;</span>
-            </a>
-            <a
+            </Link>
+            <Link
               href={`/${locale}/speed-test`}
               className="inline-flex items-center gap-2 rounded-lg border-2 border-indigo px-8 py-4 text-base font-semibold text-indigo hover:bg-indigo/5 transition-colors dark:text-white dark:border-white/30 dark:hover:bg-white/5"
             >
               {h.ctaTest as string}
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { TypingArea } from "@/components/typing/TypingArea";
 import { getRandomText } from "@/lib/sample-texts";
 import type { TypingState } from "@/lib/typing-engine";
@@ -134,6 +135,8 @@ const i18n: Record<Locale, {
   certDesc: string;
   certCta: string;
   tryAgain: string;
+  shareResult: string;
+  shareCopied: string;
 }> = {
   de: {
     title: "Tipptest",
@@ -162,6 +165,8 @@ const i18n: Record<Locale, {
     certDesc: "Mach dein Tempo offiziell. Für CV, LinkedIn oder Arbeitgeber.",
     certCta: "Zertifikat - 5 €",
     tryAgain: "Nochmal tippen",
+    shareResult: "Ergebnis teilen",
+    shareCopied: "Kopiert!",
   },
   en: {
     title: "Typing Test",
@@ -190,6 +195,8 @@ const i18n: Record<Locale, {
     certDesc: "Make your speed official. For your CV, LinkedIn, or employers.",
     certCta: "Certificate - 5 €",
     tryAgain: "Try again",
+    shareResult: "Share result",
+    shareCopied: "Copied!",
   },
   fr: {
     title: "Test de frappe",
@@ -218,6 +225,8 @@ const i18n: Record<Locale, {
     certDesc: "Rends ta vitesse officielle. Pour ton CV, LinkedIn ou employeurs.",
     certCta: "Certificat - 5 €",
     tryAgain: "Réessayer",
+    shareResult: "Partager le résultat",
+    shareCopied: "Copié !",
   },
 };
 
@@ -225,6 +234,7 @@ export function SpeedTest({ locale }: Props) {
   const [seconds, setSeconds] = useState<(typeof durations)[number]>(60);
   const [text, setText] = useState(() => getRandomText(locale, 60));
   const [result, setResult] = useState<TypingState | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const handleComplete = useCallback((state: TypingState) => {
     setResult(state);
@@ -358,7 +368,7 @@ export function SpeedTest({ locale }: Props) {
         <div>
           <h3 className="text-xl font-bold text-dark-text dark:text-white text-center mb-6">{l.nextStepSection}</h3>
 
-          <a
+          <Link
             href={`/${locale}/lessons/1`}
             className="block rounded-2xl bg-indigo p-6 sm:p-8 text-white hover:bg-indigo/90 transition-colors group"
           >
@@ -371,9 +381,9 @@ export function SpeedTest({ locale }: Props) {
                 {l.trainingCta} <span className="text-electric-yellow">&gt;&gt;</span>
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={`/${locale}/certificate`}
             className="block mt-4 rounded-2xl border-2 border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 hover:border-indigo/30 transition-colors group"
           >
@@ -386,11 +396,11 @@ export function SpeedTest({ locale }: Props) {
                 {l.certCta} <span className="text-indigo">&gt;&gt;</span>
               </span>
             </div>
-          </a>
+          </Link>
         </div>
 
-        {/* --- Try again --- */}
-        <div className="flex items-center justify-center pt-2">
+        {/* --- Try again + Share --- */}
+        <div className="flex items-center justify-center gap-3 pt-2">
           <button
             onClick={handleNewText}
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
@@ -402,6 +412,23 @@ export function SpeedTest({ locale }: Props) {
               <path d="M21 12a9 9 0 0 1-15 6.7L3 16" />
             </svg>
             {l.tryAgain}
+          </button>
+          <button
+            onClick={() => {
+              const shareText = `${wpm} WPM, ${accuracy}% ${locale === "de" ? "Genauigkeit" : locale === "fr" ? "précision" : "accuracy"} - ${tier.label} (${tier.percentile}) ${window.location.origin}/${locale}/speed-test`;
+              navigator.clipboard.writeText(shareText).then(() => {
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+              });
+            }}
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8" />
+              <polyline points="16 6 12 2 8 6" />
+              <line x1="12" y1="2" x2="12" y2="15" />
+            </svg>
+            {copied ? l.shareCopied : l.shareResult}
           </button>
         </div>
       </div>
