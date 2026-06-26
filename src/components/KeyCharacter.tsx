@@ -4,9 +4,11 @@ type Props = {
   pose?: Pose;
   size?: number;
   className?: string;
+  limbColor?: string;
 };
 
-export function KeyCharacter({ pose = "waving", size = 120, className }: Props) {
+export function KeyCharacter({ pose = "waving", size = 120, className, limbColor }: Props) {
+  const lc = limbColor ?? "#3f0ff2";
   if (pose === "running") {
     return (
       <svg
@@ -25,8 +27,8 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
           <line x1="3" y1="11" x2="10" y2="13.5" stroke="#050111" strokeWidth="2" strokeLinecap="round" />
           <path d="M-5 20 Q0 25 6 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
         </g>
-        <path d="M-16 34 L-27 54 L-38 51" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M11 32 L22 52 L33 45" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M-16 34 L-27 54 L-38 51" stroke={lc} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M11 32 L22 52 L33 45" stroke={lc} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <line x1="-52" y1="0" x2="-42" y2="0" stroke="#f8a37c" strokeWidth="2.5" strokeLinecap="round" />
         <line x1="-58" y1="10" x2="-40" y2="10" stroke="#f8a37c" strokeWidth="3" strokeLinecap="round" />
         <line x1="-52" y1="20" x2="-42" y2="20" stroke="#f8a37c" strokeWidth="2.5" strokeLinecap="round" />
@@ -53,12 +55,12 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
         <circle cx="-7" cy="14" r="2.5" fill="#050111" />
         <circle cx="7" cy="14" r="2.5" fill="#050111" />
         <path d="M-5 20 Q0 25 5 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
-        <line x1="-32" y1="20" x2="-42" y2="30" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="32" y1="20" x2="42" y2="30" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="-10" y1="32" x2="-14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="10" y1="32" x2="14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="-14" y1="52" x2="-22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="14" y1="52" x2="22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-32" y1="20" x2="-42" y2="30" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="32" y1="20" x2="42" y2="30" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="-10" y1="32" x2="-14" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="10" y1="32" x2="14" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="-14" y1="52" x2="-22" y2="54" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="14" y1="52" x2="22" y2="54" stroke={lc} strokeWidth="3" strokeLinecap="round" />
       </svg>
     );
   }
@@ -81,10 +83,10 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
           <line x1="3" y1="7" x2="8" y2="9" stroke="#050111" strokeWidth="1.5" strokeLinecap="round" />
           <path d="M-3 13 Q1 16 5 13" stroke="#050111" strokeWidth="1.3" strokeLinecap="round" />
         </g>
-        <line x1="-14" y1="16" x2="-18" y2="26" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="16" y1="20" x2="20" y2="36" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="8" y1="22" x2="4" y2="38" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
-        <line x1="4" y1="38" x2="20" y2="36" stroke="#3f0ff2" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="-14" y1="16" x2="-18" y2="26" stroke={lc} strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="16" y1="20" x2="20" y2="36" stroke={lc} strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="8" y1="22" x2="4" y2="38" stroke={lc} strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="4" y1="38" x2="20" y2="36" stroke={lc} strokeWidth="2.5" strokeLinecap="round" />
       </svg>
     );
   }
@@ -105,12 +107,12 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
         <circle cx="-7" cy="14" r="2.5" fill="#050111" />
         <circle cx="7" cy="14" r="2.5" fill="#050111" />
         <path d="M-5 20 Q0 25 5 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
-        <line x1="-32" y1="6" x2="-46" y2="-8" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="32" y1="14" x2="42" y2="24" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="-10" y1="32" x2="-14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="10" y1="32" x2="14" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="-14" y1="52" x2="-22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-        <line x1="14" y1="52" x2="22" y2="54" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+        <line x1="-32" y1="6" x2="-46" y2="-8" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="32" y1="14" x2="42" y2="24" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="-10" y1="32" x2="-14" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="10" y1="32" x2="14" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="-14" y1="52" x2="-22" y2="54" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <line x1="14" y1="52" x2="22" y2="54" stroke={lc} strokeWidth="3" strokeLinecap="round" />
       </svg>
     );
   }
@@ -130,15 +132,15 @@ export function KeyCharacter({ pose = "waving", size = 120, className }: Props) 
       <circle cx="-8" cy="17" r="3" fill="#050111" />
       <circle cx="8" cy="17" r="3" fill="#050111" />
       <path d="M-5 24 Q0 29 5 24" stroke="#050111" strokeWidth="2" strokeLinecap="round" />
-      <line x1="-36" y1="6" x2="-50" y2="-5" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-      <line x1="36" y1="6" x2="50" y2="-5" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
+      <line x1="-36" y1="6" x2="-50" y2="-5" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+      <line x1="36" y1="6" x2="50" y2="-5" stroke={lc} strokeWidth="3" strokeLinecap="round" />
       <line x1="54" y1="-10" x2="64" y2="-10" stroke="#f8a37c" strokeWidth="2" strokeLinecap="round" />
       <line x1="56" y1="-1" x2="70" y2="-1" stroke="#f8a37c" strokeWidth="2.5" strokeLinecap="round" />
       <line x1="54" y1="8" x2="64" y2="8" stroke="#f8a37c" strokeWidth="2" strokeLinecap="round" />
-      <line x1="-12" y1="36" x2="-16" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-      <line x1="12" y1="36" x2="16" y2="52" stroke="#3f0ff2" strokeWidth="3" strokeLinecap="round" />
-      <ellipse cx="-18" cy="55" rx="7" ry="3.5" fill="#3f0ff2" />
-      <ellipse cx="18" cy="55" rx="7" ry="3.5" fill="#3f0ff2" />
+      <line x1="-12" y1="36" x2="-16" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+      <line x1="12" y1="36" x2="16" y2="52" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+      <ellipse cx="-18" cy="55" rx="7" ry="3.5" fill={lc} />
+      <ellipse cx="18" cy="55" rx="7" ry="3.5" fill={lc} />
     </svg>
   );
 }

@@ -17,8 +17,8 @@ export function FinalCTA({ locale, title, description, ctaLearn, ctaTest }: Prop
         <div className="absolute top-0 right-0 w-64 h-64 bg-electric-yellow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-peach/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
         <div className="relative">
-          <div className="flex justify-center mb-6">
-            <KeyCharacter pose="waving" size={80} />
+          <div className="flex justify-center mb-6 animate-float">
+            <KeyCharacter pose="waving" size={80} limbColor="white" />
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">{title}</h2>
           <p className="text-white/70 text-lg mb-10 max-w-lg mx-auto">{description}</p>
