@@ -35,6 +35,7 @@ export const tipsUi: Record<Locale, {
   tryCta: string;
   tryCtaDesc: string;
   featured: string;
+  readArticle: string;
 }> = {
   de: {
     pageTitle: "Tipps & Ressourcen",
@@ -48,6 +49,7 @@ export const tipsUi: Record<Locale, {
     tryCta: "Bereit loszulegen?",
     tryCtaDesc: "Finde heraus, wie schnell du tippst - kostenlos.",
     featured: "Empfohlen",
+    readArticle: "Artikel lesen",
   },
   en: {
     pageTitle: "Tips & Resources",
@@ -61,6 +63,7 @@ export const tipsUi: Record<Locale, {
     tryCta: "Ready to start?",
     tryCtaDesc: "Find out how fast you type - for free.",
     featured: "Featured",
+    readArticle: "Read article",
   },
   fr: {
     pageTitle: "Conseils & Ressources",
@@ -74,6 +77,7 @@ export const tipsUi: Record<Locale, {
     tryCta: "Prêt à commencer ?",
     tryCtaDesc: "Découvre ta vitesse de frappe - gratuitement.",
     featured: "À la une",
+    readArticle: "Lire l'article",
   },
 };
 
