@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: tip.description,
     openGraph: { title, description: tip.description, type: "article" },
     alternates: {
+      canonical: `https://fastforwardtyping.com/${locale}/tips/${slug}`,
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}/tips/${slug}`])),
     },
   };
@@ -50,23 +51,37 @@ export default async function TipArticlePage({ params }: Props) {
     mobile: "bg-zinc-200/60 text-zinc-600 dark:bg-zinc-700/40 dark:text-zinc-300",
   };
 
+  const articleUrl = `https://fastforwardtyping.com/${locale}/tips/${slug}`;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: tip.title,
     description: tip.description,
     datePublished: tip.date,
-    author: { "@type": "Organization", name: "Fast Forward >> Typing" },
-    publisher: { "@type": "Organization", name: "Fast Forward >> Typing" },
+    dateModified: tip.date,
+    url: articleUrl,
+    mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
+    author: { "@type": "Organization", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
+    publisher: { "@type": "Organization", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
     inLanguage: locale,
+    isPartOf: { "@type": "WebSite", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `https://fastforwardtyping.com/${locale}` },
+      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com/${locale}/tips` },
+      { "@type": "ListItem", position: 3, name: tip.title, item: articleUrl },
+    ],
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <article className="mx-auto max-w-3xl px-6 py-10">
         {/* Back link + meta */}
