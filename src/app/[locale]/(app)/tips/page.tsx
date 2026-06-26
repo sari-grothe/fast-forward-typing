@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { getTipsByLocale, tipsUi } from "@/lib/tips";
 import { TipsOverview } from "@/components/tips/TipsOverview";
+import { FinalCTA } from "@/components/FinalCTA";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -29,6 +31,9 @@ export default async function TipsPage({ params }: Props) {
   const { locale } = await params;
   const tips = getTipsByLocale(locale as Locale);
   const ui = tipsUi[locale as Locale];
+  const dict = await getDictionary(locale as Locale);
+  const h = dict.home as Record<string, unknown>;
+  const final_ = h.finalCta as Record<string, string>;
 
   const collectionSchema = {
     "@context": "https://schema.org",
@@ -68,6 +73,15 @@ export default async function TipsPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <TipsOverview tips={tips} locale={locale as Locale} />
+      <div className="mx-auto max-w-4xl px-6 pb-10">
+        <FinalCTA
+          locale={locale}
+          title={final_.title}
+          description={final_.desc}
+          ctaLearn={h.ctaLearn as string}
+          ctaTest={h.ctaTest as string}
+        />
+      </div>
     </>
   );
 }

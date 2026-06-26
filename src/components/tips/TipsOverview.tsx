@@ -203,27 +203,6 @@ export function TipsOverview({ tips, locale }: Props) {
         </ScrollReveal>
       )}
 
-      {/* Bottom CTA */}
-      <ScrollReveal delay={200}>
-        <div className="rounded-2xl bg-gradient-to-br from-indigo to-indigo/80 p-8 text-center text-white">
-          <h2 className="text-xl font-bold mb-2">{ui.tryCta}</h2>
-          <p className="text-white/80 text-sm max-w-md mx-auto mb-5">{ui.tryCtaDesc}</p>
-          <div className="flex items-center justify-center gap-3">
-            <Link
-              href={`/${locale}/speed-test`}
-              className="group inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-indigo shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              Speed Test <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-            </Link>
-            <Link
-              href={`/${locale}/lessons`}
-              className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-all"
-            >
-              {ui.startCourse}
-            </Link>
-          </div>
-        </div>
-      </ScrollReveal>
     </div>
   );
 }

@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getTip, getRelatedTips, getAllTipSlugs, categoryLabels, tipsUi } from "@/lib/tips";
+import { getDictionary } from "@/i18n/dictionaries";
 import { Markdown } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { KeyCharacter } from "@/components/KeyCharacter";
+import { FinalCTA } from "@/components/FinalCTA";
 import { PrintButton } from "@/components/tips/PrintButton";
 
 type Props = {
@@ -38,6 +39,9 @@ export default async function TipArticlePage({ params }: Props) {
   const { locale, slug } = await params;
   const tip = getTip(slug, locale as Locale);
   const ui = tipsUi[locale as Locale];
+  const dict = await getDictionary(locale as Locale);
+  const h = dict.home as Record<string, unknown>;
+  const final_ = h.finalCta as Record<string, string>;
 
   if (!tip) notFound();
 
@@ -132,24 +136,16 @@ export default async function TipArticlePage({ params }: Props) {
           </div>
         </ScrollReveal>
 
-        {/* Inline CTA */}
-        <ScrollReveal delay={160}>
-          <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-br from-white to-lavender/30 dark:from-dark-surface dark:to-indigo/5 p-6 sm:p-8 mb-12 flex flex-col sm:flex-row items-center gap-6">
-            <div className="hidden sm:block shrink-0 animate-float">
-              <KeyCharacter pose="waving" size={80} />
-            </div>
-            <div className="flex-1 text-center sm:text-left">
-              <p className="font-bold text-dark-text dark:text-white text-lg">{ui.tryCta}</p>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{ui.tryCtaDesc}</p>
-            </div>
-            <Link
-              href={`/${locale}/speed-test`}
-              className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0"
-            >
-              Speed Test <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-            </Link>
-          </div>
-        </ScrollReveal>
+        {/* CTA */}
+        <div className="mb-12">
+          <FinalCTA
+            locale={locale}
+            title={final_.title}
+            description={final_.desc}
+            ctaLearn={h.ctaLearn as string}
+            ctaTest={h.ctaTest as string}
+          />
+        </div>
 
         {/* Related articles */}
         {related.length > 0 && (
