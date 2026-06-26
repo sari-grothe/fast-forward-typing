@@ -91,18 +91,15 @@ export default async function LocaleLayout({ children, params }: Props) {
               <span className="text-indigo">&gt;&gt;</span>Typing
             </Link>
             <div className="flex items-center gap-2 sm:gap-4">
-              <div className="hidden md:flex items-center gap-4 text-sm font-medium">
-                <Link href={`/${locale}/speed-test`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
+              <div className="hidden md:flex items-center gap-1 text-sm font-medium">
+                <Link href={`/${locale}/speed-test`} className="nav-keycap">
                   {dict.nav.typingTest}
                 </Link>
-                <Link href={`/${locale}/lessons`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
+                <Link href={`/${locale}/lessons`} className="nav-keycap">
                   {dict.nav.typingCourse}
                 </Link>
-                <Link href={`/${locale}/tips`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
+                <Link href={`/${locale}/tips`} className="nav-keycap">
                   {dict.nav.typingTips}
-                </Link>
-                <Link href={`/${locale}/pricing`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
-                  {dict.nav.pricing}
                 </Link>
               </div>
               <MobileMenu locale={locale} dict={dict} />
@@ -127,7 +124,6 @@ export default async function LocaleLayout({ children, params }: Props) {
                   <Link href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
                   <Link href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.typingTips}</Link>
                   <Link href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
-                  <Link href={`/${locale}/pricing`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
                 </div>
               </div>
               <div>
