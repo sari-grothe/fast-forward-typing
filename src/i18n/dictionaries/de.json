@@ -16,14 +16,13 @@
     "ctaLearn": "Kurs starten",
     "ctaTest": "Geschwindigkeit testen",
     "productivity": {
-      "title": "So viel Zeit kannst du sparen.",
-      "heroLabel": "Bei 20 E-Mails am Tag",
+      "title": "Bis zu 2,5 Stunden am Tag sparen?",
+      "heroLabel": "Zum Beispiel: bei 20 E-Mails am Tag",
       "heroUnit": "Stunden",
       "heroCaption": "gesparte Zeit. Jeden Tag.",
       "unit": "WPM",
-      "baselineIntro": "Mal ehrlich:",
       "baselineText": "Beim Durchschnittstempo von 40 WPM brauchst du für eine 500-Wort-Mail 12,5 Minuten.",
-      "tiersLabel": "So viel schneller geht's bei mehr Tempo:",
+      "tiersLabel": "So viel Zeit kannst du sparen:",
       "tier60Time": "8,3 Min",
       "tier60Saved": "4,2 Min gespart",
       "tier80Time": "6,3 Min",
@@ -32,7 +31,7 @@
       "tier100Saved": "7,5 Min gespart",
       "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
       "cta": "Wie schnell tippst du?",
-      "ctaSub": "Jetzt kostenlos testen · 1 Min"
+      "ctaSub": "Jetzt kostenlos testen"
     },
     "howItWorks": {
       "title": "So funktioniert es",

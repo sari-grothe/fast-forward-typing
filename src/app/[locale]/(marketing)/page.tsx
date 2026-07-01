@@ -87,9 +87,7 @@ export default async function HomePage({ params }: Props) {
 
                 {/* Baseline explainer */}
                 <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6 text-center">
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">
-                    <span className="font-semibold text-zinc-600 dark:text-zinc-300">{prod.baselineIntro}</span> {prod.baselineText}
-                  </p>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">{prod.baselineText}</p>
                 </div>
 
                 {/* Speed tiers */}
