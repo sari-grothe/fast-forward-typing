@@ -244,18 +244,18 @@ function CompactKeyboard({
   ];
 
   return (
-    <div className="flex flex-col items-center gap-[2px] sm:gap-[3px] p-2 sm:p-3 rounded-xl border border-zinc-200 dark:border-dark-border bg-zinc-100/80 dark:bg-dark/60">
+    <div className="flex w-full flex-col items-center gap-[2px] sm:gap-[3px] p-2 sm:p-3 rounded-xl border border-zinc-200 dark:border-dark-border bg-zinc-100/80 dark:bg-dark/60">
       <div className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 mb-1">{name}</div>
       {rows.map(({ key: rowKey, keys }) => (
-        <div key={rowKey} className="flex gap-[2px] sm:gap-[3px]">
+        <div key={rowKey} className="flex w-full gap-[2px] sm:gap-[3px]">
           {keys.map((k, i) => {
             const isDiff = showDiffs && diffs.has(`${rowKey}-${i}`);
+            const weight = k.width ? k.width / 40 : 1;
             return (
               <div
                 key={`${rowKey}-${i}`}
                 className={[
-                  "flex items-center justify-center rounded border select-none transition-all duration-200 h-7 sm:h-9",
-                  k.width ? "" : "w-7 sm:w-10",
+                  "flex items-center justify-center rounded border select-none transition-all duration-200 h-7 sm:h-9 min-w-0",
                   k.isModifier
                     ? "border-zinc-100 dark:border-dark-border text-[8px] sm:text-[10px] text-zinc-400 dark:text-zinc-600"
                     : "border-zinc-200 dark:border-dark-border text-[10px] sm:text-sm font-mono font-medium shadow-[0_1px_0_0_rgba(0,0,0,0.05)] dark:shadow-[0_1px_0_0_rgba(255,255,255,0.03)]",
@@ -263,7 +263,7 @@ function CompactKeyboard({
                     ? "bg-indigo/15 border-indigo/40 dark:bg-indigo/20 dark:border-indigo/50 ring-1 ring-indigo/30"
                     : "bg-white dark:bg-dark-surface",
                 ].join(" ")}
-                style={k.width ? { width: Math.round(k.width * 0.7), ...(typeof window !== "undefined" ? {} : {}) } : undefined}
+                style={{ flexGrow: weight, flexShrink: weight, flexBasis: 0 }}
               >
                 <span className={isDiff ? "text-indigo font-semibold" : ""}>
                   {k.label ?? k.key.toUpperCase()}
@@ -342,15 +342,17 @@ export function KeyboardComparison({ locale }: { locale: Locale }) {
 
       {/* Side-by-side keyboards */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        <div className="space-y-2">
-          <div className="text-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500">{t.usedIn}: {t.regions[layoutA]}</span>
+        <div className="space-y-3">
+          <div className="flex flex-col items-center gap-0.5 mx-auto w-fit px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-dark-surface">
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">{t.usedIn}</span>
+            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200 text-center">{t.regions[layoutA]}</span>
           </div>
           <CompactKeyboard layout={layouts[layoutA]} name={layoutA} diffs={diffs} showDiffs={showDiffs} />
         </div>
-        <div className="space-y-2">
-          <div className="text-center">
-            <span className="text-xs text-zinc-400 dark:text-zinc-500">{t.usedIn}: {t.regions[layoutB]}</span>
+        <div className="space-y-3">
+          <div className="flex flex-col items-center gap-0.5 mx-auto w-fit px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-dark-surface">
+            <span className="text-[10px] font-semibold uppercase tracking-wide text-zinc-400 dark:text-zinc-500">{t.usedIn}</span>
+            <span className="text-sm font-medium text-zinc-700 dark:text-zinc-200 text-center">{t.regions[layoutB]}</span>
           </div>
           <CompactKeyboard layout={layouts[layoutB]} name={layoutB} diffs={diffs} showDiffs={showDiffs} />
         </div>
