@@ -15,6 +15,21 @@
     "subheadline": "We'll help you get there. The modern typing tutor built for adults.",
     "ctaLearn": "Start learning",
     "ctaTest": "Free typing test",
+    "productivity": {
+      "title": "Let's do the math.",
+      "slowLabel": "Average",
+      "slowWpm": "40",
+      "fastLabel": "Trained typist",
+      "fastWpm": "70",
+      "unit": "WPM",
+      "emailLabel": "One 500-word email",
+      "slowTime": "12.5 min",
+      "fastTime": "7 min",
+      "savedLabel": "With 20 emails a day, you save",
+      "savedValue": "almost 2 hours.",
+      "source": "Average: Aalto University, 168,000 participants",
+      "cta": "How fast do you type?"
+    },
     "howItWorks": {
       "title": "How it works",
       "step1Title": "Test your speed",

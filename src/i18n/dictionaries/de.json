@@ -15,6 +15,21 @@
     "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene.",
     "ctaLearn": "Tippen lernen",
     "ctaTest": "Kostenloser Tipptest",
+    "productivity": {
+      "title": "Mal kurz gerechnet.",
+      "slowLabel": "Durchschnitt",
+      "slowWpm": "40",
+      "fastLabel": "Geübter Tipper",
+      "fastWpm": "70",
+      "unit": "WPM",
+      "emailLabel": "Eine 500-Wort-Mail",
+      "slowTime": "12,5 Min",
+      "fastTime": "7 Min",
+      "savedLabel": "Bei 20 Mails am Tag sparst du",
+      "savedValue": "fast 2 Stunden.",
+      "source": "Durchschnitt: Aalto University, 168.000 Teilnehmer",
+      "cta": "Wie schnell tippst du?"
+    },
     "howItWorks": {
       "title": "So funktioniert es",
       "step1Title": "Teste dein Level",

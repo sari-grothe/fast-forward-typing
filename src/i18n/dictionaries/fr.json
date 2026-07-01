@@ -15,6 +15,21 @@
     "subheadline": "On t'aide à y arriver. Le tuteur de frappe moderne pour adultes.",
     "ctaLearn": "Apprendre à taper",
     "ctaTest": "Test de frappe gratuit",
+    "productivity": {
+      "title": "Un petit calcul.",
+      "slowLabel": "Moyenne",
+      "slowWpm": "40",
+      "fastLabel": "Dactylo entraîné",
+      "fastWpm": "70",
+      "unit": "MPM",
+      "emailLabel": "Un mail de 500 mots",
+      "slowTime": "12,5 min",
+      "fastTime": "7 min",
+      "savedLabel": "Avec 20 mails par jour, tu gagnes",
+      "savedValue": "presque 2 heures.",
+      "source": "Moyenne : Aalto University, 168 000 participants",
+      "cta": "À quelle vitesse tu tapes ?"
+    },
     "howItWorks": {
       "title": "Comment ça marche",
       "step1Title": "Teste ta vitesse",
