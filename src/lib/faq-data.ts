@@ -116,7 +116,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
 
 export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> = {
   de: {
-    title: "Häufig gestellte Fragen zum Tipptest",
+    title: "Häufig gestellte Fragen zur Tippgeschwindigkeit",
     items: [
       {
         question: "Wie funktioniert der Tipptest?",

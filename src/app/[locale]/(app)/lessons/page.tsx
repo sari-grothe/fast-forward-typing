@@ -37,7 +37,7 @@ const i18n: Record<Locale, {
   paidLessons: string;
 }> = {
   de: {
-    title: "Dein Tippkurs",
+    title: "Dein 10-Finger-System-Kurs",
     subtitle: "28 Lektionen. Von der Grundreihe bis zur vollen Geschwindigkeit.",
     startCourse: "Kurs starten",
     continueCourse: "Weitermachen",

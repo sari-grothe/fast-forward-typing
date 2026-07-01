@@ -41,10 +41,10 @@
       "step2Desc": "Strukturierte Lektionen führen dich Schritt für Schritt zum 10-Finger-System. In deinem Tempo.",
       "step3Title": "Hol dir dein Zertifikat",
       "step3Desc": "Schließ den Kurs ab und erhalte ein Zertifikat, das deine Tippgeschwindigkeit belegt.",
-      "cta": "Tippkurs starten"
+      "cta": "Kurs starten"
     },
     "features": {
-      "title": "Was dich erwartet",
+      "title": "So lernst du das 10-Finger-System",
       "structured": "Strukturierte Lektionen",
       "structuredDesc": "30 aufeinander aufbauende Lektionen. Jede baut auf der vorherigen auf - kein Raten, kein Springen.",
       "guidance": "Echtzeit-Feedback",
@@ -74,9 +74,9 @@
     },
     "certificate": {
       "title": "Hol dir dein Zertifikat",
-      "desc": "Mach einen Tipptest und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Tippkurs ab - dein Zertifikat ist inklusive.",
-      "ctaLearn": "Tippen lernen",
-      "ctaTest": "Kostenloser Tipptest",
+      "desc": "Mach einen Tipptest und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Kurs ab - dein Zertifikat ist inklusive.",
+      "ctaLearn": "Kurs starten",
+      "ctaTest": "Kostenlos Geschwindigkeit testen",
       "brandName": "FAST FORWARD >> TYPING",
       "certTitle": "LEISTUNGSZERTIFIKAT",
       "awardedTo": "Zertifikat verliehen an",
@@ -111,7 +111,7 @@
     "languagesText": "Deutsch, Englisch, Französisch - nicht übersetzt, sondern nativ geschrieben. Weil \"du\" nicht \"you\" ist und nicht \"tu\".",
     "ctaTitle": "Bereit?",
     "ctaText": "Starte mit dem kostenlosen Tipptest. Dauert weniger als 5 Minuten.",
-    "ctaButton": "Tipptest starten"
+    "ctaButton": "Geschwindigkeit testen"
   },
   "footer": {
     "learnTyping": "Tippen lernen",

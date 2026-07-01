@@ -58,7 +58,7 @@ const i18n: Record<Locale, {
     trustLine: "Sichere Zahlung über Stripe. Deine Daten bleiben bei dir.",
     testFirst: "Noch keinen Test gemacht?",
     testFirstDesc: "Mach zuerst den kostenlosen Tipptest - in wenigen Minuten weisst du, wo du stehst.",
-    testCta: "Zum Tipptest",
+    testCta: "Geschwindigkeit testen",
   },
   en: {
     heroTitle: "Make your typing skills official",

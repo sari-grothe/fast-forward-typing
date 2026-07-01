@@ -52,7 +52,7 @@ function getBenchmarkTier(wpm: number, locale: Locale): BenchmarkTier {
       { min: 61, label: "Schnell", percentile: "Top 25%", comparison: "Schneller als 75% aller Menschen" },
       { min: 41, label: "Gut", percentile: "Top 50%", comparison: "Schneller als die Hälfte aller Menschen" },
       { min: 26, label: "Durchschnitt", percentile: "Durchschnitt", comparison: "Auf dem Level der meisten Büroangestellten" },
-      { min: 0, label: "Anfänger", percentile: "Untere 25%", comparison: "Hier starten die meisten - der Tippkurs bringt dich weiter" },
+      { min: 0, label: "Anfänger", percentile: "Untere 25%", comparison: "Hier starten die meisten - der Kurs bringt dich weiter" },
     ],
     en: [
       { min: 100, label: "Elite", percentile: "Top 5%", comparison: "Faster than 95% of all people" },
@@ -140,7 +140,7 @@ const i18n: Record<Locale, {
   shareCopied: string;
 }> = {
   de: {
-    title: "Tipptest",
+    title: "Tippgeschwindigkeit",
     subtitle: (mins) => `${mins} ${mins === 1 ? "Minute" : "Minuten"}. Tipp so schnell und genau wie möglich.`,
     newTest: "Neuer Text",
     minLabel: "Min",
@@ -156,7 +156,7 @@ const i18n: Record<Locale, {
     benchmarkMatches: "Entspricht dem Level",
     focusSection: "Was wir beim Test gesehen haben",
     focusTitle: "Dein Fokus fürs Training",
-    focusNudge: (n) => `${n} ${n === 1 ? "Taste braucht" : "Tasten brauchen"} Übung - der Tippkurs trainiert genau diese.`,
+    focusNudge: (n) => `${n} ${n === 1 ? "Taste braucht" : "Tasten brauchen"} Übung - der Kurs trainiert genau diese.`,
     focusPerfect: "Keine Fehler - perfekt getippt. Bereit für die nächste Stufe?",
     nextStepSection: "Dein nächster Schritt",
     trainingTitle: "Tipptraining starten",

@@ -90,7 +90,7 @@ const i18n: Record<string, { title: string; subtitle: string; cta: string }> = {
   de: {
     title: "Das sagen unsere Nutzer",
     subtitle: "Echte Ergebnisse von echten Erwachsenen, die schneller tippen wollten.",
-    cta: "Tippkurs starten",
+    cta: "Kurs starten",
   },
   en: {
     title: "What our users say",
