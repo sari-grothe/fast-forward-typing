@@ -129,7 +129,6 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forCompanies}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <Link href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
-                  <Link href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.employeeReports}</Link>
                   <Link href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
                 </div>
               </div>
