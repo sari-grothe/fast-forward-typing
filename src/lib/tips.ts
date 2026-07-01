@@ -38,8 +38,8 @@ export const tipsUi: Record<Locale, {
   readArticle: string;
 }> = {
   de: {
-    pageTitle: "Tipps & Ressourcen",
-    pageSubtitle: "Alles rund ums Tippen - Guides, Shortcuts, Tools.",
+    pageTitle: "Ressourcen",
+    pageSubtitle: "10-Finger-System lernen, Tastenkombinationen und Tipps für schnelleres Tippen im Job und Alltag.",
     readingTime: "Min. Lesezeit",
     backToTips: "Alle Tipps",
     relatedArticles: "Weiterlesen",

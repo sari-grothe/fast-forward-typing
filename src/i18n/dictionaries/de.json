@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Fast Forward >> Typing",
-    "description": "Was, wenn du so schnell tippen könntest wie du denkst? Der moderne Tipptrainer für Erwachsene."
+    "title": "10-Finger-System lernen | Fast Forward >> Typing",
+    "description": "10-Finger-System lernen, in deinem Tempo: kostenloser Tipptest, Tippgeschwindigkeit messen und ein moderner Tipptrainer für Erwachsene."
   },
   "nav": {
     "home": "Startseite",
@@ -12,7 +12,7 @@
   },
   "home": {
     "headline": "Du tippst jeden Tag. Warum nicht doppelt so schnell?",
-    "subheadline": "Schneller tippen, produktiver arbeiten. Das Zehnfingersystem, Lektion für Lektion, in deinem Tempo.",
+    "subheadline": "Schneller tippen, produktiver arbeiten. Das 10-Finger-System, Lektion für Lektion, in deinem Tempo.",
     "ctaLearn": "Kurs starten",
     "ctaTest": "Geschwindigkeit testen",
     "productivity": {
@@ -116,9 +116,8 @@
   },
   "footer": {
     "learnTyping": "Tippen lernen",
-    "typingTest": "Tipptest",
-    "typingCourse": "Tippkurs",
-    "typingTips": "Tipptipps",
+    "typingTest": "Tippgeschwindigkeit",
+    "typingCourse": "10-Finger-System lernen",
     "certificate": "Zertifikat",
     "forCompanies": "Für Unternehmen",
     "teamTraining": "Team-Training",

@@ -122,7 +122,6 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <Link href={`/${locale}/speed-test`} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</Link>
                   <Link href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
-                  <Link href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.typingTips}</Link>
                   <Link href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
                 </div>
               </div>
