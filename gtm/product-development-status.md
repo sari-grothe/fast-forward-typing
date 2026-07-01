@@ -35,10 +35,11 @@ Last updated: 2026-07-01
 - Teachers section
 - Companies/B2B section
 
-### Legal (required before public launch)
+### Legal & Compliance (required before public launch)
 - Privacy policy (CNIL + GDPR)
 - Terms of service
 - Imprint/legal notice (Impressum)
+- Cookie consent popup (DSGVO/GDPR requirement)
 
 ### Support
 - Help page
