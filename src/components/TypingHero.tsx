@@ -89,14 +89,6 @@ export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
         }
         break;
       case "pause":
-        t = setTimeout(() => setPhase("deleting"), 2500);
-        break;
-      case "deleting":
-        if (idx > 0) {
-          t = setTimeout(() => setIdx((i) => i - 1), 35);
-        } else {
-          setPhase("wait");
-        }
         break;
     }
     return () => clearTimeout(t);

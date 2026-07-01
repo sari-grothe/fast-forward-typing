@@ -75,33 +75,48 @@ export default async function HomePage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <ScrollReveal delay={80}>
               <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
-                {/* Before / after columns */}
-                <div className="grid grid-cols-2 gap-6 mb-6">
-                  <div className="text-center">
-                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">{prod.slowLabel}</p>
-                    <p className="text-5xl sm:text-6xl font-extrabold text-zinc-300 dark:text-zinc-600">{prod.slowWpm}</p>
-                    <p className="text-xs text-zinc-400 mb-4">{prod.unit}</p>
-                    <p className="text-xs text-zinc-400 mb-1">{prod.emailLabel}</p>
-                    <p className="text-xl font-bold text-zinc-300 dark:text-zinc-600">{prod.slowTime}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-xs font-semibold text-indigo uppercase tracking-wider mb-3">{prod.fastLabel}</p>
-                    <p className="text-5xl sm:text-6xl font-extrabold text-indigo">{prod.fastWpm}</p>
-                    <p className="text-xs text-indigo/60 mb-4">{prod.unit}</p>
-                    <p className="text-xs text-indigo/60 mb-1">{prod.emailLabel}</p>
-                    <p className="text-xl font-bold text-indigo">{prod.fastTime}</p>
+                {/* Baseline */}
+                <div className="text-center mb-8">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">{prod.baselineLabel}</p>
+                  <p className="text-5xl sm:text-6xl font-extrabold text-zinc-400 dark:text-zinc-500">
+                    {prod.baselineWpm}
+                    <span className="text-lg font-semibold ml-1 align-top">{prod.unit}</span>
+                  </p>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-3">
+                    {prod.baselineDesc} <span className="font-bold text-zinc-600 dark:text-zinc-300">{prod.baselineTime}</span>
+                  </p>
+                </div>
+
+                {/* Speed tiers */}
+                <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6">
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mb-6">{prod.tiersLabel}</p>
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { wpm: 60, time: prod.tier60Time, saved: prod.tier60Saved },
+                      { wpm: 80, time: prod.tier80Time, saved: prod.tier80Saved },
+                      { wpm: 100, time: prod.tier100Time, saved: prod.tier100Saved },
+                    ].map((tier) => (
+                      <div key={tier.wpm} className="text-center">
+                        <p className="text-2xl sm:text-3xl font-extrabold text-indigo">
+                          {tier.wpm}
+                          <span className="text-xs font-semibold ml-0.5">{prod.unit}</span>
+                        </p>
+                        <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{tier.time}</p>
+                        <p className="text-xs font-bold text-indigo mt-1">{tier.saved}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Punchline */}
                 <div className="border-t border-zinc-200 dark:border-dark-border pt-6 text-center">
                   <p className="text-lg text-zinc-600 dark:text-zinc-300">
-                    {prod.savedLabel} <span className="font-bold text-indigo">{prod.savedValue}</span>
+                    {prod.savedRangeLabel} <span className="font-bold text-indigo">{prod.savedRangeValue}</span>
                   </p>
                 </div>
 
                 {/* Source */}
-                <p className="mt-6 text-center text-xs text-zinc-400">{prod.source}</p>
+                <p className="mt-6 text-center text-xs text-zinc-400 max-w-md mx-auto">{prod.source}</p>
 
                 {/* CTA */}
                 <div className="mt-8 flex justify-center">
