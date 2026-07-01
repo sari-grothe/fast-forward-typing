@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const splits: Record<string, { static: string; typed: string }> = {
   de: { static: "Du tippst jeden Tag. ", typed: "Warum nicht doppelt so schnell?" },
-  en: { static: "What if you could type as fast as ", typed: "you think?" },
-  fr: { static: "Et si tu tapais aussi vite que ", typed: "tu penses ?" },
+  en: { static: "You type every day. ", typed: "Why not twice as fast?" },
+  fr: { static: "Tu tapes tous les jours. ", typed: "Pourquoi pas deux fois plus vite ?" },
 };
 
 type K = { l: string; w: number };
