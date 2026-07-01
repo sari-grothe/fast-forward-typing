@@ -16,7 +16,7 @@
     "ctaLearn": "Kurs starten",
     "ctaTest": "Geschwindigkeit testen",
     "productivity": {
-      "title": "So viel Zeit sparst du beim Tippen.",
+      "title": "So viel Zeit kannst du sparen.",
       "baselineLabel": "Durchschnittstempo",
       "baselineWpm": "40",
       "unit": "WPM",
@@ -29,10 +29,10 @@
       "tier80Saved": "6,3 Min gespart",
       "tier100Time": "5 Min",
       "tier100Saved": "7,5 Min gespart",
-      "savedRangeLabel": "Bei 20 Mails am Tag sparst du je nach Tempo",
-      "savedRangeValue": "1,5 bis 2,5 Stunden.",
-      "source": "Der Durchschnitt von 40 WPM stammt aus der grössten Tippstudie weltweit (Aalto University, 168.000 Teilnehmer). Die Werte darüber zeigen, wie viel Zeit du bei höherem Tempo sparst.",
-      "cta": "Wie schnell tippst du?"
+      "savedRangeLabel": "Bei 20 E-Mails am Tag kannst du sparen:",
+      "savedRangeValue": "bis zu 2,5 Stunden.",
+      "source": "Quelle: Aalto University - die größte Tippstudie der Welt, 168.000 Teilnehmer.",
+      "cta": "Jetzt kostenlos testen"
     },
     "howItWorks": {
       "title": "So funktioniert es",
@@ -95,14 +95,6 @@
       "certDateLabel": "ZERTIFIZIERUNGSDATUM",
       "tierLabel": "GOLD"
     },
-    "teams": {
-      "forTeachers": "Für Lehrkräfte",
-      "teachersDesc": "Tippen gehört in den Unterricht. Verwalte Klassen, verfolge Fortschritte und integriere Tipptraining in deinen Lehrplan.",
-      "teachersCta": "Mehr erfahren",
-      "forCompanies": "Für Unternehmen",
-      "companiesDesc": "Schnelleres Tippen, höhere Produktivität. Richte Teams ein, verfolge Ergebnisse und steigere die Effizienz in deinem Unternehmen.",
-      "companiesCta": "Kontakt aufnehmen"
-    },
     "finalCta": {
       "title": "Bereit, schneller zu tippen?",
       "desc": "Starte jetzt - die ersten Ergebnisse siehst du schon nach der ersten Lektion."
@@ -129,10 +121,6 @@
     "typingCourse": "Tippkurs",
     "typingTips": "Tipptipps",
     "certificate": "Zertifikat",
-    "forTeachers": "Für Lehrkräfte",
-    "classroomLicenses": "Klassenlizenzen",
-    "progressReports": "Fortschrittsberichte",
-    "lessonPlans": "Unterrichtspläne",
     "forCompanies": "Für Unternehmen",
     "teamTraining": "Team-Training",
     "employeeReports": "Mitarbeiterberichte",

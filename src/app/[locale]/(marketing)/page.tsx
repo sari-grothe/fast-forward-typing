@@ -24,7 +24,6 @@ export default async function HomePage({ params }: Props) {
   const feat = h.features as Record<string, string>;
   const speed = h.speedTest as Record<string, string>;
   const cert = h.certificate as Record<string, string>;
-  const teams = h.teams as Record<string, string>;
   const final_ = h.finalCta as Record<string, string>;
 
   const courseSchema = {
@@ -296,48 +295,6 @@ export default async function HomePage({ params }: Props) {
       {/* Testimonials */}
       <section className="py-20 overflow-hidden">
         <TestimonialSlider locale={locale} />
-      </section>
-
-      {/* For teams / For teachers */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <ScrollReveal delay={0}>
-              <div className="group rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10 hover:shadow-xl hover:shadow-peach/5 hover:-translate-y-1 transition-all duration-300">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-peach/10 group-hover:bg-peach group-hover:shadow-lg group-hover:shadow-peach/25 transition-all duration-300">
-                  <svg className="h-6 w-6 text-peach group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3">{teams.forTeachers}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">{teams.teachersDesc}</p>
-                <Link
-                  href={`/${locale}/teachers`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-indigo hover:text-indigo/80 transition-colors group/link"
-                >
-                  {teams.teachersCta} <span className="group-hover/link:translate-x-1 transition-transform">&rarr;</span>
-                </Link>
-              </div>
-            </ScrollReveal>
-            <ScrollReveal delay={120}>
-              <div className="group rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10 hover:shadow-xl hover:shadow-indigo/5 hover:-translate-y-1 transition-all duration-300">
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo/10 group-hover:bg-indigo group-hover:shadow-lg group-hover:shadow-indigo/25 transition-all duration-300">
-                  <svg className="h-6 w-6 text-indigo group-hover:text-white transition-colors duration-300" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold mb-3">{teams.forCompanies}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-6">{teams.companiesDesc}</p>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-indigo hover:text-indigo/80 transition-colors group/link"
-                >
-                  {teams.companiesCta} <span className="group-hover/link:translate-x-1 transition-transform">&rarr;</span>
-                </Link>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
       </section>
 
       {/* FAQ */}

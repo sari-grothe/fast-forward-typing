@@ -95,14 +95,6 @@
       "certDateLabel": "CERTIFICATION DATE",
       "tierLabel": "GOLD"
     },
-    "teams": {
-      "forTeachers": "For teachers",
-      "teachersDesc": "Typing belongs in the classroom. Manage classes, track progress and integrate typing into your curriculum.",
-      "teachersCta": "Learn more",
-      "forCompanies": "For companies",
-      "companiesDesc": "Faster typing, higher productivity. Set up teams, track results and boost efficiency across your organisation.",
-      "companiesCta": "Get in touch"
-    },
     "finalCta": {
       "title": "Ready to type faster?",
       "desc": "Start now - you'll see results after your very first lesson."
@@ -129,10 +121,6 @@
     "typingCourse": "Typing Course",
     "typingTips": "Typing Tips",
     "certificate": "Certificate",
-    "forTeachers": "For Teachers",
-    "classroomLicenses": "Classroom Licenses",
-    "progressReports": "Progress Reports",
-    "lessonPlans": "Lesson Plans",
     "forCompanies": "For Companies",
     "teamTraining": "Team Training",
     "employeeReports": "Employee Reports",

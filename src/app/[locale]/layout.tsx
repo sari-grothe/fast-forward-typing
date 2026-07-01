@@ -110,7 +110,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main id="main-content" className="pt-20 flex-1">{children}</main>
         <footer className="border-t border-zinc-200 dark:border-dark-border mt-auto">
           <div className="mx-auto max-w-5xl px-6 py-10">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8 mb-8 text-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8 text-sm">
               <div className="col-span-2 sm:col-span-1">
                 <Link href={`/${locale}`} className="text-lg font-semibold tracking-tight">
                   <span className="text-indigo">&gt;&gt;</span>Typing
@@ -124,14 +124,6 @@ export default async function LocaleLayout({ children, params }: Props) {
                   <Link href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
                   <Link href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.typingTips}</Link>
                   <Link href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
-                </div>
-              </div>
-              <div>
-                <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forTeachers}</p>
-                <div className="flex flex-col gap-2 text-zinc-500">
-                  <Link href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.classroomLicenses}</Link>
-                  <Link href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.progressReports}</Link>
-                  <Link href={`/${locale}/teachers`} className="hover:text-indigo transition-colors">{dict.footer.lessonPlans}</Link>
                 </div>
               </div>
               <div>

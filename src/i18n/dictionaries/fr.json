@@ -95,14 +95,6 @@
       "certDateLabel": "DATE DE CERTIFICATION",
       "tierLabel": "GOLD"
     },
-    "teams": {
-      "forTeachers": "Pour enseignants",
-      "teachersDesc": "La frappe a sa place en classe. Gère tes classes, suis les progrès et intègre la frappe dans ton programme.",
-      "teachersCta": "En savoir plus",
-      "forCompanies": "Pour entreprises",
-      "companiesDesc": "Frappe plus rapide, productivité plus élevée. Configure des équipes, suis les résultats et booste l'efficacité dans ton entreprise.",
-      "companiesCta": "Nous contacter"
-    },
     "finalCta": {
       "title": "Prêt à taper plus vite ?",
       "desc": "Commence maintenant - tu verras des résultats dès ta première leçon."
@@ -129,10 +121,6 @@
     "typingCourse": "Cours de frappe",
     "typingTips": "Astuces de frappe",
     "certificate": "Certificat",
-    "forTeachers": "Pour enseignants",
-    "classroomLicenses": "Licences de classe",
-    "progressReports": "Rapports de progression",
-    "lessonPlans": "Plans de cours",
     "forCompanies": "Pour entreprises",
     "teamTraining": "Formation d'équipe",
     "employeeReports": "Rapports employés",
