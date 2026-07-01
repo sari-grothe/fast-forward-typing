@@ -10,7 +10,7 @@ type KeyDef = {
   isModifier?: boolean;
 };
 
-type LayoutName = "QWERTY" | "AZERTY" | "QWERTZ";
+type LayoutName = "QWERTY" | "AZERTY" | "QWERTZ" | "QWERTZ-CH";
 
 type LayoutData = {
   numberRow: KeyDef[];
@@ -112,7 +112,38 @@ const QWERTZ: LayoutData = {
   ],
 };
 
-const layouts: Record<LayoutName, LayoutData> = { QWERTY, AZERTY, QWERTZ };
+const QWERTZ_CH: LayoutData = {
+  numberRow: [
+    { key: "§", label: "§", width: 36 },
+    { key: "1" }, { key: "2" }, { key: "3" }, { key: "4" }, { key: "5" },
+    { key: "6" }, { key: "7" }, { key: "8" }, { key: "9" }, { key: "0" },
+    { key: "'", label: "'" }, { key: "^", label: "^" },
+    { key: "Backspace", label: "←", width: 72, isModifier: true },
+  ],
+  topRow: [
+    { key: "Tab", label: "Tab", width: 54, isModifier: true },
+    { key: "q" }, { key: "w" }, { key: "e" }, { key: "r" }, { key: "t" },
+    { key: "z" }, { key: "u" }, { key: "i" }, { key: "o" }, { key: "p" },
+    { key: "ü", label: "ü" }, { key: "¨", label: "¨" },
+    { key: "$", label: "$", width: 54 },
+  ],
+  homeRow: [
+    { key: "CapsLock", label: "Caps", width: 66, isModifier: true },
+    { key: "a" }, { key: "s" }, { key: "d" }, { key: "f" }, { key: "g" },
+    { key: "h" }, { key: "j" }, { key: "k" }, { key: "l" }, { key: "ö", label: "ö" },
+    { key: "ä", label: "ä" },
+    { key: "Enter", label: "↵", width: 78, isModifier: true },
+  ],
+  bottomRow: [
+    { key: "ShiftL", label: "Shift", width: 84, isModifier: true },
+    { key: "y" }, { key: "x" }, { key: "c" }, { key: "v" }, { key: "b" },
+    { key: "n" }, { key: "m" }, { key: ",", label: "," }, { key: ".", label: "." },
+    { key: "-", label: "-" },
+    { key: "ShiftR", label: "Shift", width: 96, isModifier: true },
+  ],
+};
+
+const layouts: Record<LayoutName, LayoutData> = { QWERTY, AZERTY, QWERTZ, "QWERTZ-CH": QWERTZ_CH };
 
 function getKeyId(keyDef: KeyDef): string {
   if (keyDef.isModifier) return "";
@@ -169,12 +200,14 @@ const ui: Record<Locale, UI> = {
     regions: {
       QWERTY: "USA, UK, Niederlande, Skandinavien",
       AZERTY: "Frankreich, Belgien",
-      QWERTZ: "Deutschland, Schweiz, Österreich",
+      QWERTZ: "Deutschland, Österreich",
+      "QWERTZ-CH": "Schweiz",
     },
     facts: [
       { layout: "QWERTY", text: "1873 erfunden, um Schreibmaschinen-Blockaden zu vermeiden. Die Mechanik gibt es seit 100 Jahren nicht mehr - das Layout schon." },
       { layout: "AZERTY", text: "A und Q sowie Z und W getauscht. Erst 2019 wurde AZERTY offiziell standardisiert." },
       { layout: "QWERTZ", text: "Z und Y getauscht, weil Z im Deutschen 20x häufiger vorkommt als Y." },
+      { layout: "QWERTZ-CH", text: "Keine ß-Taste - im Schweizer Hochdeutsch wird durchgehend 'ss' geschrieben. Dafür gibt es eine eigene $-Taste und ein § statt des deutschen ^." },
     ],
     tipTitle: "Das Wichtigste",
     tipText: "Kein Layout ist objektiv besser. Nutze das Layout deines Landes und lerne, mit allen zehn Fingern zu tippen.",
@@ -191,12 +224,14 @@ const ui: Record<Locale, UI> = {
     regions: {
       QWERTY: "USA, UK, Netherlands, Scandinavia",
       AZERTY: "France, Belgium",
-      QWERTZ: "Germany, Switzerland, Austria",
+      QWERTZ: "Germany, Austria",
+      "QWERTZ-CH": "Switzerland",
     },
     facts: [
       { layout: "QWERTY", text: "Invented in 1873 to prevent typewriter jams. The mechanical constraint is gone - but the layout stuck." },
       { layout: "AZERTY", text: "Swaps A/Q and Z/W. Wasn't officially standardized in France until 2019." },
       { layout: "QWERTZ", text: "Swaps Z and Y because Z appears 20x more often in German than Y." },
+      { layout: "QWERTZ-CH", text: "No ß key at all - Swiss Standard German always spells it 'ss'. Instead it gets its own dedicated $ key and a § where German has ^." },
     ],
     tipTitle: "The bottom line",
     tipText: "No layout is objectively better. Use the one your country uses and learn to touch type with all ten fingers.",
@@ -213,12 +248,14 @@ const ui: Record<Locale, UI> = {
     regions: {
       QWERTY: "États-Unis, Royaume-Uni, Pays-Bas, Scandinavie",
       AZERTY: "France, Belgique",
-      QWERTZ: "Allemagne, Suisse, Autriche",
+      QWERTZ: "Allemagne, Autriche",
+      "QWERTZ-CH": "Suisse",
     },
     facts: [
       { layout: "QWERTY", text: "Inventé en 1873 pour éviter les blocages des machines à écrire. La contrainte mécanique a disparu, mais la disposition est restée." },
       { layout: "AZERTY", text: "Échange A/Q et Z/W. N'a été officiellement normalisé en France qu'en 2019." },
       { layout: "QWERTZ", text: "Échange Z et Y parce que le Z apparaît 20x plus souvent en allemand que le Y." },
+      { layout: "QWERTZ-CH", text: "Pas de touche ß du tout - le suisse standard écrit toujours 'ss'. En échange, une touche $ dédiée et un § là où l'allemand a un ^." },
     ],
     tipTitle: "L'essentiel",
     tipText: "Aucune disposition n'est objectivement meilleure. Utilise celle de ton pays et apprends à taper avec tes dix doigts.",
@@ -279,7 +316,7 @@ function CompactKeyboard({
 
 export function KeyboardComparison({ locale }: { locale: Locale }) {
   const t = ui[locale];
-  const allLayouts: LayoutName[] = ["QWERTY", "AZERTY", "QWERTZ"];
+  const allLayouts: LayoutName[] = ["QWERTY", "AZERTY", "QWERTZ", "QWERTZ-CH"];
   const defaultA: LayoutName = locale === "fr" ? "AZERTY" : locale === "de" ? "QWERTZ" : "QWERTY";
   const defaultB: LayoutName = locale === "fr" ? "QWERTY" : locale === "de" ? "QWERTY" : "AZERTY";
 
