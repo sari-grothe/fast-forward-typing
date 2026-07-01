@@ -8,6 +8,7 @@ import { homeFAQ } from "@/lib/faq-data";
 import { TypingHeadline } from "@/components/TypingHeadline";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { CountUpOnView } from "@/components/CountUpOnView";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { FinalCTA } from "@/components/FinalCTA";
 
@@ -74,15 +75,20 @@ export default async function HomePage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <ScrollReveal delay={80}>
               <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
-                {/* Baseline */}
+                {/* Hero output stat */}
                 <div className="text-center mb-8">
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">{prod.baselineLabel}</p>
-                  <p className="text-5xl sm:text-6xl font-extrabold text-zinc-400 dark:text-zinc-500">
-                    {prod.baselineWpm}
-                    <span className="text-lg font-semibold ml-1 align-top">{prod.unit}</span>
+                  <p className="text-xs font-semibold text-indigo/70 uppercase tracking-wider mb-3">{prod.heroLabel}</p>
+                  <p className="text-6xl sm:text-7xl font-extrabold text-indigo leading-none">
+                    <CountUpOnView value={2.5} decimals={1} decimalSeparator={locale === "en" ? "." : ","} duration={1400} />
+                    <span className="text-2xl sm:text-3xl font-bold ml-2 align-middle">{prod.heroUnit}</span>
                   </p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-3">
-                    {prod.baselineDesc} <span className="font-bold text-zinc-600 dark:text-zinc-300">{prod.baselineTime}</span>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-3">{prod.heroCaption}</p>
+                </div>
+
+                {/* Baseline explainer */}
+                <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6 text-center">
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">
+                    <span className="font-semibold text-zinc-600 dark:text-zinc-300">{prod.baselineIntro}</span> {prod.baselineText}
                   </p>
                 </div>
 
@@ -96,35 +102,29 @@ export default async function HomePage({ params }: Props) {
                       { wpm: 100, time: prod.tier100Time, saved: prod.tier100Saved },
                     ].map((tier) => (
                       <div key={tier.wpm} className="text-center">
-                        <p className="text-2xl sm:text-3xl font-extrabold text-indigo">
+                        <p className="text-xl sm:text-2xl font-bold text-zinc-500 dark:text-zinc-400">
                           {tier.wpm}
                           <span className="text-xs font-semibold ml-0.5">{prod.unit}</span>
                         </p>
                         <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{tier.time}</p>
-                        <p className="text-xs font-bold text-indigo mt-1">{tier.saved}</p>
+                        <p className="text-xs font-bold text-zinc-500 dark:text-zinc-400 mt-1">{tier.saved}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Punchline */}
-                <div className="border-t border-zinc-200 dark:border-dark-border pt-6 text-center">
-                  <p className="text-lg text-zinc-600 dark:text-zinc-300">
-                    {prod.savedRangeLabel} <span className="font-bold text-indigo">{prod.savedRangeValue}</span>
-                  </p>
-                </div>
-
                 {/* Source */}
-                <p className="mt-6 text-center text-xs text-zinc-400 max-w-md mx-auto">{prod.source}</p>
+                <p className="text-center text-xs text-zinc-400 max-w-md mx-auto">{prod.source}</p>
 
                 {/* CTA */}
-                <div className="mt-8 flex justify-center">
+                <div className="mt-8 flex flex-col items-center gap-2">
                   <Link
                     href={`/${locale}/speed-test`}
                     className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
                     {prod.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
                   </Link>
+                  <p className="text-xs text-zinc-400">{prod.ctaSub}</p>
                 </div>
               </div>
             </ScrollReveal>

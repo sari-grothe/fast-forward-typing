@@ -17,11 +17,12 @@
     "ctaTest": "Test your speed",
     "productivity": {
       "title": "See how much time faster typing saves you.",
-      "baselineLabel": "Average speed",
-      "baselineWpm": "40",
+      "heroLabel": "With 20 emails a day",
+      "heroUnit": "hours",
+      "heroCaption": "saved. Every day.",
       "unit": "WPM",
-      "baselineDesc": "At this speed, a 500-word email takes",
-      "baselineTime": "12.5 min",
+      "baselineIntro": "Here's the thing:",
+      "baselineText": "At the average pace of 40 WPM, a 500-word email takes 12.5 minutes.",
       "tiersLabel": "Here's how much faster it gets:",
       "tier60Time": "8.3 min",
       "tier60Saved": "4.2 min saved",
@@ -29,10 +30,9 @@
       "tier80Saved": "6.3 min saved",
       "tier100Time": "5 min",
       "tier100Saved": "7.5 min saved",
-      "savedRangeLabel": "With 20 emails a day, depending on your speed, you save",
-      "savedRangeValue": "1.5 to 2.5 hours.",
-      "source": "The 40 WPM average comes from the largest typing study ever conducted (Aalto University, 168,000 participants). The numbers above show how much time you save as your speed increases.",
-      "cta": "How fast do you type?"
+      "source": "Source: the largest typing-speed study ever conducted - Aalto University, 168,000 participants.",
+      "cta": "How fast do you type?",
+      "ctaSub": "Try it free · 1 min"
     },
     "howItWorks": {
       "title": "How it works",

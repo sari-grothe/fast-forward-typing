@@ -7,12 +7,22 @@ type Props = {
   duration?: number;
   suffix?: string;
   className?: string;
+  decimals?: number;
+  decimalSeparator?: string;
 };
 
-export function AnimatedCounter({ value, duration = 800, suffix = "", className = "" }: Props) {
+export function AnimatedCounter({
+  value,
+  duration = 800,
+  suffix = "",
+  className = "",
+  decimals = 0,
+  decimalSeparator = ".",
+}: Props) {
   const [display, setDisplay] = useState(0);
   const prevValue = useRef(0);
   const frameRef = useRef<number>(0);
+  const factor = 10 ** decimals;
 
   useEffect(() => {
     const start = prevValue.current;
@@ -25,7 +35,7 @@ export function AnimatedCounter({ value, duration = 800, suffix = "", className 
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.round(start + diff * eased);
+      const current = Math.round((start + diff * eased) * factor) / factor;
       setDisplay(current);
 
       if (progress < 1) {
@@ -37,7 +47,11 @@ export function AnimatedCounter({ value, duration = 800, suffix = "", className 
 
     frameRef.current = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frameRef.current);
-  }, [value, duration]);
+  }, [value, duration, factor]);
 
-  return <span className={className}>{display}{suffix}</span>;
+  const formatted = decimals > 0
+    ? display.toFixed(decimals).replace(".", decimalSeparator)
+    : display.toString();
+
+  return <span className={className}>{formatted}{suffix}</span>;
 }

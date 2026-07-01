@@ -17,11 +17,12 @@
     "ctaTest": "Teste ta vitesse",
     "productivity": {
       "title": "Regarde combien de temps tu gagnes en tapant plus vite.",
-      "baselineLabel": "Vitesse moyenne",
-      "baselineWpm": "40",
+      "heroLabel": "Avec 20 e-mails par jour",
+      "heroUnit": "heures",
+      "heroCaption": "gagnées. Chaque jour.",
       "unit": "MPM",
-      "baselineDesc": "À cette vitesse, un email de 500 mots prend",
-      "baselineTime": "12,5 min",
+      "baselineIntro": "Concrètement :",
+      "baselineText": "Au rythme moyen de 40 MPM, un e-mail de 500 mots prend 12,5 minutes.",
       "tiersLabel": "Voici combien de temps tu gagnes en accélérant :",
       "tier60Time": "8,3 min",
       "tier60Saved": "4,2 min gagnées",
@@ -29,10 +30,9 @@
       "tier80Saved": "6,3 min gagnées",
       "tier100Time": "5 min",
       "tier100Saved": "7,5 min gagnées",
-      "savedRangeLabel": "Avec 20 emails par jour, selon ta vitesse, tu économises",
-      "savedRangeValue": "1,5 à 2,5 heures.",
-      "source": "La moyenne de 40 MPM vient de la plus grande étude sur la frappe jamais menée (Aalto University, 168 000 participants). Les chiffres ci-dessus montrent le temps gagné à mesure que ta vitesse augmente.",
-      "cta": "À quelle vitesse tu tapes ?"
+      "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
+      "cta": "À quelle vitesse tu tapes ?",
+      "ctaSub": "Essai gratuit · 1 min"
     },
     "howItWorks": {
       "title": "Comment ça marche",
