@@ -118,15 +118,17 @@ export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
   const isMod = (label: string) => modifiers.has(label);
 
   return (
-    <section className="flex flex-col items-center justify-center min-h-[80vh] text-center">
+    <section className="flex flex-col items-center justify-center pt-8 pb-8 text-center">
       <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight max-w-4xl">
-        {prefix}
-        <span className="text-indigo">{typed.slice(0, idx)}</span>
-        <span
-          className={`inline-block w-[3px] h-[0.7em] bg-indigo align-baseline ml-0.5 ${
-            isIdle ? "animate-cursor-blink" : ""
-          }`}
-        />
+        <span className="block">{prefix}</span>
+        <span className="block">
+          <span className="text-indigo">{typed.slice(0, idx)}</span>
+          <span
+            className={`inline-block w-[3px] h-[0.7em] bg-indigo align-baseline ml-0.5 ${
+              isIdle ? "animate-cursor-blink" : ""
+            }`}
+          />
+        </span>
       </h1>
       <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl">{subheadline}</p>
 
