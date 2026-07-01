@@ -124,7 +124,11 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Was ist eine gute Tippgeschwindigkeit?",
-        answer: "Der weltweite Durchschnitt liegt bei etwa 40 WPM. Ab 60 WPM gilt man als schnell, ab 80 WPM als sehr schnell. Professionelle Schreibkräfte erreichen 100 WPM und mehr.",
+        answer: "Der Median liegt bei 44-46 WPM - etwas höher, als die meisten Seiten dir erzählen. Ab 60 WPM bist du schnell, das ist Chefsekretärinnen-Tempo aus einem 90er-Film. Profi-Schreibkräfte schaffen 100+.",
+      },
+      {
+        question: "Was ist die schnellste je gemessene Tippgeschwindigkeit?",
+        answer: "216 WPM, aufgestellt von Stella Pajunas 1946 - auf einer mechanischen Schreibmaschine. Die brauchte deutlich mehr Kraft pro Taste als deine. So schnell musst du gar nicht sein, um als schnell zu gelten.",
       },
       {
         question: "Warum wird meine Eingabe blockiert, wenn ich falsch tippe?",
@@ -138,6 +142,10 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "Was bedeuten WPM und Genauigkeit?",
         answer: "WPM steht für Wörter pro Minute (ein Wort = 5 Zeichen). Die Genauigkeit zeigt den Prozentsatz der fehlerfreien Eingaben im Verhältnis zu allen Tastenanschlägen.",
       },
+      {
+        question: "Kann ich meine Tippgeschwindigkeit offiziell nachweisen?",
+        answer: "Klar - hol dir unser Tippzertifikat für 5 Euro. Mit WPM, Genauigkeit und Ausstellungsdatum, bereit für Lebenslauf oder LinkedIn.",
+      },
     ],
   },
   en: {
@@ -149,7 +157,11 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "What is a good typing speed?",
-        answer: "The global average is about 40 WPM. Above 60 WPM is considered fast, above 80 WPM very fast. Professional typists reach 100 WPM and beyond.",
+        answer: "Median is 44-46 WPM - a bit higher than most sites tell you. Cross 60 and you're fast, think secretary in a 90s movie. Professional typists clear 100+.",
+      },
+      {
+        question: "What's the fastest typing speed ever recorded?",
+        answer: "216 WPM, set by Stella Pajunas back in 1946 - on a manual typewriter. Those needed way more force per key than yours does. You don't need anywhere close to that to call yourself fast.",
       },
       {
         question: "Why is my input blocked when I mistype?",
@@ -163,6 +175,10 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "What do WPM and accuracy mean?",
         answer: "WPM stands for words per minute (one word = 5 characters). Accuracy shows the percentage of error-free keystrokes compared to all keystrokes.",
       },
+      {
+        question: "Can I get proof of my typing speed?",
+        answer: "Yep - grab our typing certificate for 5 euros. It's got your WPM, your accuracy, and a real issue date, ready for your CV or LinkedIn.",
+      },
     ],
   },
   fr: {
@@ -174,7 +190,11 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Quelle est une bonne vitesse de frappe ?",
-        answer: "La moyenne mondiale est d'environ 40 MPM. Au-dessus de 60 MPM, c'est rapide, au-dessus de 80 MPM, très rapide. Les dactylos professionnels atteignent 100 MPM et plus.",
+        answer: "La médiane est de 44-46 MPM - un peu plus haute que ce que la plupart des sites te disent. Au-dessus de 60 MPM, tu es rapide, façon secrétaire de direction dans un film des années 90. Les dactylos professionnels dépassent 100.",
+      },
+      {
+        question: "Quelle est la vitesse de frappe la plus rapide jamais enregistrée ?",
+        answer: "216 MPM, record établi par Stella Pajunas en 1946 - sur une machine à écrire mécanique, qui demandait bien plus de force par touche que ton clavier. Pas besoin d'être aussi rapide pour être considéré comme rapide.",
       },
       {
         question: "Pourquoi ma saisie est-elle bloquée quand je fais une erreur ?",
@@ -187,6 +207,10 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       {
         question: "Que signifient MPM et précision ?",
         answer: "MPM signifie mots par minute (un mot = 5 caractères). La précision montre le pourcentage de frappes sans erreur par rapport à toutes les frappes.",
+      },
+      {
+        question: "Puis-je prouver ma vitesse de frappe ?",
+        answer: "Oui - récupère notre certificat de frappe pour 5 euros. Avec ta vitesse, ta précision et une date de délivrance, prêt pour ton CV ou LinkedIn.",
       },
     ],
   },
