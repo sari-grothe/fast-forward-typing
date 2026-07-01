@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const splits: Record<string, { static: string; typed: string }> = {
-  de: { static: "Was, wenn du so schnell tippen könntest ", typed: "wie du denkst?" },
+  de: { static: "Du tippst jeden Tag. ", typed: "Warum nicht doppelt so schnell?" },
   en: { static: "What if you could type as fast as ", typed: "you think?" },
   fr: { static: "Et si tu tapais aussi vite que ", typed: "tu penses ?" },
 };

@@ -11,15 +11,15 @@
     "pricing": "Preise"
   },
   "home": {
-    "headline": "Was, wenn du so schnell tippen könntest wie du denkst?",
-    "subheadline": "Wir helfen dir dabei. Der moderne Tipptrainer für Erwachsene.",
-    "ctaLearn": "Tippen lernen",
-    "ctaTest": "Kostenloser Tipptest",
+    "headline": "Du tippst jeden Tag. Warum nicht doppelt so schnell?",
+    "subheadline": "Schneller tippen, produktiver arbeiten. Das Zehnfingersystem, Lektion für Lektion, in deinem Tempo.",
+    "ctaLearn": "Kurs starten",
+    "ctaTest": "Geschwindigkeit testen",
     "productivity": {
-      "title": "Mal kurz gerechnet.",
-      "slowLabel": "Durchschnitt",
+      "title": "Vorher. Nachher. Der Unterschied in Zahlen.",
+      "slowLabel": "Jetzt",
       "slowWpm": "40",
-      "fastLabel": "Geübter Tipper",
+      "fastLabel": "Nach dem Kurs",
       "fastWpm": "70",
       "unit": "WPM",
       "emailLabel": "Eine 500-Wort-Mail",

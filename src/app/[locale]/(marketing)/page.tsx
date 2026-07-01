@@ -75,26 +75,21 @@ export default async function HomePage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <ScrollReveal delay={80}>
               <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
-                {/* WPM comparison */}
-                <div className="grid grid-cols-2 gap-6 mb-8">
+                {/* Before / after columns */}
+                <div className="grid grid-cols-2 gap-6 mb-6">
                   <div className="text-center">
-                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">{prod.slowLabel}</p>
+                    <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">{prod.slowLabel}</p>
                     <p className="text-5xl sm:text-6xl font-extrabold text-zinc-300 dark:text-zinc-600">{prod.slowWpm}</p>
-                    <p className="text-xs text-zinc-400 mt-1">{prod.unit}</p>
+                    <p className="text-xs text-zinc-400 mb-4">{prod.unit}</p>
+                    <p className="text-xs text-zinc-400 mb-1">{prod.emailLabel}</p>
+                    <p className="text-xl font-bold text-zinc-300 dark:text-zinc-600">{prod.slowTime}</p>
                   </div>
                   <div className="text-center">
-                    <p className="text-xs font-semibold text-indigo uppercase tracking-wider mb-2">{prod.fastLabel}</p>
+                    <p className="text-xs font-semibold text-indigo uppercase tracking-wider mb-3">{prod.fastLabel}</p>
                     <p className="text-5xl sm:text-6xl font-extrabold text-indigo">{prod.fastWpm}</p>
-                    <p className="text-xs text-indigo/60 mt-1">{prod.unit}</p>
-                  </div>
-                </div>
-
-                {/* Email time comparison */}
-                <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6">
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center mb-4">{prod.emailLabel}</p>
-                  <div className="grid grid-cols-2 gap-6">
-                    <p className="text-center text-2xl font-bold text-zinc-300 dark:text-zinc-600">{prod.slowTime}</p>
-                    <p className="text-center text-2xl font-bold text-indigo">{prod.fastTime}</p>
+                    <p className="text-xs text-indigo/60 mb-4">{prod.unit}</p>
+                    <p className="text-xs text-indigo/60 mb-1">{prod.emailLabel}</p>
+                    <p className="text-xl font-bold text-indigo">{prod.fastTime}</p>
                   </div>
                 </div>
 

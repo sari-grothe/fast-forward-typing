@@ -16,10 +16,10 @@
     "ctaLearn": "Start learning",
     "ctaTest": "Free typing test",
     "productivity": {
-      "title": "Let's do the math.",
-      "slowLabel": "Average",
+      "title": "Before. After. The difference in numbers.",
+      "slowLabel": "Now",
       "slowWpm": "40",
-      "fastLabel": "Trained typist",
+      "fastLabel": "After the course",
       "fastWpm": "70",
       "unit": "WPM",
       "emailLabel": "One 500-word email",

@@ -16,10 +16,10 @@
     "ctaLearn": "Apprendre à taper",
     "ctaTest": "Test de frappe gratuit",
     "productivity": {
-      "title": "Un petit calcul.",
-      "slowLabel": "Moyenne",
+      "title": "Avant. Après. La différence en chiffres.",
+      "slowLabel": "Maintenant",
       "slowWpm": "40",
-      "fastLabel": "Dactylo entraîné",
+      "fastLabel": "Après le cours",
       "fastWpm": "70",
       "unit": "MPM",
       "emailLabel": "Un mail de 500 mots",
