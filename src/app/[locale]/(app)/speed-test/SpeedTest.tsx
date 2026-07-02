@@ -159,7 +159,7 @@ const i18n: Record<Locale, {
     focusNudge: (n) => `${n} ${n === 1 ? "Taste braucht" : "Tasten brauchen"} Übung - der Kurs trainiert genau diese.`,
     focusPerfect: "Keine Fehler - perfekt getippt. Bereit für die nächste Stufe?",
     nextStepSection: "Dein nächster Schritt",
-    trainingTitle: "Tipptraining starten",
+    trainingTitle: "10-Finger-System-Kurs",
     trainingDesc: "15 Min. am Tag, 4 Wochen. Danach tippst du mit 10 Fingern, ohne auf die Tastatur zu schauen.",
     trainingCta: "Kurs starten",
     certTitle: "Zertifikat holen",

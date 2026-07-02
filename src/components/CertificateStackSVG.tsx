@@ -22,7 +22,7 @@ const certs: Record<string, CertData> = {
     certTitle: "LEISTUNGSZERTIFIKAT",
     awardedTo: "Zertifikat verliehen an",
     certName: "Thomas Klein",
-    certText: "für das Zehnfingersystem auf Deutsch",
+    certText: "für das 10-Finger-System auf Deutsch",
     certNumber: "FF-0513-DE",
     certWpm: "56",
     wpmLabel: "wpm",

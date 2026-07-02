@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "10-Finger-System lernen | Fast Forward >> Typing",
-    "description": "10-Finger-System lernen, in deinem Tempo: kostenloser Tipptest, Tippgeschwindigkeit messen und ein moderner Tipptrainer für Erwachsene."
+    "description": "10-Finger-System lernen, in deinem Tempo: kostenlos deine Tippgeschwindigkeit messen mit dem modernen Tipptrainer für Erwachsene."
   },
   "nav": {
     "home": "Startseite",
@@ -36,7 +36,7 @@
     "howItWorks": {
       "title": "So funktioniert es",
       "step1Title": "Teste dein Level",
-      "step1Desc": "Starte mit dem kostenlosen Tipptest. In wenigen Minuten weißt du, wo du stehst.",
+      "step1Desc": "Miss kostenlos deine Tippgeschwindigkeit. In wenigen Minuten weißt du, wo du stehst.",
       "step2Title": "Lerne mit System",
       "step2Desc": "Strukturierte Lektionen führen dich Schritt für Schritt zum 10-Finger-System. In deinem Tempo.",
       "step3Title": "Hol dir dein Zertifikat",
@@ -74,14 +74,14 @@
     },
     "certificate": {
       "title": "Hol dir dein Zertifikat",
-      "desc": "Mach einen Tipptest und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Kurs ab - dein Zertifikat ist inklusive.",
+      "desc": "Miss deine Tippgeschwindigkeit und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Kurs ab - dein Zertifikat ist inklusive.",
       "ctaLearn": "Kurs starten",
       "ctaTest": "Kostenlos Geschwindigkeit testen",
       "brandName": "FAST FORWARD >> TYPING",
       "certTitle": "LEISTUNGSZERTIFIKAT",
       "awardedTo": "Zertifikat verliehen an",
       "certName": "Thomas Klein",
-      "certText": "für das Zehnfingersystem auf Deutsch",
+      "certText": "für das 10-Finger-System auf Deutsch",
       "certNumber": "FF-0513-DE",
       "certWpm": "56",
       "wpmLabel": "wpm",
@@ -105,16 +105,16 @@
     "missionText": "Zehnfinger-Tipper sind 40-60% schneller als Selbstlerner. Das ist kein Motivationsspruch, das sind Daten. Die Lücke ist real - und die Werkzeuge, um sie zu schließen, sind längst überfällig.",
     "missionText2": "Wir haben Fast Forward >> Typing gebaut, weil es noch kein Werkzeug gab, das wirklich passt. Kein Schulprogramm. Kein Kinderspiel. Kein Geschwindigkeitstest ohne Struktur. Sondern ein moderner Kurs für Erwachsene, die ihren Alltag am Computer verbringen und einfach besser tippen wollen.",
     "howTitle": "Wie es funktioniert",
-    "howText": "Ein kostenloser Tipptest zeigt dir, wo du stehst. Ein strukturierter 4-Wochen-Kurs, 15 Minuten am Tag, bringt dir das Zehnfingersystem bei. Ein Zertifikat belegt, dass du es geschafft hast.",
+    "howText": "Ein kostenloser Test zeigt dir deine Tippgeschwindigkeit. Ein strukturierter 4-Wochen-Kurs, 15 Minuten am Tag, bringt dir das 10-Finger-System bei. Ein Zertifikat belegt, dass du es geschafft hast.",
     "howText2": "Kein Abo. Kein Account nötig zum Starten. Keine Schuldgefühle, wenn du mal einen Tag aussetzt.",
     "languagesTitle": "Drei Sprachen, kein Kompromiss",
     "languagesText": "Deutsch, Englisch, Französisch - nicht übersetzt, sondern nativ geschrieben. Weil \"du\" nicht \"you\" ist und nicht \"tu\".",
     "ctaTitle": "Bereit?",
-    "ctaText": "Starte mit dem kostenlosen Tipptest. Dauert weniger als 5 Minuten.",
+    "ctaText": "Miss jetzt kostenlos deine Tippgeschwindigkeit. Dauert weniger als 5 Minuten.",
     "ctaButton": "Geschwindigkeit testen"
   },
   "footer": {
-    "learnTyping": "Tippen lernen",
+    "learnTyping": "10-Finger-System",
     "typingTest": "Tippgeschwindigkeit",
     "typingCourse": "10-Finger-System lernen",
     "certificate": "Zertifikat",

@@ -89,7 +89,7 @@ const tips: TipMeta[] = [
     type: "article",
     category: "learning",
     title: "10 Finger Schreiben lernen: Der komplette Guide",
-    description: "Von der Grundreihe bis zur vollen Geschwindigkeit - so lernst du das Zehnfingersystem in 4 Wochen.",
+    description: "Von der Grundreihe bis zur vollen Geschwindigkeit - so lernst du das 10-Finger-System in 4 Wochen.",
     readingTime: 8,
     date: "2026-06-26",
     featured: true,
@@ -135,7 +135,7 @@ Das klingt nach viel. Aber rechne mal: Wenn du jeden Tag 3 Stunden tippst und 40
 2. **Kurze Sessions, jeden Tag.** 15 Minuten täglich schlagen 2 Stunden am Wochenende.
 3. **Genauigkeit vor Geschwindigkeit.** Langsam und richtig baut bessere Muster auf als schnell und fehlerhaft.
 4. **Echte Texte üben.** Nicht nur "asdf jklö" - sondern Sätze und Absätze.
-5. **Fortschritt messen.** Ein Tipptest pro Woche zeigt dir, wo du stehst.
+5. **Fortschritt messen.** Miss deine Tippgeschwindigkeit einmal pro Woche - so siehst du, wo du stehst.
 
 ## Die ersten zwei Wochen sind hart
 

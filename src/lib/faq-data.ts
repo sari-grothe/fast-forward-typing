@@ -6,7 +6,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
     items: [
       {
         question: "Ist Fast Forward Typing kostenlos?",
-        answer: "Der Tipptest und die Grundfunktionen sind komplett kostenlos. Für das offizielle Tippzertifikat fällt eine einmalige Gebühr von 5 Euro an.",
+        answer: "Der Test und die Grundfunktionen sind komplett kostenlos. Für das offizielle Tippzertifikat fällt eine einmalige Gebühr von 5 Euro an.",
       },
       {
         question: "Für wen ist Fast Forward Typing gedacht?",
@@ -119,7 +119,7 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
     title: "Häufig gestellte Fragen zur Tippgeschwindigkeit",
     items: [
       {
-        question: "Wie funktioniert der Tipptest?",
+        question: "Wie funktioniert der Test?",
         answer: "Wähle eine Dauer (1, 2 oder 5 Minuten), klicke in das Textfeld und tippe den angezeigten Text ab. Der Timer startet mit dem ersten Tastendruck. Bei falschen Eingaben wird die Eingabe blockiert, bis du die richtige Taste triffst.",
       },
       {
@@ -226,7 +226,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
       },
       {
         question: "Wie bekomme ich mein Zertifikat?",
-        answer: "Du machst zuerst den Tipptest. Wenn du mit deinem Ergebnis zufrieden bist, kaufst du das Zertifikat - und bekommst es sofort als PDF per E-Mail.",
+        answer: "Du misst zuerst deine Tippgeschwindigkeit. Wenn du mit deinem Ergebnis zufrieden bist, kaufst du das Zertifikat - und bekommst es sofort als PDF per E-Mail.",
       },
       {
         question: "Kann ich das Zertifikat in meinen Lebenslauf aufnehmen?",

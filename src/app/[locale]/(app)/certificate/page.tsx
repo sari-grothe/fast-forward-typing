@@ -33,14 +33,14 @@ const i18n: Record<Locale, {
 }> = {
   de: {
     heroTitle: "Mach deine Tippfähigkeiten offiziell",
-    heroSubtitle: "Du hast den Tipptest gemacht - jetzt sichere dir dein Ergebnis. Nach dem Kauf bekommst du dein personalisiertes Zertifikat sofort als PDF per E-Mail.",
+    heroSubtitle: "Du hast deine Tippgeschwindigkeit gemessen - jetzt sichere dir dein Ergebnis. Nach dem Kauf bekommst du dein personalisiertes Zertifikat sofort als PDF per E-Mail.",
     heroHighlight: "Einmalig 5 Euro. Kein Abo.",
     previewTitle: "So sieht dein Zertifikat aus",
     previewSubtitle: "Professionell. Mit deinem Namen, Tempo, Genauigkeit und Datum.",
     benefit1Title: "Lebenslauf und LinkedIn",
     benefit1Desc: "Heb dich von anderen Bewerbern ab - mit einer nachweisbaren Fähigkeit.",
     benefit2Title: "Arbeitgeber überzeugen",
-    benefit2Desc: "Belege dein Tipptempo schwarz auf weiss. Keine Selbsteinschätzung, echte Daten.",
+    benefit2Desc: "Belege deine Tippgeschwindigkeit schwarz auf weiss. Keine Selbsteinschätzung, echte Daten.",
     benefit3Title: "Teilen und zeigen",
     benefit3Desc: "Poste dein Ergebnis auf LinkedIn oder sende es direkt an HR.",
     benefit4Title: "Unbegrenzt wiederholbar",
@@ -57,7 +57,7 @@ const i18n: Record<Locale, {
     ],
     trustLine: "Sichere Zahlung über Stripe. Deine Daten bleiben bei dir.",
     testFirst: "Noch keinen Test gemacht?",
-    testFirstDesc: "Mach zuerst den kostenlosen Tipptest - in wenigen Minuten weisst du, wo du stehst.",
+    testFirstDesc: "Miss zuerst kostenlos deine Tippgeschwindigkeit - in wenigen Minuten weisst du, wo du stehst.",
     testCta: "Geschwindigkeit testen",
   },
   en: {
