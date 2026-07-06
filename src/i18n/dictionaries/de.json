@@ -6,7 +6,7 @@
   "nav": {
     "home": "Startseite",
     "typingTest": "Tippgeschwindigkeit",
-    "typingCourse": "10-Finger-System lernen",
+    "typingCourse": "10-Finger-System",
     "typingTips": "Ressourcen",
     "pricing": "Preise"
   },
@@ -19,9 +19,9 @@
       "title": "Bis zu 2,5 Stunden am Tag sparen?",
       "heroLabel": "Zum Beispiel: bei 20 E-Mails am Tag",
       "heroUnit": "Stunden",
-      "heroCaption": "gesparte Zeit. Jeden Tag.",
+      "heroCaption": "gesparte Zeit. Mehr, als die meisten für ihre Mittagspause haben.",
       "unit": "WPM",
-      "baselineText": "Beim Durchschnittstempo von 40 WPM brauchst du für eine 500-Wort-Mail 12,5 Minuten.",
+      "baselineText": "40 WPM ist Durchschnittstempo - ungefähr so schnell wie ein Telegrafist 1920. Für eine 500-Wort-Mail brauchst du damit 12,5 Minuten.",
       "tiersLabel": "So viel Zeit kannst du sparen:",
       "tier60Time": "8,3 Min",
       "tier60Saved": "4,2 Min gespart",
@@ -30,21 +30,22 @@
       "tier100Time": "5 Min",
       "tier100Saved": "7,5 Min gespart",
       "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
-      "cta": "Wie schnell tippst du?",
+      "cta": "Jetzt Tippgeschwindigkeit messen",
       "ctaSub": "Jetzt kostenlos testen"
     },
     "howItWorks": {
       "title": "So funktioniert es",
+      "subtitle": "4 Wochen. 15 Minuten am Tag.",
       "step1Title": "Teste dein Level",
       "step1Desc": "Miss kostenlos deine Tippgeschwindigkeit. In wenigen Minuten weißt du, wo du stehst.",
-      "step2Title": "Lerne mit System",
+      "step2Title": "Tippen mit System",
       "step2Desc": "Strukturierte Lektionen führen dich Schritt für Schritt zum 10-Finger-System. In deinem Tempo.",
       "step3Title": "Hol dir dein Zertifikat",
       "step3Desc": "Schließ den Kurs ab und erhalte ein Zertifikat, das deine Tippgeschwindigkeit belegt.",
       "cta": "Kurs starten"
     },
     "features": {
-      "title": "So lernst du das 10-Finger-System",
+      "title": "Dein Weg zum 10-Finger-System",
       "structured": "Strukturierte Lektionen",
       "structuredDesc": "30 aufeinander aufbauende Lektionen. Jede baut auf der vorherigen auf - kein Raten, kein Springen.",
       "guidance": "Echtzeit-Feedback",
@@ -74,7 +75,7 @@
     },
     "certificate": {
       "title": "Hol dir dein Zertifikat",
-      "desc": "Miss deine Tippgeschwindigkeit und erhalte ein offizielles Zertifikat mit deiner Geschwindigkeit und Genauigkeit. Oder schließ den Kurs ab - dein Zertifikat ist inklusive.",
+      "desc": "Miss deine Tippgeschwindigkeit und hol dir dein offizielles Zertifikat - mit Genauigkeit und Datum. Oder schließ den Kurs ab: dein Zertifikat ist inklusive.",
       "ctaLearn": "Kurs starten",
       "ctaTest": "Kostenlos Geschwindigkeit testen",
       "brandName": "FAST FORWARD >> TYPING",
@@ -116,7 +117,7 @@
   "footer": {
     "learnTyping": "10-Finger-System",
     "typingTest": "Tippgeschwindigkeit",
-    "typingCourse": "10-Finger-System lernen",
+    "typingCourse": "Kurs",
     "certificate": "Zertifikat",
     "forCompanies": "Für Unternehmen",
     "teamTraining": "Team-Training",

@@ -134,7 +134,10 @@ export default async function HomePage({ params }: Props) {
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16">{how.title}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-3">{how.title}</h2>
+            {how.subtitle && (
+              <p className="text-center text-sm font-medium text-indigo mb-16">{how.subtitle}</p>
+            )}
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
