@@ -5,7 +5,8 @@ import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
-import { getLesson, getNextLesson, lessonMeta, phaseNames } from "@/lib/lessons";
+import { getLesson, getNextLesson, lessonMeta, phaseNames, displayKey } from "@/lib/lessons";
+import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
 
 type Props = {
@@ -31,6 +32,7 @@ const i18n: Record<Locale, {
   courseComplete: string;
   courseCompleteDesc: string;
   lessonNotFound: string;
+  insightLabel: string;
 }> = {
   de: {
     lessonLabel: "Lektion",
@@ -44,6 +46,7 @@ const i18n: Record<Locale, {
     courseComplete: "Kurs abgeschlossen",
     courseCompleteDesc: "Du tippst jetzt mit allen zehn Fingern.",
     lessonNotFound: "Lektion nicht gefunden.",
+    insightLabel: "Gedankenfutter",
   },
   en: {
     lessonLabel: "Lesson",
@@ -57,6 +60,7 @@ const i18n: Record<Locale, {
     courseComplete: "Course complete",
     courseCompleteDesc: "You now type with all ten fingers.",
     lessonNotFound: "Lesson not found.",
+    insightLabel: "Food for thought",
   },
   fr: {
     lessonLabel: "Leçon",
@@ -70,6 +74,7 @@ const i18n: Record<Locale, {
     courseComplete: "Cours terminé",
     courseCompleteDesc: "Tu tapes maintenant avec tes dix doigts.",
     lessonNotFound: "Leçon introuvable.",
+    insightLabel: "Matière à réfléchir",
   },
 };
 
@@ -79,7 +84,7 @@ export function LessonView({ lessonId, locale }: Props) {
   const [results, setResults] = useState<DrillResult[]>([]);
   const [isLessonComplete, setIsLessonComplete] = useState(false);
 
-  const lesson = getLesson(lessonId);
+  const lesson = getLesson(lessonId, locale);
   const l = i18n[locale];
 
   if (!lesson) {
@@ -95,7 +100,7 @@ export function LessonView({ lessonId, locale }: Props) {
 
   const meta = lessonMeta[locale]?.[lessonId] ?? lessonMeta.en[lessonId];
   const phaseName = phaseNames[locale]?.[lesson.phase] ?? phaseNames.en[lesson.phase];
-  const nextLesson = getNextLesson(lessonId);
+  const nextLesson = getNextLesson(lessonId, locale);
 
   function handleDrillComplete(result: DrillResult) {
     const newResults = [...results, result];
@@ -105,6 +110,14 @@ export function LessonView({ lessonId, locale }: Props) {
       setCurrentDrill(currentDrill + 1);
     } else {
       setIsLessonComplete(true);
+      const wpm = Math.round(newResults.reduce((s, r) => s + r.wpm, 0) / newResults.length);
+      const accuracy = Math.round(newResults.reduce((s, r) => s + r.accuracy, 0) / newResults.length);
+      progressStore.saveLessonRecord(locale, {
+        lessonId,
+        wpm,
+        accuracy,
+        completedAt: new Date().toISOString(),
+      });
     }
   }
 
@@ -181,13 +194,26 @@ export function LessonView({ lessonId, locale }: Props) {
                   key={key}
                   className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface text-sm font-mono font-semibold"
                 >
-                  {key.toUpperCase()}
+                  {displayKey(key)}
                 </kbd>
               ))}
             </div>
           </div>
         )}
       </div>
+
+      {/* Gedankenfutter: why this practice works */}
+      {meta?.insight && (
+        <div className="flex gap-3 rounded-xl border border-electric-yellow/40 bg-electric-yellow/10 dark:bg-electric-yellow/5 p-4">
+          <svg className="w-5 h-5 shrink-0 mt-0.5 text-dark-text dark:text-electric-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+          </svg>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-1">{l.insightLabel}</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{meta.insight}</p>
+          </div>
+        </div>
+      )}
 
       {/* Key intro for lesson 0 */}
       {!introComplete && lessonId === 0 && (

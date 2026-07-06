@@ -1,6 +1,6 @@
 "use client";
 
-import { fingerForKey, fingerColors, type Finger } from "@/lib/lessons";
+import { getFingerForKey, fingerColors, type Finger } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
 type Props = {
@@ -184,6 +184,7 @@ const andWord: Record<Locale, string> = {
 
 function getKeyStyle(
   key: string,
+  locale: Locale,
   activeKey?: string,
   activeKeys?: string[],
   pressedKey?: string,
@@ -191,7 +192,7 @@ function getKeyStyle(
   homeKeys?: string[],
 ): React.CSSProperties {
   const lk = key.toLowerCase();
-  const finger = fingerForKey[lk];
+  const finger = getFingerForKey(lk, locale);
   const isActive = activeKey?.toLowerCase() === lk;
   const isInLesson = activeKeys?.includes(lk) ?? true;
   const isPressed = pressedKey?.toLowerCase() === lk;
@@ -239,6 +240,7 @@ function getKeyStyle(
 
 function KeyCap({
   keyDef,
+  locale,
   activeKey,
   activeKeys,
   pressedKey,
@@ -246,6 +248,7 @@ function KeyCap({
   homeKeys,
 }: {
   keyDef: KeyDef;
+  locale: Locale;
   activeKey?: string;
   activeKeys?: string[];
   pressedKey?: string;
@@ -255,7 +258,7 @@ function KeyCap({
   const width = keyDef.width ?? 40;
   const style = keyDef.isModifier
     ? { opacity: 0.4 }
-    : getKeyStyle(keyDef.key, activeKey, activeKeys, pressedKey, showFingers, homeKeys);
+    : getKeyStyle(keyDef.key, locale, activeKey, activeKeys, pressedKey, showFingers, homeKeys);
   const isActive = !keyDef.isModifier && activeKey?.toLowerCase() === keyDef.key.toLowerCase();
   const isHome = !keyDef.isModifier && homeKeys?.includes(keyDef.key.toLowerCase());
 
@@ -293,15 +296,15 @@ export function Keyboard({
   const labels = fingerLabels[locale] ?? fingerLabels.en;
 
   const leftKeys = effectiveHomeKeys.filter((k) => {
-    const f = fingerForKey[k];
+    const f = getFingerForKey(k, locale);
     return f?.startsWith("left");
   });
   const rightKeys = effectiveHomeKeys.filter((k) => {
-    const f = fingerForKey[k];
+    const f = getFingerForKey(k, locale);
     return f?.startsWith("right");
   });
 
-  const keyCapProps = { activeKey, activeKeys, pressedKey, showFingers, homeKeys: effectiveHomeKeys };
+  const keyCapProps = { locale, activeKey, activeKeys, pressedKey, showFingers, homeKeys: effectiveHomeKeys };
 
   return (
     <div className={`select-none ${className}`}>

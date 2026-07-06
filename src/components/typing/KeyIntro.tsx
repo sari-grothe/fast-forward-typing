@@ -11,21 +11,52 @@ type KeyStep = {
   finger: Finger;
 };
 
-const RIGHT_HAND_STEPS: KeyStep[] = [
-  { key: "j", finger: "right-index" },
-  { key: "k", finger: "right-middle" },
-  { key: "l", finger: "right-ring" },
-  { key: ";", finger: "right-pinky" },
-];
-
-const LEFT_HAND_STEPS: KeyStep[] = [
-  { key: "f", finger: "left-index" },
-  { key: "d", finger: "left-middle" },
-  { key: "s", finger: "left-ring" },
-  { key: "a", finger: "left-pinky" },
-];
-
-const ALL_STEPS = [...RIGHT_HAND_STEPS, ...LEFT_HAND_STEPS];
+// Home-row keys differ per layout: QWERTZ ends the right pinky on ö,
+// AZERTY has q/m on the pinkies.
+const homeSteps: Record<Locale, { right: KeyStep[]; left: KeyStep[] }> = {
+  en: {
+    right: [
+      { key: "j", finger: "right-index" },
+      { key: "k", finger: "right-middle" },
+      { key: "l", finger: "right-ring" },
+      { key: ";", finger: "right-pinky" },
+    ],
+    left: [
+      { key: "f", finger: "left-index" },
+      { key: "d", finger: "left-middle" },
+      { key: "s", finger: "left-ring" },
+      { key: "a", finger: "left-pinky" },
+    ],
+  },
+  de: {
+    right: [
+      { key: "j", finger: "right-index" },
+      { key: "k", finger: "right-middle" },
+      { key: "l", finger: "right-ring" },
+      { key: "ö", finger: "right-pinky" },
+    ],
+    left: [
+      { key: "f", finger: "left-index" },
+      { key: "d", finger: "left-middle" },
+      { key: "s", finger: "left-ring" },
+      { key: "a", finger: "left-pinky" },
+    ],
+  },
+  fr: {
+    right: [
+      { key: "j", finger: "right-index" },
+      { key: "k", finger: "right-middle" },
+      { key: "l", finger: "right-ring" },
+      { key: "m", finger: "right-pinky" },
+    ],
+    left: [
+      { key: "f", finger: "left-index" },
+      { key: "d", finger: "left-middle" },
+      { key: "s", finger: "left-ring" },
+      { key: "q", finger: "left-pinky" },
+    ],
+  },
+};
 
 const fingerNames: Record<Locale, Record<Finger, string>> = {
   de: {
@@ -197,6 +228,10 @@ export function KeyIntro({ locale, onComplete }: Props) {
   const l = i18n[locale];
   const names = fingerNames[locale];
   const shortNames = fingerLabelShort[locale];
+
+  const steps = homeSteps[locale] ?? homeSteps.en;
+  const RIGHT_HAND_STEPS = steps.right;
+  const ALL_STEPS = [...steps.right, ...steps.left];
 
   const currentStep = stepIndex < ALL_STEPS.length ? ALL_STEPS[stepIndex] : null;
   const isRightHandDone = stepIndex === RIGHT_HAND_STEPS.length;
