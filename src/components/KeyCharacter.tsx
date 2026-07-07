@@ -1,4 +1,4 @@
-type Pose = "waving" | "running" | "sitting" | "leaning" | "sitting-waving";
+type Pose = "waving" | "running" | "sitting" | "leaning" | "sitting-waving" | "pointing";
 
 type Props = {
   pose?: Pose;
@@ -9,6 +9,33 @@ type Props = {
 
 export function KeyCharacter({ pose = "waving", size = 120, className, limbColor }: Props) {
   const lc = limbColor ?? "#3f0ff2";
+
+  if (pose === "pointing") {
+    return (
+      <svg
+        width={size}
+        height={size}
+        viewBox="-48 -58 96 106"
+        fill="none"
+        className={className}
+        aria-hidden="true"
+      >
+        {/* raised right arm with pointing index finger */}
+        <line x1="24" y1="-14" x2="37" y2="-44" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+        <circle cx="38" cy="-48" r="3.5" fill={lc} />
+        {/* key body */}
+        <rect x="-30" y="-30" width="60" height="60" rx="12" fill="white" stroke="#3f0ff2" strokeWidth="2" />
+        <rect x="-24" y="-24" width="48" height="42" rx="8" fill="#eeecfe" />
+        <text x="0" y="-2" fontFamily="Poppins, sans-serif" fontSize="22" fontWeight="800" fill="#3f0ff2" textAnchor="middle">&gt;&gt;</text>
+        <circle cx="-7" cy="13" r="2.6" fill="#050111" />
+        <circle cx="7" cy="13" r="2.6" fill="#050111" />
+        {/* small open "aha" mouth */}
+        <ellipse cx="0" cy="20" rx="2.4" ry="2.8" fill="#050111" />
+        {/* left arm relaxed */}
+        <line x1="-30" y1="10" x2="-41" y2="19" stroke={lc} strokeWidth="3" strokeLinecap="round" />
+      </svg>
+    );
+  }
   if (pose === "running") {
     return (
       <svg

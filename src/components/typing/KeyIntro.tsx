@@ -227,7 +227,6 @@ export function KeyIntro({ locale, onComplete }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const l = i18n[locale];
   const names = fingerNames[locale];
-  const shortNames = fingerLabelShort[locale];
 
   const steps = homeSteps[locale] ?? homeSteps.en;
   const RIGHT_HAND_STEPS = steps.right;
@@ -298,60 +297,21 @@ export function KeyIntro({ locale, onComplete }: Props) {
     >
       {/* === PHASE: Explanation === */}
       {phase === "explain" && (
-        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-8 sm:p-10 space-y-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white text-center">
+        <div className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-5 sm:p-6 space-y-3">
+          <h2 className="text-lg sm:text-xl font-bold text-dark-text dark:text-white text-center">
             {l.explainTitle}
           </h2>
 
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
             {l.explainP1}
           </p>
 
-          <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
-            {l.explainP2}
-          </p>
-
-          {/* Color zone legend */}
-          <div className="space-y-3 pt-2">
-            <p className="text-xs font-semibold text-zinc-400 dark:text-zinc-500 uppercase tracking-wider text-center">
-              {l.explainColorIntro}
-            </p>
-            <div className="flex justify-center gap-8">
-              {/* Left hand */}
-              <div className="space-y-1.5">
-                <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 text-center">{l.leftHand}</p>
-                {(["left-pinky", "left-ring", "left-middle", "left-index"] as Finger[]).map((f) => (
-                  <div key={f} className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: fingerColors[f] }} />
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{shortNames[f]}</span>
-                    <kbd className="ml-auto text-xs font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark">
-                      {f === "left-pinky" ? "A" : f === "left-ring" ? "S" : f === "left-middle" ? "D" : "F"}
-                    </kbd>
-                  </div>
-                ))}
-              </div>
-              {/* Right hand */}
-              <div className="space-y-1.5">
-                <p className="text-xs font-medium text-zinc-500 dark:text-zinc-400 text-center">{l.rightHand}</p>
-                {(["right-index", "right-middle", "right-ring", "right-pinky"] as Finger[]).map((f) => (
-                  <div key={f} className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: fingerColors[f] }} />
-                    <span className="text-sm text-zinc-600 dark:text-zinc-400">{shortNames[f]}</span>
-                    <kbd className="ml-auto text-xs font-mono px-1.5 py-0.5 rounded border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark">
-                      {f === "right-index" ? "J" : f === "right-middle" ? "K" : f === "right-ring" ? "L" : ";"}
-                    </kbd>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center">
-            {l.explainP3}
+          <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
+            {l.explainP2} {l.explainP3}
           </p>
 
           {/* Press ENTER */}
-          <div className="flex items-center justify-center gap-2 pt-2 text-sm text-zinc-400 dark:text-zinc-500">
+          <div className="flex items-center justify-center gap-2 pt-1 text-sm text-zinc-400 dark:text-zinc-500">
             <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
               ENTER
             </kbd>
