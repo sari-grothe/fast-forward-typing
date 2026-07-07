@@ -24,11 +24,12 @@ const i18n: Record<Locale, {
   placementTitle: string;
   placementDesc: string;
   placementCta: string;
+  skipHint: string;
   planTitle: string;
   planSkipped: (n: number) => string;
   planWeakKeys: string;
   planRedo: string;
-  masteredBadge: string;
+  optionalBadge: string;
   completedBadge: string;
   startHereBadge: string;
 }> = {
@@ -46,13 +47,14 @@ const i18n: Record<Locale, {
     freeLessons: "6 Lektionen kostenlos",
     paidLessons: "22 Lektionen mit Pro",
     placementTitle: "Wo stehst du?",
-    placementDesc: "3 Minuten Einstufung: Wir prüfen jede Taste und dein Kurs startet genau da, wo du stehst. Was du schon kannst, wird übersprungen.",
+    placementDesc: "3 Minuten Einstufung: Wir prüfen jede Taste und schlagen dir vor, wo du starten kannst. Was du schon kannst, kannst du überspringen - musst du aber nicht.",
     placementCta: "Einstufung machen",
+    skipHint: "Lieber direkt loslegen? Mit Lektion 0 starten",
     planTitle: "Dein Trainingsplan",
-    planSkipped: (n) => `${n} Lektionen geprüft und übersprungen`,
+    planSkipped: (n) => `Vorschlag: ${n} Lektionen kannst du überspringen. Jede bleibt anklickbar, falls du aufwärmen willst.`,
     planWeakKeys: "Deine Trainingstasten:",
     planRedo: "Einstufung wiederholen",
-    masteredBadge: "Geprüft",
+    optionalBadge: "Optional",
     completedBadge: "Fertig",
     startHereBadge: "Hier starten",
   },
@@ -70,13 +72,14 @@ const i18n: Record<Locale, {
     freeLessons: "6 lessons free",
     paidLessons: "22 lessons with Pro",
     placementTitle: "Where do you stand?",
-    placementDesc: "3-minute placement: we check every key and your course starts exactly where you are. What you already know gets skipped.",
+    placementDesc: "3-minute placement: we check every key and suggest where to start. What you already know, you can skip - but you don't have to.",
     placementCta: "Take the placement",
+    skipHint: "Prefer to just start? Begin with lesson 0",
     planTitle: "Your training plan",
-    planSkipped: (n) => `${n} lessons verified and skipped`,
+    planSkipped: (n) => `Suggestion: you can skip ${n} lessons. Each stays clickable if you'd rather warm up.`,
     planWeakKeys: "Your training keys:",
     planRedo: "Redo placement",
-    masteredBadge: "Verified",
+    optionalBadge: "Optional",
     completedBadge: "Done",
     startHereBadge: "Start here",
   },
@@ -94,13 +97,14 @@ const i18n: Record<Locale, {
     freeLessons: "6 leçons gratuites",
     paidLessons: "22 leçons avec Pro",
     placementTitle: "Où en es-tu ?",
-    placementDesc: "Évaluation de 3 minutes : nous vérifions chaque touche et ton cours démarre exactement là où tu en es. Ce que tu sais déjà est sauté.",
+    placementDesc: "Évaluation de 3 minutes : nous vérifions chaque touche et te suggérons par où commencer. Ce que tu sais déjà, tu peux le sauter - mais rien ne t'y oblige.",
     placementCta: "Faire l'évaluation",
+    skipHint: "Envie de commencer direct ? Débute par la leçon 0",
     planTitle: "Ton plan d'entraînement",
-    planSkipped: (n) => `${n} leçons vérifiées et sautées`,
+    planSkipped: (n) => `Suggestion : tu peux sauter ${n} leçons. Chacune reste cliquable si tu préfères t'échauffer.`,
     planWeakKeys: "Tes touches à travailler :",
     planRedo: "Refaire l'évaluation",
-    masteredBadge: "Vérifié",
+    optionalBadge: "Optionnel",
     completedBadge: "Fini",
     startHereBadge: "Commencer ici",
   },
@@ -140,14 +144,14 @@ export function LessonsList({ locale }: { locale: Locale }) {
   }, [locale]);
 
   const placement = profile?.placement;
-  const mastered = new Set(placement?.masteredLessonIds ?? []);
+  const suggestedSkip = new Set(placement?.suggestedSkipLessonIds ?? []);
 
-  // Continue target: first lesson that is neither mastered nor completed,
+  // Continue target: first lesson that is neither suggested-skip nor completed,
   // starting from the placement recommendation (or 0 without placement).
   const firstOpen = lessons.find(
     (lesson) =>
       lesson.id >= (placement?.recommendedLessonId ?? 0) &&
-      !mastered.has(lesson.id) &&
+      !suggestedSkip.has(lesson.id) &&
       !records[lesson.id]
   );
   const continueId = firstOpen?.id ?? placement?.recommendedLessonId ?? 0;
@@ -185,20 +189,15 @@ export function LessonsList({ locale }: { locale: Locale }) {
               {l.paidLessons}
             </span>
           </div>
+          {/* Returning user: single "continue" CTA. New users get the
+              placement as the one dominant CTA in the card below, so the
+              header stays CTA-free for them (no competing "start course"). */}
           {loaded && placement && (
             <Link
               href={`/${locale}/lessons/${continueId}`}
               className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-2"
             >
               {l.continueAt(continueId)} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-            </Link>
-          )}
-          {loaded && !placement && (
-            <Link
-              href={`/${locale}/lessons/0`}
-              className="group inline-flex items-center gap-2 rounded-xl border-2 border-indigo px-7 py-3 text-sm font-semibold text-indigo hover:bg-indigo/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-2 dark:text-white dark:border-white/30"
-            >
-              {l.startCourse}
             </Link>
           )}
         </div>
@@ -209,16 +208,24 @@ export function LessonsList({ locale }: { locale: Locale }) {
 
       {/* Placement CTA (no profile yet) or plan summary */}
       {loaded && !placement && (
-        <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-b from-white to-lavender/30 dark:from-dark-surface dark:to-dark p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center gap-4">
-          <div className="flex-1">
-            <p className="font-bold text-dark-text dark:text-white">{l.placementTitle}</p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{l.placementDesc}</p>
+        <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-b from-white to-lavender/30 dark:from-dark-surface dark:to-dark p-6 sm:p-7 space-y-3">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="flex-1">
+              <p className="font-bold text-dark-text dark:text-white">{l.placementTitle}</p>
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{l.placementDesc}</p>
+            </div>
+            <Link
+              href={`/${locale}/placement`}
+              className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
+            >
+              {l.placementCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
+            </Link>
           </div>
           <Link
-            href={`/${locale}/placement`}
-            className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
+            href={`/${locale}/lessons/0`}
+            className="inline-block text-xs text-zinc-400 hover:text-indigo transition-colors"
           >
-            {l.placementCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
+            {l.skipHint}
           </Link>
         </div>
       )}
@@ -231,8 +238,8 @@ export function LessonsList({ locale }: { locale: Locale }) {
               {l.planRedo}
             </Link>
           </div>
-          {placement.masteredLessonIds.length > 0 && (
-            <p className="text-sm text-zinc-600 dark:text-zinc-300">✓ {l.planSkipped(placement.masteredLessonIds.length)}</p>
+          {(placement.suggestedSkipLessonIds?.length ?? 0) > 0 && (
+            <p className="text-sm text-zinc-600 dark:text-zinc-300">{l.planSkipped(placement.suggestedSkipLessonIds.length)}</p>
           )}
           {weakKeys.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
@@ -269,7 +276,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
             <div className="space-y-1.5">
               {phaseLessons.map((lesson) => {
                 const meta = lessonMeta[locale]?.[lesson.id] ?? lessonMeta.en[lesson.id];
-                const isMastered = mastered.has(lesson.id);
+                const isSuggestedSkip = suggestedSkip.has(lesson.id);
                 const record = records[lesson.id];
                 const isRecommended = loaded && placement && lesson.id === continueId;
 
@@ -282,18 +289,17 @@ export function LessonsList({ locale }: { locale: Locale }) {
                       isRecommended
                         ? "border-indigo/50 bg-indigo/5 shadow-md shadow-indigo/10"
                         : "border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface hover:border-indigo/30 hover:bg-indigo/5 dark:hover:bg-indigo/5",
-                      isMastered && !isRecommended ? "opacity-60" : "",
                     ].join(" ")}
                   >
                     <div
                       className={[
                         "flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold transition-colors",
-                        isMastered || record
+                        record
                           ? "bg-indigo/10 text-indigo"
                           : "bg-zinc-50 dark:bg-dark text-zinc-400 dark:text-zinc-500 group-hover:bg-indigo/10 group-hover:text-indigo",
                       ].join(" ")}
                     >
-                      {isMastered || record ? (
+                      {record ? (
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                         </svg>
@@ -324,12 +330,12 @@ export function LessonsList({ locale }: { locale: Locale }) {
                           {l.completedBadge} · {record.wpm} WPM
                         </span>
                       )}
-                      {!isRecommended && !record && isMastered && (
+                      {!isRecommended && !record && isSuggestedSkip && (
                         <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-dark text-zinc-500">
-                          ✓ {l.masteredBadge}
+                          {l.optionalBadge}
                         </span>
                       )}
-                      {!isRecommended && !record && !isMastered && (
+                      {!isRecommended && !record && !isSuggestedSkip && (
                         lesson.isFree ? (
                           <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-indigo/10 text-indigo">
                             {l.free}

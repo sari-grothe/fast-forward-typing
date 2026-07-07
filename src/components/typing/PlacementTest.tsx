@@ -51,7 +51,7 @@ const i18n: Record<Locale, {
   huntAndPeckTitle: string;
   huntAndPeckText: string;
   startCta: string;
-  viewPlanCta: string;
+  warmUpCta: string;
   redoCta: string;
 }> = {
   de: {
@@ -71,12 +71,12 @@ const i18n: Record<Locale, {
     weakTitle: "Braucht Training",
     weakDesc: "Hier verlierst du Zeit - genau das trainiert dein Plan",
     planTitle: "Dein Trainingsplan",
-    planSkipped: (n) => `${n} Lektionen geprüft und übersprungen`,
-    planStart: (title) => `Dein Kurs beginnt bei: ${title}`,
+    planSkipped: (n) => `Wir schlagen vor: ${n} Lektionen kannst du überspringen - du kannst jede trotzdem machen.`,
+    planStart: (title) => `Empfohlener Start: ${title}`,
     huntAndPeckTitle: "Ehrliche Diagnose: Neustart lohnt sich",
     huntAndPeckText: "Du suchst die Tasten noch mit den Augen - dein Tempo kommt aus dem Kurzzeitgedächtnis, nicht aus den Fingern. Das ist keine Basis zum Ausbauen, sondern Muskelgedächtnis, das ersetzt wird. Die gute Nachricht: Mit System-Neustart erreichst du in 4 Wochen mehr, als Jahre Selbstsuche gebracht haben.",
-    startCta: "Kurs starten",
-    viewPlanCta: "Zum Trainingsplan",
+    startCta: "Empfohlen starten",
+    warmUpCta: "Lieber von vorne aufwärmen",
     redoCta: "Einstufung wiederholen",
   },
   en: {
@@ -96,12 +96,12 @@ const i18n: Record<Locale, {
     weakTitle: "Needs training",
     weakDesc: "This is where you lose time - exactly what your plan targets",
     planTitle: "Your training plan",
-    planSkipped: (n) => `${n} lessons verified and skipped`,
-    planStart: (title) => `Your course starts at: ${title}`,
+    planSkipped: (n) => `We suggest skipping ${n} lessons - you can still do any of them.`,
+    planStart: (title) => `Recommended start: ${title}`,
     huntAndPeckTitle: "Honest diagnosis: a restart pays off",
     huntAndPeckText: "You still find keys with your eyes - your speed comes from short-term memory, not your fingers. That's not a base to build on; it's muscle memory that gets replaced. The good news: with a systematic restart, 4 weeks gets you further than years of hunting ever did.",
-    startCta: "Start course",
-    viewPlanCta: "View training plan",
+    startCta: "Start as suggested",
+    warmUpCta: "Rather warm up from the start",
     redoCta: "Redo placement",
   },
   fr: {
@@ -121,12 +121,12 @@ const i18n: Record<Locale, {
     weakTitle: "À travailler",
     weakDesc: "C'est ici que tu perds du temps - exactement ce que ton plan cible",
     planTitle: "Ton plan d'entraînement",
-    planSkipped: (n) => `${n} leçons vérifiées et sautées`,
-    planStart: (title) => `Ton cours commence à : ${title}`,
+    planSkipped: (n) => `On te suggère de sauter ${n} leçons - tu peux quand même les faire.`,
+    planStart: (title) => `Départ recommandé : ${title}`,
     huntAndPeckTitle: "Diagnostic honnête : repartir de zéro paie",
     huntAndPeckText: "Tu cherches encore les touches des yeux - ta vitesse vient de la mémoire à court terme, pas des doigts. Ce n'est pas une base à développer, c'est une habitude à remplacer. La bonne nouvelle : avec un redémarrage méthodique, 4 semaines t'amènent plus loin que des années de recherche à l'aveugle.",
-    startCta: "Commencer le cours",
-    viewPlanCta: "Voir le plan",
+    startCta: "Démarrer comme suggéré",
+    warmUpCta: "Plutôt s'échauffer depuis le début",
     redoCta: "Refaire l'évaluation",
   },
 };
@@ -229,7 +229,7 @@ export function PlacementTest({ locale }: { locale: Locale }) {
     const groups = groupKeysByLevel(profile);
     const lessons = getLessons(locale);
     const startMeta = lessonMeta[locale]?.[result.recommendedLessonId] ?? lessonMeta.en[result.recommendedLessonId];
-    const skipped = result.masteredLessonIds.length;
+    const skipped = result.suggestedSkipLessonIds.length;
 
     return (
       <div className="space-y-6 animate-fade-up">
@@ -281,11 +281,11 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        {/* Plan */}
+        {/* Plan - a suggestion the user confirms, not an auto-skip */}
         <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 space-y-2">
           <p className="font-semibold text-dark-text dark:text-white">{l.planTitle}</p>
           {skipped > 0 && (
-            <p className="text-sm text-zinc-600 dark:text-zinc-300">✓ {l.planSkipped(skipped)}</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-300">{l.planSkipped(skipped)}</p>
           )}
           <p className="text-sm text-zinc-600 dark:text-zinc-300">
             {l.planStart(`${startMeta?.title ?? `Lektion ${result.recommendedLessonId}`}`)}
@@ -297,12 +297,14 @@ export function PlacementTest({ locale }: { locale: Locale }) {
             >
               {l.startCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
             </Link>
-            <Link
-              href={`/${locale}/lessons`}
-              className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-dark-border px-6 py-3 text-sm font-semibold hover:bg-zinc-50 dark:hover:bg-dark-surface transition-colors"
-            >
-              {l.viewPlanCta}
-            </Link>
+            {skipped > 0 && (
+              <Link
+                href={`/${locale}/lessons/0`}
+                className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-dark-border px-6 py-3 text-sm font-semibold hover:bg-zinc-50 dark:hover:bg-dark-surface transition-colors"
+              >
+                {l.warmUpCta}
+              </Link>
+            )}
             <button
               onClick={() => window.location.reload()}
               className="text-sm text-zinc-400 hover:text-indigo transition-colors"

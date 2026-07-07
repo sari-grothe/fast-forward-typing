@@ -77,7 +77,12 @@ export function Dashboard({ locale }: { locale: Locale }) {
     recordList.length > 0
       ? Math.round(recordList.reduce((s, r) => s + r.accuracy, 0) / recordList.length)
       : null;
-  const done = recordList.length + (profile?.placement?.masteredLessonIds.length ?? 0);
+  // Progress = lessons actually completed plus those the placement cleared
+  // you past. Union so a warmed-up suggested-skip lesson isn't double-counted.
+  const done = new Set([
+    ...Object.keys(records).map(Number),
+    ...(profile?.placement?.suggestedSkipLessonIds ?? []),
+  ]).size;
   const weak = profile ? groupKeysByLevel(profile).weak : [];
 
   return (

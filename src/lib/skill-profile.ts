@@ -20,7 +20,10 @@ export type PlacementResult = {
   wpm: number;
   accuracy: number;
   recommendedLessonId: number;
-  masteredLessonIds: number[];
+  /** Lessons the placement SUGGESTS you can skip (keys already strong).
+   *  A suggestion, not a verdict: the placement measures output, not
+   *  technique, so the user always keeps the choice to warm up anyway. */
+  suggestedSkipLessonIds: number[];
   huntAndPeck: boolean;
   completedAt: string;
 };
@@ -99,22 +102,22 @@ export function evaluatePlacement(
 ): PlacementResult {
   const huntAndPeck = meanLatency(profile) > HUNT_AND_PECK_MEAN_LATENCY_MS;
 
-  const masteredLessonIds: number[] = [];
+  const suggestedSkipLessonIds: number[] = [];
   let recommendedLessonId = 0;
 
   if (!huntAndPeck) {
     for (const lesson of lessons) {
       const keys = lessonLetterKeys(lesson);
-      const mastered = keys.length > 0 && keys.every((k) => classifyKey(profile, k) === "strong");
-      if (mastered) {
-        masteredLessonIds.push(lesson.id);
+      const alreadyStrong = keys.length > 0 && keys.every((k) => classifyKey(profile, k) === "strong");
+      if (alreadyStrong) {
+        suggestedSkipLessonIds.push(lesson.id);
       } else {
         recommendedLessonId = lesson.id;
         break;
       }
     }
-    // Edge case: everything mastered - recommend the first speed lesson.
-    if (masteredLessonIds.length === lessons.length) {
+    // Edge case: every lesson looks strong - recommend the first speed lesson.
+    if (suggestedSkipLessonIds.length === lessons.length) {
       recommendedLessonId = lessons.find((l) => l.phase === 8)?.id ?? lessons[lessons.length - 1].id;
     }
   }
@@ -123,7 +126,7 @@ export function evaluatePlacement(
     wpm,
     accuracy,
     recommendedLessonId,
-    masteredLessonIds,
+    suggestedSkipLessonIds,
     huntAndPeck,
     completedAt: new Date().toISOString(),
   };
