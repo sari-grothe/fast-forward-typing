@@ -1,18 +1,23 @@
 import { fingerColors, type Finger } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
 
-// Two hands resting on the home row, drawn as one continuous silhouette
-// per hand (wrist -> pinky outer edge -> fingertips -> finger valleys ->
-// thumb -> wrist) in calm line-art style: no knuckles, no nails, nothing
-// uncanny. Fingertip x-positions are COMPUTED from the key grid, so hands
-// and keys can never drift apart; the right hand is an exact mirror of the
-// left (the home row is symmetric around x=530), so only one hand shape is
-// maintained.
+// Two hands resting on the home row, drawn as calm line art.
+//
+// Architecture: palm, four fingers and thumb are SEPARATE shapes that are
+// rendered with a union-outline trick (all outlines first, then all fills
+// on top, inside one translucent group) so they read as one seamless hand.
+// Because each finger is its own shape with a computed tip position, a
+// finger can later point at ANY key (T, Z, numbers...) while the rest of
+// the hand stays anchored - the groundwork for reach poses beyond the
+// home row.
+//
+// Fingertip x-positions come from the key grid, so hands and keys cannot
+// drift apart; the right hand is an exact mirror of the left (the home
+// row is symmetric around x=530), so only one hand is maintained.
 //
 // activeKey highlights the key AND the finger that presses it, in that
-// finger's color - the user sees the finger on the key instead of
-// cross-referencing a color legend. Without activeKey the hands rest and
-// the F/J bumps glow ("find the bumps").
+// finger's color. Without activeKey the hands rest and the F/J bumps
+// glow ("find the bumps").
 
 type Props = {
   locale: Locale;
@@ -46,50 +51,78 @@ const FINGER_BY_SLOT: Record<number, Finger> = {
   9: "right-pinky",
 };
 
-// Left-hand finger centerlines (pinky..index on slots 0..3).
-// tip x comes from the key grid; knuckles/widths are hand-tuned.
-const FINGERS = [
-  { slot: 0, tipY: 314, knuckle: [254, 436] as const, width: 25, bendX: -8 },
-  { slot: 1, tipY: 310, knuckle: [316, 456] as const, width: 28, bendX: -4 },
-  { slot: 2, tipY: 308, knuckle: [376, 462] as const, width: 29, bendX: 0 },
-  { slot: 3, tipY: 310, knuckle: [434, 454] as const, width: 29, bendX: 3 },
+// Left-hand fingers (pinky..index on slots 0..3). Bases sit deep inside
+// the palm so the union fill hides the junction; tips are computed from
+// the key grid. bend bows the finger along its normal (+ = outward).
+type FingerDef = {
+  slot: number;
+  tip: [number, number];
+  base: [number, number];
+  r: number;
+  bend: number;
+};
+
+const FINGERS: FingerDef[] = [
+  { slot: 0, tip: [242, 301], base: [260, 472], r: 13, bend: 6 },
+  { slot: 1, tip: [306, 293], base: [318, 480], r: 14.5, bend: 3 },
+  { slot: 2, tip: [370, 290], base: [378, 484], r: 15, bend: 0 },
+  { slot: 3, tip: [434, 293], base: [436, 478], r: 15, bend: -3 },
 ];
 
-function fingerCenterline(defIdx: number): string {
-  const def = FINGERS[defIdx];
-  const tx = homeCX(def.slot);
-  const ty = def.tipY;
-  const [kx, ky] = def.knuckle;
-  const cx = (kx + tx) / 2 + def.bendX;
-  const cy = (ky + ty) / 2;
-  return `M ${kx} ${ky} Q ${cx} ${cy} ${tx} ${ty}`;
+const THUMB: FingerDef = { slot: -1, tip: [487, 404], base: [426, 545], r: 14, bend: 10 };
+
+// Closed capsule outline for a finger: two offset quadratic edges plus
+// round caps, so each finger can be filled AND stroked as its own shape.
+function capsulePath(def: FingerDef): string {
+  const [bx, by] = def.base;
+  const [tx, ty] = def.tip;
+  const len = Math.hypot(tx - bx, ty - by) || 1;
+  // Unit normal (left side of travel direction base->tip).
+  const nx = (ty - by) / len;
+  const ny = (bx - tx) / len;
+  const r = def.r;
+  const mx = (bx + tx) / 2 + nx * def.bend;
+  const my = (by + ty) / 2 + ny * def.bend;
+
+  const p = (x: number, y: number) => `${x.toFixed(1)} ${y.toFixed(1)}`;
+  return [
+    `M ${p(bx + nx * r, by + ny * r)}`,
+    `Q ${p(mx + nx * r, my + ny * r)} ${p(tx + nx * r, ty + ny * r)}`,
+    `A ${r} ${r} 0 0 1 ${p(tx - nx * r, ty - ny * r)}`,
+    `Q ${p(mx - nx * r, my - ny * r)} ${p(bx - nx * r, by - ny * r)}`,
+    `A ${r} ${r} 0 0 1 ${p(bx + nx * r, by + ny * r)}`,
+    "Z",
+  ].join(" ");
 }
 
-// One continuous left-hand silhouette. The right hand reuses it via
-// transform="translate(1060 0) scale(-1 1)".
-// Wrists extend below the viewBox (y > 620) so the hands bleed off the
-// bottom edge without a visible cut-off line.
-const HAND_PATH = [
-  "M 254 650", // wrist, below the canvas
-  "C 240 570 228 500 241 436", // palm outer edge up to pinky base
-  "Q 230 374 229.5 316", // pinky outer edge
-  "A 12.5 12.5 0 0 1 254.5 316", // pinky tip
-  "Q 258 378 285 429", // pinky inner edge down to first valley
-  "Q 289 372 292 311", // ring outer edge
-  "A 14 14 0 0 1 320 311", // ring tip
-  "Q 323 380 346 444", // ring inner edge to second valley
-  "Q 352 375 355.5 309", // middle outer edge
-  "A 14.5 14.5 0 0 1 384.5 309", // middle tip
-  "Q 388 382 405 443", // middle inner edge to third valley
-  "Q 417 376 419.5 311", // index outer edge
-  "A 14.5 14.5 0 0 1 448.5 311", // index tip
-  "Q 452 390 453 480", // index inner edge down to thumb webbing
-  "Q 460 428 471 400", // thumb outer edge toward space bar
-  "A 13 13 0 0 1 492 414", // thumb tip
-  "Q 480 470 462 524", // thumb inner edge back down
-  "C 450 570 432 605 414 650", // palm edge down past the canvas
+// Highlight bar along a finger, trimmed so it doesn't poke into the palm.
+function highlightPath(def: FingerDef): string {
+  const [bx, by] = def.base;
+  const [tx, ty] = def.tip;
+  const t0 = 0.4;
+  const sx = bx + (tx - bx) * t0;
+  const sy = by + (ty - by) * t0;
+  const len = Math.hypot(tx - bx, ty - by) || 1;
+  const nx = (ty - by) / len;
+  const ny = (bx - tx) / len;
+  const mx = (sx + tx) / 2 + nx * def.bend * 0.7;
+  const my = (sy + ty) / 2 + ny * def.bend * 0.7;
+  return `M ${sx} ${sy} Q ${mx} ${my} ${tx} ${ty}`;
+}
+
+// Palm: rounded blob whose top edge sits above the finger bases; the
+// wrist runs below the viewBox so hands bleed off the bottom edge.
+const PALM_PATH = [
+  "M 252 650",
+  "C 236 570 228 496 242 440", // outer (pinky-side) edge
+  "Q 247 426 264 421", // rounded top corner
+  "Q 348 402 432 419", // top edge, gentle arc
+  "Q 452 424 457 440", // rounded top corner (index side)
+  "C 468 505 452 585 416 650", // thumb-side edge down
   "Z",
 ].join(" ");
+
+const HAND_PARTS = [PALM_PATH, ...FINGERS.map(capsulePath), capsulePath(THUMB)];
 
 // Blank key rows around the home row (decorative context).
 const BLANK_ROWS: { y: number; keys: { x: number; w: number }[] }[] = [
@@ -120,20 +153,24 @@ const BLANK_ROWS: { y: number; keys: { x: number; w: number }[] }[] = [
 
 function Hand({ mirrored, highlightDefIdx, color }: { mirrored: boolean; highlightDefIdx: number; color?: string }) {
   return (
-    <g transform={mirrored ? `translate(${MIRROR_X} 0) scale(-1 1)` : undefined}>
-      <path
-        d={HAND_PATH}
-        strokeWidth={2.5}
-        strokeLinejoin="round"
-        className="fill-white/80 stroke-zinc-400 dark:fill-zinc-800/80 dark:stroke-zinc-500"
-      />
+    <g transform={mirrored ? `translate(${MIRROR_X} 0) scale(-1 1)` : undefined} opacity={0.88}>
+      {/* Pass 1: outlines of all parts. Stroke width 4 because the fill
+          pass covers the inner half, leaving a ~2px contour. */}
+      {HAND_PARTS.map((d, i) => (
+        <path key={`o-${i}`} d={d} fill="none" strokeWidth={4} strokeLinejoin="round" className="stroke-zinc-400 dark:stroke-zinc-500" />
+      ))}
+      {/* Pass 2: fills on top hide every interior line - the parts merge
+          into one seamless silhouette. */}
+      {HAND_PARTS.map((d, i) => (
+        <path key={`f-${i}`} d={d} className="fill-white dark:fill-zinc-800" />
+      ))}
       {highlightDefIdx >= 0 && color && (
         <path
-          d={fingerCenterline(highlightDefIdx)}
+          d={highlightPath(FINGERS[highlightDefIdx])}
           fill="none"
           stroke={color}
           strokeOpacity={0.85}
-          strokeWidth={FINGERS[highlightDefIdx].width - 7}
+          strokeWidth={FINGERS[highlightDefIdx].r * 2 - 8}
           strokeLinecap="round"
         />
       )}
