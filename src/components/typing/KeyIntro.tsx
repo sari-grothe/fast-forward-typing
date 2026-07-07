@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Keyboard } from "./Keyboard";
+import { HomeRowHands } from "./HomeRowHands";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { fingerColors, type Finger } from "@/lib/lessons";
 import type { Locale } from "@/i18n/config";
@@ -222,8 +222,6 @@ type Props = {
 export function KeyIntro({ locale, onComplete }: Props) {
   const [phase, setPhase] = useState<Phase>("explain");
   const [stepIndex, setStepIndex] = useState(0);
-  const [pressedKey, setPressedKey] = useState<string | undefined>();
-  const [completedKeys, setCompletedKeys] = useState<string[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const l = i18n[locale];
   const names = fingerNames[locale];
@@ -265,11 +263,7 @@ export function KeyIntro({ locale, onComplete }: Props) {
 
       if (phase === "typing" && currentStep) {
         const typed = e.key.toLowerCase();
-        setPressedKey(typed);
-        setTimeout(() => setPressedKey(undefined), 150);
-
         if (typed === currentStep.key) {
-          setCompletedKeys((prev) => [...prev, currentStep.key]);
           setStepIndex((prev) => prev + 1);
           setPhase("confirm");
         }
@@ -450,19 +444,18 @@ export function KeyIntro({ locale, onComplete }: Props) {
         </div>
       )}
 
-      {/* Keyboard - always visible */}
-      <Keyboard
-        activeKey={phase === "typing" ? currentStep?.key : undefined}
-        activeKeys={
-          phase === "explain"
-            ? ["a", "s", "d", "f", "j", "k", "l", ";"]
-            : phase === "done"
-              ? ["a", "s", "d", "f", "j", "k", "l", ";"]
-              : [currentStep?.key ?? "", ...completedKeys]
-        }
-        pressedKey={pressedKey}
-        showFingers={true}
+      {/* Hands on the home row - always visible. The finger that should
+          press the current key is highlighted directly on the hand, so
+          there is no color legend to cross-reference. */}
+      <HomeRowHands
         locale={locale}
+        activeKey={
+          phase === "typing"
+            ? currentStep?.key
+            : phase === "confirm"
+              ? justCompletedStep?.key
+              : undefined
+        }
       />
     </div>
   );
