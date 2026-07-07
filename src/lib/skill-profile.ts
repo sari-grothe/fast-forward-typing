@@ -148,24 +148,29 @@ export function groupKeysByLevel(profile: SkillProfile): Record<Exclude<KeyLevel
 }
 
 // --- Placement test texts ---------------------------------------------------
-// Three rounds per locale: common words, a full-alphabet pangram, and
-// language specials (umlauts/accents, caps, punctuation). Together they
-// touch every letter so the per-key profile has data everywhere.
+// Real, adult-appropriate prose - not contrived pangrams. Natural text
+// measures the frequent, decision-relevant keys (home/top/bottom rows)
+// far more reliably than a pangram touching each rare letter once, and
+// it respects the reader. Rounds go from everyday flow -> varied
+// sentences -> language specials (umlauts/accents, caps, punctuation).
+// Genuinely rare keys (q, x, y) that natural prose barely uses stay
+// "untested", which just means their lesson isn't suggested for skipping -
+// the safe default.
 
 export const placementTexts: Record<Locale, string[]> = {
   de: [
-    "die zeit und der tag sind gut wir machen das jetzt einfach weiter",
-    "Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.",
-    "Zwölf Boxkämpfer jagen Viktor über den großen Deich. Schöne Grüße!",
+    "Die meisten Menschen tippen jeden Tag, ohne es je richtig gelernt zu haben. Sauberes Tippen ist eine Fähigkeit wie jede andere: messbar und trainierbar.",
+    "Ob kurze Notiz, lange E-Mail oder komplexer Bericht - flüssiges Schreiben gehört zu den Fähigkeiten, die im Job den größten Unterschied machen.",
+    "Mal ehrlich: Was würdest du mit einer zusätzlichen Stunde pro Tag anfangen? Mit System und typischen Übungen gewöhnst du dir die großen Zeitfresser ab - exakt, Zeichen für Zeichen.",
   ],
   en: [
-    "the time and the day are good we make this work and move on now",
-    "The quick brown fox jumps over the lazy dog.",
-    "Pack my box with five dozen liquor jugs. Well done, keep going!",
+    "Most people type every day without ever learning it properly. Clean typing is a skill like any other: you can measure it and train it on the job.",
+    "Whether it is a quick note, a long email, or a complex report, fluent typing keeps your thoughts from slipping while your hands catch up.",
+    "Honestly, what would you do with an extra hour each day? With a clear system and the right practice, you win that time back - key by key, no puzzle.",
   ],
   fr: [
-    "le temps et le jour sont bons nous faisons cela ensemble et encore",
-    "Portez ce vieux whisky au juge blond qui fume.",
-    "Voyez le brick géant que j'examine près du wharf. Voilà, ça marche très bien!",
+    "La plupart des gens tapent chaque jour sans l'avoir vraiment appris. Bien taper est une compétence comme une autre : mesurable et précieuse à ton travail.",
+    "Note rapide, long e-mail ou rapport complexe - une frappe très fluide t'évite de perdre le fil, là où chaque seconde compte.",
+    "Franchement, que ferais-tu d'une heure de plus par jour ? Avec un système clair et les bons exercices, tu gagnes ce temps - et ça change le quotidien.",
   ],
 };

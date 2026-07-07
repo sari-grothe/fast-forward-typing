@@ -57,7 +57,7 @@ const i18n: Record<Locale, {
   de: {
     roundLabel: "Runde",
     of: "von",
-    roundNames: ["Häufige Wörter", "Alle Buchstaben", "Umlaute + Zeichen"],
+    roundNames: ["Alltagstext", "Fließtext", "Umlaute & Zeichen"],
     startTyping: "Einfach lostippen",
     startHint: "Die erste Taste startet die Einstufung",
     analyzing: "Auswertung",
@@ -82,7 +82,7 @@ const i18n: Record<Locale, {
   en: {
     roundLabel: "Round",
     of: "of",
-    roundNames: ["Common words", "Full alphabet", "Caps + punctuation"],
+    roundNames: ["Everyday text", "Flowing text", "Caps & symbols"],
     startTyping: "Just start typing",
     startHint: "Your first keystroke starts the assessment",
     analyzing: "Analyzing",
@@ -107,7 +107,7 @@ const i18n: Record<Locale, {
   fr: {
     roundLabel: "Manche",
     of: "sur",
-    roundNames: ["Mots courants", "Alphabet complet", "Accents + signes"],
+    roundNames: ["Texte du quotidien", "Texte fluide", "Accents & signes"],
     startTyping: "Commence à taper",
     startHint: "La première touche lance l'évaluation",
     analyzing: "Analyse",
