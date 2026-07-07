@@ -268,30 +268,29 @@ export function LessonDrill({
             : "border-zinc-200 dark:border-dark-border focus:border-indigo/40 focus:ring-2 focus:ring-indigo/20",
         ].join(" ")}
       >
-        {/* Start prompt - shown before first keystroke */}
-        {!hasStarted && !state.isComplete && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm z-10 rounded-xl">
-            <div className="flex items-center gap-2 text-lg font-semibold text-dark-text dark:text-white">
-              <span className="inline-block w-0.5 h-6 bg-indigo animate-cursor-blink" />
-              <span>{l.startTyping}</span>
-            </div>
-            <p className="text-sm text-zinc-400 dark:text-zinc-500 mt-1.5">{l.startHint}</p>
-          </div>
-        )}
         <p className="break-words">
           {state.text.split("").map((char, i) => (
-            <span
-              key={i}
-              ref={charStatuses[i] === "current" ? currentCharRef : undefined}
-              className={`${charStatusColors[charStatuses[i]]} ${
-                char === " " && charStatuses[i] === "incorrect" ? "bg-peach/30" : ""
-              } ${charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""}`}
-            >
-              {char}
+            <span key={i}>
+              {charStatuses[i] === "current" && !hasStarted && !state.isComplete && (
+                <span className="inline-block w-0.5 h-[1.1em] bg-indigo animate-cursor-blink align-middle -mt-1 mr-px" />
+              )}
+              <span
+                ref={charStatuses[i] === "current" ? currentCharRef : undefined}
+                className={`${charStatusColors[charStatuses[i]]} ${
+                  char === " " && charStatuses[i] === "incorrect" ? "bg-peach/30" : ""
+                } ${charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""}`}
+              >
+                {char}
+              </span>
             </span>
           ))}
         </p>
       </div>
+
+      {/* Start hint - shown until the first keystroke */}
+      {!hasStarted && !state.isComplete && (
+        <p className="text-center text-xs text-zinc-400 dark:text-zinc-500">{l.startHint}</p>
+      )}
 
       {/* Virtual keyboard */}
       <Keyboard

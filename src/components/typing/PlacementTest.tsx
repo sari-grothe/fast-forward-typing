@@ -339,6 +339,9 @@ export function PlacementTest({ locale }: { locale: Locale }) {
             ))}
           </div>
         </div>
+        {!hasStarted && (
+          <span className="text-xs text-zinc-400 dark:text-zinc-500">{l.startHint}</span>
+        )}
       </div>
 
       {/* Typing area */}
@@ -347,24 +350,19 @@ export function PlacementTest({ locale }: { locale: Locale }) {
         tabIndex={0}
         className="relative rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 text-lg sm:text-xl leading-relaxed font-mono focus:outline-none focus:border-indigo/40 focus:ring-2 focus:ring-indigo/20 cursor-text select-none"
       >
-        {!hasStarted && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/80 dark:bg-dark-surface/80 backdrop-blur-sm z-10 rounded-xl">
-            <div className="flex items-center gap-2 text-lg font-semibold text-dark-text dark:text-white">
-              <span className="inline-block w-0.5 h-6 bg-indigo animate-cursor-blink" />
-              <span>{l.startTyping}</span>
-            </div>
-            <p className="text-sm text-zinc-400 dark:text-zinc-500 mt-1.5">{l.startHint}</p>
-          </div>
-        )}
         <p className="break-words">
           {state.text.split("").map((char, i) => (
-            <span
-              key={i}
-              className={`${charStatusColors[charStatuses[i]]} ${
-                charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""
-              }`}
-            >
-              {char}
+            <span key={i}>
+              {charStatuses[i] === "current" && !hasStarted && (
+                <span className="inline-block w-0.5 h-[1.1em] bg-indigo animate-cursor-blink align-middle -mt-1 mr-px" />
+              )}
+              <span
+                className={`${charStatusColors[charStatuses[i]]} ${
+                  charStatuses[i] === "current" && shake ? "animate-shake text-peach border-peach" : ""
+                }`}
+              >
+                {char}
+              </span>
             </span>
           ))}
         </p>
