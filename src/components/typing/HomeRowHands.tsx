@@ -63,13 +63,15 @@ type FingerDef = {
 };
 
 const FINGERS: FingerDef[] = [
-  { slot: 0, tip: [242, 301], base: [260, 472], r: 13, bend: 6 },
-  { slot: 1, tip: [306, 293], base: [318, 480], r: 14.5, bend: 3 },
-  { slot: 2, tip: [370, 290], base: [378, 484], r: 15, bend: 0 },
-  { slot: 3, tip: [434, 293], base: [436, 478], r: 15, bend: -3 },
+  { slot: 0, tip: [242, 301], base: [238, 455], r: 14, bend: 5 },
+  { slot: 1, tip: [306, 293], base: [296, 460], r: 15.5, bend: 3 },
+  { slot: 2, tip: [370, 290], base: [356, 464], r: 16, bend: 0 },
+  { slot: 3, tip: [434, 293], base: [418, 460], r: 16, bend: -2 },
 ];
 
-const THUMB: FingerDef = { slot: -1, tip: [487, 404], base: [426, 545], r: 14, bend: 10 };
+// Short, thick, strongly tilted: the tip rests round and relaxed next
+// to the left end of the space bar.
+const THUMB: FingerDef = { slot: -1, tip: [494, 398], base: [410, 512], r: 17, bend: 10 };
 
 // Closed capsule outline for a finger: two offset quadratic edges plus
 // round caps, so each finger can be filled AND stroked as its own shape.
@@ -110,15 +112,16 @@ function highlightPath(def: FingerDef): string {
   return `M ${sx} ${sy} Q ${mx} ${my} ${tx} ${ty}`;
 }
 
-// Palm: rounded blob whose top edge sits above the finger bases; the
-// wrist runs below the viewBox so hands bleed off the bottom edge.
+// Palm: slightly tilted (wrist outward, knuckles inward - the natural
+// resting angle), tapering toward the wrist, which runs below the
+// viewBox so hands bleed off the bottom edge.
 const PALM_PATH = [
-  "M 252 650",
-  "C 236 570 228 496 242 440", // outer (pinky-side) edge
-  "Q 247 426 264 421", // rounded top corner
-  "Q 348 402 432 419", // top edge, gentle arc
-  "Q 452 424 457 440", // rounded top corner (index side)
-  "C 468 505 452 585 416 650", // thumb-side edge down
+  "M 250 650",
+  "C 230 574 212 496 220 444", // outer (pinky-side) edge
+  "Q 222 430 238 426", // rounded top corner
+  "Q 330 398 416 404", // knuckle line, sloping up toward the index
+  "Q 438 408 444 423", // rounded top corner (index side)
+  "C 456 490 440 574 398 650", // thumb-side edge, tapering to the wrist
   "Z",
 ].join(" ");
 
