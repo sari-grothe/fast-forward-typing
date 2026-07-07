@@ -374,7 +374,7 @@ export function SpeedTest({ locale }: Props) {
           <h3 className="text-xl font-bold text-dark-text dark:text-white text-center mb-6">{l.nextStepSection}</h3>
 
           <Link
-            href={`/${locale}/lessons/1`}
+            href={`/${locale}/placement`}
             className="block rounded-2xl bg-gradient-to-r from-indigo to-indigo/90 p-6 sm:p-8 text-white shadow-lg shadow-indigo/20 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

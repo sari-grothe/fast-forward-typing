@@ -24,7 +24,7 @@ export function FinalCTA({ locale, title, description, ctaLearn, ctaTest }: Prop
           <p className="text-white/70 text-lg mb-10 max-w-lg mx-auto">{description}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link
-              href={`/${locale}/lessons/1`}
+              href={`/${locale}/placement`}
               className="group inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-base font-semibold text-indigo shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               {ctaLearn} <span className="text-indigo group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>

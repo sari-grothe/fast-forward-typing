@@ -175,7 +175,7 @@ export function TestimonialSlider({ locale }: Props) {
 
       <div className="flex justify-center">
         <a
-          href={`/${locale}/lessons/1`}
+          href={`/${locale}/placement`}
           className="inline-flex items-center gap-2 rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
         >
           {l.cta}

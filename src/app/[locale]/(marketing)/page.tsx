@@ -161,7 +161,7 @@ export default async function HomePage({ params }: Props) {
           </div>
           <ScrollReveal className="mt-12 flex justify-center">
             <Link
-              href={`/${locale}/lessons/1`}
+              href={`/${locale}/placement`}
               className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               {how.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
@@ -267,7 +267,7 @@ export default async function HomePage({ params }: Props) {
                 <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
-                    href={`/${locale}/lessons/1`}
+                    href={`/${locale}/placement`}
                     className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
                   >
                     {cert.ctaLearn} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>

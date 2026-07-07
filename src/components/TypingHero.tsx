@@ -134,7 +134,7 @@ export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
 
       <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
         <Link
-          href={`/${locale}/lessons/1`}
+          href={`/${locale}/placement`}
           className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
         >
           {ctaLearn} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
