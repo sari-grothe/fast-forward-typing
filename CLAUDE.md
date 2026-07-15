@@ -33,6 +33,10 @@ Quick reference:
 - Required pages: mentions legales (with SIRET), CGV, privacy policy
 - All legal pages in all three languages
 
+## llms.txt maintenance
+
+/llms.txt and /llms-full.txt are generated routes (src/lib/llms.ts). Lessons, guides and FAQ flow in automatically from their data sources - do not duplicate them. But the hand-written FACTS block and STATIC_PAGES list in src/lib/llms.ts MUST be updated whenever positioning, pricing, major features or top-level pages change (e.g. paywall goes live, B2B pages launch, new tools). Treat this as part of the definition of done for any such change.
+
 ## Conventions
 
 - Push directly to main, no PRs
