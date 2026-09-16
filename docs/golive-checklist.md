@@ -22,6 +22,7 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 
 - [ ] **Impressum** (`/imprint` ist verlinkt, Seite existiert nicht - Impressumspflicht!)
 - [ ] **Datenschutzerklärung** (`/privacy` verlinkt, existiert nicht - DSGVO)
+  - [ ] Formspree in der Datenschutzerklärung nennen: das Kontaktformular auf `/de/unternehmen` (`/en/for-teams`, `/fr/entreprises`) sendet Name, Arbeits-E-Mail, Unternehmen, Teamgröße und Nachricht an Formspree (US-Dienst, Formular-ID `xljdrkvn`, Konto techandchocolate@gmail.com). Zweck: Bearbeitung der Anfrage. Rechtsgrundlage Art. 6 Abs. 1 lit. b DSGVO; Drittlandübermittlung (Formspree DPA / Data Privacy Framework prüfen). Optional: in Formspree "Restrict to Domain" auf die Production-Domain setzen.
 - [ ] AGB (`/terms` verlinkt, existiert nicht - nötig sobald verkauft wird)
 - [ ] Cookie-Banner vor GA-Load (laut CLAUDE.md geplant)
 
