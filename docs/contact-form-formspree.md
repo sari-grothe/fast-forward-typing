@@ -21,7 +21,7 @@ Die Formular-ID ist absichtlich im Code sichtbar. Formspree ist so gebaut; Missb
 | `name` | ja | Ansprechperson |
 | `email` | ja | Arbeits-E-Mail, Browser prüft das Format; Formspree setzt sie als Antwortadresse (`_replyto`) |
 | `company` | ja | Firmenname, steht auch im Betreff der Benachrichtigung |
-| `teamSize` | ja | Auswahl: 10 bis 25 / 26 bis 100 / über 100 (je Sprache übersetzt) |
+| `teamSize` | ja | Auswahl: 10 bis 25 / 26 bis 100 / 101 bis 200 / 201 bis 400 / 401 bis 1000 / über 1000 (je Sprache übersetzt) |
 | `message` | nein | Freitext |
 
 Automatisch mitgeschickt, für Besucher unsichtbar:

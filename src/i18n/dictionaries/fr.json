@@ -197,7 +197,10 @@
       "teamSizeOptions": [
         "10 à 25",
         "26 à 100",
-        "plus de 100"
+        "101 à 200",
+        "201 à 400",
+        "401 à 1000",
+        "plus de 1000"
       ],
       "message": "C'est pour quoi ? (facultatif)",
       "messagePlaceholder": "Onboarding, alternants, service client ...",

@@ -197,7 +197,10 @@
       "teamSizeOptions": [
         "10 to 25",
         "26 to 100",
-        "over 100"
+        "101 to 200",
+        "201 to 400",
+        "401 to 1000",
+        "over 1000"
       ],
       "message": "What's this about? (optional)",
       "messagePlaceholder": "Onboarding, trainees, customer support ...",

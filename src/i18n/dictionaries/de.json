@@ -197,7 +197,10 @@
       "teamSizeOptions": [
         "10 bis 25",
         "26 bis 100",
-        "über 100"
+        "101 bis 200",
+        "201 bis 400",
+        "401 bis 1000",
+        "über 1000"
       ],
       "message": "Worum geht es? (optional)",
       "messagePlaceholder": "Onboarding, Ausbildung, Kundenservice ...",

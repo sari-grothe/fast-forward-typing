@@ -19,7 +19,7 @@ const HOURS_PER_WORKING_DAY = 8;
 const HOURS_PER_FTE_YEAR = WORKING_DAYS_PER_YEAR * HOURS_PER_WORKING_DAY;
 
 const MIN_TEAM = 10;
-const MAX_TEAM = 500;
+const MAX_TEAM = 1000;
 
 type Props = {
   locale: string;
@@ -51,7 +51,7 @@ export function TeamSavingsCalculator({ locale, labels }: Props) {
           type="range"
           min={MIN_TEAM}
           max={MAX_TEAM}
-          step={5}
+          step={10}
           value={teamSize}
           onChange={(e) => setTeamSize(Number(e.target.value))}
           className="w-full accent-indigo cursor-pointer"
