@@ -151,9 +151,23 @@ type Props = {
   locale: string;
   // Restrict to some audiences, e.g. ["professional"] on the companies page.
   segments?: Segment[];
+  rows?: 1 | 2;
 };
 
-export function TestimonialSlider({ locale, segments }: Props) {
+// The marquee shifts the track by -50%, so the track must hold an even
+// number of copies and be at least twice as wide as any viewport, or the
+// loop shows an empty gap. 24 cards (~7000px) covers wide screens even
+// when only two testimonials are selected.
+const MIN_CARDS = 24;
+
+function repeat<T>(list: T[]): T[] {
+  if (list.length === 0) return list;
+  let copies = Math.ceil(MIN_CARDS / list.length);
+  if (copies % 2 === 1) copies += 1;
+  return Array.from({ length: copies }, () => list).flat();
+}
+
+export function TestimonialSlider({ locale, segments, rows = 2 }: Props) {
   const all = testimonials[locale] || testimonials.en;
   const items = segments ? all.filter((t) => segments.includes(t.segment)) : all;
   const l = i18n[locale] || i18n.en;
@@ -179,17 +193,19 @@ export function TestimonialSlider({ locale, segments }: Props) {
       >
         {/* Row 1 - scrolls left */}
         <div className="animate-marquee-left flex gap-4 w-max hover:[animation-play-state:paused]">
-          {[...items, ...items, ...items, ...items].map((t, i) => (
+          {repeat(items).map((t, i) => (
             <TestimonialCard key={`r1-${i}`} t={t} />
           ))}
         </div>
 
         {/* Row 2 - scrolls right (reversed order) */}
-        <div className="animate-marquee-right flex gap-4 w-max hover:[animation-play-state:paused]">
-          {[...reversed, ...reversed, ...reversed, ...reversed].map((t, i) => (
-            <TestimonialCard key={`r2-${i}`} t={t} />
-          ))}
-        </div>
+        {rows === 2 && (
+          <div className="animate-marquee-right flex gap-4 w-max hover:[animation-play-state:paused]">
+            {repeat(reversed).map((t, i) => (
+              <TestimonialCard key={`r2-${i}`} t={t} />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex justify-center">
