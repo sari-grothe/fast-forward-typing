@@ -89,7 +89,7 @@ const tips: TipMeta[] = [
     type: "article",
     category: "learning",
     title: "10 Finger Schreiben lernen: Der komplette Guide",
-    description: "Von der Grundreihe bis zur vollen Geschwindigkeit - so lernst du das 10-Finger-System in 4 Wochen.",
+    description: "Von der Grundreihe bis zur vollen Geschwindigkeit - so lernst du das 10-Finger-System Schritt für Schritt.",
     readingTime: 8,
     date: "2026-06-26",
     featured: true,
@@ -204,7 +204,7 @@ Die Standard-Tastatur ist OK, aber Drittanbieter-Apps bieten mehr:
 
 ## Am Desktop geht noch mehr
 
-Auf dem Handy sind 40-50 Wörter pro Minute schon gut. Am Desktop schaffen Touch-Typisten 60-80 WPM - und das lässt sich in 4 Wochen lernen.`,
+Auf dem Handy sind 40-50 Wörter pro Minute schon gut. Am Desktop schaffen Touch-Typisten 60-80 WPM - und das lässt sich mit 15 Minuten am Tag lernen.`,
   },
   {
     slug: "tastenkombinationen-windows",
@@ -326,7 +326,7 @@ Die Cmd-Taste auf dem Mac entspricht Ctrl auf Windows. Wenn du beide Systeme nut
     type: "article",
     category: "learning",
     title: "Learn Touch Typing: The Complete Guide",
-    description: "From home row to full speed - how to master the 10-finger system in 4 weeks.",
+    description: "From home row to full speed - how to master the 10-finger system step by step.",
     readingTime: 8,
     date: "2026-06-26",
     featured: true,
@@ -441,7 +441,7 @@ The default keyboard is fine, but third-party apps offer more:
 
 ## On desktop, there's even more potential
 
-On your phone, 40-50 words per minute is solid. On a desktop, touch typists hit 60-80 WPM - and you can learn that in 4 weeks.`,
+On your phone, 40-50 words per minute is solid. On a desktop, touch typists hit 60-80 WPM - and you can learn that with 15 minutes a day.`,
   },
   {
     slug: "keyboard-shortcuts-windows",
@@ -563,7 +563,7 @@ Cmd on Mac is Ctrl on Windows. If you use both systems, memorize the function - 
     type: "article",
     category: "learning",
     title: "Apprendre la dactylographie : le guide complet",
-    description: "De la rangée de base à la pleine vitesse - comment maîtriser la frappe à dix doigts en 4 semaines.",
+    description: "De la rangée de base à la pleine vitesse - comment maîtriser la frappe à dix doigts étape par étape.",
     readingTime: 8,
     date: "2026-06-26",
     featured: true,
@@ -678,7 +678,7 @@ Le clavier par défaut est correct, mais les applis tierces offrent plus :
 
 ## Sur un ordi, le potentiel est encore plus grand
 
-Sur ton téléphone, 40-50 mots par minute c'est déjà bien. Sur un ordinateur, les dactylos atteignent 60-80 MPM - et ça s'apprend en 4 semaines.`,
+Sur ton téléphone, 40-50 mots par minute c'est déjà bien. Sur un ordinateur, les dactylos atteignent 60-80 MPM - et ça s'apprend à raison de 15 minutes par jour.`,
   },
   {
     slug: "raccourcis-clavier-windows",

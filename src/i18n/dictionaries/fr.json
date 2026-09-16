@@ -107,7 +107,7 @@
     "missionText": "Les dactylographes sont 40 a 60% plus rapides que ceux qui ont appris tout seuls. Ce n'est pas une phrase de motivation, ce sont des donnees. L'ecart est reel - et les outils pour le combler se font attendre.",
     "missionText2": "On a cree Fast Forward >> Typing parce qu'il n'existait aucun outil vraiment adapte. Pas un logiciel scolaire. Pas un jeu pour enfants. Pas un test de vitesse sans structure. Un cours moderne pour les adultes qui passent leurs journees devant un clavier et veulent simplement taper mieux.",
     "howTitle": "Comment ca marche",
-    "howText": "Un test de frappe gratuit te montre ou tu en es. Un cours structure de 4 semaines, 15 minutes par jour, t'apprend la dactylo. Un certificat prouve que tu l'as fait.",
+    "howText": "Un test de frappe gratuit te montre ou tu en es. Un cours structuré, 15 minutes par jour, t'apprend la dactylo. Un certificat prouve que tu l'as fait.",
     "howText2": "Pas d'abonnement. Pas de compte necessaire pour commencer. Pas de culpabilisation si tu sautes un jour.",
     "languagesTitle": "Trois langues, zero compromis",
     "languagesText": "Allemand, anglais, francais - pas traduit, mais ecrit nativement pour chaque langue. Parce que \"du\" n'est pas \"you\" n'est pas \"tu\".",
@@ -139,7 +139,7 @@
   "companies": {
     "meta": {
       "title": "Formation d'équipe : taper plus vite, toute l'équipe | Fast Forward >> Typing",
-      "description": "La frappe à dix doigts pour les équipes : des progrès mesurables en 4 semaines, 15 minutes par jour. Certificat inclus. Demande un tarif pour ton équipe."
+      "description": "La frappe à dix doigts pour les équipes : des progrès mesurables à raison de 15 minutes par jour. Certificat inclus. Demande un tarif pour ton équipe."
     },
     "hero": {
       "eyebrow": "Pour entreprises",
@@ -158,7 +158,7 @@
       "perYear": "heures par an",
       "assumption": "Base de calcul : 20 e-mails de 500 mots par jour, de 40 à 60 MPM, 220 jours travaillés.",
       "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
-      "promise": "Promesse réaliste : après 4 semaines à 15 minutes par jour, la technique est là. Ensuite, la vitesse continue de monter à chaque journée de travail.",
+      "promise": "Promesse réaliste : à 15 minutes par jour, la technique est là en quelques semaines. Ensuite, la vitesse continue de monter à chaque journée de travail.",
       "fte": "postes à temps plein par an"
     },
     "included": {

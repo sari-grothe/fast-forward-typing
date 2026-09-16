@@ -14,7 +14,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Wie lange dauert es, bis ich schneller tippe?",
-        answer: "Die meisten sehen nach zwei bis drei Wochen mit täglich 10 bis 15 Minuten Übung deutliche Verbesserungen. Wer dranbleibt, hat das 10-Finger-System nach etwa vier Wochen verinnerlicht - danach wächst die Geschwindigkeit mit jedem Arbeitstag weiter.",
+        answer: "Die meisten sehen nach zwei bis drei Wochen mit täglich 10 bis 15 Minuten Übung deutliche Verbesserungen. Wer dranbleibt, hat das 10-Finger-System nach wenigen Wochen verinnerlicht - danach wächst die Geschwindigkeit mit jedem Arbeitstag weiter.",
       },
       {
         question: "Brauche ich eine bestimmte Tastatur?",
@@ -51,7 +51,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "How long until I type faster?",
-        answer: "Most people see clear improvements after two to three weeks of 10 to 15 minutes a day. Stick with it and touch typing is second nature after about four weeks - speed keeps growing with every working day after that.",
+        answer: "Most people see clear improvements after two to three weeks of 10 to 15 minutes a day. Stick with it and touch typing is second nature after a few weeks - speed keeps growing with every working day after that.",
       },
       {
         question: "Do I need a specific keyboard?",
@@ -88,7 +88,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Combien de temps avant de taper plus vite ?",
-        answer: "La plupart voient des progrès nets après deux à trois semaines à raison de 10 à 15 minutes par jour. En restant régulier, la frappe à dix doigts devient naturelle en quatre semaines environ - ensuite, la vitesse continue de monter à chaque journée de travail.",
+        answer: "La plupart voient des progrès nets après deux à trois semaines à raison de 10 à 15 minutes par jour. En restant régulier, la frappe à dix doigts devient naturelle en quelques semaines - ensuite, la vitesse continue de monter à chaque journée de travail.",
       },
       {
         question: "Ai-je besoin d'un clavier spécifique ?",
