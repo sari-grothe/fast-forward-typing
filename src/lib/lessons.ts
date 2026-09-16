@@ -144,6 +144,7 @@ export const phaseNames: Record<Locale, Record<number, string>> = {
     6: "Satzzeichen",
     7: "Sätze + Absätze",
     8: "Geschwindigkeit",
+    9: "Zahlen & Sonderzeichen",
   },
   en: {
     0: "Introduction",
@@ -155,6 +156,7 @@ export const phaseNames: Record<Locale, Record<number, string>> = {
     6: "Punctuation",
     7: "Sentences + Paragraphs",
     8: "Speed + Fluency",
+    9: "Numbers & symbols",
   },
   fr: {
     0: "Introduction",
@@ -166,5 +168,6 @@ export const phaseNames: Record<Locale, Record<number, string>> = {
     6: "Ponctuation",
     7: "Phrases + Paragraphes",
     8: "Vitesse + Fluidité",
+    9: "Chiffres & symboles",
   },
 };

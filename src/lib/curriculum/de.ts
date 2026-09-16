@@ -384,6 +384,47 @@ export const lessons: Lesson[] = [
     completionThreshold: 94,
     isFree: false,
   },
+
+  // === Phase 9: Zahlen & Sonderzeichen ===
+  {
+    id: 28,
+    phase: 9,
+    newKeys: ["4", "5", "6", "7"],
+    allKeys: [...ALL_LETTERS, "4", "5", "6", "7"],
+    drills: [
+      { type: "keys", content: "44 55 66 77 45 67 46 57 47 56 4747 5656 4567 7654 46 74 65 57" },
+      { type: "words", content: "45 Minuten 67 Prozent Seite 46 Zimmer 57 Gleis 7 um 5 Uhr 44 Euro 76 Kilometer Linie 4" },
+      { type: "sentences", content: "Der Zug fährt um 7 Uhr 45 von Gleis 6. Das Meeting dauert 45 Minuten und beginnt in Raum 67." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 29,
+    phase: 9,
+    newKeys: ["1", "2", "3", "8", "9", "0"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    drills: [
+      { type: "keys", content: "11 22 33 88 99 00 12 89 13 80 123 890 1990 2038 100 302 918 273 3821 9019" },
+      { type: "words", content: "seit 1998 im Jahr 2030 Kapitel 12 Zeile 89 Bus 130 Hausnummer 208 Kilometer 18 Punkt 3 von 10" },
+      { type: "sentences", content: "Am 23. August 2019 begann alles. Von 100 Versuchen gelingen anfangs vielleicht 80, nach 3 Wochen sind es 98." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 30,
+    phase: 9,
+    newKeys: ["%", "/", ";", "€"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "%", "/", ";", "€"],
+    drills: [
+      { type: "keys", content: "% / ; € 50 % 12 € 24/7 3/4 100 %; 9/10; 25 €; 1/2 75 % 60 €" },
+      { type: "words", content: "20 % Rabatt 49 € pro Jahr 24/7 erreichbar Stand 2026; Kapitel 3/12; Anteil 2/3 rund 90 %" },
+      { type: "sentences", content: "Das Angebot gilt 24/7; der Preis liegt bei 29 € statt 58 €. Das sind 50 % Ersparnis; gültig bis 31/12." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
 ];
 
 export const meta: Record<number, LessonMeta> = {
@@ -582,5 +623,26 @@ export const meta: Record<number, LessonMeta> = {
     newKeysLabel: "Abschluss",
     completionMessage: "Kurs abgeschlossen. Deine Finger arbeiten jetzt mit System.",
     insight: "Fertig heißt: Die Automatisierung steht. Ab jetzt ist jede E-Mail Training - deine Kurve steigt noch Monate weiter, ganz ohne Übungsplan. Genau so soll es sein.",
+  },
+  28: {
+    title: "Zahlen: 4 bis 7",
+    subtitle: "Die Zeigefinger übernehmen die Mitte der Zahlenreihe - die Hand bleibt in der Grundposition.",
+    newKeysLabel: "4, 5, 6, 7",
+    completionMessage: "Die Mitte der Zahlenreihe sitzt.",
+    insight: "Für Zahlen verlassen die meisten Menschen die Grundposition und suchen mit den Augen. Dabei gilt dieselbe Regel wie bei den Buchstaben: Der Finger streckt sich zu seiner Zahl und kehrt sofort zurück. Die Zeigefinger zuerst - sie haben den kürzesten Weg.",
+  },
+  29: {
+    title: "Zahlen: die Außenbahn",
+    subtitle: "1, 2, 3 links außen und 8, 9, 0 rechts außen - danach kannst du jede Zahl blind.",
+    newKeysLabel: "1, 2, 3, 8, 9, 0",
+    completionMessage: "Alle zehn Ziffern ohne Hinsehen.",
+    insight: "Ring- und kleiner Finger sind die schwächsten der Hand - genau deshalb zahlt sich bewusstes Üben hier doppelt aus. Datum, Jahreszahl, Telefonnummer: Zahlen kommen selten einzeln, trainiere sie als Muster.",
+  },
+  30: {
+    title: "Sonderzeichen",
+    subtitle: "Prozent, Schrägstrich, Semikolon und Euro - die Zeichen, die Zahlen Bedeutung geben.",
+    newKeysLabel: "%, /, ;, €",
+    completionMessage: "Preise, Daten, Angaben - alles ohne Suchen.",
+    insight: "Sonderzeichen sind Zweihand-Arbeit: Die eine Hand hält Shift oder AltGr, die andere tippt das Zeichen. Merk dir die Regel: Die Halte-Taste übernimmt immer die Hand, die das Zeichen NICHT tippt - so bleibt die Grundposition stabil.",
   },
 };

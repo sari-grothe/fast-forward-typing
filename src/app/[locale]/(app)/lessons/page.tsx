@@ -9,15 +9,15 @@ type Props = {
 const meta: Record<Locale, { title: string; description: string }> = {
   de: {
     title: "10 Finger schreiben lernen - Kurs für Erwachsene",
-    description: "Lerne das 10-Finger-System in 4 Wochen, 15 Minuten am Tag. 28 strukturierte Lektionen, kostenloser Einstieg, Zertifikat am Ende.",
+    description: "Lerne das 10-Finger-System in 4 Wochen, 15 Minuten am Tag. 31 strukturierte Lektionen, kostenloser Einstieg, Zertifikat am Ende.",
   },
   en: {
     title: "Learn Touch Typing - Course for Adults",
-    description: "Learn the 10-finger system in 4 weeks, 15 minutes a day. 28 structured lessons, free to start, certificate at the end.",
+    description: "Learn the 10-finger system in 4 weeks, 15 minutes a day. 31 structured lessons, free to start, certificate at the end.",
   },
   fr: {
     title: "Apprendre la dactylographie - Cours pour adultes",
-    description: "Apprends le système à 10 doigts en 4 semaines, 15 minutes par jour. 28 leçons structurées, gratuit pour commencer, certificat à la clé.",
+    description: "Apprends le système à 10 doigts en 4 semaines, 15 minutes par jour. 31 leçons structurées, gratuit pour commencer, certificat à la clé.",
   },
 };
 

@@ -384,6 +384,47 @@ export const lessons: Lesson[] = [
     completionThreshold: 94,
     isFree: false,
   },
+
+  // === Phase 9: Numbers & symbols ===
+  {
+    id: 28,
+    phase: 9,
+    newKeys: ["4", "5", "6", "7"],
+    allKeys: [...ALL_LETTERS, "4", "5", "6", "7"],
+    drills: [
+      { type: "keys", content: "44 55 66 77 45 67 46 57 47 56 4747 5656 4567 7654 46 74 65 57" },
+      { type: "words", content: "45 minutes 67 percent page 46 room 57 gate 7 at 5 pm 44 dollars 76 miles line 4" },
+      { type: "sentences", content: "The train leaves at 7:45 from platform 6. The meeting takes 45 minutes and starts in room 67." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 29,
+    phase: 9,
+    newKeys: ["1", "2", "3", "8", "9", "0"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    drills: [
+      { type: "keys", content: "11 22 33 88 99 00 12 89 13 80 123 890 1990 2038 100 302 918 273 3821 9019" },
+      { type: "words", content: "since 1998 in 2030 chapter 12 line 89 bus 130 number 208 mile 18 3 out of 10" },
+      { type: "sentences", content: "It all started on August 23, 2019. Out of 100 attempts you may land 80 at first; after 3 weeks it is 98." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 30,
+    phase: 9,
+    newKeys: ["%", "$", "=", "#"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "%", "$", "=", "#"],
+    drills: [
+      { type: "keys", content: "% $ = # 50% $12 #1 4+3=7 100% $25 #42 2=2 75% $60 #9" },
+      { type: "words", content: "20% off $49 per year #1 choice total = 98 tag #typing about 90% save $29" },
+      { type: "sentences", content: "The offer is 50% off: $29 instead of $58. Rated #1 by users, and 9 out of 10 = 90% would recommend it." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
 ];
 
 export const meta: Record<number, LessonMeta> = {
@@ -582,5 +623,26 @@ export const meta: Record<number, LessonMeta> = {
     newKeysLabel: "All keys",
     completionMessage: "Done. You now type with all ten fingers.",
     insight: "Done means: the automation is in place. From now on every email is practice - your curve keeps climbing for months without any training plan. Exactly as designed.",
+  },
+  28: {
+    title: "Numbers: 4 to 7",
+    subtitle: "Your index fingers take the middle of the number row - your hands stay anchored on home row.",
+    newKeysLabel: "4, 5, 6, 7",
+    completionMessage: "The middle of the number row is locked in.",
+    insight: "Most people leave the home position for numbers and start hunting with their eyes. The same rule as with letters applies: the finger reaches up to its number and returns immediately. Index fingers first - they have the shortest way to go.",
+  },
+  29: {
+    title: "Numbers: the outer lane",
+    subtitle: "1, 2, 3 on the far left and 8, 9, 0 on the far right - after this, every digit works blind.",
+    newKeysLabel: "1, 2, 3, 8, 9, 0",
+    completionMessage: "All ten digits without looking.",
+    insight: "Your ring and pinky fingers are the weakest of the hand - which is exactly why deliberate practice pays off double here. Dates, years, phone numbers: digits rarely come alone, so train them as patterns.",
+  },
+  30: {
+    title: "Symbols",
+    subtitle: "Percent, dollar, equals and hash - the characters that give numbers meaning.",
+    newKeysLabel: "%, $, =, #",
+    completionMessage: "Prices, totals, tags - all without searching.",
+    insight: "Symbols are two-handed work: one hand holds Shift, the other types the character. Remember the rule: the holding key always goes to the hand that is NOT typing the symbol - that keeps your home position stable.",
   },
 };

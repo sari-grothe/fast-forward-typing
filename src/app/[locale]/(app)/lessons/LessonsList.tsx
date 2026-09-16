@@ -35,7 +35,7 @@ const i18n: Record<Locale, {
 }> = {
   de: {
     title: "Dein 10-Finger-System-Kurs",
-    subtitle: "28 Lektionen. Von der Grundreihe bis zur vollen Geschwindigkeit.",
+    subtitle: "31 Lektionen. Von der Grundreihe bis zu Zahlen und Sonderzeichen.",
     startCourse: "Kurs starten",
     continueAt: (n) => `Weitermachen: Lektion ${n}`,
     free: "Kostenlos",
@@ -45,7 +45,7 @@ const i18n: Record<Locale, {
     lessons: "Lektionen",
     lesson: "Lektion",
     freeLessons: "6 Lektionen kostenlos",
-    paidLessons: "22 Lektionen mit Pro",
+    paidLessons: "25 Lektionen mit Pro",
     placementTitle: "Wo stehst du?",
     placementDesc: "3 Minuten Einstufung: Wir prüfen jede Taste und schlagen dir vor, wo du starten kannst. Was du schon kannst, kannst du überspringen - musst du aber nicht.",
     placementCta: "Einstufung machen",
@@ -60,7 +60,7 @@ const i18n: Record<Locale, {
   },
   en: {
     title: "Your Typing Course",
-    subtitle: "28 lessons. From home row to full speed.",
+    subtitle: "31 lessons. From home row to numbers and symbols.",
     startCourse: "Start course",
     continueAt: (n) => `Continue: lesson ${n}`,
     free: "Free",
@@ -70,7 +70,7 @@ const i18n: Record<Locale, {
     lessons: "lessons",
     lesson: "lesson",
     freeLessons: "6 lessons free",
-    paidLessons: "22 lessons with Pro",
+    paidLessons: "25 lessons with Pro",
     placementTitle: "Where do you stand?",
     placementDesc: "3-minute placement: we check every key and suggest where to start. What you already know, you can skip - but you don't have to.",
     placementCta: "Take the placement",
@@ -85,7 +85,7 @@ const i18n: Record<Locale, {
   },
   fr: {
     title: "Ton cours de frappe",
-    subtitle: "28 leçons. De la rangée de base à la pleine vitesse.",
+    subtitle: "31 leçons. De la rangée de base aux chiffres et symboles.",
     startCourse: "Commencer le cours",
     continueAt: (n) => `Continuer : leçon ${n}`,
     free: "Gratuit",
@@ -95,7 +95,7 @@ const i18n: Record<Locale, {
     lessons: "leçons",
     lesson: "leçon",
     freeLessons: "6 leçons gratuites",
-    paidLessons: "22 leçons avec Pro",
+    paidLessons: "25 leçons avec Pro",
     placementTitle: "Où en es-tu ?",
     placementDesc: "Évaluation de 3 minutes : nous vérifions chaque touche et te suggérons par où commencer. Ce que tu sais déjà, tu peux le sauter - mais rien ne t'y oblige.",
     placementCta: "Faire l'évaluation",

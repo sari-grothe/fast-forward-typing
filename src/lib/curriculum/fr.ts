@@ -387,6 +387,47 @@ export const lessons: Lesson[] = [
     completionThreshold: 94,
     isFree: false,
   },
+
+  // === Phase 9 : Chiffres & symboles ===
+  {
+    id: 28,
+    phase: 9,
+    newKeys: ["4", "5", "6", "7"],
+    allKeys: [...ALL_LETTERS, "4", "5", "6", "7"],
+    drills: [
+      { type: "keys", content: "44 55 66 77 45 67 46 57 47 56 4747 5656 4567 7654 46 74 65 57" },
+      { type: "words", content: "45 minutes 67 pour cent page 46 salle 57 voie 7 vers 5 heures 44 euros 76 kilomètres ligne 4" },
+      { type: "sentences", content: "Le train part voie 6 vers 7 heures 45. La réunion dure 45 minutes et commence salle 67." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 29,
+    phase: 9,
+    newKeys: ["1", "2", "3", "8", "9", "0"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0"],
+    drills: [
+      { type: "keys", content: "11 22 33 88 99 00 12 89 13 80 123 890 1990 2038 100 302 918 273 3821 9019" },
+      { type: "words", content: "depuis 1998 en 2030 chapitre 12 ligne 89 bus 130 numéro 208 kilomètre 18 3 sur 10" },
+      { type: "sentences", content: "Tout a commencé le 23 août 2019. Sur 100 essais, on en réussit 80 au début ; après 3 semaines, on est à 98." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
+  {
+    id: 30,
+    phase: 9,
+    newKeys: ["%", "/", ";", "€"],
+    allKeys: [...ALL_LETTERS, "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "%", "/", ";", "€"],
+    drills: [
+      { type: "keys", content: "% / ; € 50 % 12 € 24/7 3/4 100 % ; 9/10 ; 25 € ; 1/2 75 % 60 €" },
+      { type: "words", content: "20 % de remise 49 € par an disponible 24/7 chapitre 3/12 ; part de 2/3 environ 90 %" },
+      { type: "sentences", content: "L'offre est valable 24/7 ; le prix passe de 58 € à 29 €. Cela fait 50 % d'économie ; valable jusqu'au 31/12." },
+    ],
+    completionThreshold: 90,
+    isFree: false,
+  },
 ];
 
 export const meta: Record<number, LessonMeta> = {
@@ -585,5 +626,26 @@ export const meta: Record<number, LessonMeta> = {
     newKeysLabel: "Final",
     completionMessage: "Cours terminé. Tes doigts travaillent maintenant avec méthode.",
     insight: "Terminé veut dire : l'automatisation est en place. Désormais, chaque mail est un entraînement - ta courbe continue de monter pendant des mois, sans plan d'exercice. Exactement comme prévu.",
+  },
+  28: {
+    title: "Chiffres : 4 à 7",
+    subtitle: "Sur AZERTY, les chiffres se tapent avec Maj. Tes index prennent le milieu de la rangée - les mains restent ancrées.",
+    newKeysLabel: "4, 5, 6, 7",
+    completionMessage: "Le milieu de la rangée des chiffres est acquis.",
+    insight: "Particularité AZERTY : chaque chiffre se tape avec Maj. La règle des lettres reste valable - le doigt monte vers son chiffre et revient aussitôt, pendant que l'autre main tient Maj. Les index d'abord : ils ont le chemin le plus court.",
+  },
+  29: {
+    title: "Chiffres : l'extérieur",
+    subtitle: "1, 2, 3 à gauche et 8, 9, 0 à droite - ensuite, chaque chiffre se tape sans regarder.",
+    newKeysLabel: "1, 2, 3, 8, 9, 0",
+    completionMessage: "Les dix chiffres sans regarder.",
+    insight: "L'annulaire et l'auriculaire sont les doigts les plus faibles - c'est exactement pourquoi l'entraînement conscient paie double ici. Dates, années, numéros de téléphone : les chiffres arrivent rarement seuls, entraîne-les comme des motifs.",
+  },
+  30: {
+    title: "Symboles",
+    subtitle: "Pour cent, barre oblique, point-virgule et euro - les signes qui donnent du sens aux chiffres.",
+    newKeysLabel: "%, /, ;, €",
+    completionMessage: "Prix, dates, mesures - sans chercher.",
+    insight: "Les symboles se tapent à deux mains : une main tient Maj ou AltGr, l'autre tape le signe. La règle : la touche de maintien revient toujours à la main qui ne tape PAS le symbole - la position de base reste stable.",
   },
 };
