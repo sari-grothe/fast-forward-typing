@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
-import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey } from "@/lib/lessons";
+import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey, homeRestingKeys } from "@/lib/lessons";
 import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
 
@@ -24,6 +24,7 @@ const i18n: Record<Locale, {
   lessonLabel: string;
   phase: string;
   newKeys: string;
+  homePosition: string;
   nextLesson: string;
   backToLessons: string;
   drillResults: string;
@@ -40,6 +41,7 @@ const i18n: Record<Locale, {
     lessonLabel: "Lektion",
     phase: "Phase",
     newKeys: "Neue Tasten",
+    homePosition: "Grundposition",
     nextLesson: "Nächste Lektion",
     backToLessons: "Alle Lektionen",
     drillResults: "Ergebnis",
@@ -56,6 +58,7 @@ const i18n: Record<Locale, {
     lessonLabel: "Lesson",
     phase: "Phase",
     newKeys: "New keys",
+    homePosition: "Home position",
     nextLesson: "Next lesson",
     backToLessons: "All lessons",
     drillResults: "Result",
@@ -72,6 +75,7 @@ const i18n: Record<Locale, {
     lessonLabel: "Leçon",
     phase: "Phase",
     newKeys: "Nouvelles touches",
+    homePosition: "Position de base",
     nextLesson: "Leçon suivante",
     backToLessons: "Toutes les leçons",
     drillResults: "Résultat",
@@ -237,10 +241,10 @@ export function LessonView({ lessonId, locale }: Props) {
           {meta?.subtitle}
         </p>
         {meta?.newKeysLabel && lesson.newKeys.length > 0 && (
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-zinc-500">{l.newKeys}:</span>
-            <div className="flex gap-1">
-              {lesson.newKeys.map((key) => (
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-zinc-500">{lessonId === 0 ? l.homePosition : l.newKeys}:</span>
+            <div className="flex flex-wrap gap-1">
+              {(lessonId === 0 ? homeRestingKeys[locale] : lesson.newKeys).map((key) => (
                 <kbd
                   key={key}
                   className="inline-flex items-center justify-center w-8 h-8 rounded-md border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface text-sm font-mono font-semibold"

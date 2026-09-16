@@ -133,6 +133,14 @@ export function getNextLesson(id: number, locale: Locale): Lesson | undefined {
   return list[idx + 1];
 }
 
+/** The eight resting keys of the home position (walkthrough in lesson 0).
+ *  g/h are index stretches and not resting keys. */
+export const homeRestingKeys: Record<Locale, string[]> = {
+  de: ["a", "s", "d", "f", "j", "k", "l", "ö"],
+  en: ["a", "s", "d", "f", "j", "k", "l", ";"],
+  fr: ["q", "s", "d", "f", "j", "k", "l", "m"],
+};
+
 export const phaseNames: Record<Locale, Record<number, string>> = {
   de: {
     0: "Einführung",
