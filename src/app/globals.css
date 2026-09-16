@@ -144,6 +144,22 @@
 }
 
 @theme {
+  /* Type scale, lifted from Tailwind defaults for readability: body copy
+     was dominated by 14px/12px, below the 16-18px marketing standard
+     (Le Wagon, Stripe, Linear). Copy sizes (xs..xl) move up ~1-2px with
+     generous line heights; heading sizes (2xl+) stay untouched - the
+     hierarchy problem was small text, not small headlines. */
+  --text-xs: 0.8125rem; /* 12 -> 13px: fine print, badges */
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.9375rem; /* 14 -> 15px: secondary copy, meta */
+  --text-sm--line-height: 1.55;
+  --text-base: 1.0625rem; /* 16 -> 17px: primary body copy */
+  --text-base--line-height: 1.65;
+  --text-lg: 1.1875rem; /* 18 -> 19px */
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.3125rem; /* 20 -> 21px */
+  --text-xl--line-height: 1.55;
+
   --color-indigo: #3f0ff2;
   /* Solid action surfaces (filled buttons, icon chips) that carry white
      content. Same as indigo in light mode; stays deep in dark mode where
@@ -158,6 +174,13 @@
   --color-dark-text: #050111;
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Unstyled text (no text-* utility) inherits the same lifted base size
+   as text-base, so nothing on the site stays at the old 16px default. */
+body {
+  font-size: var(--text-base);
+  line-height: 1.65;
 }
 
 /* --- Dark mode color system ------------------------------------------
