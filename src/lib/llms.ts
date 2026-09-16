@@ -26,7 +26,8 @@ const FACTS = `- Fast Forward >> Typing is a web-based touch-typing course for a
 - Available in German (QWERTZ keyboard layout), English (QWERTY) and French (AZERTY). Each language has its own curriculum written for its keyboard layout, not a translation.
 - Unique approach: an adaptive placement test ("Einstufung") measures per-key accuracy and speed, then builds an individual training plan. Learners who already master some keys get a suggestion to skip those lessons; every lesson stays accessible.
 - Each lesson includes a short learning-science note ("Gut zu wissen") explaining why the practice method works (myelination, spacing effect, chunking).
-- The typing course and speed test are free. An official typing certificate (speed + accuracy) costs a one-time fee of 5 euros. No subscriptions.
+- For individuals, the typing course and speed test are free. An official typing certificate (speed + accuracy) costs a one-time fee of 5 euros. No subscriptions for individuals.
+- For companies: team training on an annual per-seat license from 10 seats, with before/after measurement and certificates for each participant. Pricing on request via the contact form on the companies page.
 - Works with any keyboard (laptop, desktop, mechanical). Runs in the browser, no installation.
 - Typical outcome: noticeable improvement after 2-3 weeks of 10-15 minutes daily practice.`;
 
@@ -38,6 +39,7 @@ const STATIC_PAGES: { path: string; label: string; note: string }[] = [
   { path: "/tips", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
   { path: "/tools/keyboard-layouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
   { path: "/about", label: "About", note: "who is behind Fast Forward >> Typing" },
+  { path: "/for-teams", label: "For companies", note: "team training for companies: annual per-seat license from 10 seats, before/after measurement, certificates, pricing on request (DE: /de/unternehmen, FR: /fr/entreprises)" },
 ];
 
 function localeLine(): string {

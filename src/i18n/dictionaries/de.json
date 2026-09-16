@@ -133,5 +133,78 @@
     "terms": "AGB",
     "imprint": "Impressum",
     "darkMode": "Dark Mode"
+  },
+  "companies": {
+    "meta": {
+      "title": "Team-Training: schneller tippen im ganzen Team | Fast Forward >> Typing",
+      "description": "10-Finger-System für Teams: messbar schneller tippen in 4 Wochen, 15 Minuten am Tag. Zertifikat inklusive. Jetzt Preis für dein Team anfragen."
+    },
+    "hero": {
+      "eyebrow": "Für Unternehmen",
+      "title": "Dein Team denkt schnell. Tippt es auch so?",
+      "subtitle": "E-Mails, Tickets, Dokumente, KI-Prompts: dein Team schreibt den ganzen Tag. Mit dem 10-Finger-System spart jede Person dabei mehr als eine Stunde. Jeden Tag.",
+      "fact": "Mal ehrlich: Viele Firmen investieren fünfstellig in KI-Tools. Und holen sich die Antworten dann mit zwei Fingern. Ein Ferrari mit Fahrradpedalen.",
+      "ctaPrimary": "Team-Training anfragen",
+      "ctaSecondary": "Erst selbst testen"
+    },
+    "savings": {
+      "title": "So viel Zeit steckt in deinem Team",
+      "baseline": "40 WPM ist Durchschnittstempo, ungefähr so schnell wie ein Telegrafist 1920. Eine 500-Wort-Mail dauert damit 12,5 Minuten. Mit 60 WPM sind es 8,3.",
+      "teamSize": "Teamgröße",
+      "perPerson": "Das sind {hours} Stunden pro Person und Tag.",
+      "perDay": "Stunden pro Tag",
+      "perYear": "Stunden pro Jahr",
+      "assumption": "Rechenbasis: 20 E-Mails à 500 Wörter am Tag, von 40 auf 60 WPM, 220 Arbeitstage.",
+      "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
+      "promise": "Realistisch: Nach 4 Wochen mit 15 Minuten am Tag sitzt die Technik. Die Geschwindigkeit wächst danach mit jedem Arbeitstag weiter.",
+      "fte": "Vollzeitstellen im Jahr"
+    },
+    "included": {
+      "title": "Was dein Team bekommt",
+      "items": [
+        {
+          "title": "Der komplette Kurs",
+          "desc": "10-Finger-System in Deutsch, Englisch und Französisch, jeweils für die eigene Tastatur: QWERTZ, QWERTY, AZERTY."
+        },
+        {
+          "title": "Messung vorher und nachher",
+          "desc": "Einstufung am Anfang, Tippgeschwindigkeit und Genauigkeit am Ende. Fortschritt in Zahlen, pro Person."
+        },
+        {
+          "title": "Zertifikat",
+          "desc": "Jede Person, die den Kurs abschließt, bekommt ein Zertifikat mit WPM und Genauigkeit. Für die Personalakte oder LinkedIn."
+        },
+        {
+          "title": "Auswertung für dich",
+          "desc": "Wer hat abgeschlossen, wie viel schneller ist das Team. Eine Übersicht, keine Excel-Bastelei."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Preise",
+      "text": "Jahreslizenz pro Arbeitsplatz, ab 10 Plätzen. Ein bezahlter Pilot mit einem kleinen Team ist möglich. Den Preis für deine Teamgröße bekommst du auf Anfrage, innerhalb eines Werktags.",
+      "cta": "Preis anfragen"
+    },
+    "form": {
+      "title": "Lass uns über dein Team sprechen",
+      "subtitle": "Kurz ein paar Eckdaten, wir melden uns innerhalb eines Werktags mit Preis und nächsten Schritten.",
+      "name": "Name",
+      "email": "Arbeits-E-Mail",
+      "company": "Unternehmen",
+      "teamSize": "Teamgröße",
+      "teamSizeOptions": [
+        "10 bis 25",
+        "26 bis 100",
+        "über 100"
+      ],
+      "message": "Worum geht es? (optional)",
+      "messagePlaceholder": "Onboarding, Ausbildung, Kundenservice ...",
+      "submit": "Anfrage senden",
+      "privacy": "Wir nutzen deine Angaben nur, um auf deine Anfrage zu antworten.",
+      "successTitle": "Danke, ist angekommen.",
+      "successText": "Wir melden uns innerhalb eines Werktags. Bis dahin: Miss doch mal deine eigene Tippgeschwindigkeit.",
+      "successCta": "Tippgeschwindigkeit messen",
+      "teamSizePlaceholder": "Bitte auswählen"
+    }
   }
 }

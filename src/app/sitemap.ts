@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
+import { companiesPath } from "@/i18n/routes";
 import { getAllTipSlugs } from "@/lib/tips";
 
 const BASE_URL = "https://fastforwardtyping.com";
@@ -18,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
+  const companiesEntries = locales.map((locale) => ({
+    url: `${BASE_URL}${companiesPath(locale)}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   const tipEntries = getAllTipSlugs().map(({ slug, locale }) => ({
     url: `${BASE_URL}/${locale}/tips/${slug}`,
     lastModified: now,
@@ -25,5 +33,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...tipEntries];
+  return [...staticEntries, ...companiesEntries, ...tipEntries];
 }

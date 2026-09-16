@@ -134,5 +134,78 @@
     "terms": "CGV",
     "imprint": "Mentions légales",
     "darkMode": "Dark Mode"
+  },
+  "companies": {
+    "meta": {
+      "title": "Formation d'équipe : taper plus vite, toute l'équipe | Fast Forward >> Typing",
+      "description": "La frappe à dix doigts pour les équipes : des progrès mesurables en 4 semaines, 15 minutes par jour. Certificat inclus. Demande un tarif pour ton équipe."
+    },
+    "hero": {
+      "eyebrow": "Pour entreprises",
+      "title": "Ton équipe pense vite. Elle tape aussi vite ?",
+      "subtitle": "E-mails, tickets, documents, prompts IA : ton équipe écrit toute la journée. Avec la frappe à dix doigts, chaque personne gagne plus d'une heure là-dessus. Chaque jour.",
+      "fact": "Le truc dingue, c'est que des boîtes mettent des dizaines de milliers d'euros dans des outils IA, puis tapent les prompts avec deux doigts. Une Ferrari avec des pédales de vélo.",
+      "ctaPrimary": "Demander une formation d'équipe",
+      "ctaSecondary": "Teste-toi d'abord"
+    },
+    "savings": {
+      "title": "Tout ce temps qui dort dans ton équipe",
+      "baseline": "40 MPM, c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",
+      "teamSize": "Taille de l'équipe",
+      "perPerson": "Ça fait {hours} heure par personne et par jour.",
+      "perDay": "heures par jour",
+      "perYear": "heures par an",
+      "assumption": "Base de calcul : 20 e-mails de 500 mots par jour, de 40 à 60 MPM, 220 jours travaillés.",
+      "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
+      "promise": "Promesse réaliste : après 4 semaines à 15 minutes par jour, la technique est là. Ensuite, la vitesse continue de monter à chaque journée de travail.",
+      "fte": "postes à temps plein par an"
+    },
+    "included": {
+      "title": "Ce que ton équipe reçoit",
+      "items": [
+        {
+          "title": "Le cours complet",
+          "desc": "La frappe à dix doigts en français, anglais et allemand, chacun pensé pour son clavier : AZERTY, QWERTY, QWERTZ."
+        },
+        {
+          "title": "Avant et après",
+          "desc": "Un test de positionnement au départ, vitesse et précision à la fin. Les progrès en chiffres, par personne."
+        },
+        {
+          "title": "Certificat",
+          "desc": "Chaque personne qui termine le cours reçoit un certificat avec MPM et précision. Pour le dossier RH ou LinkedIn."
+        },
+        {
+          "title": "Un bilan pour toi",
+          "desc": "Qui a terminé, de combien l'équipe a accéléré. Une vue d'ensemble, sans bricolage Excel."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Tarifs",
+      "text": "Licence annuelle par poste, à partir de 10 postes. Un pilote payant avec une petite équipe est possible. Tu reçois le tarif pour ta taille d'équipe sur demande, sous un jour ouvré.",
+      "cta": "Demander un tarif"
+    },
+    "form": {
+      "title": "Parlons de ton équipe",
+      "subtitle": "Quelques infos et on te répond sous un jour ouvré avec le tarif et les prochaines étapes.",
+      "name": "Nom",
+      "email": "E-mail pro",
+      "company": "Entreprise",
+      "teamSize": "Taille de l'équipe",
+      "teamSizeOptions": [
+        "10 à 25",
+        "26 à 100",
+        "plus de 100"
+      ],
+      "message": "C'est pour quoi ? (facultatif)",
+      "messagePlaceholder": "Onboarding, alternants, service client ...",
+      "submit": "Envoyer la demande",
+      "privacy": "On utilise tes infos uniquement pour répondre à ta demande.",
+      "successTitle": "Merci, c'est bien reçu.",
+      "successText": "On te répond sous un jour ouvré. En attendant : mesure ta propre vitesse de frappe.",
+      "successCta": "Faire le test de frappe",
+      "teamSizePlaceholder": "Choisis une option"
+    }
   }
 }

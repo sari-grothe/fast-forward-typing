@@ -134,5 +134,78 @@
     "terms": "Terms of Service",
     "imprint": "Imprint",
     "darkMode": "Dark mode"
+  },
+  "companies": {
+    "meta": {
+      "title": "Team Training: faster typing for your whole team | Fast Forward >> Typing",
+      "description": "Touch typing for teams: measurable speed gains in 4 weeks at 15 minutes a day. Certificate included. Request pricing for your team."
+    },
+    "hero": {
+      "eyebrow": "For companies",
+      "title": "Your team thinks fast. Does it type that fast?",
+      "subtitle": "Emails, tickets, docs, AI prompts: your team writes all day. With touch typing, every person saves over an hour of it. Every day.",
+      "fact": "Here's the thing: companies spend five figures on AI tools, then type the prompts with two fingers. A Ferrari with bicycle pedals.",
+      "ctaPrimary": "Request team training",
+      "ctaSecondary": "Test yourself first"
+    },
+    "savings": {
+      "title": "How much time is hiding in your team",
+      "baseline": "40 WPM is average, roughly the pace of a telegraph operator in 1920. A 500-word email takes 12.5 minutes at that speed. At 60 WPM, it's 8.3.",
+      "teamSize": "Team size",
+      "perPerson": "That's {hours} hours per person, per day.",
+      "perDay": "hours per day",
+      "perYear": "hours per year",
+      "assumption": "Based on 20 emails of 500 words a day, 40 to 60 WPM, 220 working days.",
+      "source": "Source: the largest typing-speed study ever conducted - Aalto University, 168,000 participants.",
+      "promise": "Realistic promise: after 4 weeks at 15 minutes a day, the technique is in place. Speed keeps growing with every working day after that.",
+      "fte": "full-time positions per year"
+    },
+    "included": {
+      "title": "What your team gets",
+      "items": [
+        {
+          "title": "The full course",
+          "desc": "Touch typing in English, German and French, each built for its own keyboard: QWERTY, QWERTZ, AZERTY."
+        },
+        {
+          "title": "Before and after",
+          "desc": "A placement test at the start, speed and accuracy at the end. Progress in numbers, per person."
+        },
+        {
+          "title": "Certificate",
+          "desc": "Everyone who completes the course gets a certificate with WPM and accuracy. For the HR file or LinkedIn."
+        },
+        {
+          "title": "A report for you",
+          "desc": "Who finished, how much faster the team is. One overview, no spreadsheet wrangling."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pricing",
+      "text": "Annual license per seat, from 10 seats. A paid pilot with a small team is possible. You get the price for your team size on request, within one working day.",
+      "cta": "Request pricing"
+    },
+    "form": {
+      "title": "Let's talk about your team",
+      "subtitle": "A few details and we get back to you within one working day with pricing and next steps.",
+      "name": "Name",
+      "email": "Work email",
+      "company": "Company",
+      "teamSize": "Team size",
+      "teamSizeOptions": [
+        "10 to 25",
+        "26 to 100",
+        "over 100"
+      ],
+      "message": "What's this about? (optional)",
+      "messagePlaceholder": "Onboarding, trainees, customer support ...",
+      "submit": "Send request",
+      "privacy": "We only use your details to reply to your request.",
+      "successTitle": "Thanks, got it.",
+      "successText": "We'll get back to you within one working day. In the meantime: find out how fast you type.",
+      "successCta": "Take the typing test",
+      "teamSizePlaceholder": "Select one"
+    }
   }
 }

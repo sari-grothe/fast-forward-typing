@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { companiesPath, companiesAnchorId } from "@/i18n/routes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { KeyCharacter } from "@/components/KeyCharacter";
@@ -56,9 +57,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
     },
     alternates: {
-      languages: Object.fromEntries(
-        locales.map((l) => [l, `/${l}`])
-      ),
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [l, `/${l}`])),
+        "x-default": "/en",
+      },
     },
   };
 }
@@ -75,10 +77,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale} className={`${poppins.variable} ${jetbrainsMono.variable}`}>
       <head>
-        {locales.map((l) => (
-          <link key={l} rel="alternate" hrefLang={l} href={`/${l}`} />
-        ))}
-        <link rel="alternate" hrefLang="x-default" href="/en" />
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})()` }} />
       </head>
       <body className="min-h-screen flex flex-col bg-lavender text-dark-text dark:bg-dark dark:text-white font-sans antialiased transition-colors">
@@ -128,8 +126,8 @@ export default async function LocaleLayout({ children, params }: Props) {
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forCompanies}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
-                  <Link href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
-                  <Link href={`/${locale}/companies`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
+                  <Link href={companiesPath(locale)} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
+                  <Link href={`${companiesPath(locale)}#${companiesAnchorId(locale, "pricing")}`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
                 </div>
               </div>
               <div>
