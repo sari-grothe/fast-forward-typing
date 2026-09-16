@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { CtaButton } from "@/components/CtaButton";
 
 const splits: Record<string, { static: string; typed: string }> = {
   de: { static: "Du tippst jeden Tag. ", typed: "Warum nicht doppelt so schnell?" },
@@ -132,19 +132,9 @@ export function TypingHero({ locale, subheadline, ctaLearn, ctaTest }: Props) {
       </h1>
       <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl">{subheadline}</p>
 
-      <div className="mt-10 flex flex-col sm:flex-row items-center gap-3">
-        <Link
-          href={`/${locale}/placement`}
-          className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-        >
-          {ctaLearn} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-        </Link>
-        <Link
-          href={`/${locale}/speed-test`}
-          className="inline-flex items-center gap-2 rounded-xl border-2 border-indigo px-8 py-4 text-base font-semibold text-indigo hover:bg-indigo/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 dark:text-white dark:border-white/30 dark:hover:bg-white/5"
-        >
-          {ctaTest}
-        </Link>
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        <CtaButton href={`/${locale}/placement`}>{ctaLearn}</CtaButton>
+        <CtaButton href={`/${locale}/speed-test`} variant="secondary">{ctaTest}</CtaButton>
       </div>
 
       <div className="mt-12 w-full max-w-xl px-4" aria-hidden="true">

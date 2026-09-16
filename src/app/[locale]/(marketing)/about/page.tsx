@@ -1,5 +1,6 @@
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { CtaButton } from "@/components/CtaButton";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -38,12 +39,7 @@ export default async function AboutPage({ params }: Props) {
         <section className="text-center py-12 rounded-2xl bg-white/60 dark:bg-dark-surface/60 border border-zinc-200 dark:border-dark-border">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3">{a.ctaTitle}</h2>
           <p className="text-zinc-500 dark:text-zinc-400 mb-8">{a.ctaText}</p>
-          <a
-            href={`/${locale}/speed-test`}
-            className="inline-flex items-center gap-2 rounded-lg bg-indigo px-8 py-4 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
-          >
-            {a.ctaButton} <span className="text-electric-yellow">&gt;&gt;</span>
-          </a>
+          <CtaButton href={`/${locale}/speed-test`}>{a.ctaButton}</CtaButton>
         </section>
       </div>
     </div>

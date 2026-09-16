@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { TypingHero } from "@/components/TypingHero";
@@ -11,6 +10,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { CountUpOnView } from "@/components/CountUpOnView";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { FinalCTA } from "@/components/FinalCTA";
+import { CtaButton } from "@/components/CtaButton";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -116,12 +116,7 @@ export default async function HomePage({ params }: Props) {
 
                 {/* CTA */}
                 <div className="mt-8 flex flex-col items-center gap-2">
-                  <Link
-                    href={`/${locale}/speed-test`}
-                    className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                  >
-                    {prod.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-                  </Link>
+                  <CtaButton href={`/${locale}/speed-test`}>{prod.cta}</CtaButton>
                   <p className="text-xs text-zinc-400">{prod.ctaSub}</p>
                 </div>
               </div>
@@ -160,12 +155,7 @@ export default async function HomePage({ params }: Props) {
             ))}
           </div>
           <ScrollReveal className="mt-12 flex justify-center">
-            <Link
-              href={`/${locale}/placement`}
-              className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-            >
-              {how.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-            </Link>
+            <CtaButton href={`/${locale}/placement`}>{how.cta}</CtaButton>
           </ScrollReveal>
         </div>
       </section>
@@ -217,12 +207,7 @@ export default async function HomePage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={`/${locale}/speed-test`}
-                  className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                >
-                  {speed.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-                </Link>
+                <CtaButton href={`/${locale}/speed-test`}>{speed.cta}</CtaButton>
               </div>
             </ScrollReveal>
 
@@ -265,19 +250,9 @@ export default async function HomePage({ params }: Props) {
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
                 <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href={`/${locale}/placement`}
-                    className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                  >
-                    {cert.ctaLearn} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-                  </Link>
-                  <Link
-                    href={`/${locale}/speed-test`}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-indigo px-6 py-3 text-base font-semibold text-indigo hover:bg-indigo/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                  >
-                    {cert.ctaTest}
-                  </Link>
+                <div className="flex flex-wrap gap-3">
+                  <CtaButton href={`/${locale}/placement`}>{cert.ctaLearn}</CtaButton>
+                  <CtaButton href={`/${locale}/speed-test`} variant="secondary">{cert.ctaTest}</CtaButton>
                 </div>
               </div>
             </ScrollReveal>

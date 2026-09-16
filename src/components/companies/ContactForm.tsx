@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { CtaButton } from "@/components/CtaButton";
 
 export type ContactFormLabels = {
   name: string;
@@ -60,12 +60,7 @@ export function ContactForm({ locale, labels }: Props) {
             {labels.successTitle}
           </h3>
           <p className="text-zinc-500 dark:text-zinc-400 mb-8 max-w-md mx-auto">{labels.successText}</p>
-          <Link
-            href={`/${locale}/speed-test`}
-            className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-          >
-            {labels.successCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-          </Link>
+          <CtaButton href={`/${locale}/speed-test`}>{labels.successCta}</CtaButton>
         </div>
       ) : (
         <form
@@ -111,12 +106,7 @@ export function ContactForm({ locale, labels }: Props) {
           </div>
 
           <div className="flex flex-col items-center gap-3 pt-2">
-            <button
-              type="submit"
-              className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-            >
-              {labels.submit} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-            </button>
+            <CtaButton type="submit">{labels.submit}</CtaButton>
             <p className="text-xs text-zinc-400 text-center max-w-sm">{labels.privacy}</p>
           </div>
         </form>

@@ -130,6 +130,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 }
 
 import { KeyCharacter } from "./KeyCharacter";
+import { CtaButton } from "./CtaButton";
 
 type Props = {
   locale: string;
@@ -174,13 +175,7 @@ export function TestimonialSlider({ locale }: Props) {
       </div>
 
       <div className="flex justify-center">
-        <a
-          href={`/${locale}/placement`}
-          className="inline-flex items-center gap-2 rounded-lg bg-indigo px-6 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors"
-        >
-          {l.cta}
-          <span className="text-electric-yellow">&gt;&gt;</span>
-        </a>
+        <CtaButton href={`/${locale}/placement`}>{l.cta}</CtaButton>
       </div>
     </div>
   );

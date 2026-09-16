@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { companiesPath, companiesAnchorId } from "@/i18n/routes";
@@ -8,6 +7,7 @@ import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { TeamSavingsCalculator, type CalculatorLabels } from "@/components/companies/TeamSavingsCalculator";
 import { ContactForm, type ContactFormLabels } from "@/components/companies/ContactForm";
+import { CtaButton } from "@/components/CtaButton";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -78,19 +78,9 @@ export default async function CompaniesPage({ params }: Props) {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">{hero.title}</h1>
               <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6 max-w-2xl">{hero.subtitle}</p>
               <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">{hero.fact}</p>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href={`#${contactId}`}
-                  className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                >
-                  {hero.ctaPrimary} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-                </a>
-                <Link
-                  href={`/${locale}/speed-test`}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-indigo px-8 py-4 text-base font-semibold text-indigo hover:bg-indigo/5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-                >
-                  {hero.ctaSecondary}
-                </Link>
+              <div className="flex flex-wrap gap-3">
+                <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
+                <CtaButton href={`/${locale}/speed-test`} variant="secondary">{hero.ctaSecondary}</CtaButton>
               </div>
             </div>
             <div className="hidden md:block animate-float">
@@ -144,12 +134,7 @@ export default async function CompaniesPage({ params }: Props) {
             <div className="rounded-2xl border-2 border-indigo/20 bg-indigo/5 dark:bg-indigo/10 p-8 sm:p-10 text-center">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">{pricing.title}</h3>
               <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl mx-auto mb-8">{pricing.text}</p>
-              <a
-                href={`#${contactId}`}
-                className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 text-base font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-              >
-                {pricing.cta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
-              </a>
+              <CtaButton href={`#${contactId}`}>{pricing.cta}</CtaButton>
             </div>
           </ScrollReveal>
         </div>
