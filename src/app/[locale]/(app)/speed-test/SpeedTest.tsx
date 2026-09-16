@@ -278,7 +278,7 @@ export function SpeedTest({ locale }: Props) {
 
         {/* --- Section 2: WPM + Accuracy big cards --- */}
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
-          <div className="rounded-2xl bg-gradient-to-br from-indigo to-indigo/80 p-6 sm:p-8 text-center text-white shadow-xl shadow-indigo/20 animate-scale-in">
+          <div className="rounded-2xl bg-gradient-to-br from-indigo to-indigo/80 dark:from-indigo-action dark:to-indigo-action/80 p-6 sm:p-8 text-center text-white shadow-xl shadow-indigo/20 animate-scale-in">
             <p className="text-6xl sm:text-7xl font-extrabold tracking-tight">
               <AnimatedCounter value={wpm} duration={1200} />
             </p>
@@ -310,11 +310,11 @@ export function SpeedTest({ locale }: Props) {
                 style={{
                   width: `${barPercent}%`,
                   background: wpm >= 80
-                    ? "linear-gradient(90deg, #3f0ff2, #8b5cf6)"
+                    ? "linear-gradient(90deg, var(--color-indigo), #8b5cf6)"
                     : wpm >= 60
-                    ? "linear-gradient(90deg, #3f0ff2, #6366f1)"
+                    ? "linear-gradient(90deg, var(--color-indigo), #6366f1)"
                     : wpm >= 40
-                    ? "#3f0ff2"
+                    ? "var(--color-indigo)"
                     : "#f8a37c",
                 }}
               />
@@ -375,7 +375,7 @@ export function SpeedTest({ locale }: Props) {
 
           <Link
             href={`/${locale}/placement`}
-            className="block rounded-2xl bg-gradient-to-r from-indigo to-indigo/90 p-6 sm:p-8 text-white shadow-lg shadow-indigo/20 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
+            className="block rounded-2xl bg-gradient-to-r from-indigo to-indigo/90 dark:from-indigo-action dark:to-indigo-action/90 p-6 sm:p-8 text-white shadow-lg shadow-indigo/20 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>

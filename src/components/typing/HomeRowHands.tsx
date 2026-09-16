@@ -246,7 +246,7 @@ export function HomeRowHands({ locale, activeKey, className }: Props) {
       )}
       {resting &&
         bumpSlots.map((slot) => (
-          <circle key={slot} cx={homeCX(slot)} cy={HOME_Y + 28} r={42} fill="#3f0ff2" opacity={0.1} />
+          <circle key={slot} cx={homeCX(slot)} cy={HOME_Y + 28} r={42} fill="var(--color-indigo)" opacity={0.1} />
         ))}
 
       {/* Home row letter keys */}
@@ -266,7 +266,10 @@ export function HomeRowHands({ locale, activeKey, className }: Props) {
                 isActive
                   ? { fill: activeColor, stroke: activeColor }
                   : isRestingHint
-                    ? { fill: "rgba(63, 15, 242, 0.08)", stroke: "rgba(63, 15, 242, 0.45)" }
+                    ? {
+                        fill: "color-mix(in oklab, var(--color-indigo) 10%, transparent)",
+                        stroke: "color-mix(in oklab, var(--color-indigo) 50%, transparent)",
+                      }
                     : undefined
               }
               className={isActive || isRestingHint ? undefined : "fill-white stroke-zinc-200 dark:fill-zinc-800 dark:stroke-zinc-600"}
@@ -279,7 +282,7 @@ export function HomeRowHands({ locale, activeKey, className }: Props) {
               fontSize={21}
               fontFamily="ui-monospace, SFMono-Regular, Menlo, monospace"
               fontWeight={600}
-              style={isActive ? { fill: "#ffffff" } : isRestingHint ? { fill: "#3f0ff2" } : undefined}
+              style={isActive ? { fill: "#ffffff" } : isRestingHint ? { fill: "var(--color-indigo)" } : undefined}
               className={isActive || isRestingHint ? undefined : "fill-zinc-500 dark:fill-zinc-400"}
             >
               {label.toUpperCase()}
@@ -292,7 +295,7 @@ export function HomeRowHands({ locale, activeKey, className }: Props) {
                 width={14}
                 height={3.5}
                 rx={1.75}
-                style={isActive ? { fill: "rgba(255,255,255,0.9)" } : isRestingHint ? { fill: "#3f0ff2" } : undefined}
+                style={isActive ? { fill: "rgba(255,255,255,0.9)" } : isRestingHint ? { fill: "var(--color-indigo)" } : undefined}
                 className={isActive || isRestingHint ? undefined : "fill-zinc-300 dark:fill-zinc-500"}
               />
             )}

@@ -200,7 +200,7 @@ function getKeyStyle(
 
   if (isPressed) {
     return {
-      backgroundColor: finger ? fingerColors[finger] : "#3f0ff2",
+      backgroundColor: finger ? fingerColors[finger] : "var(--color-indigo-action)",
       color: "#fff",
       transform: "translateY(1px)",
       transition: "all 0.08s ease",
@@ -209,9 +209,9 @@ function getKeyStyle(
 
   if (isActive) {
     return {
-      backgroundColor: "#3f0ff2",
+      backgroundColor: "var(--color-indigo-action)",
       color: "#fff",
-      boxShadow: "0 0 0 2px #3f0ff2, 0 0 12px rgba(63, 15, 242, 0.4)",
+      boxShadow: "0 0 0 2px var(--color-indigo), 0 0 12px color-mix(in oklab, var(--color-indigo) 40%, transparent)",
       animation: "pulse-key 1.5s ease-in-out infinite",
     };
   }

@@ -40,8 +40,8 @@
 }
 
 @keyframes pulse-key {
-  0%, 100% { box-shadow: 0 0 0 2px #3f0ff2, 0 0 8px rgba(63, 15, 242, 0.3); }
-  50% { box-shadow: 0 0 0 3px #3f0ff2, 0 0 16px rgba(63, 15, 242, 0.5); }
+  0%, 100% { box-shadow: 0 0 0 2px var(--color-indigo), 0 0 8px color-mix(in oklab, var(--color-indigo) 30%, transparent); }
+  50% { box-shadow: 0 0 0 3px var(--color-indigo), 0 0 16px color-mix(in oklab, var(--color-indigo) 50%, transparent); }
 }
 
 @keyframes fade-up {
@@ -145,6 +145,10 @@
 
 @theme {
   --color-indigo: #3f0ff2;
+  /* Solid action surfaces (filled buttons, icon chips) that carry white
+     content. Same as indigo in light mode; stays deep in dark mode where
+     --color-indigo flips to a light accent tint. */
+  --color-indigo-action: #3f0ff2;
   --color-peach: #f8a37c;
   --color-electric-yellow: #edf656;
   --color-lavender: #eeecfe;
@@ -154,4 +158,35 @@
   --color-dark-text: #050111;
   --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* --- Dark mode color system ------------------------------------------
+   Brand indigo #3f0ff2 only reaches 2.4:1 against the dark background -
+   unreadable as text or accent. In dark mode the indigo token flips to a
+   light tint (#9d8aff, 7.1:1 on --color-dark), which recolors every
+   text/border/tint/shadow/gradient usage in one place. Solid action
+   surfaces that carry white content keep a deep indigo instead
+   (#6338f7: 3.2:1 against the page as a UI component, 6.1:1 under white
+   text) via the overrides below. */
+.dark {
+  --color-indigo: #9d8aff;
+  --color-indigo-action: #6338f7;
+}
+.dark .bg-indigo,
+.dark .focus\:bg-indigo:focus,
+.dark .group:hover .group-hover\:bg-indigo {
+  background-color: var(--color-indigo-action);
+}
+.dark .hover\:bg-indigo\/90:hover {
+  background-color: color-mix(in oklab, var(--color-indigo-action) 90%, transparent);
+}
+
+/* Ambient page background for the marketing pages: soft lavender/peach
+   waves in light mode, the same rhythm as barely-there indigo/peach
+   tints on near-black in dark mode. */
+.marketing-ambient {
+  background: linear-gradient(180deg, #eeecfe 0%, #f3f0ff 15%, #fde8d8 30%, #f5f0ff 45%, #eeecfe 55%, #fde8d8 70%, #f3f0ff 85%, #eeecfe 100%);
+}
+.dark .marketing-ambient {
+  background: linear-gradient(180deg, #0a0a0b 0%, #131022 15%, #191113 30%, #110e1d 45%, #0a0a0b 55%, #17100e 70%, #120f1e 85%, #0a0a0b 100%);
 }

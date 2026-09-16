@@ -341,7 +341,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
                             {l.free}
                           </span>
                         ) : (
-                          <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-electric-yellow/15 text-dark-text/60 dark:text-electric-yellow/70">
+                          <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-electric-yellow/15 text-dark-text/60 dark:text-electric-yellow/90">
                             {l.pro}
                           </span>
                         )

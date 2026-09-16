@@ -279,9 +279,9 @@ export function KeyIntro({ locale, onComplete }: Props) {
     return () => el.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  const fingerColor = currentStep ? fingerColors[currentStep.finger] : "#3f0ff2";
+  const fingerColor = currentStep ? fingerColors[currentStep.finger] : "var(--color-indigo)";
   const justCompletedStep = stepIndex > 0 ? ALL_STEPS[stepIndex - 1] : null;
-  const justCompletedColor = justCompletedStep ? fingerColors[justCompletedStep.finger] : "#3f0ff2";
+  const justCompletedColor = justCompletedStep ? fingerColors[justCompletedStep.finger] : "var(--color-indigo)";
 
   return (
     <div

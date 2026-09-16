@@ -13,7 +13,7 @@ type Props = {
 export function FinalCTA({ locale, title, description, ctaLearn, ctaTest }: Props) {
   return (
     <ScrollReveal>
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo via-indigo/90 to-indigo/80 p-10 sm:p-16 text-center text-white">
+      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-indigo via-indigo/90 to-indigo/80 dark:from-indigo-action dark:via-indigo-action/90 dark:to-indigo-action/80 p-10 sm:p-16 text-center text-white">
         <div className="absolute top-0 right-0 w-64 h-64 bg-electric-yellow/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-peach/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
         <div className="relative">

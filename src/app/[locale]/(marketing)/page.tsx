@@ -51,7 +51,7 @@ export default async function HomePage({ params }: Props) {
   };
 
   return (
-    <div style={{ background: "linear-gradient(180deg, #eeecfe 0%, #f3f0ff 15%, #fde8d8 30%, #f5f0ff 45%, #eeecfe 55%, #fde8d8 70%, #f3f0ff 85%, #eeecfe 100%)" }}>
+    <div className="marketing-ambient">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}

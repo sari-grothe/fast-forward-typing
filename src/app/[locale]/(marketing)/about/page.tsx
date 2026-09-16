@@ -11,7 +11,7 @@ export default async function AboutPage({ params }: Props) {
   const a = dict.about as Record<string, string>;
 
   return (
-    <div style={{ background: "linear-gradient(180deg, #eeecfe 0%, #f3f0ff 30%, #fde8d8 60%, #f3f0ff 85%, #eeecfe 100%)" }}>
+    <div className="marketing-ambient">
       <div className="mx-auto max-w-3xl px-6 py-20 sm:py-28">
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-8">{a.title}</h1>
         <p className="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed mb-16">

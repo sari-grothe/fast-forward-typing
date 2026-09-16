@@ -8,7 +8,7 @@ type Props = {
 };
 
 export function KeyCharacter({ pose = "waving", size = 120, className, limbColor }: Props) {
-  const lc = limbColor ?? "#3f0ff2";
+  const lc = limbColor ?? "var(--color-indigo)";
 
   if (pose === "pointing") {
     return (
