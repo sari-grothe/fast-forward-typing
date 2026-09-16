@@ -80,7 +80,7 @@ export default async function CompaniesPage({ params }: Props) {
               <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">{hero.fact}</p>
               <div className="flex flex-wrap gap-3">
                 <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
-                <CtaButton href={`/${locale}/speed-test`} variant="secondary">{hero.ctaSecondary}</CtaButton>
+                <CtaButton href={`/${locale}/speed-test`} variant="secondary" newTab>{hero.ctaSecondary}</CtaButton>
               </div>
             </div>
             <div className="hidden md:block animate-float">
@@ -142,7 +142,7 @@ export default async function CompaniesPage({ params }: Props) {
 
       {/* Social proof */}
       <section className="py-20 overflow-hidden">
-        <TestimonialSlider locale={locale} segments={["professional"]} rows={1} />
+        <TestimonialSlider locale={locale} segments={["professional"]} rows={1} showCta={false} />
       </section>
 
       {/* Contact form */}

@@ -9,6 +9,8 @@ type Props = {
   type?: "submit" | "button";
   arrow?: boolean;
   disabled?: boolean;
+  // Open the link in a new tab (keeps the visitor on the current page).
+  newTab?: boolean;
   className?: string;
 };
 
@@ -34,7 +36,7 @@ const arrowColor: Record<Variant, string> = {
   "inverted-secondary": "text-electric-yellow",
 };
 
-export function CtaButton({ children, variant = "primary", href, type = "button", arrow, disabled, className = "" }: Props) {
+export function CtaButton({ children, variant = "primary", href, type = "button", arrow, disabled, newTab, className = "" }: Props) {
   const showArrow = arrow ?? (variant === "primary" || variant === "inverted");
   const classes = `${base} ${variants[variant]} ${className}`;
   const content = (
@@ -46,6 +48,13 @@ export function CtaButton({ children, variant = "primary", href, type = "button"
     </>
   );
 
+  if (href && newTab) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {content}
+      </a>
+    );
+  }
   if (href) {
     return (
       <Link href={href} className={classes}>

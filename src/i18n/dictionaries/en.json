@@ -145,7 +145,7 @@
       "eyebrow": "For companies",
       "title": "Your team thinks fast. Does it type that fast?",
       "subtitle": "Emails, tickets, docs, AI prompts: your team writes all day. With touch typing, every person saves over an hour of it. Every day.",
-      "fact": "Here's the thing: companies spend five figures on AI tools, then type the prompts with two fingers. A Ferrari with bicycle pedals.",
+      "fact": "Here's the thing: companies spend five figures on AI tools. The biggest lever gets overlooked: how fast the team gets its thoughts into the keyboard.",
       "ctaPrimary": "Request team training",
       "ctaSecondary": "Test yourself first"
     },
@@ -174,7 +174,7 @@
         },
         {
           "title": "Certificate",
-          "desc": "Everyone who completes the course gets a certificate with WPM and accuracy. For the HR file or LinkedIn."
+          "desc": "Everyone who completes the course gets a certificate with WPM and accuracy. For the HR file, the CV or LinkedIn."
         },
         {
           "title": "A report for you",
@@ -184,12 +184,12 @@
     },
     "pricing": {
       "title": "Pricing",
-      "text": "Annual license per seat, from 10 seats. A paid pilot with a small team is possible. You get the price for your team size on request, within one working day.",
+      "text": "Annual license per employee. A paid pilot with a small team is possible. You get the price for your team size on request, within one working day.",
       "cta": "Request pricing"
     },
     "form": {
-      "title": "Let's talk about your team",
-      "subtitle": "A few details and we get back to you within one working day with pricing and next steps.",
+      "title": "Let's talk about your goals",
+      "subtitle": "Onboarding, trainees or customer support: tell us where your team stands and what you want to achieve. Within one working day you get a proposal with pricing, measurable targets and documentation for the HR file.",
       "name": "Name",
       "email": "Work email",
       "company": "Company",

@@ -104,17 +104,17 @@ const testimonials: Record<string, Testimonial[]> = {
 const i18n: Record<string, { title: string; subtitle: string; cta: string }> = {
   de: {
     title: "Das sagen unsere Nutzer",
-    subtitle: "Echte Ergebnisse von echten Erwachsenen, die schneller tippen wollten.",
+    subtitle: "Echte Ergebnisse von echten Kunden, die schneller tippen wollten.",
     cta: "Kurs starten",
   },
   en: {
     title: "What our users say",
-    subtitle: "Real results from real adults who wanted to type faster.",
+    subtitle: "Real results from real customers who wanted to type faster.",
     cta: "Start typing course",
   },
   fr: {
     title: "Ce que disent nos utilisateurs",
-    subtitle: "Des résultats réels d'adultes qui voulaient taper plus vite.",
+    subtitle: "Des résultats réels de clients qui voulaient taper plus vite.",
     cta: "Commencer le cours",
   },
 };
@@ -152,6 +152,7 @@ type Props = {
   // Restrict to some audiences, e.g. ["professional"] on the companies page.
   segments?: Segment[];
   rows?: 1 | 2;
+  showCta?: boolean;
 };
 
 // The marquee shifts the track by -50%, so the track must hold an even
@@ -167,7 +168,7 @@ function repeat<T>(list: T[]): T[] {
   return Array.from({ length: copies }, () => list).flat();
 }
 
-export function TestimonialSlider({ locale, segments, rows = 2 }: Props) {
+export function TestimonialSlider({ locale, segments, rows = 2, showCta = true }: Props) {
   const all = testimonials[locale] || testimonials.en;
   const items = segments ? all.filter((t) => segments.includes(t.segment)) : all;
   const l = i18n[locale] || i18n.en;
@@ -208,9 +209,11 @@ export function TestimonialSlider({ locale, segments, rows = 2 }: Props) {
         )}
       </div>
 
-      <div className="flex justify-center">
-        <CtaButton href={`/${locale}/placement`}>{l.cta}</CtaButton>
-      </div>
+      {showCta && (
+        <div className="flex justify-center">
+          <CtaButton href={`/${locale}/placement`}>{l.cta}</CtaButton>
+        </div>
+      )}
     </div>
   );
 }

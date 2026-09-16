@@ -145,7 +145,7 @@
       "eyebrow": "Für Unternehmen",
       "title": "Dein Team denkt schnell. Tippt es auch so?",
       "subtitle": "E-Mails, Tickets, Dokumente, KI-Prompts: dein Team schreibt den ganzen Tag. Mit dem 10-Finger-System spart jede Person dabei mehr als eine Stunde. Jeden Tag.",
-      "fact": "Mal ehrlich: Viele Firmen investieren fünfstellig in KI-Tools. Und holen sich die Antworten dann mit zwei Fingern. Ein Ferrari mit Fahrradpedalen.",
+      "fact": "Mal ehrlich: Viele Firmen investieren fünfstellig in KI-Tools. Den größten Hebel übersehen sie dabei: wie schnell das Team seine Gedanken in die Tastatur bekommt.",
       "ctaPrimary": "Team-Training anfragen",
       "ctaSecondary": "Erst selbst testen"
     },
@@ -174,7 +174,7 @@
         },
         {
           "title": "Zertifikat",
-          "desc": "Jede Person, die den Kurs abschließt, bekommt ein Zertifikat mit WPM und Genauigkeit. Für die Personalakte oder LinkedIn."
+          "desc": "Jede Person, die den Kurs abschließt, bekommt ein Zertifikat mit WPM und Genauigkeit. Für die Personalakte, den Lebenslauf oder LinkedIn."
         },
         {
           "title": "Auswertung für dich",
@@ -184,12 +184,12 @@
     },
     "pricing": {
       "title": "Preise",
-      "text": "Jahreslizenz pro Arbeitsplatz, ab 10 Plätzen. Ein bezahlter Pilot mit einem kleinen Team ist möglich. Den Preis für deine Teamgröße bekommst du auf Anfrage, innerhalb eines Werktags.",
+      "text": "Jahreslizenz pro Mitarbeiter:in. Ein bezahlter Pilot mit einem kleinen Team ist möglich. Den Preis für deine Teamgröße bekommst du auf Anfrage, innerhalb eines Werktags.",
       "cta": "Preis anfragen"
     },
     "form": {
-      "title": "Lass uns über dein Team sprechen",
-      "subtitle": "Kurz ein paar Eckdaten, wir melden uns innerhalb eines Werktags mit Preis und nächsten Schritten.",
+      "title": "Lass uns über eure Ziele sprechen",
+      "subtitle": "Onboarding, Ausbildung oder Kundenservice: Sag uns, wo dein Team steht und was ihr erreichen wollt. Innerhalb eines Werktags bekommst du einen Vorschlag mit Preis, messbaren Zielen und dem Nachweis für die Personalakte.",
       "name": "Name",
       "email": "Arbeits-E-Mail",
       "company": "Unternehmen",
