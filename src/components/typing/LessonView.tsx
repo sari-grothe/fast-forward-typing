@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
-import { getLesson, getNextLesson, lessonMeta, phaseNames, displayKey } from "@/lib/lessons";
+import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey } from "@/lib/lessons";
 import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
 
@@ -33,6 +33,8 @@ const i18n: Record<Locale, {
   courseCompleteDesc: string;
   lessonNotFound: string;
   insightLabel: string;
+  progressDone: (done: number, total: number) => string;
+  progressLeft: (n: number) => string;
 }> = {
   de: {
     lessonLabel: "Lektion",
@@ -47,6 +49,8 @@ const i18n: Record<Locale, {
     courseCompleteDesc: "Du tippst jetzt mit allen zehn Fingern.",
     lessonNotFound: "Lektion nicht gefunden.",
     insightLabel: "Gut zu wissen",
+    progressDone: (done, total) => `${done} von ${total} Lektionen geschafft`,
+    progressLeft: (n) => `noch ${n} vor dir`,
   },
   en: {
     lessonLabel: "Lesson",
@@ -61,6 +65,8 @@ const i18n: Record<Locale, {
     courseCompleteDesc: "You now type with all ten fingers.",
     lessonNotFound: "Lesson not found.",
     insightLabel: "Good to know",
+    progressDone: (done, total) => `${done} of ${total} lessons done`,
+    progressLeft: (n) => `${n} to go`,
   },
   fr: {
     lessonLabel: "Leçon",
@@ -75,6 +81,8 @@ const i18n: Record<Locale, {
     courseCompleteDesc: "Tu tapes maintenant avec tes dix doigts.",
     lessonNotFound: "Leçon introuvable.",
     insightLabel: "Bon à savoir",
+    progressDone: (done, total) => `${done} leçons sur ${total} terminées`,
+    progressLeft: (n) => `encore ${n}`,
   },
 };
 
@@ -83,6 +91,13 @@ export function LessonView({ lessonId, locale }: Props) {
   const [currentDrill, setCurrentDrill] = useState(0);
   const [results, setResults] = useState<DrillResult[]>([]);
   const [isLessonComplete, setIsLessonComplete] = useState(false);
+  const [doneIds, setDoneIds] = useState<Set<number>>(new Set());
+
+  useEffect(() => {
+    const records = progressStore.getLessonRecords(locale);
+    const skips = progressStore.getProfile(locale)?.placement?.suggestedSkipLessonIds ?? [];
+    setDoneIds(new Set([...Object.keys(records).map(Number), ...skips]));
+  }, [locale, lessonId, isLessonComplete]);
 
   const lesson = getLesson(lessonId, locale);
   const l = i18n[locale];
@@ -174,11 +189,47 @@ export function LessonView({ lessonId, locale }: Props) {
     <div className="space-y-6">
       {/* Lesson header */}
       <div className="space-y-2">
-        <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <span>{l.phase} {lesson.phase}: {phaseName}</span>
-          <span className="text-zinc-300 dark:text-dark-border">-</span>
-          <span>{l.lessonLabel} {lessonId}</span>
+        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <Link
+            href={`/${locale}/lessons`}
+            className="inline-flex items-center gap-1.5 hover:text-indigo transition-colors"
+          >
+            <span aria-hidden>&lsaquo;</span> {l.backToLessons}
+          </Link>
+          <span>
+            {l.phase} {lesson.phase}: {phaseName}
+            <span className="text-zinc-300 dark:text-dark-border"> - </span>
+            {l.lessonLabel} {lessonId}
+          </span>
         </div>
+        {(() => {
+          const all = getLessons(locale);
+          const done = all.filter((item) => doneIds.has(item.id)).length;
+          const left = all.length - done;
+          return (
+            <div className="pt-1" aria-label={l.progressDone(done, all.length)}>
+              <div className="flex gap-[3px]">
+                {all.map((item) => (
+                  <span
+                    key={item.id}
+                    title={`${l.lessonLabel} ${item.id}`}
+                    className={`h-1.5 flex-1 rounded-full ${
+                      doneIds.has(item.id)
+                        ? "bg-indigo"
+                        : item.id === lessonId
+                          ? "bg-indigo/40 ring-1 ring-indigo/60"
+                          : "bg-zinc-200 dark:bg-dark-border"
+                    }`}
+                  />
+                ))}
+              </div>
+              <div className="flex items-center justify-between pt-1.5 text-xs text-zinc-400 dark:text-zinc-500">
+                <span>{l.progressDone(done, all.length)}</span>
+                {left > 0 && <span>{l.progressLeft(left)}</span>}
+              </div>
+            </div>
+          );
+        })()}
         <h1 className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">
           {meta?.title ?? `Lesson ${lessonId}`}
         </h1>
