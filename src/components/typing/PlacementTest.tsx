@@ -75,7 +75,7 @@ const i18n: Record<Locale, {
     planStart: (title) => `Empfohlener Start: ${title}`,
     huntAndPeckTitle: "Ehrliche Diagnose: Neustart lohnt sich",
     huntAndPeckText: "Du suchst die Tasten noch mit den Augen - dein Tempo kommt aus dem Kurzzeitgedächtnis, nicht aus den Fingern. Das ist keine Basis zum Ausbauen, sondern Muskelgedächtnis, das ersetzt wird. Die gute Nachricht: Mit System-Neustart erreichst du in 4 Wochen mehr, als Jahre Selbstsuche gebracht haben.",
-    startCta: "Empfohlen starten",
+    startCta: "Jetzt Kurs starten",
     warmUpCta: "Lieber von vorne aufwärmen",
     redoCta: "Einstufung wiederholen",
   },
@@ -100,7 +100,7 @@ const i18n: Record<Locale, {
     planStart: (title) => `Recommended start: ${title}`,
     huntAndPeckTitle: "Honest diagnosis: a restart pays off",
     huntAndPeckText: "You still find keys with your eyes - your speed comes from short-term memory, not your fingers. That's not a base to build on; it's muscle memory that gets replaced. The good news: with a systematic restart, 4 weeks gets you further than years of hunting ever did.",
-    startCta: "Start as suggested",
+    startCta: "Start the course now",
     warmUpCta: "Rather warm up from the start",
     redoCta: "Redo placement",
   },
@@ -125,7 +125,7 @@ const i18n: Record<Locale, {
     planStart: (title) => `Départ recommandé : ${title}`,
     huntAndPeckTitle: "Diagnostic honnête : repartir de zéro paie",
     huntAndPeckText: "Tu cherches encore les touches des yeux - ta vitesse vient de la mémoire à court terme, pas des doigts. Ce n'est pas une base à développer, c'est une habitude à remplacer. La bonne nouvelle : avec un redémarrage méthodique, 4 semaines t'amènent plus loin que des années de recherche à l'aveugle.",
-    startCta: "Démarrer comme suggéré",
+    startCta: "Commencer le cours",
     warmUpCta: "Plutôt s'échauffer depuis le début",
     redoCta: "Refaire l'évaluation",
   },
@@ -281,19 +281,21 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           ))}
         </div>
 
-        {/* Plan - a suggestion the user confirms, not an auto-skip */}
-        <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 space-y-2">
-          <p className="font-semibold text-dark-text dark:text-white">{l.planTitle}</p>
+        {/* Plan - a suggestion the user confirms, not an auto-skip.
+            Visually the strongest card on the page: it carries the one
+            action the whole placement leads up to. */}
+        <div className="rounded-2xl border-2 border-indigo/30 bg-gradient-to-br from-indigo/10 via-indigo/5 to-transparent dark:border-indigo/40 p-6 sm:p-8 space-y-3 shadow-lg shadow-indigo/10">
+          <p className="text-xs font-semibold uppercase tracking-wider text-indigo">{l.planTitle}</p>
+          <p className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white">
+            {l.planStart(`${startMeta?.title ?? `Lektion ${result.recommendedLessonId}`}`)}
+          </p>
           {skipped > 0 && (
             <p className="text-sm text-zinc-600 dark:text-zinc-300">{l.planSkipped(skipped)}</p>
           )}
-          <p className="text-sm text-zinc-600 dark:text-zinc-300">
-            {l.planStart(`${startMeta?.title ?? `Lektion ${result.recommendedLessonId}`}`)}
-          </p>
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-3 pt-3">
             <Link
               href={`/${locale}/lessons/${result.recommendedLessonId}`}
-              className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+              className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 font-bold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               {l.startCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
             </Link>

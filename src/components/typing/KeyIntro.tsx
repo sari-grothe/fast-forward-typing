@@ -155,7 +155,7 @@ const i18n: Record<Locale, {
   de: {
     explainTitle: "Die Grundposition",
     explainP1: "Auf den Tasten F und J befinden sich kleine Noppen. Lege deine Zeigefinger darauf - links auf F, rechts auf J.",
-    explainP2: "Von dieser Position aus deckt jeder Finger eine eigene Zone der Tastatur ab. Die Farben zeigen dir, welcher Finger welche Tasten bedient.",
+    explainP2: "Von dieser Position aus deckt jeder Finger eine eigene Zone der Tastatur ab.",
     explainP3: "Wir platzieren jetzt jeden Finger einzeln. Zuerst die rechte Hand, dann die linke.",
     explainColorIntro: "Jeder Finger hat seine Zone",
     leftHand: "Linke Hand",
@@ -175,7 +175,7 @@ const i18n: Record<Locale, {
   en: {
     explainTitle: "The Home Position",
     explainP1: "The F and J keys have small bumps on them. Place your index fingers there - left on F, right on J.",
-    explainP2: "From this position, each finger covers its own zone of the keyboard. The colors show you which finger handles which keys.",
+    explainP2: "From this position, each finger covers its own zone of the keyboard.",
     explainP3: "We'll place each finger one by one. Right hand first, then left.",
     explainColorIntro: "Each finger has its zone",
     leftHand: "Left hand",
@@ -195,7 +195,7 @@ const i18n: Record<Locale, {
   fr: {
     explainTitle: "La position de base",
     explainP1: "Les touches F et J ont de petites bosses. Pose tes index dessus - gauche sur F, droit sur J.",
-    explainP2: "Depuis cette position, chaque doigt couvre sa propre zone du clavier. Les couleurs montrent quel doigt gère quelles touches.",
+    explainP2: "Depuis cette position, chaque doigt couvre sa propre zone du clavier.",
     explainP3: "On va placer chaque doigt un par un. D'abord la main droite, puis la gauche.",
     explainColorIntro: "Chaque doigt a sa zone",
     leftHand: "Main gauche",

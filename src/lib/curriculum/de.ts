@@ -389,7 +389,7 @@ export const lessons: Lesson[] = [
 export const meta: Record<number, LessonMeta> = {
   0: {
     title: "Finde die Markierungen",
-    subtitle: "Schau auf deine Tastatur: Auf den Tasten F und J sind kleine Noppen. Lege deine Zeigefinger darauf - links auf F, rechts auf J. Von dieser Position aus erreichst du alle anderen Tasten.",
+    subtitle: "In dieser Lektion lernst du die Grundposition - den festen Ausgangspunkt, von dem aus deine Finger jede Taste erreichen.",
     newKeysLabel: "F und J",
     completionMessage: "Gut. Deine Finger wissen jetzt, wo sie hingehören.",
     insight: "Die Noppen auf F und J gibt es auf fast jeder Tastatur der Welt - damit deine Finger ohne Hinsehen zurück in die Ausgangsposition finden. Blind orientieren ist das Grundprinzip des ganzen Systems.",

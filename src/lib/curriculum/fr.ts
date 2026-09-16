@@ -392,7 +392,7 @@ export const lessons: Lesson[] = [
 export const meta: Record<number, LessonMeta> = {
   0: {
     title: "Trouve les repères",
-    subtitle: "Regarde ton clavier : les touches F et J portent de petites bosses. Pose tes index dessus - gauche sur F, droite sur J. Depuis cette position, tu atteins toutes les autres touches.",
+    subtitle: "Dans cette leçon, tu apprends la position de base - le point de départ fixe depuis lequel tes doigts atteignent chaque touche.",
     newKeysLabel: "F et J",
     completionMessage: "Bien. Tes doigts savent maintenant où est leur place.",
     insight: "Les bosses sur F et J existent sur presque tous les claviers du monde - pour que tes doigts retrouvent leur position sans regarder. S'orienter à l'aveugle, c'est le principe de base de toute la méthode.",

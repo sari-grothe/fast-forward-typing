@@ -389,7 +389,7 @@ export const lessons: Lesson[] = [
 export const meta: Record<number, LessonMeta> = {
   0: {
     title: "Find the Bumps",
-    subtitle: "Look at your keyboard: the F and J keys have small bumps on them. Place your index fingers there - left on F, right on J. This is your home position for reaching every other key.",
+    subtitle: "This lesson teaches you the home position - the fixed starting point your fingers reach every key from.",
     newKeysLabel: "F and J",
     completionMessage: "Good. Your fingers know where they belong now.",
     insight: "The bumps on F and J exist on nearly every keyboard in the world - so your fingers can find home without looking. Orienting blind is the core principle behind the whole system.",

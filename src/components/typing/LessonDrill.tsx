@@ -116,6 +116,7 @@ export function LessonDrill({
   const [shake, setShake] = useState(false);
   const [pressedKey, setPressedKey] = useState<string | undefined>();
   const containerRef = useRef<HTMLDivElement>(null);
+  const completionRef = useRef<HTMLDivElement>(null);
   const currentCharRef = useRef<HTMLSpanElement>(null);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(null);
   const l = i18n[locale];
@@ -200,6 +201,29 @@ export function LessonDrill({
   function handleContinue() {
     onComplete({ wpm, accuracy, errors: state.errors.length });
   }
+
+  // After a drill: ENTER continues (or retries) without hunting for the
+  // button - it can sit below the fold on small screens. Window-level,
+  // so it works even if the typing box lost focus.
+  useEffect(() => {
+    if (!state.isComplete) return;
+    const el = completionRef.current;
+    el?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Enter") return;
+      e.preventDefault();
+      if (passed) {
+        onComplete({ wpm, accuracy, errors: state.errors.length });
+      } else {
+        setState(createTypingState(drill.content));
+        setNow(Date.now());
+        setTimeout(() => containerRef.current?.focus(), 50);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.isComplete]);
 
   return (
     <div className="space-y-4">
@@ -303,7 +327,7 @@ export function LessonDrill({
 
       {/* Completion panel */}
       {state.isComplete && (
-        <div className={`rounded-2xl border-2 p-6 sm:p-8 ${
+        <div ref={completionRef} className={`rounded-2xl border-2 p-6 sm:p-8 ${
           passed
             ? "border-indigo/30 bg-indigo/5 dark:bg-indigo/5"
             : "border-peach/30 bg-peach/5 dark:bg-peach/5"
@@ -343,8 +367,8 @@ export function LessonDrill({
             </div>
           </div>
 
-          {/* Action */}
-          <div className="flex justify-center">
+          {/* Action - ENTER triggers it too (see window listener above) */}
+          <div className="flex items-center justify-center gap-3">
             {passed ? (
               <button
                 onClick={handleContinue}
@@ -360,6 +384,9 @@ export function LessonDrill({
                 {l.tryAgain} <span className="text-white/70">&gt;&gt;</span>
               </button>
             )}
+            <kbd className="rounded-md border border-zinc-300 dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400">
+              ENTER
+            </kbd>
           </div>
         </div>
       )}
