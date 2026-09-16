@@ -11,19 +11,19 @@ const meta: Record<Locale, { title: string; description: string; h1: string; int
     title: "Einstufung - Wo stehst du beim 10-Finger-System?",
     description: "3 kurze Runden zeigen, welche Tasten sitzen und welche Training brauchen. Danach bekommst du deinen individuellen Trainingsplan - beherrschte Lektionen werden übersprungen.",
     h1: "Deine Einstufung",
-    intro: "3 kurze Runden, etwa 3 Minuten. Wir messen pro Taste, was sitzt und was Training braucht - danach startet dein Kurs genau da, wo du stehst.",
+    intro: "3 kurze Runden - je nach Tempo 2 bis 6 Minuten. Wir messen pro Taste, was sitzt und was Training braucht - danach startet dein Kurs genau da, wo du stehst.",
   },
   en: {
     title: "Placement - Where do you stand with touch typing?",
     description: "3 short rounds show which keys are solid and which need training. You get a personal training plan - mastered lessons are skipped.",
     h1: "Your placement",
-    intro: "3 short rounds, about 3 minutes. We measure per key what's solid and what needs work - then your course starts exactly where you stand.",
+    intro: "3 short rounds - 2 to 6 minutes, depending on your pace. We measure per key what's solid and what needs work - then your course starts exactly where you stand.",
   },
   fr: {
     title: "Évaluation - Où en es-tu avec la frappe à dix doigts ?",
     description: "3 manches courtes montrent quelles touches sont en place et lesquelles demandent de l'entraînement. Tu reçois un plan personnel - les leçons maîtrisées sont sautées.",
     h1: "Ton évaluation",
-    intro: "3 manches courtes, environ 3 minutes. Nous mesurons touche par touche ce qui est en place et ce qui demande du travail - ensuite ton cours démarre exactement là où tu en es.",
+    intro: "3 manches courtes - de 2 à 6 minutes selon ton rythme. Nous mesurons touche par touche ce qui est en place et ce qui demande du travail - ensuite ton cours démarre exactement là où tu en es.",
   },
 };
 
