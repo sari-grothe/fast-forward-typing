@@ -206,7 +206,9 @@
       "successTitle": "Merci, c'est bien reçu.",
       "successText": "On te répond sous un jour ouvré. En attendant : mesure ta propre vitesse de frappe.",
       "successCta": "Faire le test de frappe",
-      "teamSizePlaceholder": "Choisis une option"
+      "teamSizePlaceholder": "Choisis une option",
+      "sending": "Envoi en cours ...",
+      "error": "Ça n'est pas passé. Réessaie dans un instant."
     }
   }
 }

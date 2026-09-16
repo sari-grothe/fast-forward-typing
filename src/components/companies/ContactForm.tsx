@@ -17,6 +17,8 @@ export type ContactFormLabels = {
   successTitle: string;
   successText: string;
   successCta: string;
+  sending: string;
+  error: string;
 };
 
 type Props = {
@@ -29,11 +31,16 @@ const fieldClass =
 
 const labelClass = "block text-sm font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5";
 
-// Fake door: the form validates and shows a confirmation, but does not
-// send anywhere yet. Wire up a backend (Resend or a form service) before
-// driving traffic to this page.
+// Submissions go to Formspree (form "FFT Unternehmen"), which emails
+// them to Sarah and keeps them in the Formspree inbox. The form ID is
+// public by design; abuse is limited by Formspree's domain restriction.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdrkvn";
+
+type Status = "idle" | "sending" | "error";
+
 export function ContactForm({ locale, labels }: Props) {
   const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
 
   // Move focus to the confirmation so keyboard and screen reader users
@@ -42,9 +49,31 @@ export function ContactForm({ locale, labels }: Props) {
     if (submitted) successHeadingRef.current?.focus();
   }, [submitted]);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    // Honeypot: real users never fill this hidden field.
+    if (data.get("_gotcha")) {
+      setSubmitted(true);
+      return;
+    }
+    data.set("_subject", `Team-Training Anfrage: ${data.get("company") ?? ""}`);
+    data.set("locale", locale);
+    data.set("page", window.location.href);
+
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`Formspree ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
@@ -94,6 +123,8 @@ export function ContactForm({ locale, labels }: Props) {
             </div>
           </div>
 
+          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+
           <div>
             <label htmlFor="contact-message" className={labelClass}>{labels.message}</label>
             <textarea
@@ -106,7 +137,12 @@ export function ContactForm({ locale, labels }: Props) {
           </div>
 
           <div className="flex flex-col items-center gap-3 pt-2">
-            <CtaButton type="submit">{labels.submit}</CtaButton>
+            <CtaButton type="submit" disabled={status === "sending"}>
+              {status === "sending" ? labels.sending : labels.submit}
+            </CtaButton>
+            {status === "error" && (
+              <p className="text-sm text-peach font-medium text-center" role="alert">{labels.error}</p>
+            )}
             <p className="text-xs text-zinc-400 text-center max-w-sm">{labels.privacy}</p>
           </div>
         </form>

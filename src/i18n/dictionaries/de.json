@@ -206,7 +206,9 @@
       "successTitle": "Danke, ist angekommen.",
       "successText": "Wir melden uns innerhalb eines Werktags. Bis dahin: Miss doch mal deine eigene Tippgeschwindigkeit.",
       "successCta": "Tippgeschwindigkeit messen",
-      "teamSizePlaceholder": "Bitte auswählen"
+      "teamSizePlaceholder": "Bitte auswählen",
+      "sending": "Wird gesendet ...",
+      "error": "Das hat nicht geklappt. Bitte versuch es gleich noch einmal."
     }
   }
 }

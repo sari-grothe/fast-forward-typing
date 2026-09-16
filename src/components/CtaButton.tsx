@@ -8,6 +8,7 @@ type Props = {
   href?: string;
   type?: "submit" | "button";
   arrow?: boolean;
+  disabled?: boolean;
   className?: string;
 };
 
@@ -33,7 +34,7 @@ const arrowColor: Record<Variant, string> = {
   "inverted-secondary": "text-electric-yellow",
 };
 
-export function CtaButton({ children, variant = "primary", href, type = "button", arrow, className = "" }: Props) {
+export function CtaButton({ children, variant = "primary", href, type = "button", arrow, disabled, className = "" }: Props) {
   const showArrow = arrow ?? (variant === "primary" || variant === "inverted");
   const classes = `${base} ${variants[variant]} ${className}`;
   const content = (
@@ -53,7 +54,7 @@ export function CtaButton({ children, variant = "primary", href, type = "button"
     );
   }
   return (
-    <button type={type} className={classes}>
+    <button type={type} disabled={disabled} className={`${classes} disabled:opacity-60 disabled:cursor-wait disabled:hover:scale-100`}>
       {content}
     </button>
   );

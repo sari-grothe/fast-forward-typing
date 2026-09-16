@@ -206,7 +206,9 @@
       "successTitle": "Thanks, got it.",
       "successText": "We'll get back to you within one working day. In the meantime: find out how fast you type.",
       "successCta": "Take the typing test",
-      "teamSizePlaceholder": "Select one"
+      "teamSizePlaceholder": "Select one",
+      "sending": "Sending ...",
+      "error": "That didn't go through. Please try again in a moment."
     }
   }
 }
