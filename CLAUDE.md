@@ -7,6 +7,7 @@ Trilingual typing tutor for adults (DE/EN/FR).
 - Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4
 - Supabase (auth + DB), Stripe (payments), Resend (emails)
 - Vercel hosting, Google Analytics (behind cookie consent)
+- B2B contact form: Formspree, no backend. Setup and fields in [docs/contact-form-formspree.md](docs/contact-form-formspree.md)
 
 ## i18n
 
