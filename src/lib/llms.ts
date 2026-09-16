@@ -26,7 +26,7 @@ const FACTS = `- Fast Forward >> Typing is a web-based touch-typing course for a
 - Available in German (QWERTZ keyboard layout), English (QWERTY) and French (AZERTY). Each language has its own curriculum written for its keyboard layout, not a translation.
 - Unique approach: an adaptive placement test ("Einstufung") measures per-key accuracy and speed, then builds an individual training plan. Learners who already master some keys get a suggestion to skip those lessons; every lesson stays accessible.
 - Each lesson includes a short learning-science note ("Gut zu wissen") explaining why the practice method works (myelination, spacing effect, chunking).
-- For individuals, the typing course and speed test are free. An official typing certificate (speed + accuracy) costs a one-time fee of 5 euros. No subscriptions for individuals.
+- For individuals, the typing speed test and the first lessons are free. The full course and the official typing certificate (speed + accuracy, 5 euros one-time) are paid. No subscriptions for individuals.
 - For companies: team training on an annual per-seat license from 10 seats, with before/after measurement and certificates for each participant. Pricing on request via the contact form on the companies page.
 - Works with any keyboard (laptop, desktop, mechanical). Runs in the browser, no installation.
 - Typical outcome: noticeable improvement after 2-3 weeks of 10-15 minutes daily practice.`;
@@ -61,7 +61,7 @@ export function buildLlmsTxt(): string {
 
   return `# Fast Forward >> Typing
 
-> Adaptive touch-typing course for adults in German (QWERTZ), English (QWERTY) and French (AZERTY). A placement test measures what you already master and builds an individual training plan through ${lessonCount} lessons. Course and speed test are free; an official certificate costs 5 euros one-time.
+> Adaptive touch-typing course for adults in German (QWERTZ), English (QWERTY) and French (AZERTY). A placement test measures what you already master and builds an individual training plan through ${lessonCount} lessons. Speed test and first lessons are free; the full course and the official certificate (5 euros one-time) are paid.
 
 ## Facts
 

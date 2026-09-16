@@ -5,24 +5,24 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
     title: "Häufig gestellte Fragen",
     items: [
       {
-        question: "Ist Fast Forward Typing kostenlos?",
-        answer: "Der Test und die Grundfunktionen sind komplett kostenlos. Für das offizielle Tippzertifikat fällt eine einmalige Gebühr von 5 Euro an.",
+        question: "Ist das 10-Finger-System-Training kostenlos?",
+        answer: "Deine Tippgeschwindigkeit misst du kostenlos, und auch die ersten Lektionen sind frei. Der komplette Kurs und das offizielle Tippzertifikat sind kostenpflichtig.",
       },
       {
-        question: "Für wen ist Fast Forward Typing gedacht?",
-        answer: "Für Erwachsene, die schneller und sicherer tippen möchten - egal ob Berufseinsteiger, Studierende oder erfahrene Büroangestellte, die ihr Tippen verbessern wollen.",
+        question: "Für wen ist das 10-Finger-System gedacht?",
+        answer: "Für alle, die im Beruf viel schreiben: E-Mails, Dokumente, Chats, KI-Prompts. Wer mit zehn Fingern tippt, arbeitet schneller und konzentrierter, macht weniger Fehler und wirkt bei allem, was er schreibt, professioneller.",
       },
       {
         question: "Wie lange dauert es, bis ich schneller tippe?",
-        answer: "Die meisten Nutzer sehen nach zwei bis drei Wochen mit täglichen Übungen von 10 bis 15 Minuten deutliche Verbesserungen. Manche schaffen den Wechsel von 6 auf 10 Finger in nur drei Wochen.",
+        answer: "Die meisten sehen nach zwei bis drei Wochen mit täglich 10 bis 15 Minuten Übung deutliche Verbesserungen. Wer dranbleibt, hat das 10-Finger-System nach etwa vier Wochen verinnerlicht - danach wächst die Geschwindigkeit mit jedem Arbeitstag weiter.",
       },
       {
         question: "Brauche ich eine bestimmte Tastatur?",
-        answer: "Nein. Fast Forward Typing funktioniert mit jeder Tastatur. Ob Laptop, Desktop oder mechanische Tastatur - du kannst sofort loslegen.",
+        answer: "Nein. Der Kurs funktioniert mit jeder Tastatur. Ob Laptop, Desktop oder mechanische Tastatur - du kannst sofort loslegen.",
       },
       {
         question: "Welche Sprachen werden unterstützt?",
-        answer: "Aktuell ist Fast Forward Typing auf Deutsch, Englisch und Französisch verfügbar. Weitere Sprachen sind in Planung.",
+        answer: "Aktuell gibt es den Kurs auf Deutsch, Englisch und Französisch, jeweils passend zum Tastaturlayout. Weitere Sprachen sind in Planung.",
       },
       {
         question: "Was bringt mir das Tippzertifikat?",
@@ -30,7 +30,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Kann ich meinen Fortschritt speichern?",
-        answer: "Ja, mit einem kostenlosen Konto werden deine Ergebnisse gespeichert und du kannst deinen Fortschritt über Zeit verfolgen. Das Feature ist in Kürze verfügbar.",
+        answer: "Ja, mit einem kostenlosen Konto werden deine Ergebnisse gespeichert und du kannst deinen Fortschritt über Zeit verfolgen.",
       },
       {
         question: "Wie wird meine Tippgeschwindigkeit gemessen?",
@@ -42,24 +42,24 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
     title: "Frequently Asked Questions",
     items: [
       {
-        question: "Is Fast Forward Typing free?",
-        answer: "The typing test and core features are completely free. The official typing certificate costs a one-time fee of 5 euros.",
+        question: "Is the touch typing course free?",
+        answer: "The typing test is free, and so are the first lessons. The full course and the official typing certificate are paid.",
       },
       {
-        question: "Who is Fast Forward Typing for?",
-        answer: "For adults who want to type faster and more accurately - whether you're starting your career, studying, or an experienced office worker looking to improve.",
+        question: "Who is the touch typing course for?",
+        answer: "For anyone who writes a lot at work: emails, documents, chat, AI prompts. Touch typists work faster and with more focus, make fewer mistakes, and come across as more professional in everything they write.",
       },
       {
         question: "How long until I type faster?",
-        answer: "Most users see clear improvements after two to three weeks of daily practice for 10 to 15 minutes. Some manage the switch from 6 to 10 fingers in just three weeks.",
+        answer: "Most people see clear improvements after two to three weeks of 10 to 15 minutes a day. Stick with it and touch typing is second nature after about four weeks - speed keeps growing with every working day after that.",
       },
       {
         question: "Do I need a specific keyboard?",
-        answer: "No. Fast Forward Typing works with any keyboard. Laptop, desktop, or mechanical - you can start right away.",
+        answer: "No. The course works with any keyboard. Laptop, desktop, or mechanical - you can start right away.",
       },
       {
         question: "What languages are supported?",
-        answer: "Fast Forward Typing is currently available in German, English, and French. More languages are planned.",
+        answer: "The course is currently available in English, German and French, each built for its own keyboard layout. More languages are planned.",
       },
       {
         question: "What's the typing certificate for?",
@@ -67,7 +67,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Can I save my progress?",
-        answer: "Yes, with a free account your results are saved and you can track your progress over time. This feature is coming soon.",
+        answer: "Yes, with a free account your results are saved and you can track your progress over time.",
       },
       {
         question: "How is typing speed measured?",
@@ -79,24 +79,24 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
     title: "Questions fréquentes",
     items: [
       {
-        question: "Est-ce que Fast Forward Typing est gratuit ?",
-        answer: "Le test de frappe et les fonctionnalités de base sont entièrement gratuits. Le certificat de frappe officiel coûte 5 euros en paiement unique.",
+        question: "Est-ce que le cours de dactylographie est gratuit ?",
+        answer: "Le test de frappe est gratuit, et les premières leçons aussi. Le cours complet et le certificat de frappe officiel sont payants.",
       },
       {
-        question: "À qui s'adresse Fast Forward Typing ?",
-        answer: "Aux adultes qui veulent taper plus vite et plus précisément - que tu débutes ta carrière, que tu sois étudiant ou employé de bureau souhaitant s'améliorer.",
+        question: "À qui s'adresse le cours de dactylographie ?",
+        answer: "À tous ceux qui écrivent beaucoup au travail : e-mails, documents, chats, prompts IA. Taper à dix doigts, c'est travailler plus vite et plus concentré, faire moins d'erreurs et paraître plus pro dans tout ce que tu écris.",
       },
       {
         question: "Combien de temps avant de taper plus vite ?",
-        answer: "La plupart des utilisateurs voient des améliorations nettes après deux à trois semaines de pratique quotidienne de 10 à 15 minutes. Certains passent de 6 à 10 doigts en seulement trois semaines.",
+        answer: "La plupart voient des progrès nets après deux à trois semaines à raison de 10 à 15 minutes par jour. En restant régulier, la frappe à dix doigts devient naturelle en quatre semaines environ - ensuite, la vitesse continue de monter à chaque journée de travail.",
       },
       {
         question: "Ai-je besoin d'un clavier spécifique ?",
-        answer: "Non. Fast Forward Typing fonctionne avec n'importe quel clavier. Portable, bureau ou mécanique - tu peux commencer tout de suite.",
+        answer: "Non. Le cours fonctionne avec n'importe quel clavier. Portable, bureau ou mécanique - tu peux commencer tout de suite.",
       },
       {
         question: "Quelles langues sont disponibles ?",
-        answer: "Fast Forward Typing est actuellement disponible en allemand, anglais et français. D'autres langues sont prévues.",
+        answer: "Le cours est actuellement disponible en français, anglais et allemand, chacun pensé pour sa disposition de clavier. D'autres langues sont prévues.",
       },
       {
         question: "À quoi sert le certificat de frappe ?",
@@ -104,7 +104,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Puis-je sauvegarder mes progrès ?",
-        answer: "Oui, avec un compte gratuit, tes résultats sont sauvegardés et tu peux suivre ta progression dans le temps. Cette fonctionnalité arrive bientôt.",
+        answer: "Oui, avec un compte gratuit, tes résultats sont sauvegardés et tu peux suivre ta progression dans le temps.",
       },
       {
         question: "Comment la vitesse de frappe est-elle mesurée ?",
