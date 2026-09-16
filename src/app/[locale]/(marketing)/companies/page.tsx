@@ -142,7 +142,7 @@ export default async function CompaniesPage({ params }: Props) {
 
       {/* Social proof */}
       <section className="py-20 overflow-hidden">
-        <TestimonialSlider locale={locale} />
+        <TestimonialSlider locale={locale} segments={["professional"]} />
       </section>
 
       {/* Contact form */}

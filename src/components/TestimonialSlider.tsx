@@ -1,8 +1,11 @@
+type Segment = "professional" | "student";
+
 type Testimonial = {
   name: string;
   role: string;
   text: string;
   stars: number;
+  segment: Segment;
 };
 
 const testimonials: Record<string, Testimonial[]> = {
@@ -10,24 +13,28 @@ const testimonials: Record<string, Testimonial[]> = {
     {
       name: "Thomas L.",
       role: "Ingenieur",
+      segment: "professional",
       stars: 5,
       text: "Ich habe immer mit sechs Fingern getippt und dachte, das reicht. Drei Wochen später tippe ich mit allen zehn. Einfach dem Kurs folgen, dem Prozess vertrauen - der Fortschritt kommt schneller als man denkt.",
     },
     {
       name: "Eva S.",
       role: "Office Admin",
+      segment: "professional",
       stars: 5,
       text: "Es hat mich so genervt, wie langsam ich war. Jede E-Mail hat ewig gedauert. Jetzt tippe ich so viel schneller und mache weniger Fehler. Die Verbesserung nach nur zwei Wochen ist wahnsinnig gut.",
     },
     {
       name: "Lino M.",
       role: "Student",
+      segment: "student",
       stars: 5,
       text: "Ich hatte ehrlich gesagt keine Lust, Tippen zu üben. Aber die App macht es so einfach und motivierend, dass ich drangeblieben bin. Nach jeder Übung sieht man direkt den Fortschritt. Das hält einen bei der Stange.",
     },
     {
       name: "Lola L.",
       role: "Studentin",
+      segment: "student",
       stars: 5,
       text: "Sehr übersichtlich, genau die Features, die man braucht, und dazu richtig modern. Kein Schnickschnack, kein Abo-Druck. Hat einfach Spaß gemacht, jeden Tag eine Übung zu machen.",
     },
@@ -36,24 +43,28 @@ const testimonials: Record<string, Testimonial[]> = {
     {
       name: "Thomas L.",
       role: "Engineer",
+      segment: "professional",
       stars: 5,
       text: "I always typed with six fingers and thought that was enough. Three weeks later, I'm typing with all ten. Just follow the course, trust the process - progress comes faster than you'd think.",
     },
     {
       name: "Eva S.",
       role: "Office Admin",
+      segment: "professional",
       stars: 5,
       text: "It frustrated me so much how slow I was. Every email took forever. Now I type so much faster with fewer errors. The improvement after just two weeks is incredible.",
     },
     {
       name: "Lino M.",
       role: "Student",
+      segment: "student",
       stars: 5,
       text: "Honestly, I wasn't excited about practicing typing. But the app makes it so easy and encouraging that I kept going. After every exercise, you see your progress right away. That keeps you motivated.",
     },
     {
       name: "Lola L.",
       role: "Student",
+      segment: "student",
       stars: 5,
       text: "Super clean, exactly the features you need, and really modern. No clutter, no subscription pressure. It was genuinely fun to do one exercise a day.",
     },
@@ -62,24 +73,28 @@ const testimonials: Record<string, Testimonial[]> = {
     {
       name: "Thomas L.",
       role: "Ingénieur",
+      segment: "professional",
       stars: 5,
       text: "J'ai toujours tapé avec six doigts en pensant que c'était suffisant. Trois semaines plus tard, je tape avec les dix. Il suffit de suivre le cours, de faire confiance au processus - les progrès viennent vite.",
     },
     {
       name: "Eva S.",
       role: "Office Admin",
+      segment: "professional",
       stars: 5,
       text: "Ça m'énervait tellement d'être aussi lente. Chaque email prenait une éternité. Maintenant, je tape beaucoup plus vite avec moins d'erreurs. L'amélioration en seulement deux semaines est incroyable.",
     },
     {
       name: "Lino M.",
       role: "Étudiant",
+      segment: "student",
       stars: 5,
       text: "Honnêtement, je n'avais pas envie de m'entraîner à taper. Mais l'app rend les choses tellement simples et motivantes que j'ai continué. Après chaque exercice, on voit ses progrès. Ça motive vraiment.",
     },
     {
       name: "Lola L.",
       role: "Étudiante",
+      segment: "student",
       stars: 5,
       text: "Très clair, exactement les fonctionnalités dont on a besoin, et vraiment moderne. Pas de superflu, pas de pression d'abonnement. C'était vraiment agréable de faire un exercice par jour.",
     },
@@ -134,10 +149,13 @@ import { CtaButton } from "./CtaButton";
 
 type Props = {
   locale: string;
+  // Restrict to some audiences, e.g. ["professional"] on the companies page.
+  segments?: Segment[];
 };
 
-export function TestimonialSlider({ locale }: Props) {
-  const items = testimonials[locale] || testimonials.en;
+export function TestimonialSlider({ locale, segments }: Props) {
+  const all = testimonials[locale] || testimonials.en;
+  const items = segments ? all.filter((t) => segments.includes(t.segment)) : all;
   const l = i18n[locale] || i18n.en;
 
   const reversed = [...items].reverse();
