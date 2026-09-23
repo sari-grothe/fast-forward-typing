@@ -29,8 +29,9 @@ export function KeyCharacter({ pose = "waving", size = 120, className, limbColor
         <text x="0" y="-2" fontFamily="Poppins, sans-serif" fontSize="22" fontWeight="800" fill="#3f0ff2" textAnchor="middle">&gt;&gt;</text>
         <circle cx="-7" cy="13" r="2.6" fill="#050111" />
         <circle cx="7" cy="13" r="2.6" fill="#050111" />
-        {/* small open "aha" mouth */}
-        <ellipse cx="0" cy="20" rx="2.4" ry="2.8" fill="#050111" />
+        {/* smile, same curve as every other pose - a closed "aha" mouth
+            read as shocked/sad instead of a confident realization */}
+        <path d="M-5 20 Q0 25 5 20" stroke="#050111" strokeWidth="1.8" strokeLinecap="round" />
         {/* left arm relaxed */}
         <line x1="-30" y1="10" x2="-41" y2="19" stroke={lc} strokeWidth="3" strokeLinecap="round" />
       </svg>
