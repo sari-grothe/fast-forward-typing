@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
+import { SaveProgressPrompt } from "@/components/SaveProgressPrompt";
 import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey, homeRestingKeys } from "@/lib/lessons";
 import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
@@ -185,6 +186,8 @@ export function LessonView({ lessonId, locale }: Props) {
             </Link>
           </div>
         </div>
+
+        {lessonId === 1 && <SaveProgressPrompt locale={locale} />}
       </div>
     );
   }

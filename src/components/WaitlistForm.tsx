@@ -20,6 +20,9 @@ type Props = {
   labels: WaitlistFormLabels;
   // Extra hidden fields sent along (e.g. wpm/accuracy from a typing test).
   extra?: Record<string, string>;
+  // Called once the submission succeeds (e.g. to persist a "don't show
+  // this again" flag alongside the actual signup).
+  onSuccess?: () => void;
 };
 
 // Same Formspree account/form as the companies contact form (see
@@ -30,7 +33,7 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdrkvn";
 
 type Status = "idle" | "sending" | "error";
 
-export function WaitlistForm({ locale, product, labels, extra }: Props) {
+export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -65,6 +68,7 @@ export function WaitlistForm({ locale, product, labels, extra }: Props) {
       });
       if (!res.ok) throw new Error(`Formspree ${res.status}`);
       setSubmitted(true);
+      onSuccess?.();
     } catch {
       setStatus("error");
     }
