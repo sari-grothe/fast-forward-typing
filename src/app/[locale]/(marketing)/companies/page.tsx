@@ -8,6 +8,8 @@ import { KeyCharacter } from "@/components/KeyCharacter";
 import { TeamSavingsCalculator, type CalculatorLabels } from "@/components/companies/TeamSavingsCalculator";
 import { ContactForm, type ContactFormLabels } from "@/components/companies/ContactForm";
 import { CtaButton } from "@/components/CtaButton";
+import { FAQ } from "@/components/FAQ";
+import { companiesFAQ } from "@/lib/companies-faq-data";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -57,6 +59,7 @@ export default async function CompaniesPage({ params }: Props) {
   const { locale } = await params;
   const dict = await getDictionary(locale as Locale);
   const c = dict.companies as Record<string, unknown>;
+  const meta = c.meta as { title: string; description: string };
   const hero = c.hero as Record<string, string>;
   const savings = c.savings as Record<string, string>;
   const why = c.why as { eyebrow: string; title: string; intro: string; items: { title: string; desc: string }[]; closing: string };
@@ -77,9 +80,45 @@ export default async function CompaniesPage({ params }: Props) {
 
   const pricingId = companiesAnchorId(locale, "pricing");
   const contactId = companiesAnchorId(locale, "contact");
+  const faq = companiesFAQ[locale] || companiesFAQ.en;
+
+  // Service entity for search engines and AI assistants: what this is,
+  // who it's for, how it's priced. Same provider block as the Course
+  // schema on the homepage, kept in sync manually (see llms.txt maintenance
+  // in CLAUDE.md - positioning changes need updating in both places).
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: meta.title,
+    description: meta.description,
+    serviceType: "Corporate touch-typing training",
+    provider: {
+      "@type": "Organization",
+      name: "Fast Forward >> Typing",
+    },
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: "Companies, HR and L&D teams",
+    },
+    areaServed: ["DE", "AT", "CH", "FR", "BE"],
+    offers: {
+      "@type": "Offer",
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "EUR",
+        unitText: "seat/year",
+      },
+      availability: "https://schema.org/InStock",
+    },
+    inLanguage: locales,
+  };
 
   return (
     <div className="marketing-ambient">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       {/* Hero */}
       <section className="pt-12 pb-20 sm:pt-20">
         <div className="mx-auto max-w-5xl px-6">
@@ -206,6 +245,15 @@ export default async function CompaniesPage({ params }: Props) {
       <section className="py-20 overflow-hidden">
         <TestimonialSlider locale={locale} segments={["professional"]} rows={1} showCta={false} />
       </section>
+
+      {/* FAQ - also targets B2B long-tail search terms (price, duration,
+          onboarding fit, multilingual teams, tracking, min. team size)
+          that no other section on this page covers */}
+      <div className="mx-auto max-w-5xl px-6">
+        <section className="pb-20">
+          <FAQ title={faq.title} items={faq.items} />
+        </section>
+      </div>
 
       {/* Contact form */}
       <section id={contactId} className="py-20 scroll-mt-24">
