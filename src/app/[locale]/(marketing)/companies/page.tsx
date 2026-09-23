@@ -10,7 +10,6 @@ import { ContactForm, type ContactFormLabels } from "@/components/companies/Cont
 import { CtaButton } from "@/components/CtaButton";
 import { FAQ } from "@/components/FAQ";
 import { companiesFAQ } from "@/lib/companies-faq-data";
-import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -70,10 +69,6 @@ export default async function CompaniesPage({ params }: Props) {
   const pricing = c.pricing as Record<string, string>;
   const faqBridge = c.faqBridge as string;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
-  // Same 20-emails-a-day breakdown as the home page - reused verbatim
-  // (same assumption, same source citation) instead of duplicating the
-  // copy under companies.* in three more languages.
-  const timeBreakdown = (dict.home as Record<string, unknown>).productivity as unknown as TypingTimeBreakdownLabels;
 
   const pricingId = companiesAnchorId(locale, "pricing");
   const contactId = companiesAnchorId(locale, "contact");
@@ -150,12 +145,14 @@ export default async function CompaniesPage({ params }: Props) {
       </section>
 
       {/* Savings calculator - the hook: quantify the cost first, right
-          after the hero, before explaining why nobody notices it */}
+          after the hero, before explaining why nobody notices it. One
+          card, one number - a buyer sizes their own team and reads the
+          answer in one glance, no second explainer paragraph or second
+          chart repeating the same math (that's the home page's job). */}
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{savings.title}</h2>
-            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12">{savings.baseline}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">{savings.title}</h2>
           </ScrollReveal>
           <div className="mx-auto max-w-3xl">
             <ScrollReveal delay={80}>
@@ -165,16 +162,7 @@ export default async function CompaniesPage({ params }: Props) {
                 ctaLabel={hero.ctaPrimary}
                 ctaHref={`#${contactId}`}
               />
-            </ScrollReveal>
-            {/* Per-person breakdown: the team number above is the pitch,
-                this is the receipt - same 40/60/80/100 WPM bars as the
-                home page, showing where each hour actually comes from. */}
-            <ScrollReveal delay={140}>
-              <div className="mt-6 rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
-                <TypingTimeBreakdown labels={timeBreakdown} />
-              </div>
-              {/* Source: fine print under the box, not inside it. */}
-              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{timeBreakdown.source}</p>
+              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{savings.source}</p>
             </ScrollReveal>
           </div>
         </div>

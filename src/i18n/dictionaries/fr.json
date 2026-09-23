@@ -177,13 +177,13 @@
     },
     "savings": {
       "title": "Tout le temps que ton équipe peut gagner",
-      "baseline": "40 MPM (mots par minute), c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",
       "teamSize": "Taille de l'équipe",
       "sliderHint": "Déplace le curseur pour indiquer la taille de ton équipe",
       "perPerson": "Ça fait {hours} heure par personne et par jour.",
       "perDay": "heures par jour",
       "perYear": "heures par an",
       "assumption": "Base de calcul : 20 e-mails de 500 mots par jour, de 40 à 60 MPM, 220 jours travaillés.",
+      "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
       "promise": "Promesse réaliste : à 15 minutes par jour, la technique est là en quelques semaines. Ensuite, la vitesse continue de monter à chaque journée de travail.",
       "fte": "postes à temps plein par an",
       "resultIntro": "Pour {n} salariés qui écrivent beaucoup :"
