@@ -277,23 +277,28 @@ export default async function CompaniesPage({ params }: Props) {
         <TestimonialSlider locale={locale} segments={["professional"]} rows={1} showCta={false} />
       </section>
 
-      {/* FAQ, flowing directly into the contact form as one closing
-          movement (tight spacing + a one-line bridge) instead of ending
-          cold on the last answer and restarting with a new section
-          header. Also targets B2B long-tail search terms (price,
-          duration, onboarding fit, multilingual teams, tracking, min.
-          team size) that no other section on this page covers. */}
+      {/* FAQ. Also targets B2B long-tail search terms (price, duration,
+          onboarding fit, multilingual teams, tracking, min. team size)
+          that no other section on this page covers. The "didn't find
+          your question" line is a closing note ON this section (small,
+          top border, attached to the FAQ list) - not a headline-weight
+          message floating in the gap before the next section. */}
       <div className="mx-auto max-w-5xl px-6">
-        <section className="pb-8">
+        <section className="py-20">
           <FAQ title={faq.title} items={faq.items} />
+          <ScrollReveal>
+            <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mt-10 pt-8 border-t border-zinc-200 dark:border-dark-border">
+              {faqBridge}
+            </p>
+          </ScrollReveal>
         </section>
       </div>
 
-      {/* Contact form */}
-      <section id={contactId} className="pb-20 scroll-mt-24">
+      {/* Contact form: its own section with real top and bottom room, so
+          it reads as a clear destination after FAQ, not a run-on. */}
+      <section id={contactId} className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-3xl px-6">
           <ScrollReveal>
-            <p className="text-center text-sm font-medium text-indigo mb-10">{faqBridge}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{form.title}</h2>
             <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto mb-12">{form.subtitle}</p>
           </ScrollReveal>
