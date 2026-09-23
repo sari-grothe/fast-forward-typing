@@ -17,7 +17,6 @@ const categoryIcons: Record<ResourceCategory, string> = {
   learning: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25",
   shortcuts: "M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v9A2.25 2.25 0 0118 17.25h-5.25l-1.5 3H15a.75.75 0 010 1.5H9a.75.75 0 010-1.5h3.75l-1.5-3H6A2.25 2.25 0 013.75 15V6zM6 5.25a.75.75 0 00-.75.75v9c0 .414.336.75.75.75h12a.75.75 0 00.75-.75V6a.75.75 0 00-.75-.75H6z",
   productivity: "M2.25 18L9 11.25l4.306 4.306a11.95 11.95 0 015.814-5.518l2.74-1.22m0 0l-5.94-2.281m5.94 2.28l-2.28 5.941",
-  mobile: "M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3",
   comparisons: "M7.5 21L3 16.5m0 0L7.5 12M3 16.5h18M16.5 3L21 7.5m0 0L16.5 12M21 7.5H3",
 };
 
@@ -26,7 +25,6 @@ function CategoryBadge({ category, locale }: { category: ResourceCategory; local
     learning: "bg-indigo/10 text-indigo",
     shortcuts: "bg-electric-yellow/15 text-dark-text dark:text-electric-yellow",
     productivity: "bg-peach/15 text-peach",
-    mobile: "bg-zinc-200/60 text-zinc-600 dark:bg-zinc-700/40 dark:text-zinc-300",
     comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
   return (
@@ -179,13 +177,19 @@ export function ResourcesOverview({ items, locale, finalCta }: Props) {
   const [activeCategory, setActiveCategory] = useState<ResourceCategory | "all">("all");
   const [query, setQuery] = useState("");
   const ui = resourcesUi[locale];
-  const categories = Object.keys(categoryLabels[locale]).filter((k) => k !== "all") as ResourceCategory[];
-
   const counts = useMemo(() => {
     const c: Partial<Record<ResourceCategory, number>> = {};
     for (const item of items) c[item.category] = (c[item.category] ?? 0) + 1;
     return c;
   }, [items]);
+
+  // Only categories with at least one article for this locale - an empty
+  // category is a dead end (a card promising content that isn't there
+  // yet), not a useful way to browse. Some locales lag others until a
+  // translation lands, so this varies per locale on its own.
+  const categories = (Object.keys(categoryLabels[locale]).filter((k) => k !== "all") as ResourceCategory[]).filter(
+    (cat) => (counts[cat] ?? 0) > 0
+  );
 
   const q = query.trim().toLowerCase();
   const searching = q.length > 0;

@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 
-export type ResourceCategory = "learning" | "shortcuts" | "productivity" | "mobile" | "comparisons";
+export type ResourceCategory = "learning" | "shortcuts" | "productivity" | "comparisons";
 export type ResourceType = "article" | "lead-magnet";
 
 export type ResourceMeta = {
@@ -18,9 +18,9 @@ export type ResourceMeta = {
 };
 
 export const categoryLabels: Record<Locale, Record<ResourceCategory | "all", string>> = {
-  de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", mobile: "Mobil", comparisons: "Vergleiche" },
-  en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", mobile: "Mobile", comparisons: "Comparisons" },
-  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", mobile: "Mobile", comparisons: "Comparatifs" },
+  de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", comparisons: "Vergleiche" },
+  en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", comparisons: "Comparisons" },
+  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", comparisons: "Comparatifs" },
 };
 
 export const resourcesUi: Record<Locale, {
@@ -171,7 +171,7 @@ Der Trick ist, die ersten 7 Tage durchzuhalten. Danach spürst du den Fortschrit
     slug: "schneller-tippen-handy",
     locale: "de",
     type: "article",
-    category: "mobile",
+    category: "productivity",
     title: "Schneller tippen am Handy: 6 sofort umsetzbare Tipps",
     description: "Swipe-Typing, Textbausteine, Spracheingabe - so holst du das Maximum aus deiner Handy-Tastatur.",
     readingTime: 4,
@@ -572,7 +572,7 @@ The trick is to push through the first 7 days. After that, you'll feel the progr
     slug: "faster-typing-phone",
     locale: "en",
     type: "article",
-    category: "mobile",
+    category: "productivity",
     title: "Faster Typing on Your Phone: 6 Tips You Can Use Right Now",
     description: "Swipe typing, text shortcuts, voice input - get the most out of your phone keyboard.",
     readingTime: 4,
@@ -917,7 +917,7 @@ Le truc, c'est de tenir les 7 premiers jours. Après ça, tu sens le progrès.`,
     slug: "taper-plus-vite-telephone",
     locale: "fr",
     type: "article",
-    category: "mobile",
+    category: "productivity",
     title: "Taper plus vite sur ton téléphone : 6 astuces immédiates",
     description: "Glissement, raccourcis texte, dictée vocale - tire le maximum de ton clavier mobile.",
     readingTime: 4,
