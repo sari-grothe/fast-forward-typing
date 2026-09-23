@@ -1,10 +1,38 @@
+import type { Metadata } from "next";
 import { getDictionary } from "@/i18n/dictionaries";
-import type { Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { CtaButton } from "@/components/CtaButton";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
+
+// Reuses the page's own approved copy (about.title/intro) rather than
+// writing new marketing lines - the intro is trimmed to its first two
+// sentences to fit a meta description, not paraphrased.
+const introExcerpt: Record<Locale, string> = {
+  de: "Millionen von Menschen tippen jeden Tag - E-Mails, Nachrichten, Dokumente, Code. Aber die wenigsten haben es je richtig gelernt.",
+  en: "Millions of people type every single day - emails, messages, documents, code. But most never learned to do it properly.",
+  fr: "Des millions de personnes tapent chaque jour - e-mails, messages, documents, code. Mais la plupart n'ont jamais appris a le faire correctement.",
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const l = locale as Locale;
+  const dict = await getDictionary(l);
+  const a = dict.about as { title: string };
+  const description = introExcerpt[l] ?? introExcerpt.en;
+
+  return {
+    title: `${a.title} - Fast Forward >> Typing`,
+    description,
+    openGraph: { title: a.title, description, type: "website" },
+    alternates: {
+      canonical: `https://fastforwardtyping.com/${locale}/about`,
+      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/about`])),
+    },
+  };
+}
 
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;

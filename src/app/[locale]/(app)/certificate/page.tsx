@@ -1,4 +1,5 @@
-import type { Locale } from "@/i18n/config";
+import type { Metadata } from "next";
+import { locales, type Locale } from "@/i18n/config";
 import { FAQ } from "@/components/FAQ";
 import { certificateFAQ } from "@/lib/faq-data";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
@@ -8,6 +9,37 @@ type Props = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ wpm?: string; accuracy?: string }>;
 };
+
+const meta: Record<Locale, { title: string; description: string }> = {
+  de: {
+    title: "Tippzertifikat - deine Tippgeschwindigkeit offiziell bestätigen",
+    description: "Sichere dir dein Tippzertifikat mit WPM, Genauigkeit und Datum - ideal für Lebenslauf und LinkedIn. Trag dich jetzt kostenlos in die Warteliste ein.",
+  },
+  en: {
+    title: "Typing Certificate - Prove Your Typing Speed Officially",
+    description: "Get your typing certificate with WPM, accuracy and date - perfect for your CV and LinkedIn. Join the free waitlist now.",
+  },
+  fr: {
+    title: "Certificat de frappe - officialise ta vitesse",
+    description: "Obtiens ton certificat de frappe avec MPM, précision et date - parfait pour ton CV et LinkedIn. Inscris-toi gratuitement sur la liste d'attente.",
+  },
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const l = locale as Locale;
+  const m = meta[l] ?? meta.en;
+
+  return {
+    title: `${m.title} - Fast Forward >> Typing`,
+    description: m.description,
+    openGraph: { title: m.title, description: m.description, type: "website" },
+    alternates: {
+      canonical: `https://fastforwardtyping.com/${locale}/certificate`,
+      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/certificate`])),
+    },
+  };
+}
 
 const i18n: Record<Locale, {
   heroTitle: string;

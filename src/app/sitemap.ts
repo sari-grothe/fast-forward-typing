@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
-import { locales } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import { companiesPath } from "@/i18n/routes";
 import { getAllTipSlugs } from "@/lib/tips";
+import { getLessons } from "@/lib/lessons";
 
 const BASE_URL = "https://fastforwardtyping.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  const staticPages = ["", "/speed-test", "/lessons", "/tips", "/about", "/tools/keyboard-layouts"];
+  const staticPages = ["", "/speed-test", "/lessons", "/placement", "/certificate", "/tips", "/about", "/tools/keyboard-layouts"];
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
@@ -33,5 +34,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...companiesEntries, ...tipEntries];
+  // Only the free lessons (0-6): the paid ones show the Pro paywall to
+  // anonymous visitors including crawlers, not lesson content, so they
+  // stay out of the sitemap (see lessons/[id]/page.tsx generateMetadata).
+  const lessonEntries = locales.flatMap((locale) =>
+    getLessons(locale as Locale)
+      .filter((lesson) => lesson.isFree)
+      .map((lesson) => ({
+        url: `${BASE_URL}/${locale}/lessons/${lesson.id}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      }))
+  );
+
+  return [...staticEntries, ...companiesEntries, ...tipEntries, ...lessonEntries];
 }

@@ -42,6 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = dict.meta.description;
 
   return {
+    // Required for Next.js to resolve relative URLs in `alternates` (the
+    // hreflang tags below) and Open Graph images into absolute ones -
+    // without it, alternates.languages silently renders nothing at all
+    // (canonical still works site-wide since every page already passes
+    // it as a full https:// URL, not a relative path).
+    metadataBase: new URL("https://fastforwardtyping.com"),
     title,
     description,
     openGraph: {
@@ -57,6 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
     },
     alternates: {
+      canonical: `https://fastforwardtyping.com/${locale}`,
       languages: {
         ...Object.fromEntries(locales.map((l) => [l, `/${l}`])),
         "x-default": "/en",
