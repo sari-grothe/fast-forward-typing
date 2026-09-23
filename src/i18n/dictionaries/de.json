@@ -11,8 +11,8 @@
     "pricing": "Preise"
   },
   "home": {
-    "headline": "Du tippst jeden Tag. Warum nicht doppelt so schnell?",
-    "subheadline": "Schneller tippen, produktiver arbeiten. Das 10-Finger-System, Lektion für Lektion, in deinem Tempo.",
+    "headline": "Du denkst schnell. Tippst du auch so?",
+    "subheadline": "E-Mails, Dokumente, KI-Prompts: du schreibst den ganzen Tag. Mit dem 10-Finger-System sparst du dabei mehr als eine Stunde. Jeden Tag.",
     "ctaLearn": "Kurs starten",
     "ctaTest": "Geschwindigkeit testen",
     "productivity": {
@@ -192,6 +192,7 @@
       "subtitle": "Onboarding, Ausbildung oder Kundenservice: Sag uns, wo dein Team steht und was ihr erreichen wollt. Innerhalb eines Werktags bekommst du einen Vorschlag mit Preis, messbaren Zielen und dem Nachweis für die Personalakte.",
       "name": "Name",
       "email": "Arbeits-E-Mail",
+      "phone": "Telefon (optional)",
       "company": "Unternehmen",
       "teamSize": "Teamgröße",
       "teamSizeOptions": [

@@ -7,6 +7,7 @@ export type ContactFormLabels = {
   name: string;
   email: string;
   company: string;
+  phone: string;
   teamSize: string;
   teamSizePlaceholder: string;
   teamSizeOptions: string[];
@@ -104,6 +105,13 @@ export function ContactForm({ locale, labels }: Props) {
             <div>
               <label htmlFor="contact-email" className={labelClass}>{labels.email}</label>
               <input id="contact-email" name="email" type="email" required autoComplete="email" className={fieldClass} />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label htmlFor="contact-phone" className={labelClass}>{labels.phone}</label>
+              <input id="contact-phone" name="phone" type="tel" autoComplete="tel" className={fieldClass} />
             </div>
           </div>
 

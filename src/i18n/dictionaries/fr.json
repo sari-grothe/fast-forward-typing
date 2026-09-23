@@ -192,6 +192,7 @@
       "subtitle": "Onboarding, alternants ou service client : dis-nous où en est ton équipe et ce que vous voulez atteindre. Sous un jour ouvré, tu reçois une proposition avec tarif, objectifs mesurables et justificatif pour le dossier RH.",
       "name": "Nom",
       "email": "E-mail pro",
+      "phone": "Téléphone (facultatif)",
       "company": "Entreprise",
       "teamSize": "Taille de l'équipe",
       "teamSizeOptions": [

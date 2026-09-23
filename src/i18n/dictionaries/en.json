@@ -192,6 +192,7 @@
       "subtitle": "Onboarding, trainees or customer support: tell us where your team stands and what you want to achieve. Within one working day you get a proposal with pricing, measurable targets and documentation for the HR file.",
       "name": "Name",
       "email": "Work email",
+      "phone": "Phone (optional)",
       "company": "Company",
       "teamSize": "Team size",
       "teamSizeOptions": [

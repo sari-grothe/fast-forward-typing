@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { CtaButton } from "@/components/CtaButton";
 
 const splits: Record<string, { static: string; typed: string }> = {
-  de: { static: "Du tippst jeden Tag. ", typed: "Warum nicht doppelt so schnell?" },
+  de: { static: "Du denkst schnell. ", typed: "Tippst du auch so?" },
   en: { static: "You type every day. ", typed: "Why not twice as fast?" },
   fr: { static: "Tu tapes tous les jours. ", typed: "Pourquoi pas deux fois plus vite ?" },
 };
