@@ -43,7 +43,8 @@
       "step2Desc": "Guided lessons take you step by step to touch typing. At your own pace.",
       "step3Title": "Get your certificate",
       "step3Desc": "Complete the course and earn a certificate that proves your typing speed.",
-      "cta": "Start typing course"
+      "cta": "Start typing course",
+      "subtitle": "15 minutes a day."
     },
     "features": {
       "title": "What you get",
@@ -119,7 +120,6 @@
     "learnTyping": "Learn to type",
     "typingTest": "Typing Test",
     "typingCourse": "Typing Course",
-    "typingTips": "Typing Tips",
     "certificate": "Certificate",
     "forCompanies": "For Companies",
     "teamTraining": "Team Training",

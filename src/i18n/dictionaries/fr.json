@@ -43,7 +43,8 @@
       "step2Desc": "Des leçons structurées te guident vers la frappe à dix doigts. À ton rythme.",
       "step3Title": "Obtiens ton certificat",
       "step3Desc": "Termine le cours et reçois un certificat qui atteste ta vitesse de frappe.",
-      "cta": "Commencer le cours"
+      "cta": "Commencer le cours",
+      "subtitle": "15 minutes par jour."
     },
     "features": {
       "title": "Ce qui t'attend",
@@ -119,7 +120,6 @@
     "learnTyping": "Apprendre à taper",
     "typingTest": "Test de frappe",
     "typingCourse": "Cours de frappe",
-    "typingTips": "Astuces de frappe",
     "certificate": "Certificat",
     "forCompanies": "Pour entreprises",
     "teamTraining": "Formation d'équipe",
