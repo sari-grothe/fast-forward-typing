@@ -175,8 +175,8 @@
       "closing": "What nobody measures does not improve. That is why every team training with us starts with a measurement, and ends with one."
     },
     "savings": {
-      "title": "How much time is hiding in your team",
-      "baseline": "40 WPM is average, roughly the pace of a telegraph operator in 1920. A 500-word email takes 12.5 minutes at that speed. At 60 WPM, it's 8.3.",
+      "title": "How much time your team can save",
+      "baseline": "40 WPM (words per minute) is average, roughly the pace of a telegraph operator in 1920. A 500-word email takes 12.5 minutes at that speed. At 60 WPM, it's 8.3.",
       "teamSize": "Team size",
       "sliderHint": "Drag the slider to set your team size",
       "perPerson": "That's {hours} hours per person, per day.",
@@ -186,7 +186,7 @@
       "source": "Source: the largest typing-speed study ever conducted - Aalto University, 168,000 participants.",
       "promise": "Realistic promise: at 15 minutes a day, the technique is in place within a few weeks. Speed keeps growing with every working day after that.",
       "fte": "full-time positions per year",
-      "resultIntro": "For {n} employees:"
+      "resultIntro": "For {n} employees who write a lot:"
     },
     "included": {
       "title": "What your team gets",

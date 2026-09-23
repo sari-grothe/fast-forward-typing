@@ -175,8 +175,8 @@
       "closing": "Was niemand misst, wird nicht besser. Deshalb beginnt jedes Team-Training bei uns mit einer Messung, und endet mit einer."
     },
     "savings": {
-      "title": "So viel Zeit steckt in deinem Team",
-      "baseline": "40 WPM ist Durchschnittstempo, ungefähr so schnell wie ein Telegrafist 1920. Eine 500-Wort-Mail dauert damit 12,5 Minuten. Mit 60 WPM sind es 8,3.",
+      "title": "So viel Zeit kann dein Team sparen",
+      "baseline": "40 WPM (Wörter pro Minute) ist Durchschnittstempo, ungefähr so schnell wie ein Telegrafist 1920. Eine 500-Wort-Mail dauert damit 12,5 Minuten. Mit 60 WPM sind es 8,3.",
       "teamSize": "Teamgröße",
       "sliderHint": "Regler verschieben, um deine Teamgröße einzustellen",
       "perPerson": "Das sind {hours} Stunden pro Person und Tag.",
@@ -186,7 +186,7 @@
       "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
       "promise": "Realistisch: Mit 15 Minuten am Tag sitzt die Technik nach wenigen Wochen. Die Geschwindigkeit wächst danach mit jedem Arbeitstag weiter.",
       "fte": "Vollzeitstellen im Jahr",
-      "resultIntro": "Für {n} Mitarbeitende:"
+      "resultIntro": "Für {n} Mitarbeitende, die viel schreiben:"
     },
     "included": {
       "title": "Was dein Team bekommt",

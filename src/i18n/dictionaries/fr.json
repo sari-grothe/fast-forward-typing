@@ -175,8 +175,8 @@
       "closing": "Ce que personne ne mesure ne s'améliore pas. C'est pourquoi chaque formation d'équipe chez nous commence par une mesure, et se termine par une autre."
     },
     "savings": {
-      "title": "Tout ce temps qui dort dans ton équipe",
-      "baseline": "40 MPM, c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",
+      "title": "Tout le temps que ton équipe peut gagner",
+      "baseline": "40 MPM (mots par minute), c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",
       "teamSize": "Taille de l'équipe",
       "sliderHint": "Déplace le curseur pour indiquer la taille de ton équipe",
       "perPerson": "Ça fait {hours} heure par personne et par jour.",
@@ -186,7 +186,7 @@
       "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
       "promise": "Promesse réaliste : à 15 minutes par jour, la technique est là en quelques semaines. Ensuite, la vitesse continue de monter à chaque journée de travail.",
       "fte": "postes à temps plein par an",
-      "resultIntro": "Pour {n} salariés :"
+      "resultIntro": "Pour {n} salariés qui écrivent beaucoup :"
     },
     "included": {
       "title": "Ce que ton équipe reçoit",
