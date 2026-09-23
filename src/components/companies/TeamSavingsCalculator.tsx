@@ -101,13 +101,13 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
           {labels.resultIntro.replace("{n}", whole.format(teamSize))}
         </p>
         <p className="text-6xl sm:text-7xl font-extrabold text-indigo leading-none tabular-nums">
-          {oneDecimal.format(fullTimeEquivalents)}
+          {oneDecimal.format(perDay)}
         </p>
-        <p className="text-base font-semibold text-dark-text dark:text-white mt-2">{labels.fte}</p>
+        <p className="text-base font-semibold text-dark-text dark:text-white mt-2">{labels.perDay}</p>
 
         <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-indigo/15">
           {[
-            { value: whole.format(perDay), label: labels.perDay },
+            { value: oneDecimal.format(fullTimeEquivalents), label: labels.fte },
             { value: whole.format(perYear), label: labels.perYear },
           ].map((stat) => (
             <div key={stat.label}>
