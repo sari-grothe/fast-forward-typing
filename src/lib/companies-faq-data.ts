@@ -1,4 +1,6 @@
-type FAQItem = { question: string; answer: string };
+import { companiesAnchorId } from "@/i18n/routes";
+
+type FAQItem = { question: string; answer: string; answerLink?: { text: string; href: string } };
 
 // FAQ for the companies (B2B) page. Questions are phrased as real B2B
 // search queries (price, duration, onboarding fit, multilingual teams,
@@ -15,6 +17,7 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "Was kostet ein Tippkurs für Unternehmen?",
         answer:
           "Eine Jahreslizenz pro Mitarbeiter:in, gestaffelt nach Teamgröße. Für kleine Teams ist ein bezahlter Pilot möglich, bevor ihr auf das ganze Unternehmen ausrollt. Den genauen Preis für eure Teamgröße bekommt ihr über das Formular unten, innerhalb eines Werktags.",
+        answerLink: { text: "über das Formular unten", href: `#${companiesAnchorId("de", "contact")}` },
       },
       {
         question: "Wie lange dauert das 10-Finger-System-Training pro Mitarbeiter:in?",
@@ -50,6 +53,7 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "What does a typing course for companies cost?",
         answer:
           "An annual license per employee, tiered by team size. For small teams a paid pilot is possible before you roll out company-wide. You get the exact price for your team size through the form below, within one business day.",
+        answerLink: { text: "through the form below", href: `#${companiesAnchorId("en", "contact")}` },
       },
       {
         question: "How long does touch-typing training take per employee?",
@@ -85,6 +89,7 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "Combien coûte un cours de dactylographie pour une entreprise ?",
         answer:
           "Une licence annuelle par salarié, selon la taille de l'équipe. Pour les petites équipes, un pilote payant est possible avant un déploiement à toute l'entreprise. Vous recevez le prix exact pour votre équipe via le formulaire ci-dessous, sous un jour ouvré.",
+        answerLink: { text: "via le formulaire ci-dessous", href: `#${companiesAnchorId("fr", "contact")}` },
       },
       {
         question: "Combien de temps dure la formation par salarié ?",

@@ -5,12 +5,33 @@ import { useState } from "react";
 type FAQItem = {
   question: string;
   answer: string;
+  // Optional: turns one substring of `answer` into a link (e.g. "the
+  // form below" -> #contact). The JSON-LD schema always uses the plain
+  // `answer` text, so this never affects the FAQPage markup - only the
+  // on-page rendering.
+  answerLink?: { text: string; href: string };
 };
 
 type Props = {
   title: string;
   items: FAQItem[];
 };
+
+function renderAnswer(item: FAQItem) {
+  if (!item.answerLink || !item.answer.includes(item.answerLink.text)) {
+    return item.answer;
+  }
+  const [before, after] = item.answer.split(item.answerLink.text);
+  return (
+    <>
+      {before}
+      <a href={item.answerLink.href} className="text-indigo underline hover:no-underline">
+        {item.answerLink.text}
+      </a>
+      {after}
+    </>
+  );
+}
 
 export function FAQ({ title, items }: Props) {
   const [open, setOpen] = useState<number | null>(null);
@@ -60,7 +81,7 @@ export function FAQ({ title, items }: Props) {
                 open === i ? "max-h-96 pb-5" : "max-h-0"
               }`}
             >
-              <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.answer}</p>
+              <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{renderAnswer(item)}</p>
             </div>
           </div>
         ))}
