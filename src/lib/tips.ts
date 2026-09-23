@@ -37,6 +37,9 @@ export const tipsUi: Record<Locale, {
   featured: string;
   readArticle: string;
   tocLabel: string;
+  teamCtaTitle: string;
+  teamCtaDesc: string;
+  teamCtaLink: string;
 }> = {
   de: {
     pageTitle: "Ressourcen",
@@ -52,6 +55,9 @@ export const tipsUi: Record<Locale, {
     featured: "Empfohlen",
     readArticle: "Artikel lesen",
     tocLabel: "Inhalt",
+    teamCtaTitle: "Für dein Team?",
+    teamCtaDesc: "Team-Training mit Vorher-Nachher-Messung, für Unternehmen.",
+    teamCtaLink: "Team-Training anfragen",
   },
   en: {
     pageTitle: "Tips & Resources",
@@ -67,6 +73,9 @@ export const tipsUi: Record<Locale, {
     featured: "Featured",
     readArticle: "Read article",
     tocLabel: "Contents",
+    teamCtaTitle: "For your team?",
+    teamCtaDesc: "Team training with before/after measurement, for companies.",
+    teamCtaLink: "Request team training",
   },
   fr: {
     pageTitle: "Conseils & Ressources",
@@ -82,6 +91,9 @@ export const tipsUi: Record<Locale, {
     featured: "À la une",
     readArticle: "Lire l'article",
     tocLabel: "Sommaire",
+    teamCtaTitle: "Pour ton équipe ?",
+    teamCtaDesc: "Formation d'équipe avec mesure avant/après, pour les entreprises.",
+    teamCtaLink: "Demander une formation d'équipe",
   },
 };
 

@@ -12,6 +12,7 @@ import { PrintButton } from "@/components/tips/PrintButton";
 import { ArticleToc } from "@/components/tips/ArticleToc";
 import { ArticleCtaCard } from "@/components/tips/ArticleCtaCard";
 import { organization } from "@/lib/schema";
+import { companiesPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -51,6 +52,10 @@ export default async function TipArticlePage({ params }: Props) {
   const related = getRelatedTips(slug, locale as Locale);
   const isLeadMagnet = tip.type === "lead-magnet";
   const headings = extractHeadings(tip.content);
+  // Productivity articles are the ones that also make sense for a
+  // company buyer (time saved, professional output) - the other
+  // categories (shortcuts, learning basics, mobile) are individual-only.
+  const showTeamCta = tip.category === "productivity";
 
   const categoryColors: Record<string, string> = {
     learning: "bg-indigo/10 text-indigo",
@@ -91,8 +96,8 @@ export default async function TipArticlePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <div className="mx-auto max-w-6xl px-6 py-10">
-        <div className="lg:grid lg:grid-cols-[200px_minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
+      <div className="mx-auto max-w-7xl px-6 py-10">
+        <div className="lg:grid lg:grid-cols-[240px_minmax(0,1fr)_300px] lg:gap-8 lg:items-start">
           {/* Left: table of contents, sticky, desktop only - hidden entirely
               on short articles (see ArticleToc's own 3-heading minimum). */}
           <aside className="hidden lg:block sticky top-24 self-start">
@@ -158,6 +163,19 @@ export default async function TipArticlePage({ params }: Props) {
               </details>
             )}
 
+            {/* Mobile-only B2B teaser: the sidebar version is desktop-only,
+                so productivity articles still need this link somewhere
+                mobile readers will see it. */}
+            {showTeamCta && (
+              <div className="lg:hidden mb-8 rounded-xl border border-peach/30 bg-peach/5 dark:bg-peach/10 p-4">
+                <p className="text-sm font-semibold text-dark-text dark:text-white mb-1">{ui.teamCtaTitle}</p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-3">{ui.teamCtaDesc}</p>
+                <Link href={companiesPath(locale)} className="text-sm font-semibold text-indigo hover:underline">
+                  {ui.teamCtaLink} &gt;&gt;
+                </Link>
+              </div>
+            )}
+
             <hr className="border-zinc-200 dark:border-dark-border mb-8" />
 
             {/* Content */}
@@ -214,7 +232,18 @@ export default async function TipArticlePage({ params }: Props) {
               locale={locale}
               title={ui.tryCta}
               description={ui.tryCtaDesc}
-              ctaLabel={h.ctaTest as string}
+              courseLabel={ui.startCourse}
+              testLabel={h.ctaTest as string}
+              team={
+                showTeamCta
+                  ? {
+                      title: ui.teamCtaTitle,
+                      description: ui.teamCtaDesc,
+                      linkLabel: ui.teamCtaLink,
+                      href: companiesPath(locale),
+                    }
+                  : undefined
+              }
             />
           </aside>
         </div>
