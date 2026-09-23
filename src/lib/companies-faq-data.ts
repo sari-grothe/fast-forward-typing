@@ -14,7 +14,7 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
     title: "Häufig gestellte Fragen für Unternehmen",
     items: [
       {
-        question: "Was kostet ein Tippkurs für Unternehmen?",
+        question: "Was kostet ein 10-Finger-System-Kurs für Unternehmen?",
         answer:
           "Eine Jahreslizenz pro Mitarbeiter:in, gestaffelt nach Teamgröße. Für kleine Teams ist ein bezahlter Pilot möglich, bevor ihr auf das ganze Unternehmen ausrollt. Den genauen Preis für eure Teamgröße bekommt ihr über das Formular unten, innerhalb eines Werktags.",
         answerLink: { text: "über das Formular unten", href: `#${companiesAnchorId("de", "contact")}` },
@@ -28,6 +28,11 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "Lässt sich das Training ins Onboarding oder die Ausbildung integrieren?",
         answer:
           "Ja. Viele Teams hängen den Kurs als festen Baustein an die ersten vier Wochen im Job oder an den Digitalkompetenz-Teil der Ausbildung. Kein zusätzlicher Seminartag, kein Termin, der den Kalender blockiert.",
+      },
+      {
+        question: "Zählt das als Weiterbildung oder Mitarbeiterschulung?",
+        answer:
+          "Ja. Jede Person bekommt ein Zertifikat, dazu gibt es einen Export mit Abschlussquote und Kennzahlen fürs ganze Team - beides lässt sich direkt als Weiterbildungsnachweis in der Personalakte ablegen.",
       },
       {
         question: "Funktioniert der Kurs für mehrsprachige Teams (Deutsch, Englisch, Französisch)?",
@@ -66,6 +71,11 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
           "Yes. Many teams add the course as a fixed module in the first four weeks on the job, or as part of a digital-skills track. No extra seminar day, no meeting that blocks the calendar.",
       },
       {
+        question: "Does this count as employee training or professional development?",
+        answer:
+          "Yes. Everyone gets a certificate, plus a team-wide export with completion rates and key figures - both work directly as training documentation for HR files.",
+      },
+      {
         question: "Does the course work for multilingual teams (German, English, French)?",
         answer:
           "Yes, layout-accurate. The curriculum exists as fully separate tracks for QWERTZ (German), QWERTY (English) and AZERTY (French), not just translated text. Everyone practices on their own keyboard.",
@@ -100,6 +110,11 @@ export const companiesFAQ: Record<string, { title: string; items: FAQItem[] }> =
         question: "La formation peut-elle s'intégrer à l'onboarding ou à l'alternance ?",
         answer:
           "Oui. Beaucoup d'équipes intègrent le cours comme module fixe dans les quatre premières semaines du poste, ou dans le volet compétences numériques de la formation. Pas de journée de séminaire en plus, pas de réunion qui bloque l'agenda.",
+      },
+      {
+        question: "Est-ce que ça compte comme formation professionnelle ?",
+        answer:
+          "Oui. Chaque personne reçoit un certificat, plus un export avec le taux de complétion et les indicateurs pour toute l'équipe - les deux servent directement de justificatif de formation pour le dossier RH.",
       },
       {
         question: "Le cours fonctionne-t-il pour des équipes multilingues (allemand, anglais, français) ?",
