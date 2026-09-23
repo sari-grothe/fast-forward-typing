@@ -118,6 +118,23 @@
     "ctaText": "Commence par le test de dactylographie gratuit. Moins de 5 minutes.",
     "ctaButton": "Lancer le test de dactylographie"
   },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Une question, un retour, ou un problème repéré ? Écris-nous directement - on répond sous un jour ouvré.",
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "message": "Message",
+      "messagePlaceholder": "De quoi s'agit-il ?",
+      "submit": "Envoyer le message",
+      "privacy": "Ces informations servent uniquement à répondre à la demande.",
+      "successTitle": "Merci pour ton message.",
+      "successText": "On te répond sous un jour ouvré. En attendant, jette un œil au centre d'aide - ta réponse s'y trouve peut-être déjà.",
+      "successCta": "Voir le centre d'aide",
+      "sending": "Envoi en cours ...",
+      "error": "Ça n'a pas marché. Réessaie dans un instant."
+    }
+  },
   "footer": {
     "learnTyping": "Apprendre à taper",
     "typingTest": "Test de dactylographie",

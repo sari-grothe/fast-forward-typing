@@ -118,6 +118,23 @@
     "ctaText": "Start with the free typing test. Takes less than 5 minutes.",
     "ctaButton": "Start typing test"
   },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Question, feedback, or found a problem? Write to us directly - we reply within one business day.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "messagePlaceholder": "What's this about?",
+      "submit": "Send message",
+      "privacy": "This information is used only to reply to your request.",
+      "successTitle": "Thanks for your message.",
+      "successText": "We'll reply within one business day. In the meantime, check the Help Center - your answer might already be there.",
+      "successCta": "Go to Help Center",
+      "sending": "Sending ...",
+      "error": "That didn't work. Please try again in a moment."
+    }
+  },
   "footer": {
     "learnTyping": "Learn to type",
     "typingTest": "Typing Test",

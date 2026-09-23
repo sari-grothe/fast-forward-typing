@@ -1,0 +1,132 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { CtaButton } from "@/components/CtaButton";
+
+export type ContactFormLabels = {
+  name: string;
+  email: string;
+  message: string;
+  messagePlaceholder: string;
+  submit: string;
+  privacy: string;
+  successTitle: string;
+  successText: string;
+  successCta: string;
+  sending: string;
+  error: string;
+};
+
+type Props = {
+  locale: string;
+  labels: ContactFormLabels;
+};
+
+const fieldClass =
+  "w-full rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark px-4 py-3 text-base text-dark-text dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo focus:border-indigo transition-colors";
+
+const labelClass = "block text-sm font-semibold text-zinc-600 dark:text-zinc-300 mb-1.5";
+
+// Same Formspree account/form as the B2B contact form (see
+// docs/contact-form-formspree.md), with a distinct _subject so general
+// contact messages stay separable in the one inbox from team-training
+// requests - no second Formspree form needed.
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdrkvn";
+
+type Status = "idle" | "sending" | "error";
+
+export function ContactForm({ locale, labels }: Props) {
+  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const successHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (submitted) successHeadingRef.current?.focus();
+  }, [submitted]);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    // Honeypot: real users never fill this hidden field.
+    if (data.get("_gotcha")) {
+      setSubmitted(true);
+      return;
+    }
+    data.set("_subject", `Kontaktanfrage: ${data.get("name") ?? ""}`);
+    data.set("locale", locale);
+    data.set("page", window.location.href);
+
+    setStatus("sending");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+      if (!res.ok) throw new Error(`Formspree ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <div role="status" aria-live="polite">
+      {submitted ? (
+        <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10 text-center">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo/10">
+            <svg className="h-7 w-7 text-indigo" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+            </svg>
+          </div>
+          <h3 ref={successHeadingRef} tabIndex={-1} className="text-2xl font-bold mb-3 focus:outline-none">
+            {labels.successTitle}
+          </h3>
+          <p className="text-zinc-500 dark:text-zinc-400 mb-8 max-w-md mx-auto">{labels.successText}</p>
+          <CtaButton href={`/${locale}/help`}>{labels.successCta}</CtaButton>
+        </div>
+      ) : (
+        <form
+          onSubmit={handleSubmit}
+          className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10 space-y-5"
+        >
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label htmlFor="contact-name" className={labelClass}>{labels.name}</label>
+              <input id="contact-name" name="name" type="text" required autoComplete="name" className={fieldClass} />
+            </div>
+            <div>
+              <label htmlFor="contact-email" className={labelClass}>{labels.email}</label>
+              <input id="contact-email" name="email" type="email" required autoComplete="email" className={fieldClass} />
+            </div>
+          </div>
+
+          <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
+
+          <div>
+            <label htmlFor="contact-message" className={labelClass}>{labels.message}</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              required
+              rows={5}
+              placeholder={labels.messagePlaceholder}
+              className={`${fieldClass} resize-y`}
+            />
+          </div>
+
+          <div className="flex flex-col items-center gap-3 pt-2">
+            <CtaButton type="submit" disabled={status === "sending"}>
+              {status === "sending" ? labels.sending : labels.submit}
+            </CtaButton>
+            {status === "error" && (
+              <p className="text-sm text-peach font-medium text-center" role="alert">{labels.error}</p>
+            )}
+            <p className="text-xs text-zinc-400 text-center max-w-sm">{labels.privacy}</p>
+          </div>
+        </form>
+      )}
+    </div>
+  );
+}

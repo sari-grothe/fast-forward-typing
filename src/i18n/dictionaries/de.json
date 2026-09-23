@@ -118,6 +118,23 @@
     "ctaText": "Miss jetzt kostenlos deine Tippgeschwindigkeit. Dauert weniger als 5 Minuten.",
     "ctaButton": "Geschwindigkeit testen"
   },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Frage, Feedback oder ein Problem gefunden? Schreib uns direkt - wir antworten innerhalb eines Werktags.",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Nachricht",
+      "messagePlaceholder": "Worum geht es?",
+      "submit": "Nachricht senden",
+      "privacy": "Die Angaben werden ausschließlich zur Beantwortung der Anfrage verwendet.",
+      "successTitle": "Danke für deine Nachricht.",
+      "successText": "Wir melden uns innerhalb eines Werktags. Bis dahin: Schau doch mal im Hilfecenter vorbei, vielleicht ist deine Antwort schon da.",
+      "successCta": "Zum Hilfecenter",
+      "sending": "Wird gesendet ...",
+      "error": "Das hat nicht geklappt. Bitte versuch es gleich noch einmal."
+    }
+  },
   "footer": {
     "learnTyping": "10-Finger-System",
     "typingTest": "Tippgeschwindigkeit",
