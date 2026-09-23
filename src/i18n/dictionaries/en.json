@@ -149,6 +149,30 @@
       "ctaPrimary": "Request team training",
       "ctaSecondary": "Test yourself first"
     },
+    "why": {
+      "eyebrow": "The blind spot",
+      "title": "The skill nobody checks anymore",
+      "intro": "Until the 90s, typing speed was on the certificate. Today every company assumes it and none of them measures it. Four reasons why.",
+      "items": [
+        {
+          "title": "It was considered solved",
+          "desc": "With a PC on every desk, the typing test disappeared. The assumption: anyone who works at a computer all day can type. The average today is 40 words per minute, and half of that is hunting with two to four fingers."
+        },
+        {
+          "title": "It is invisible",
+          "desc": "Slow typing produces no errors anyone notices. It just makes everything written a third slower. The review then says: thorough, but slow."
+        },
+        {
+          "title": "It feels trivial",
+          "desc": "A typing test in a job interview feels like a 1985 secretarial pool. So nobody asks, and nobody has to answer. The skill is assumed instead of checked."
+        },
+        {
+          "title": "The tools target the head",
+          "desc": "AI assistants and dictation apps make thinking faster. In the end a human still types: prompts, corrections, emails, chat. AI did not abolish typing, it multiplied it."
+        }
+      ],
+      "closing": "What nobody measures does not improve. That is why every team training with us starts with a measurement, and ends with one."
+    },
     "savings": {
       "title": "How much time is hiding in your team",
       "baseline": "40 WPM is average, roughly the pace of a telegraph operator in 1920. A 500-word email takes 12.5 minutes at that speed. At 60 WPM, it's 8.3.",

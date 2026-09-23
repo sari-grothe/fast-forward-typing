@@ -149,6 +149,30 @@
       "ctaPrimary": "Team-Training anfragen",
       "ctaSecondary": "Erst selbst testen"
     },
+    "why": {
+      "eyebrow": "Der blinde Fleck",
+      "title": "Die Fähigkeit, die niemand mehr prüft",
+      "intro": "Bis in die 90er stand die Tippgeschwindigkeit im Zeugnis. Heute setzt jede Firma sie voraus, und keine misst sie. Vier Gründe, warum das so kam.",
+      "items": [
+        {
+          "title": "Es galt als gelöst",
+          "desc": "Mit dem PC auf jedem Schreibtisch verschwand der Tipptest. Die Annahme: Wer täglich am Rechner sitzt, kann tippen. Der Durchschnitt liegt heute bei 40 Wörtern pro Minute, die Hälfte davon sucht mit zwei bis vier Fingern."
+        },
+        {
+          "title": "Es ist unsichtbar",
+          "desc": "Langsames Tippen produziert keine Fehler, die jemandem auffallen. Es macht nur alles, was geschrieben wird, um ein Drittel langsamer. In der Beurteilung steht dann: gründlich, aber langsam."
+        },
+        {
+          "title": "Es wirkt banal",
+          "desc": "Ein Tipptest im Bewerbungsgespräch fühlt sich nach Sekretariat von 1985 an. Also fragt niemand, und niemand muss antworten. Die Fähigkeit wird vorausgesetzt statt geprüft."
+        },
+        {
+          "title": "Die Tools zielen auf den Kopf",
+          "desc": "KI-Assistenten und Diktier-Apps machen das Denken schneller. Am Ende tippt trotzdem ein Mensch: Prompts, Korrekturen, Mails, Chat. KI hat das Tippen nicht abgeschafft, sie hat es vermehrt."
+        }
+      ],
+      "closing": "Was niemand misst, wird nicht besser. Deshalb beginnt jedes Team-Training bei uns mit einer Messung, und endet mit einer."
+    },
     "savings": {
       "title": "So viel Zeit steckt in deinem Team",
       "baseline": "40 WPM ist Durchschnittstempo, ungefähr so schnell wie ein Telegrafist 1920. Eine 500-Wort-Mail dauert damit 12,5 Minuten. Mit 60 WPM sind es 8,3.",

@@ -149,6 +149,30 @@
       "ctaPrimary": "Demander une formation d'équipe",
       "ctaSecondary": "Teste-toi d'abord"
     },
+    "why": {
+      "eyebrow": "L'angle mort",
+      "title": "La compétence que plus personne ne vérifie",
+      "intro": "Jusque dans les années 90, la vitesse de frappe figurait sur le diplôme. Aujourd'hui, chaque entreprise la présuppose et aucune ne la mesure. Quatre raisons.",
+      "items": [
+        {
+          "title": "On la croyait acquise",
+          "desc": "Avec un PC sur chaque bureau, le test de dactylo a disparu. L'hypothèse : qui travaille toute la journée sur ordinateur sait taper. La moyenne aujourd'hui est de 40 mots par minute, et la moitié cherche les touches avec deux à quatre doigts."
+        },
+        {
+          "title": "Elle est invisible",
+          "desc": "Taper lentement ne produit aucune erreur que quelqu'un remarque. Cela rend seulement tout ce qui est écrit un tiers plus lent. L'évaluation dit alors : rigoureux, mais lent."
+        },
+        {
+          "title": "Elle paraît banale",
+          "desc": "Un test de frappe en entretien d'embauche fait secrétariat de 1985. Donc personne ne demande, et personne ne doit répondre. La compétence est présupposée au lieu d'être vérifiée."
+        },
+        {
+          "title": "Les outils visent la tête",
+          "desc": "Assistants IA et dictée vocale accélèrent la réflexion. À la fin, un humain tape quand même : prompts, corrections, mails, chat. L'IA n'a pas supprimé la frappe, elle l'a multipliée."
+        }
+      ],
+      "closing": "Ce que personne ne mesure ne s'améliore pas. C'est pourquoi chaque formation d'équipe chez nous commence par une mesure, et se termine par une autre."
+    },
     "savings": {
       "title": "Tout ce temps qui dort dans ton équipe",
       "baseline": "40 MPM, c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",

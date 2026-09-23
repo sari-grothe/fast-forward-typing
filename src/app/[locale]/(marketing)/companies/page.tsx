@@ -59,6 +59,7 @@ export default async function CompaniesPage({ params }: Props) {
   const c = dict.companies as Record<string, unknown>;
   const hero = c.hero as Record<string, string>;
   const savings = c.savings as Record<string, string>;
+  const why = c.why as { eyebrow: string; title: string; intro: string; items: { title: string; desc: string }[]; closing: string };
   const included = c.included as { title: string; items: { title: string; desc: string }[] };
   const forCompany = c.forCompany as { title: string; items: { title: string; desc: string }[] };
   const pricing = c.pricing as Record<string, string>;
@@ -97,6 +98,37 @@ export default async function CompaniesPage({ params }: Props) {
               <KeyCharacter pose="pointing" size={200} />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* The blind spot: why nobody checks typing anymore (the sales argument) */}
+      <section className="py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <ScrollReveal>
+            <p className="text-xs font-semibold text-peach uppercase tracking-wider text-center mb-3">{why.eyebrow}</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{why.title}</h2>
+            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">{why.intro}</p>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 max-w-4xl mx-auto">
+            {why.items.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 100}>
+                <div className="flex gap-5">
+                  <span className="shrink-0 w-11 h-11 rounded-full bg-indigo/10 text-indigo font-extrabold text-lg flex items-center justify-center tabular-nums">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1.5">{item.title}</h3>
+                    <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+          <ScrollReveal delay={200}>
+            <p className="mt-12 text-center text-lg sm:text-xl font-semibold max-w-3xl mx-auto border-l-4 border-indigo pl-5 text-left md:text-center md:border-l-0 md:pl-0">
+              {why.closing}
+            </p>
+          </ScrollReveal>
         </div>
       </section>
 
