@@ -10,6 +10,7 @@ import { ContactForm, type ContactFormLabels } from "@/components/companies/Cont
 import { CtaButton } from "@/components/CtaButton";
 import { FAQ } from "@/components/FAQ";
 import { companiesFAQ } from "@/lib/companies-faq-data";
+import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -69,6 +70,10 @@ export default async function CompaniesPage({ params }: Props) {
   const pricing = c.pricing as Record<string, string>;
   const faqBridge = c.faqBridge as string;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
+  // Same 20-emails-a-day breakdown as the home page - reused verbatim
+  // (same assumption, same source citation) instead of duplicating the
+  // copy under companies.* in three more languages.
+  const timeBreakdown = (dict.home as Record<string, unknown>).productivity as unknown as TypingTimeBreakdownLabels;
 
   const pricingId = companiesAnchorId(locale, "pricing");
   const contactId = companiesAnchorId(locale, "contact");
@@ -160,7 +165,14 @@ export default async function CompaniesPage({ params }: Props) {
                 ctaLabel={hero.ctaPrimary}
                 ctaHref={`#${contactId}`}
               />
-              <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-6">{savings.source}</p>
+            </ScrollReveal>
+            {/* Per-person breakdown: the team number above is the pitch,
+                this is the receipt - same 40/60/80/100 WPM bars as the
+                home page, showing where each hour actually comes from. */}
+            <ScrollReveal delay={140}>
+              <div className="mt-6 rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
+                <TypingTimeBreakdown labels={timeBreakdown} />
+              </div>
             </ScrollReveal>
           </div>
         </div>

@@ -183,7 +183,6 @@
       "perDay": "Stunden pro Tag",
       "perYear": "Stunden pro Jahr",
       "assumption": "Rechenbasis: 20 E-Mails à 500 Wörter am Tag, von 40 auf 60 WPM, 220 Arbeitstage.",
-      "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
       "promise": "Realistisch: Mit 15 Minuten am Tag sitzt die Technik nach wenigen Wochen. Die Geschwindigkeit wächst danach mit jedem Arbeitstag weiter.",
       "fte": "Vollzeitstellen im Jahr",
       "resultIntro": "Für {n} Mitarbeitende, die viel schreiben:"

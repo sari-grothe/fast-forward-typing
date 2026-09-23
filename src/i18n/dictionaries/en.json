@@ -183,7 +183,6 @@
       "perDay": "hours per day",
       "perYear": "hours per year",
       "assumption": "Based on 20 emails of 500 words a day, 40 to 60 WPM, 220 working days.",
-      "source": "Source: the largest typing-speed study ever conducted - Aalto University, 168,000 participants.",
       "promise": "Realistic promise: at 15 minutes a day, the technique is in place within a few weeks. Speed keeps growing with every working day after that.",
       "fte": "full-time positions per year",
       "resultIntro": "For {n} employees who write a lot:"

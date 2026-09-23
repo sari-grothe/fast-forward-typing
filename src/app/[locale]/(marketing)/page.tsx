@@ -11,6 +11,7 @@ import { CountUpOnView } from "@/components/CountUpOnView";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { FinalCTA } from "@/components/FinalCTA";
 import { CtaButton } from "@/components/CtaButton";
+import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -90,40 +91,8 @@ export default async function HomePage({ params }: Props) {
                     shrinking bars for the same 20 emails, saved time as
                     a chip per speed tier. */}
                 <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6">
-                  <p className="text-sm font-semibold text-dark-text dark:text-white text-center mb-5">{prod.chartLabel}</p>
-                  <div className="space-y-2.5">
-                    {[
-                      { wpm: 40, time: prod.row40Time, badge: prod.row40Badge, width: 100, bar: "bg-zinc-300 dark:bg-zinc-600", timeCls: "text-zinc-700 dark:text-zinc-100", chip: "bg-zinc-100 text-zinc-500 dark:bg-white/5 dark:text-zinc-400" },
-                      { wpm: 60, time: prod.tier60Time, badge: prod.tier60Saved, width: 67, bar: "bg-indigo/60", timeCls: "text-white", chip: "bg-electric-yellow/20 text-dark-text dark:text-electric-yellow" },
-                      { wpm: 80, time: prod.tier80Time, badge: prod.tier80Saved, width: 50, bar: "bg-indigo/80", timeCls: "text-white", chip: "bg-electric-yellow/20 text-dark-text dark:text-electric-yellow" },
-                      { wpm: 100, time: prod.tier100Time, badge: prod.tier100Saved, width: 40, bar: "bg-indigo", timeCls: "text-white", chip: "bg-electric-yellow text-dark-text" },
-                    ].map((row) => (
-                      <div key={row.wpm} className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <span className="w-16 shrink-0 text-right whitespace-nowrap">
-                          <span className="font-bold text-dark-text dark:text-white">{row.wpm}</span>{" "}
-                          <span className="text-[10px] font-semibold text-zinc-400">{prod.unit}</span>
-                        </span>
-                        <div className="flex-1 min-w-40 h-7 rounded-lg bg-zinc-100 dark:bg-white/5">
-                          <div
-                            className={`h-full rounded-lg flex items-center justify-end pr-2.5 ${row.bar}`}
-                            style={{ width: `${row.width}%` }}
-                          >
-                            <span className={`text-xs font-bold whitespace-nowrap ${row.timeCls}`}>{row.time}</span>
-                          </div>
-                        </div>
-                        <span className="shrink-0 basis-full sm:basis-40 ml-[4.75rem] sm:ml-0">
-                          <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold ${row.chip}`}>
-                            {row.badge}
-                          </span>
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-5">{prod.chartNote}</p>
+                  <TypingTimeBreakdown labels={prod as unknown as TypingTimeBreakdownLabels} />
                 </div>
-
-                {/* Source */}
-                <p className="text-center text-xs text-zinc-400 max-w-md mx-auto">{prod.source}</p>
 
                 {/* CTA */}
                 <div className="mt-8 flex flex-col items-center gap-2">
