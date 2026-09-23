@@ -153,14 +153,14 @@
     "tools": "Tools",
     "keyboardLayouts": "Keyboard Layouts",
     "resources": "Resources",
-    "blog": "Blog",
     "helpCenter": "Help Center",
     "contact": "Contact",
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "imprint": "Imprint",
-    "darkMode": "Dark mode"
+    "darkMode": "Dark mode",
+    "resourcesLink": "Resources"
   },
   "companies": {
     "meta": {

@@ -7,6 +7,7 @@ import type { ResourceMeta, ResourceCategory } from "@/lib/resources";
 import { categoryLabels, resourcesUi } from "@/lib/resources";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { CtaButton } from "@/components/CtaButton";
 
 // Same icon per category everywhere it appears (browse cards, badges),
 // so a category reads as one visual identity across the page - matters
@@ -112,6 +113,30 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
   );
 }
 
+type FinalCtaCopy = { title: string; description: string; ctaLearn: string; ctaTest: string };
+
+// Sits right under the category browser, above the fold, so the primary
+// conversion path (start the course) is visible without scrolling past
+// the whole article grid - the big FinalCTA at the page bottom stays too,
+// for anyone who reads all the way through instead.
+function InlineCourseCta({ locale, copy }: { locale: Locale; copy: FinalCtaCopy }) {
+  return (
+    <div className="rounded-2xl bg-indigo/5 dark:bg-indigo/10 border border-indigo/15 p-5 sm:p-6 flex flex-col sm:flex-row items-center gap-5">
+      <div className="shrink-0">
+        <KeyCharacter pose="pointing" size={64} />
+      </div>
+      <div className="flex-1 text-center sm:text-left">
+        <p className="font-bold text-dark-text dark:text-white">{copy.title}</p>
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">{copy.description}</p>
+      </div>
+      <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
+        <CtaButton href={`/${locale}/placement`}>{copy.ctaLearn}</CtaButton>
+        <CtaButton href={`/${locale}/speed-test`} variant="secondary">{copy.ctaTest}</CtaButton>
+      </div>
+    </div>
+  );
+}
+
 function LeadMagnetBanner({ locale }: { locale: Locale }) {
   const ui = resourcesUi[locale];
   const bannerText: Record<Locale, { title: string; desc: string }> = {
@@ -147,9 +172,10 @@ function LeadMagnetBanner({ locale }: { locale: Locale }) {
 type Props = {
   items: ResourceMeta[];
   locale: Locale;
+  finalCta: FinalCtaCopy;
 };
 
-export function ResourcesOverview({ items, locale }: Props) {
+export function ResourcesOverview({ items, locale, finalCta }: Props) {
   const [activeCategory, setActiveCategory] = useState<ResourceCategory | "all">("all");
   const [query, setQuery] = useState("");
   const ui = resourcesUi[locale];
@@ -277,6 +303,13 @@ export function ResourcesOverview({ items, locale }: Props) {
             </button>
           ))}
         </div>
+      )}
+
+      {/* Course CTA - above the fold, before the article grid */}
+      {!searching && (
+        <ScrollReveal delay={80}>
+          <InlineCourseCta locale={locale} copy={finalCta} />
+        </ScrollReveal>
       )}
 
       {/* Featured article */}

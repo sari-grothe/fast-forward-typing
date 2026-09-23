@@ -73,7 +73,11 @@ export default async function ResourcesPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <ResourcesOverview items={items} locale={locale as Locale} />
+      <ResourcesOverview
+        items={items}
+        locale={locale as Locale}
+        finalCta={{ title: final_.title, description: final_.desc, ctaLearn: h.ctaLearn as string, ctaTest: h.ctaTest as string }}
+      />
       <div className="mx-auto max-w-5xl px-6 pb-10">
         <FinalCTA
           locale={locale}
