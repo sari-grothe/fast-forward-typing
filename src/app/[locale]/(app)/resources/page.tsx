@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { getTipsByLocale, tipsUi } from "@/lib/tips";
-import { TipsOverview } from "@/components/tips/TipsOverview";
+import { getResourcesByLocale, resourcesUi } from "@/lib/resources";
+import { ResourcesOverview } from "@/components/resources/ResourcesOverview";
 import { FinalCTA } from "@/components/FinalCTA";
+import { BASE_URL } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -12,7 +13,7 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
-  const ui = tipsUi[locale as Locale];
+  const ui = resourcesUi[locale as Locale];
   const title = `${ui.pageTitle} - Fast Forward >> Typing`;
   const description = ui.pageSubtitle;
 
@@ -21,16 +22,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     openGraph: { title, description },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/tips`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/tips`])),
+      canonical: `${BASE_URL}/${locale}/resources`,
+      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/resources`])),
     },
   };
 }
 
-export default async function TipsPage({ params }: Props) {
+export default async function ResourcesPage({ params }: Props) {
   const { locale } = await params;
-  const tips = getTipsByLocale(locale as Locale);
-  const ui = tipsUi[locale as Locale];
+  const items = getResourcesByLocale(locale as Locale);
+  const ui = resourcesUi[locale as Locale];
   const dict = await getDictionary(locale as Locale);
   const h = dict.home as Record<string, unknown>;
   const final_ = h.finalCta as Record<string, string>;
@@ -40,21 +41,21 @@ export default async function TipsPage({ params }: Props) {
     "@type": "CollectionPage",
     name: ui.pageTitle,
     description: ui.pageSubtitle,
-    url: `https://fastforwardtyping.com/${locale}/tips`,
+    url: `${BASE_URL}/${locale}/resources`,
     inLanguage: locale,
     isPartOf: {
       "@type": "WebSite",
       name: "Fast Forward >> Typing",
-      url: "https://fastforwardtyping.com",
+      url: BASE_URL,
     },
     mainEntity: {
       "@type": "ItemList",
-      numberOfItems: tips.length,
-      itemListElement: tips.map((tip, i) => ({
+      numberOfItems: items.length,
+      itemListElement: items.map((item, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://fastforwardtyping.com/${locale}/tips/${tip.slug}`,
-        name: tip.title,
+        url: `${BASE_URL}/${locale}/resources/${item.slug}`,
+        name: item.title,
       })),
     },
   };
@@ -63,8 +64,8 @@ export default async function TipsPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: `https://fastforwardtyping.com/${locale}` },
-      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com/${locale}/tips` },
+      { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/${locale}` },
+      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `${BASE_URL}/${locale}/resources` },
     ],
   };
 
@@ -72,8 +73,8 @@ export default async function TipsPage({ params }: Props) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <TipsOverview tips={tips} locale={locale as Locale} />
-      <div className="mx-auto max-w-4xl px-6 pb-10">
+      <ResourcesOverview items={items} locale={locale as Locale} />
+      <div className="mx-auto max-w-5xl px-6 pb-10">
         <FinalCTA
           locale={locale}
           title={final_.title}

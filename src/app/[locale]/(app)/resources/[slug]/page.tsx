@@ -3,14 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
-import { getTip, getRelatedTips, getAllTipSlugs, categoryLabels, tipsUi } from "@/lib/tips";
+import { getResource, getRelatedResources, getAllResourceSlugs, categoryLabels, resourcesUi } from "@/lib/resources";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Markdown, extractHeadings } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
-import { PrintButton } from "@/components/tips/PrintButton";
-import { ArticleToc } from "@/components/tips/ArticleToc";
-import { ArticleCtaCard } from "@/components/tips/ArticleCtaCard";
+import { PrintButton } from "@/components/resources/PrintButton";
+import { ArticleToc } from "@/components/resources/ArticleToc";
+import { ArticleCtaCard } from "@/components/resources/ArticleCtaCard";
 import { organization } from "@/lib/schema";
 import { companiesPath } from "@/i18n/routes";
 
@@ -19,43 +19,43 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return getAllTipSlugs().map(({ slug, locale }) => ({ locale, slug }));
+  return getAllResourceSlugs().map(({ slug, locale }) => ({ locale, slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
-  const tip = getTip(slug, locale as Locale);
-  if (!tip) return {};
+  const resource = getResource(slug, locale as Locale);
+  if (!resource) return {};
 
-  const title = `${tip.title} - Fast Forward >> Typing`;
+  const title = `${resource.title} - Fast Forward >> Typing`;
   return {
     title,
-    description: tip.description,
-    openGraph: { title, description: tip.description, type: "article" },
+    description: resource.description,
+    openGraph: { title, description: resource.description, type: "article" },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/tips/${slug}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/tips/${slug}`])),
+      canonical: `https://fastforwardtyping.com/${locale}/resources/${slug}`,
+      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/resources/${slug}`])),
     },
   };
 }
 
-export default async function TipArticlePage({ params }: Props) {
+export default async function ResourceArticlePage({ params }: Props) {
   const { locale, slug } = await params;
-  const tip = getTip(slug, locale as Locale);
-  const ui = tipsUi[locale as Locale];
+  const resource = getResource(slug, locale as Locale);
+  const ui = resourcesUi[locale as Locale];
   const dict = await getDictionary(locale as Locale);
   const h = dict.home as Record<string, unknown>;
   const final_ = h.finalCta as Record<string, string>;
 
-  if (!tip) notFound();
+  if (!resource) notFound();
 
-  const related = getRelatedTips(slug, locale as Locale);
-  const isLeadMagnet = tip.type === "lead-magnet";
-  const headings = extractHeadings(tip.content);
+  const related = getRelatedResources(slug, locale as Locale);
+  const isLeadMagnet = resource.type === "lead-magnet";
+  const headings = extractHeadings(resource.content);
   // Productivity articles are the ones that also make sense for a
   // company buyer (time saved, professional output) - the other
   // categories (shortcuts, learning basics, mobile) are individual-only.
-  const showTeamCta = tip.category === "productivity";
+  const showTeamCta = resource.category === "productivity";
 
   const categoryColors: Record<string, string> = {
     learning: "bg-indigo/10 text-indigo",
@@ -64,15 +64,15 @@ export default async function TipArticlePage({ params }: Props) {
     mobile: "bg-zinc-200/60 text-zinc-600 dark:bg-zinc-700/40 dark:text-zinc-300",
   };
 
-  const articleUrl = `https://fastforwardtyping.com/${locale}/tips/${slug}`;
+  const articleUrl = `https://fastforwardtyping.com/${locale}/resources/${slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: tip.title,
-    description: tip.description,
-    datePublished: tip.date,
-    dateModified: tip.date,
+    headline: resource.title,
+    description: resource.description,
+    datePublished: resource.date,
+    dateModified: resource.date,
     url: articleUrl,
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
     author: organization,
@@ -86,8 +86,8 @@ export default async function TipArticlePage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `https://fastforwardtyping.com/${locale}` },
-      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com/${locale}/tips` },
-      { "@type": "ListItem", position: 3, name: tip.title, item: articleUrl },
+      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com/${locale}/resources` },
+      { "@type": "ListItem", position: 3, name: resource.title, item: articleUrl },
     ],
   };
 
@@ -109,19 +109,19 @@ export default async function TipArticlePage({ params }: Props) {
             <ScrollReveal>
               <div className="flex items-center justify-between mb-6">
                 <Link
-                  href={`/${locale}/tips`}
+                  href={`/${locale}/resources`}
                   className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-indigo transition-colors"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                   </svg>
-                  {ui.backToTips}
+                  {ui.backToResources}
                 </Link>
                 <div className="flex items-center gap-2 text-sm">
-                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${categoryColors[tip.category]}`}>
-                    {categoryLabels[locale as Locale][tip.category]}
+                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${categoryColors[resource.category]}`}>
+                    {categoryLabels[locale as Locale][resource.category]}
                   </span>
-                  <span className="text-zinc-400">{tip.readingTime} {ui.readingTime}</span>
+                  <span className="text-zinc-400">{resource.readingTime} {ui.readingTime}</span>
                 </div>
               </div>
             </ScrollReveal>
@@ -130,10 +130,10 @@ export default async function TipArticlePage({ params }: Props) {
             <ScrollReveal delay={60}>
               <header className="mb-8 space-y-3">
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white leading-tight">
-                  {tip.title}
+                  {resource.title}
                 </h1>
                 <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg max-w-2xl">
-                  {tip.description}
+                  {resource.description}
                 </p>
                 {isLeadMagnet && (
                   <div className="flex items-center gap-3 pt-2">
@@ -181,7 +181,7 @@ export default async function TipArticlePage({ params }: Props) {
             {/* Content */}
             <ScrollReveal delay={120}>
               <div className="mb-12">
-                <Markdown content={tip.content} />
+                <Markdown content={resource.content} />
               </div>
             </ScrollReveal>
 
@@ -205,7 +205,7 @@ export default async function TipArticlePage({ params }: Props) {
                     {related.map((r) => (
                       <Link
                         key={r.slug}
-                        href={`/${locale}/tips/${r.slug}`}
+                        href={`/${locale}/resources/${r.slug}`}
                         className="group rounded-xl border border-zinc-200 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 p-4 hover:border-indigo/30 hover:shadow-md transition-all"
                       >
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${categoryColors[r.category]}`}>

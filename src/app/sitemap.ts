@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, type Locale } from "@/i18n/config";
 import { companiesPath } from "@/i18n/routes";
-import { getAllTipSlugs } from "@/lib/tips";
+import { getAllResourceSlugs } from "@/lib/resources";
 import { getLessons } from "@/lib/lessons";
 
 const BASE_URL = "https://fastforwardtyping.com";
@@ -9,14 +9,14 @@ const BASE_URL = "https://fastforwardtyping.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date().toISOString();
 
-  const staticPages = ["", "/speed-test", "/lessons", "/placement", "/certificate", "/tips", "/about", "/tools/keyboard-layouts", "/help", "/contact"];
+  const staticPages = ["", "/speed-test", "/lessons", "/placement", "/certificate", "/resources", "/about", "/tools/keyboard-layouts", "/help", "/contact"];
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
       url: `${BASE_URL}/${locale}${page}`,
       lastModified: now,
-      changeFrequency: page === "/tips" ? ("weekly" as const) : ("monthly" as const),
-      priority: page === "" ? 1.0 : page === "/tips" ? 0.9 : 0.7,
+      changeFrequency: page === "/resources" ? ("weekly" as const) : ("monthly" as const),
+      priority: page === "" ? 1.0 : page === "/resources" ? 0.9 : 0.7,
     }))
   );
 
@@ -27,8 +27,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const tipEntries = getAllTipSlugs().map(({ slug, locale }) => ({
-    url: `${BASE_URL}/${locale}/tips/${slug}`,
+  const resourceEntries = getAllResourceSlugs().map(({ slug, locale }) => ({
+    url: `${BASE_URL}/${locale}/resources/${slug}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
@@ -48,5 +48,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }))
   );
 
-  return [...staticEntries, ...companiesEntries, ...tipEntries, ...lessonEntries];
+  return [...staticEntries, ...companiesEntries, ...resourceEntries, ...lessonEntries];
 }

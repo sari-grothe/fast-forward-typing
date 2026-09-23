@@ -27,6 +27,18 @@ const nextConfig: NextConfig = {
         destination: `/${locale}/${companiesSlug[locale]}`,
         permanent: true,
       })),
+      // /tips -> /resources rename (2026-09-23): preserve link equity and
+      // indexing for existing articles under the old path.
+      ...locales.map((locale) => ({
+        source: `/${locale}/tips`,
+        destination: `/${locale}/resources`,
+        permanent: true,
+      })),
+      ...locales.map((locale) => ({
+        source: `/${locale}/tips/:slug`,
+        destination: `/${locale}/resources/:slug`,
+        permanent: true,
+      })),
     ];
   },
 };

@@ -78,7 +78,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
     ],
   };
 
-  const tipSlug = locale === "fr" ? "qwerty-azerty-qwertz" : null;
+  const resourceSlug = locale === "fr" ? "qwerty-azerty-qwertz" : null;
 
   return (
     <>
@@ -101,11 +101,11 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
           <KeyboardComparison locale={l} />
         </ScrollReveal>
 
-        {tipSlug && (
+        {resourceSlug && (
           <ScrollReveal delay={120}>
             <div className="mt-8 text-center">
               <Link
-                href={`/${locale}/tips/${tipSlug}`}
+                href={`/${locale}/resources/${resourceSlug}`}
                 className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:underline"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

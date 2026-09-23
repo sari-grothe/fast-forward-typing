@@ -1,6 +1,6 @@
 import { locales, localeNames, type Locale } from "@/i18n/config";
 import { getLessons, lessonMeta, phaseNames } from "@/lib/lessons";
-import { getTipsByLocale } from "@/lib/tips";
+import { getResourcesByLocale } from "@/lib/resources";
 import { homeFAQ } from "@/lib/faq-data";
 
 // Machine-readable site knowledge for AI agents (llms.txt standard,
@@ -36,7 +36,7 @@ const STATIC_PAGES: { path: string; label: string; note: string }[] = [
   { path: "/placement", label: "Placement test", note: "adaptive skill assessment, builds the individual training plan" },
   { path: "/speed-test", label: "Typing speed test", note: "free WPM and accuracy test" },
   { path: "/lessons", label: "Course", note: "full touch-typing curriculum" },
-  { path: "/tips", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
+  { path: "/resources", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
   { path: "/tools/keyboard-layouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
   { path: "/about", label: "About", note: "who is behind Fast Forward >> Typing" },
   { path: "/help", label: "Help center", note: "FAQ covering the whole product, searchable, organized by category" },
@@ -56,8 +56,8 @@ export function buildLlmsTxt(): string {
     (p) => `- [${p.label}](${BASE_URL}/en${p.path}): ${p.note}`
   ).join("\n");
 
-  const guides = getTipsByLocale("en")
-    .map((t) => `- [${t.title}](${BASE_URL}/en/tips/${t.slug}): ${t.description}`)
+  const guides = getResourcesByLocale("en")
+    .map((t) => `- [${t.title}](${BASE_URL}/en/resources/${t.slug}): ${t.description}`)
     .join("\n");
 
   return `# Fast Forward >> Typing
@@ -134,10 +134,10 @@ Each locale has its own curriculum authored for its keyboard layout.`);
 ${phaseBlocks}`);
   }
 
-  const guides = getTipsByLocale("en")
-    .map((t) => `- [${t.title}](${BASE_URL}/en/tips/${t.slug}) (${t.category}): ${t.description}`)
+  const guides = getResourcesByLocale("en")
+    .map((t) => `- [${t.title}](${BASE_URL}/en/resources/${t.slug}) (${t.category}): ${t.description}`)
     .join("\n");
-  sections.push(`## Guides (English editions; German and French exist under /de/tips and /fr/tips)
+  sections.push(`## Guides (English editions; German and French exist under /de/resources and /fr/resources)
 
 ${guides}`);
 

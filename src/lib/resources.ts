@@ -1,13 +1,13 @@
 import type { Locale } from "@/i18n/config";
 
-export type TipCategory = "learning" | "shortcuts" | "productivity" | "mobile" | "comparisons";
-export type TipType = "article" | "lead-magnet";
+export type ResourceCategory = "learning" | "shortcuts" | "productivity" | "mobile" | "comparisons";
+export type ResourceType = "article" | "lead-magnet";
 
-export type TipMeta = {
+export type ResourceMeta = {
   slug: string;
   locale: Locale;
-  type: TipType;
-  category: TipCategory;
+  type: ResourceType;
+  category: ResourceCategory;
   title: string;
   description: string;
   readingTime: number;
@@ -17,17 +17,17 @@ export type TipMeta = {
   content: string;
 };
 
-export const categoryLabels: Record<Locale, Record<TipCategory | "all", string>> = {
+export const categoryLabels: Record<Locale, Record<ResourceCategory | "all", string>> = {
   de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", mobile: "Mobil", comparisons: "Vergleiche" },
   en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", mobile: "Mobile", comparisons: "Comparisons" },
   fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", mobile: "Mobile", comparisons: "Comparatifs" },
 };
 
-export const tipsUi: Record<Locale, {
+export const resourcesUi: Record<Locale, {
   pageTitle: string;
   pageSubtitle: string;
   readingTime: string;
-  backToTips: string;
+  backToResources: string;
   relatedArticles: string;
   downloadPdf: string;
   downloadHint: string;
@@ -40,13 +40,17 @@ export const tipsUi: Record<Locale, {
   teamCtaTitle: string;
   teamCtaDesc: string;
   teamCtaLink: string;
+  searchPlaceholder: string;
+  searchNoResults: string;
 }> = {
   de: {
     pageTitle: "Ressourcen",
     pageSubtitle: "10-Finger-System lernen, Tastenkombinationen und Tipps für schnelleres Tippen im Job und Alltag.",
     readingTime: "Min. Lesezeit",
-    backToTips: "Alle Tipps",
+    backToResources: "Alle Ressourcen",
     relatedArticles: "Weiterlesen",
+    searchPlaceholder: "Artikel durchsuchen ...",
+    searchNoResults: "Keine Treffer. Versuch ein anderes Stichwort oder eine andere Kategorie.",
     downloadPdf: "Als PDF speichern",
     downloadHint: "Drucke die Seite als PDF (Ctrl+P / Cmd+P)",
     startCourse: "Kurs starten",
@@ -60,11 +64,13 @@ export const tipsUi: Record<Locale, {
     teamCtaLink: "Team-Training anfragen",
   },
   en: {
-    pageTitle: "Tips & Resources",
+    pageTitle: "Resources",
     pageSubtitle: "Everything about typing - guides, shortcuts, tools.",
     readingTime: "min read",
-    backToTips: "All tips",
+    backToResources: "All resources",
     relatedArticles: "Keep reading",
+    searchPlaceholder: "Search articles ...",
+    searchNoResults: "No matches. Try a different keyword or category.",
     downloadPdf: "Save as PDF",
     downloadHint: "Print this page as PDF (Ctrl+P / Cmd+P)",
     startCourse: "Start course",
@@ -78,11 +84,13 @@ export const tipsUi: Record<Locale, {
     teamCtaLink: "Request team training",
   },
   fr: {
-    pageTitle: "Conseils & Ressources",
+    pageTitle: "Ressources",
     pageSubtitle: "Tout sur la frappe - guides, raccourcis, outils.",
     readingTime: "min de lecture",
-    backToTips: "Tous les conseils",
+    backToResources: "Toutes les ressources",
     relatedArticles: "Continuer la lecture",
+    searchPlaceholder: "Chercher un article ...",
+    searchNoResults: "Aucun résultat. Essaie un autre mot-clé ou une autre catégorie.",
     downloadPdf: "Sauvegarder en PDF",
     downloadHint: "Imprime cette page en PDF (Ctrl+P / Cmd+P)",
     startCourse: "Commencer le cours",
@@ -97,7 +105,7 @@ export const tipsUi: Record<Locale, {
   },
 };
 
-const tips: TipMeta[] = [
+const resources: ResourceMeta[] = [
   // ─── DE ARTICLES ──────────────────────────────────────────
   {
     slug: "zehn-finger-schreiben-lernen",
@@ -1291,23 +1299,23 @@ Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le
   },
 ];
 
-export function getTipsByLocale(locale: Locale): TipMeta[] {
-  return tips.filter((t) => t.locale === locale);
+export function getResourcesByLocale(locale: Locale): ResourceMeta[] {
+  return resources.filter((t) => t.locale === locale);
 }
 
-export function getTip(slug: string, locale: Locale): TipMeta | undefined {
-  return tips.find((t) => t.slug === slug && t.locale === locale);
+export function getResource(slug: string, locale: Locale): ResourceMeta | undefined {
+  return resources.find((t) => t.slug === slug && t.locale === locale);
 }
 
-export function getRelatedTips(slug: string, locale: Locale, limit = 3): TipMeta[] {
-  const current = getTip(slug, locale);
+export function getRelatedResources(slug: string, locale: Locale, limit = 3): ResourceMeta[] {
+  const current = getResource(slug, locale);
   if (!current) return [];
-  const localeTips = getTipsByLocale(locale).filter((t) => t.slug !== slug);
+  const localeTips = getResourcesByLocale(locale).filter((t) => t.slug !== slug);
   const sameCategory = localeTips.filter((t) => t.category === current.category);
   const others = localeTips.filter((t) => t.category !== current.category);
   return [...sameCategory, ...others].slice(0, limit);
 }
 
-export function getAllTipSlugs(): { slug: string; locale: string }[] {
-  return tips.map((t) => ({ slug: t.slug, locale: t.locale }));
+export function getAllResourceSlugs(): { slug: string; locale: string }[] {
+  return resources.map((t) => ({ slug: t.slug, locale: t.locale }));
 }

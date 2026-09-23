@@ -120,8 +120,8 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <Link href={`/${locale}/lessons`} className="nav-keycap">
                   {dict.nav.typingCourse}
                 </Link>
-                <Link href={`/${locale}/tips`} className="nav-keycap">
-                  {dict.nav.typingTips}
+                <Link href={`/${locale}/resources`} className="nav-keycap">
+                  {dict.nav.resources}
                 </Link>
               </div>
               <MobileMenu locale={locale} dict={dict} />
@@ -163,7 +163,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.resources}</p>
                 <div className="flex flex-col gap-2 text-zinc-500">
-                  <Link href={`/${locale}/tips`} className="hover:text-indigo transition-colors">{dict.footer.blog}</Link>
+                  <Link href={`/${locale}/resources`} className="hover:text-indigo transition-colors">{dict.footer.blog}</Link>
                   <Link href={`/${locale}/help`} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</Link>
                   <Link href={`/${locale}/contact`} className="hover:text-indigo transition-colors">{dict.footer.contact}</Link>
                 </div>

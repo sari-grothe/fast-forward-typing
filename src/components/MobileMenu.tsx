@@ -9,7 +9,7 @@ type Props = {
     nav: {
       typingTest: string;
       typingCourse: string;
-      typingTips: string;
+      resources: string;
       pricing?: string;
     };
   };
@@ -55,11 +55,11 @@ export function MobileMenu({ locale, dict }: Props) {
               {dict.nav.typingCourse}
             </Link>
             <Link
-              href={`/${locale}/tips`}
+              href={`/${locale}/resources`}
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-indigo/5 hover:text-indigo transition-colors"
             >
-              {dict.nav.typingTips}
+              {dict.nav.resources}
             </Link>
           </nav>
         </div>
