@@ -165,8 +165,9 @@ export default async function HomePage({ params }: Props) {
               </ScrollReveal>
             ))}
           </div>
-          <ScrollReveal className="mt-12 flex justify-center">
+          <ScrollReveal className="mt-12 flex flex-wrap justify-center gap-3">
             <CtaButton href={`/${locale}/placement`}>{how.cta}</CtaButton>
+            <CtaButton href={`/${locale}/speed-test`} variant="secondary">{h.ctaTest as string}</CtaButton>
           </ScrollReveal>
         </div>
       </section>
