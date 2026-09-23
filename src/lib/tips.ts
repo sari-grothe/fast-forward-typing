@@ -881,7 +881,7 @@ Réponse courte : **2 à 4 semaines** pour les bases, **2 à 3 mois** pour que �
 2. **Sessions courtes, tous les jours.** 15 minutes par jour battent 2 heures le week-end.
 3. **Précision avant vitesse.** Lent et correct construit de meilleurs automatismes que rapide et approximatif.
 4. **Entraîne-toi avec du vrai texte.** Pas seulement "qsdf jklm" mais des phrases et des paragraphes.
-5. **Mesure tes progrès.** Un test de frappe par semaine te montre où tu en es.
+5. **Mesure tes progrès.** Un test de dactylographie par semaine te montre où tu en es.
 
 ## Les deux premières semaines sont difficiles
 

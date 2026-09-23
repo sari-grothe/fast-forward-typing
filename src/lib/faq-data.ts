@@ -80,7 +80,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
     items: [
       {
         question: "Est-ce que le cours de dactylographie est gratuit ?",
-        answer: "Le test de frappe est gratuit, et les premières leçons aussi. Le cours complet et le certificat de frappe officiel sont payants.",
+        answer: "Le test de dactylographie est gratuit, et les premières leçons aussi. Le cours complet et le certificat de dactylographie officiel sont payants.",
       },
       {
         question: "À qui s'adresse le cours de dactylographie ?",
@@ -99,7 +99,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
         answer: "Le cours est actuellement disponible en français, anglais et allemand, chacun pensé pour sa disposition de clavier. D'autres langues sont prévues.",
       },
       {
-        question: "À quoi sert le certificat de frappe ?",
+        question: "À quoi sert le certificat de dactylographie ?",
         answer: "Le certificat confirme officiellement ta vitesse et ta précision de frappe. Tu peux l'ajouter à ton CV ou ton profil LinkedIn pour prouver tes compétences.",
       },
       {
@@ -182,10 +182,10 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
     ],
   },
   fr: {
-    title: "FAQ du test de frappe",
+    title: "FAQ du test de dactylographie",
     items: [
       {
-        question: "Comment fonctionne le test de frappe ?",
+        question: "Comment fonctionne le test de dactylographie ?",
         answer: "Choisis une durée (1, 2 ou 5 minutes), clique dans la zone de texte et tape le texte affiché. Le chrono démarre au premier appui. Les erreurs bloquent la saisie jusqu'à ce que tu appuies sur la bonne touche.",
       },
       {
@@ -210,7 +210,7 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Puis-je prouver ma vitesse de frappe ?",
-        answer: "Oui - récupère notre certificat de frappe pour 5 euros. Avec ta vitesse, ta précision et une date de délivrance, prêt pour ton CV ou LinkedIn.",
+        answer: "Oui - récupère notre certificat de dactylographie pour 5 euros. Avec ta vitesse, ta précision et une date de délivrance, prêt pour ton CV ou LinkedIn.",
       },
     ],
   },
@@ -263,12 +263,12 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     title: "FAQ du certificat",
     items: [
       {
-        question: "Combien coûte le certificat de frappe ?",
+        question: "Combien coûte le certificat de dactylographie ?",
         answer: "Le certificat coûte 5 euros en paiement unique. Pas d'abonnement, pas de frais cachés.",
       },
       {
         question: "Comment obtenir mon certificat ?",
-        answer: "Tu passes d'abord le test de frappe. Si tu es content de ton résultat, tu achètes le certificat - et tu le reçois instantanément en PDF par e-mail.",
+        answer: "Tu passes d'abord le test de dactylographie. Si tu es content de ton résultat, tu achètes le certificat - et tu le reçois instantanément en PDF par e-mail.",
       },
       {
         question: "Puis-je ajouter le certificat à mon CV ?",

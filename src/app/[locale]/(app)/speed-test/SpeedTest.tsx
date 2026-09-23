@@ -200,7 +200,7 @@ const i18n: Record<Locale, {
     shareCopied: "Copied!",
   },
   fr: {
-    title: "Test de frappe",
+    title: "Test de dactylographie",
     subtitle: (mins) => `${mins} ${mins === 1 ? "minute" : "minutes"}. Tape aussi vite et précisément que possible.`,
     newTest: "Nouveau texte",
     minLabel: "min",

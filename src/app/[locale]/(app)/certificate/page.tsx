@@ -21,7 +21,7 @@ const meta: Record<Locale, { title: string; description: string }> = {
   },
   fr: {
     title: "Certificat de frappe - officialise ta vitesse",
-    description: "Obtiens ton certificat de frappe avec MPM, précision et date - parfait pour ton CV et LinkedIn. Inscris-toi gratuitement sur la liste d'attente.",
+    description: "Obtiens ton certificat de dactylographie avec MPM, précision et date - parfait pour ton CV et LinkedIn. Inscris-toi gratuitement sur la liste d'attente.",
   },
 };
 
@@ -146,7 +146,7 @@ const i18n: Record<Locale, {
   },
   fr: {
     heroTitle: "Rends tes compétences de frappe officielles",
-    heroSubtitle: "Tu as passé le test de frappe - bientôt tu pourras garder ton résultat officiellement. Inscris-toi et tu reçois ton certificat personnalisé en PDF par e-mail dès qu'il est disponible.",
+    heroSubtitle: "Tu as passé le test de dactylographie - bientôt tu pourras garder ton résultat officiellement. Inscris-toi et tu reçois ton certificat personnalisé en PDF par e-mail dès qu'il est disponible.",
     heroHighlight: "5 euros en une fois. Pas d'abonnement.",
     previewTitle: "Voici à quoi ressemble ton certificat",
     previewSubtitle: "Professionnel. Avec ton nom, ta vitesse, ta précision et la date.",
@@ -177,8 +177,8 @@ const i18n: Record<Locale, {
     waitlistSuccessTitle: "Tu es sur la liste",
     waitlistSuccessText: "On t'écrit dès que le certificat est disponible. Ton prix de 5 € est garanti.",
     testFirst: "Tu n'as pas encore passé le test ?",
-    testFirstDesc: "Passe d'abord le test de frappe gratuit - en quelques minutes tu sauras où tu en es.",
-    testCta: "Passer le test de frappe",
+    testFirstDesc: "Passe d'abord le test de dactylographie gratuit - en quelques minutes tu sauras où tu en es.",
+    testCta: "Passer le test de dactylographie",
   },
 };
 

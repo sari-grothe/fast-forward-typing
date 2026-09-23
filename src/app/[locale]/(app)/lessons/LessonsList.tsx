@@ -84,7 +84,7 @@ const i18n: Record<Locale, {
     startHereBadge: "Start here",
   },
   fr: {
-    title: "Ton cours de frappe",
+    title: "Ton cours de dactylographie",
     subtitle: "31 leçons. De la rangée de base aux chiffres et symboles.",
     startCourse: "Commencer le cours",
     continueAt: (n) => `Continuer : leçon ${n}`,
