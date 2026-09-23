@@ -178,8 +178,29 @@
           "desc": "Jede Person, die den Kurs abschließt, bekommt ein Zertifikat mit WPM und Genauigkeit. Für die Personalakte, den Lebenslauf oder LinkedIn."
         },
         {
-          "title": "Auswertung für dich",
-          "desc": "Wer hat abgeschlossen, wie viel schneller ist das Team. Eine Übersicht, keine Excel-Bastelei."
+          "title": "15 Minuten am Tag, wann es passt",
+          "desc": "Vom Arbeitsplatz oder zu Hause, im Browser, ohne Installation. Kein Seminartag, kein Termin, der das Team blockiert."
+        }
+      ]
+    },
+    "forCompany": {
+      "title": "Was dein Unternehmen bekommt",
+      "items": [
+        {
+          "title": "Team-Dashboard",
+          "desc": "Alle Teilnehmenden auf einen Blick: wer hat gestartet, wo steht wer, wer hat abgeschlossen. Ein Login, keine Rückfragen."
+        },
+        {
+          "title": "Fortschritts-Updates",
+          "desc": "Tippgeschwindigkeit und Genauigkeit im Verlauf, pro Person und fürs ganze Team. Als regelmäßige Zusammenfassung, ohne dass du nachsehen musst."
+        },
+        {
+          "title": "Engagement im Blick",
+          "desc": "Wer übt regelmäßig, wer ist ins Stocken geraten. Erinnerungen gehen automatisch raus, damit niemand unterwegs verloren geht."
+        },
+        {
+          "title": "Nachweis und Export",
+          "desc": "Abschlussquote, Zertifikate und Kennzahlen als Export. Für die Personalakte, den Weiterbildungsnachweis und das Budgetgespräch."
         }
       ]
     },

@@ -15,6 +15,14 @@ type Props = {
 
 const BASE_URL = "https://fastforwardtyping.com";
 
+// Dashboard, trending chart, bell, document-check (Heroicons outline)
+const COMPANY_ICONS = [
+  "M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z",
+  "M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941",
+  "M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0",
+  "M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12",
+];
+
 const INCLUDED_ICONS = [
   "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
   "M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z",
@@ -52,6 +60,7 @@ export default async function CompaniesPage({ params }: Props) {
   const hero = c.hero as Record<string, string>;
   const savings = c.savings as Record<string, string>;
   const included = c.included as { title: string; items: { title: string; desc: string }[] };
+  const forCompany = c.forCompany as { title: string; items: { title: string; desc: string }[] };
   const pricing = c.pricing as Record<string, string>;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
 
@@ -123,6 +132,26 @@ export default async function CompaniesPage({ params }: Props) {
                   <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${i % 2 === 0 ? "bg-indigo/10" : "bg-peach/10"} group-hover:scale-110 transition-transform duration-300`}>
                     <svg className={`h-5 w-5 ${i % 2 === 0 ? "text-indigo" : "text-peach"}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" d={INCLUDED_ICONS[i % INCLUDED_ICONS.length]} />
+                    </svg>
+                  </div>
+                  <h3 className="font-bold mb-1">{item.title}</h3>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* What the company gets: dashboard, progress, engagement, proof */}
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 mt-20">{forCompany.title}</h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+            {forCompany.items.map((item, i) => (
+              <ScrollReveal key={item.title} delay={i * 100} animation="scale-in">
+                <div className="group h-full rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-6 hover:shadow-xl hover:shadow-indigo/5 hover:-translate-y-1 transition-all duration-300">
+                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${i % 2 === 0 ? "bg-peach/10" : "bg-indigo/10"} group-hover:scale-110 transition-transform duration-300`}>
+                    <svg className={`h-5 w-5 ${i % 2 === 0 ? "text-peach" : "text-indigo"}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d={COMPANY_ICONS[i % COMPANY_ICONS.length]} />
                     </svg>
                   </div>
                   <h3 className="font-bold mb-1">{item.title}</h3>

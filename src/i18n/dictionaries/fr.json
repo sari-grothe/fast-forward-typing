@@ -178,8 +178,29 @@
           "desc": "Chaque personne qui termine le cours reçoit un certificat avec MPM et précision. Pour le dossier RH, le CV ou LinkedIn."
         },
         {
-          "title": "Un bilan pour toi",
-          "desc": "Qui a terminé, de combien l'équipe a accéléré. Une vue d'ensemble, sans bricolage Excel."
+          "title": "15 minutes par jour, quand ça arrange",
+          "desc": "Au bureau ou à la maison, dans le navigateur, sans installation. Pas de journée de séminaire, pas de réunion qui bloque l'équipe."
+        }
+      ]
+    },
+    "forCompany": {
+      "title": "Ce que ton entreprise reçoit",
+      "items": [
+        {
+          "title": "Tableau de bord équipe",
+          "desc": "Tout le monde en un coup d'œil : qui a commencé, où en est chacun, qui a terminé. Un seul accès, zéro relance."
+        },
+        {
+          "title": "Suivi des progrès",
+          "desc": "Vitesse et précision de frappe dans le temps, par personne et pour toute l'équipe. En résumé régulier, sans avoir à vérifier."
+        },
+        {
+          "title": "Engagement visible",
+          "desc": "Qui s'entraîne régulièrement, qui a décroché. Des rappels partent automatiquement pour que personne ne se perde en route."
+        },
+        {
+          "title": "Preuve et export",
+          "desc": "Taux de réussite, certificats et indicateurs exportables. Pour le dossier RH, le justificatif de formation et la discussion budget."
         }
       ]
     },

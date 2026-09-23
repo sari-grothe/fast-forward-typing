@@ -178,8 +178,29 @@
           "desc": "Everyone who completes the course gets a certificate with WPM and accuracy. For the HR file, the CV or LinkedIn."
         },
         {
-          "title": "A report for you",
-          "desc": "Who finished, how much faster the team is. One overview, no spreadsheet wrangling."
+          "title": "15 minutes a day, whenever it fits",
+          "desc": "At the desk or at home, in the browser, no installation. No seminar day, no meeting that blocks the team."
+        }
+      ]
+    },
+    "forCompany": {
+      "title": "What your company gets",
+      "items": [
+        {
+          "title": "Team dashboard",
+          "desc": "Everyone at a glance: who has started, where each person stands, who has finished. One login, no chasing."
+        },
+        {
+          "title": "Progress updates",
+          "desc": "Typing speed and accuracy over time, per person and for the whole team. Delivered as a regular summary, no need to check in."
+        },
+        {
+          "title": "Engagement in view",
+          "desc": "Who practises regularly, who has stalled. Reminders go out automatically so nobody gets lost along the way."
+        },
+        {
+          "title": "Proof and export",
+          "desc": "Completion rate, certificates and key figures as an export. For HR files, training records and the budget conversation."
         }
       ]
     },
