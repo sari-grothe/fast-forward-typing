@@ -1,15 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { CtaButton } from "@/components/CtaButton";
 
 export type CalculatorLabels = {
   teamSize: string;
   sliderHint: string;
+  resultIntro: string;
   perPerson: string;
   perDay: string;
   perYear: string;
   fte: string;
   assumption: string;
+  promise: string;
 };
 
 // Same baseline as the home page productivity section: 20 emails of
@@ -25,9 +28,11 @@ const MAX_TEAM = 1000;
 type Props = {
   locale: string;
   labels: CalculatorLabels;
+  ctaLabel: string;
+  ctaHref: string;
 };
 
-export function TeamSavingsCalculator({ locale, labels }: Props) {
+export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Props) {
   const [teamSize, setTeamSize] = useState(25);
   // The slider is the whole point of the card, but a range input alone
   // reads as decoration - so the hint pulses until the first interaction.
@@ -42,8 +47,8 @@ export function TeamSavingsCalculator({ locale, labels }: Props) {
 
   return (
     <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
-      {/* Team size slider */}
-      <div className="mb-8">
+      {/* Input zone: plain background, this is where you act */}
+      <div>
         <div className="flex items-baseline justify-between mb-3">
           <label htmlFor="team-size" className="text-sm font-semibold text-zinc-600 dark:text-zinc-300">
             {labels.teamSize}
@@ -80,24 +85,50 @@ export function TeamSavingsCalculator({ locale, labels }: Props) {
         </p>
       </div>
 
-      {/* Stat tiles */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-zinc-200 dark:border-dark-border pt-8">
-        {[
-          { value: whole.format(perDay), label: labels.perDay },
-          { value: whole.format(perYear), label: labels.perYear },
-          { value: oneDecimal.format(fullTimeEquivalents), label: labels.fte },
-        ].map((stat) => (
-          <div key={stat.label} className="text-center">
-            <p className="text-4xl sm:text-5xl font-extrabold text-indigo leading-none tabular-nums">{stat.value}</p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-2">{stat.label}</p>
-          </div>
-        ))}
+      {/* Down arrow: input -> output, cause and effect in one glance */}
+      <div className="flex justify-center my-5" aria-hidden="true">
+        <svg className="w-5 h-5 text-zinc-300 dark:text-zinc-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+        </svg>
       </div>
 
-      <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 mt-8">
-        {labels.perPerson.replace("{hours}", oneDecimal.format(HOURS_SAVED_PER_PERSON_PER_DAY))}
-      </p>
-      <p className="text-center text-xs text-zinc-400 mt-2 max-w-md mx-auto">{labels.assumption}</p>
+      {/* Output zone: tinted panel, explicitly named to the current team
+          size ("Für X Mitarbeitende") and led by ONE dominant number -
+          full-time-equivalents is the figure that actually lands with a
+          budget owner, not three same-weight stats competing for focus. */}
+      <div className="rounded-xl bg-indigo/5 dark:bg-indigo/10 p-6 sm:p-8 text-center">
+        <p className="text-xs font-semibold uppercase tracking-wider text-indigo mb-4">
+          {labels.resultIntro.replace("{n}", whole.format(teamSize))}
+        </p>
+        <p className="text-6xl sm:text-7xl font-extrabold text-indigo leading-none tabular-nums">
+          {oneDecimal.format(fullTimeEquivalents)}
+        </p>
+        <p className="text-base font-semibold text-dark-text dark:text-white mt-2">{labels.fte}</p>
+
+        <div className="grid grid-cols-2 gap-4 mt-8 pt-6 border-t border-indigo/15">
+          {[
+            { value: whole.format(perDay), label: labels.perDay },
+            { value: whole.format(perYear), label: labels.perYear },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-300 tabular-nums">{stat.value}</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-6">
+          {labels.perPerson.replace("{hours}", oneDecimal.format(HOURS_SAVED_PER_PERSON_PER_DAY))}
+        </p>
+      </div>
+      <p className="text-center text-xs text-zinc-400 mt-4 max-w-md mx-auto">{labels.assumption}</p>
+
+      {/* Payoff + action, still inside the same card - nothing about this
+          calculator lives loose outside its own border. */}
+      <div className="border-t border-zinc-200 dark:border-dark-border mt-8 pt-8 text-center">
+        <p className="text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mb-6">{labels.promise}</p>
+        <CtaButton href={ctaHref}>{ctaLabel}</CtaButton>
+      </div>
     </div>
   );
 }

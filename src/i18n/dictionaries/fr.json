@@ -184,7 +184,8 @@
       "assumption": "Base de calcul : 20 e-mails de 500 mots par jour, de 40 à 60 MPM, 220 jours travaillés.",
       "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
       "promise": "Promesse réaliste : à 15 minutes par jour, la technique est là en quelques semaines. Ensuite, la vitesse continue de monter à chaque journée de travail.",
-      "fte": "postes à temps plein par an"
+      "fte": "postes à temps plein par an",
+      "resultIntro": "Pour {n} salariés :"
     },
     "included": {
       "title": "Ce que ton équipe reçoit",

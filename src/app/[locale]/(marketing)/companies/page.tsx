@@ -70,18 +70,20 @@ export default async function CompaniesPage({ params }: Props) {
   const faqBridge = c.faqBridge as string;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
 
+  const pricingId = companiesAnchorId(locale, "pricing");
+  const contactId = companiesAnchorId(locale, "contact");
+
   const calculatorLabels: CalculatorLabels = {
     teamSize: savings.teamSize,
     sliderHint: savings.sliderHint,
+    resultIntro: savings.resultIntro,
     perPerson: savings.perPerson,
     perDay: savings.perDay,
     perYear: savings.perYear,
     fte: savings.fte,
     assumption: savings.assumption,
+    promise: savings.promise,
   };
-
-  const pricingId = companiesAnchorId(locale, "pricing");
-  const contactId = companiesAnchorId(locale, "contact");
   const faq = companiesFAQ[locale] || companiesFAQ.en;
 
   // Service entity for search engines and AI assistants: what this is,
@@ -152,14 +154,13 @@ export default async function CompaniesPage({ params }: Props) {
           </ScrollReveal>
           <div className="mx-auto max-w-3xl">
             <ScrollReveal delay={80}>
-              <TeamSavingsCalculator locale={locale} labels={calculatorLabels} />
-            </ScrollReveal>
-            <ScrollReveal delay={120}>
+              <TeamSavingsCalculator
+                locale={locale}
+                labels={calculatorLabels}
+                ctaLabel={hero.ctaPrimary}
+                ctaHref={`#${contactId}`}
+              />
               <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-6">{savings.source}</p>
-              <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mt-6 mb-8">{savings.promise}</p>
-              <div className="flex justify-center">
-                <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
-              </div>
             </ScrollReveal>
           </div>
         </div>
