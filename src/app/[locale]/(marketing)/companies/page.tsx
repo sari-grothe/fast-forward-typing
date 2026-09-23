@@ -77,7 +77,6 @@ export default async function CompaniesPage({ params }: Props) {
     teamSize: savings.teamSize,
     sliderHint: savings.sliderHint,
     resultIntro: savings.resultIntro,
-    perPerson: savings.perPerson,
     perDay: savings.perDay,
     perYear: savings.perYear,
     fte: savings.fte,

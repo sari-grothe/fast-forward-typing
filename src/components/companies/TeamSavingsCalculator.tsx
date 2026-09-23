@@ -7,7 +7,6 @@ export type CalculatorLabels = {
   teamSize: string;
   sliderHint: string;
   resultIntro: string;
-  perPerson: string;
   perDay: string;
   perYear: string;
   fte: string;
@@ -32,6 +31,12 @@ type Props = {
   ctaHref: string;
 };
 
+// Region-qualified, not just "de"/"en"/"fr" - a bare language tag lets the
+// runtime pick its own default region for grouping/decimal symbols, so this
+// pins it: "." thousands + "," decimal (DE), "," thousands + "." decimal
+// (US), " " thousands + "," decimal (FR).
+const INTL_LOCALE: Record<string, string> = { de: "de-DE", en: "en-US", fr: "fr-FR" };
+
 export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Props) {
   const [teamSize, setTeamSize] = useState(25);
   // The slider is the whole point of the card, but a range input alone
@@ -42,8 +47,9 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
   const perYear = perDay * WORKING_DAYS_PER_YEAR;
   const fullTimeEquivalents = perYear / HOURS_PER_FTE_YEAR;
 
-  const whole = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
-  const oneDecimal = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const intlLocale = INTL_LOCALE[locale] ?? locale;
+  const whole = new Intl.NumberFormat(intlLocale, { maximumFractionDigits: 0 });
+  const oneDecimal = new Intl.NumberFormat(intlLocale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
   return (
     <div className="rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
@@ -94,14 +100,14 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
 
       {/* Output zone: tinted panel, explicitly named to the current team
           size ("Für X Mitarbeitende") and led by ONE dominant number -
-          full-time-equivalents is the figure that actually lands with a
-          budget owner, not three same-weight stats competing for focus. */}
+          hours saved per day for the whole team, the figure that lands
+          fastest, with FTE/year as supporting context underneath. */}
       <div className="rounded-xl bg-indigo/5 dark:bg-indigo/10 p-6 sm:p-8 text-center">
         <p className="text-xs font-semibold uppercase tracking-wider text-indigo mb-4">
           {labels.resultIntro.replace("{n}", whole.format(teamSize))}
         </p>
         <p className="text-6xl sm:text-7xl font-extrabold text-indigo leading-none tabular-nums">
-          {oneDecimal.format(perDay)}
+          {whole.format(perDay)}
         </p>
         <p className="text-base font-semibold text-dark-text dark:text-white mt-2">{labels.perDay}</p>
 
@@ -116,10 +122,6 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
             </div>
           ))}
         </div>
-
-        <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-6">
-          {labels.perPerson.replace("{hours}", oneDecimal.format(HOURS_SAVED_PER_PERSON_PER_DAY))}
-        </p>
       </div>
       <p className="text-center text-xs text-zinc-400 mt-4 max-w-md mx-auto">{labels.assumption}</p>
 
