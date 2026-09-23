@@ -260,6 +260,7 @@
       "sending": "Sending ...",
       "error": "That didn't go through. Please try again in a moment."
     },
-    "whatYouGetTitle": "What you get"
+    "whatYouGetTitle": "What you get",
+    "faqBridge": "Didn't find your question? Send us a message, we reply within one business day."
   }
 }

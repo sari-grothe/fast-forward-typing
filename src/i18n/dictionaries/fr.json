@@ -260,6 +260,7 @@
       "sending": "Envoi en cours ...",
       "error": "Ça n'est pas passé. Réessaie dans un instant."
     },
-    "whatYouGetTitle": "Ce que vous recevez"
+    "whatYouGetTitle": "Ce que vous recevez",
+    "faqBridge": "Ta question n'y est pas ? Écris-nous, on répond sous un jour ouvré."
   }
 }

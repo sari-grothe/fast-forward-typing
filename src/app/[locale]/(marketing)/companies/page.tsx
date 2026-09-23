@@ -67,6 +67,7 @@ export default async function CompaniesPage({ params }: Props) {
   const forCompany = c.forCompany as { title: string; items: { title: string; desc: string }[] };
   const whatYouGetTitle = c.whatYouGetTitle as string;
   const pricing = c.pricing as Record<string, string>;
+  const faqBridge = c.faqBridge as string;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
 
   const calculatorLabels: CalculatorLabels = {
@@ -155,7 +156,10 @@ export default async function CompaniesPage({ params }: Props) {
             </ScrollReveal>
             <ScrollReveal delay={120}>
               <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-6">{savings.source}</p>
-              <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mt-6">{savings.promise}</p>
+              <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mt-6 mb-8">{savings.promise}</p>
+              <div className="flex justify-center">
+                <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
+              </div>
             </ScrollReveal>
           </div>
         </div>
@@ -193,12 +197,14 @@ export default async function CompaniesPage({ params }: Props) {
         </div>
       </section>
 
-      {/* What's included + pricing. Two compact icon-list columns under
-          one heading, not two stacked 2x2 card grids - eight near-identical
-          boxes in a row read as the same module repeated and are slow to
-          scan. Columns split by audience (team vs. company/HR), separated
-          by a vertical rule on desktop, stacked on mobile. */}
-      <section id={pricingId} className="py-20 scroll-mt-24">
+      {/* What's included. Two compact icon-list columns under one heading,
+          not two stacked 2x2 card grids - eight near-identical boxes in a
+          row read as the same module repeated and are slow to scan.
+          Columns split by audience (team vs. company/HR), separated by a
+          vertical rule on desktop, stacked on mobile. No CTA at the end
+          of this section - it flows straight into its own Pricing
+          section below, which carries the CTA. */}
+      <section className="py-20">
         <div className="mx-auto max-w-4xl px-6">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14">{whatYouGetTitle}</h2>
@@ -245,13 +251,21 @@ export default async function CompaniesPage({ params }: Props) {
               </ul>
             </div>
           </div>
-          {/* Pricing: anchored directly under the value it bundles, not a
-              floating box - the bridging first sentence in pricing.text
-              ties it explicitly back to the two lists above. */}
-          <ScrollReveal delay={100}>
-            <div className="rounded-2xl border-2 border-indigo/20 bg-indigo/5 dark:bg-indigo/10 p-8 sm:p-10 text-center">
-              <h3 className="text-2xl sm:text-3xl font-bold mb-4">{pricing.title}</h3>
-              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-2xl mx-auto mb-8">{pricing.text}</p>
+        </div>
+      </section>
+
+      {/* Pricing: its own section, not a box tacked onto the end of
+          another one. Same visual weight as the savings/why sections
+          above it (big centered heading), so it reads as its own
+          milestone in the page, not an afterthought. id lives here now,
+          not on "what you get" - the footer's "Preise" link was landing
+          on the wrong section. */}
+      <section id={pricingId} className="py-20 scroll-mt-24">
+        <div className="mx-auto max-w-2xl px-6 text-center">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">{pricing.title}</h2>
+            <div className="rounded-2xl border-2 border-indigo/20 bg-indigo/5 dark:bg-indigo/10 p-8 sm:p-10">
+              <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed mb-8">{pricing.text}</p>
               <CtaButton href={`#${contactId}`}>{pricing.cta}</CtaButton>
             </div>
           </ScrollReveal>
@@ -263,19 +277,23 @@ export default async function CompaniesPage({ params }: Props) {
         <TestimonialSlider locale={locale} segments={["professional"]} rows={1} showCta={false} />
       </section>
 
-      {/* FAQ - also targets B2B long-tail search terms (price, duration,
-          onboarding fit, multilingual teams, tracking, min. team size)
-          that no other section on this page covers */}
+      {/* FAQ, flowing directly into the contact form as one closing
+          movement (tight spacing + a one-line bridge) instead of ending
+          cold on the last answer and restarting with a new section
+          header. Also targets B2B long-tail search terms (price,
+          duration, onboarding fit, multilingual teams, tracking, min.
+          team size) that no other section on this page covers. */}
       <div className="mx-auto max-w-5xl px-6">
-        <section className="pb-20">
+        <section className="pb-8">
           <FAQ title={faq.title} items={faq.items} />
         </section>
       </div>
 
       {/* Contact form */}
-      <section id={contactId} className="py-20 scroll-mt-24">
+      <section id={contactId} className="pb-20 scroll-mt-24">
         <div className="mx-auto max-w-3xl px-6">
           <ScrollReveal>
+            <p className="text-center text-sm font-medium text-indigo mb-10">{faqBridge}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{form.title}</h2>
             <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto mb-12">{form.subtitle}</p>
           </ScrollReveal>

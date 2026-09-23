@@ -260,6 +260,7 @@
       "sending": "Wird gesendet ...",
       "error": "Das hat nicht geklappt. Bitte versuch es gleich noch einmal."
     },
-    "whatYouGetTitle": "Was ihr bekommt"
+    "whatYouGetTitle": "Was ihr bekommt",
+    "faqBridge": "Deine Frage war nicht dabei? Schreib uns, wir antworten innerhalb eines Werktags."
   }
 }
