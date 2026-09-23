@@ -8,7 +8,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { Markdown, extractHeadings } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
-import { PrintButton } from "@/components/resources/PrintButton";
+import { CheatSheetGate } from "@/components/resources/CheatSheetGate";
 import { ArticleToc } from "@/components/resources/ArticleToc";
 import { ArticleCtaCard } from "@/components/resources/ArticleCtaCard";
 import { organization } from "@/lib/schema";
@@ -54,14 +54,14 @@ export default async function ResourceArticlePage({ params }: Props) {
   const headings = extractHeadings(resource.content);
   // Productivity articles are the ones that also make sense for a
   // company buyer (time saved, professional output) - the other
-  // categories (shortcuts, learning basics, mobile) are individual-only.
+  // categories (shortcuts, learning basics) are individual-only.
   const showTeamCta = resource.category === "productivity";
 
   const categoryColors: Record<string, string> = {
     learning: "bg-indigo/10 text-indigo",
     shortcuts: "bg-electric-yellow/15 text-dark-text dark:text-electric-yellow",
     productivity: "bg-peach/15 text-peach",
-    mobile: "bg-zinc-200/60 text-zinc-600 dark:bg-zinc-700/40 dark:text-zinc-300",
+    comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
 
   const articleUrl = `https://fastforwardtyping.com/${locale}/resources/${slug}`;
@@ -136,10 +136,23 @@ export default async function ResourceArticlePage({ params }: Props) {
                   {resource.description}
                 </p>
                 {isLeadMagnet && (
-                  <div className="flex items-center gap-3 pt-2">
-                    <PrintButton label={ui.downloadPdf} />
-                    <span className="text-xs text-zinc-400">{ui.downloadHint}</span>
-                  </div>
+                  <CheatSheetGate
+                    locale={locale}
+                    title={resource.title}
+                    labels={{
+                      gateTitle: ui.gateTitle,
+                      gateDesc: ui.gateDesc,
+                      namePlaceholder: ui.namePlaceholder,
+                      emailPlaceholder: ui.emailPlaceholder,
+                      gateCta: ui.gateCta,
+                      gateSending: ui.gateSending,
+                      gateError: ui.gateError,
+                      consentText: ui.consentText,
+                      consentLinkText: ui.consentLinkText,
+                      downloadPdf: ui.downloadPdf,
+                      downloadHint: ui.downloadHint,
+                    }}
+                  />
                 )}
               </header>
             </ScrollReveal>

@@ -18,9 +18,9 @@ export type ResourceMeta = {
 };
 
 export const categoryLabels: Record<Locale, Record<ResourceCategory | "all", string>> = {
-  de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", comparisons: "Vergleiche" },
-  en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", comparisons: "Comparisons" },
-  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", comparisons: "Comparatifs" },
+  de: { all: "Alle", learning: "Lernen", shortcuts: "Cheat Sheets", productivity: "Produktivität", comparisons: "Vergleiche" },
+  en: { all: "All", learning: "Learning", shortcuts: "Cheat Sheets", productivity: "Productivity", comparisons: "Comparisons" },
+  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Aide-mémoires", productivity: "Productivité", comparisons: "Comparatifs" },
 };
 
 export const resourcesUi: Record<Locale, {
@@ -42,6 +42,15 @@ export const resourcesUi: Record<Locale, {
   teamCtaLink: string;
   searchPlaceholder: string;
   searchNoResults: string;
+  gateTitle: string;
+  gateDesc: string;
+  namePlaceholder: string;
+  emailPlaceholder: string;
+  gateCta: string;
+  gateSending: string;
+  gateError: string;
+  consentText: string;
+  consentLinkText: string;
 }> = {
   de: {
     pageTitle: "Ressourcen",
@@ -62,6 +71,15 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Für dein Team?",
     teamCtaDesc: "Team-Training mit Vorher-Nachher-Messung, für Unternehmen.",
     teamCtaLink: "Team-Training anfragen",
+    gateTitle: "Trag dich ein und lade sofort herunter",
+    gateDesc: "Vorname und E-Mail reichen - kein Spam, nur dein Cheat Sheet.",
+    namePlaceholder: "Vorname",
+    emailPlaceholder: "E-Mail-Adresse",
+    gateCta: "Freischalten",
+    gateSending: "Wird freigeschaltet ...",
+    gateError: "Das hat nicht geklappt. Versuch's gleich nochmal.",
+    consentText: "Ich bin mit der Verarbeitung meiner Daten gemäß",
+    consentLinkText: "Datenschutzerklärung einverstanden.",
   },
   en: {
     pageTitle: "Resources",
@@ -82,6 +100,15 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "For your team?",
     teamCtaDesc: "Team training with before/after measurement, for companies.",
     teamCtaLink: "Request team training",
+    gateTitle: "Enter your details for instant access",
+    gateDesc: "First name and email is all it takes - no spam, just your cheat sheet.",
+    namePlaceholder: "First name",
+    emailPlaceholder: "Email address",
+    gateCta: "Unlock download",
+    gateSending: "Unlocking ...",
+    gateError: "That didn't work. Please try again in a moment.",
+    consentText: "I agree to my data being processed per the",
+    consentLinkText: "privacy policy.",
   },
   fr: {
     pageTitle: "Ressources",
@@ -102,6 +129,15 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Pour ton équipe ?",
     teamCtaDesc: "Formation d'équipe avec mesure avant/après, pour les entreprises.",
     teamCtaLink: "Demander une formation d'équipe",
+    gateTitle: "Inscris-toi pour un accès immédiat",
+    gateDesc: "Prénom et e-mail suffisent - pas de spam, juste ta fiche pratique.",
+    namePlaceholder: "Prénom",
+    emailPlaceholder: "Adresse e-mail",
+    gateCta: "Débloquer",
+    gateSending: "Déblocage ...",
+    gateError: "Ça n'a pas marché. Réessaie dans un instant.",
+    consentText: "J'accepte que mes données soient traitées conformément à la",
+    consentLinkText: "politique de confidentialité.",
   },
 };
 

@@ -133,38 +133,6 @@ function InlineCourseCta({ locale, copy }: { locale: Locale; copy: FinalCtaCopy 
   );
 }
 
-function LeadMagnetBanner({ locale }: { locale: Locale }) {
-  const ui = resourcesUi[locale];
-  const bannerText: Record<Locale, { title: string; desc: string }> = {
-    de: { title: "Tastenkombinationen als Cheat Sheet", desc: "Die wichtigsten Shortcuts fur Windows und Mac - zum Ausdrucken." },
-    en: { title: "Keyboard shortcuts cheat sheet", desc: "The most important shortcuts for Windows and Mac - printable." },
-    fr: { title: "Raccourcis clavier en aide-memoire", desc: "Les raccourcis indispensables pour Windows et Mac - a imprimer." },
-  };
-
-  return (
-    <div className="rounded-2xl border border-electric-yellow/30 bg-white dark:bg-dark-surface p-6 flex flex-col sm:flex-row items-center gap-4">
-      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-electric-yellow/20 flex items-center justify-center">
-        <svg className="w-6 h-6 text-dark-text dark:text-electric-yellow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-        </svg>
-      </div>
-      <div className="flex-1 text-center sm:text-left">
-        <p className="font-bold text-dark-text dark:text-white">{bannerText[locale].title}</p>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{bannerText[locale].desc}</p>
-      </div>
-      <Link
-        href={`/${locale}/resources/${locale === "fr" ? "raccourcis-clavier-windows" : locale === "de" ? "tastenkombinationen-windows" : "keyboard-shortcuts-windows"}`}
-        className="inline-flex items-center gap-2 rounded-xl bg-dark-text dark:bg-white px-5 py-2.5 text-sm font-semibold text-white dark:text-dark-text hover:scale-[1.02] active:scale-[0.98] transition-all"
-      >
-        {ui.downloadPdf}
-        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-      </Link>
-    </div>
-  );
-}
-
 // A category section header - icon, label, count. Plain text, not a
 // button: this page shows everything at once, nothing to filter into.
 function SectionHeader({ category, locale, count }: { category: ResourceCategory; locale: Locale; count: number }) {
@@ -251,11 +219,6 @@ export function ResourcesOverview({ items, locale, finalCta }: Props) {
           </ScrollReveal>
         ))}
       </div>
-
-      {/* Lead magnet banner */}
-      <ScrollReveal delay={160}>
-        <LeadMagnetBanner locale={locale} />
-      </ScrollReveal>
     </div>
   );
 }
