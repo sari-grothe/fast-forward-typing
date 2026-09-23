@@ -5,7 +5,7 @@ import Link from "next/link";
 import { LessonDrill } from "./LessonDrill";
 import { KeyIntro } from "./KeyIntro";
 import { KeyCharacter } from "@/components/KeyCharacter";
-import { SaveProgressPrompt } from "@/components/SaveProgressPrompt";
+import { ProWall, isProWallCleared } from "./ProWall";
 import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey, homeRestingKeys } from "@/lib/lessons";
 import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
@@ -92,11 +92,22 @@ const i18n: Record<Locale, {
 };
 
 export function LessonView({ lessonId, locale }: Props) {
+  // Computed before the hooks below (pure lookup, no side effects) so the
+  // Pro-wall gate can read lesson.isFree - the same flag that already
+  // drives the Free/Pro badges on the lessons list - instead of
+  // duplicating the free/paid split as a separate hardcoded lesson id.
+  const lesson = getLesson(lessonId, locale);
+  const isPaidLesson = lesson ? !lesson.isFree : false;
+
   const [introComplete, setIntroComplete] = useState(lessonId !== 0);
   const [currentDrill, setCurrentDrill] = useState(0);
   const [results, setResults] = useState<DrillResult[]>([]);
   const [isLessonComplete, setIsLessonComplete] = useState(false);
   const [doneIds, setDoneIds] = useState<Set<number>>(new Set());
+  // Undecided until the effect below checks storage, so the wall never
+  // flashes-then-hides (or vice versa) on a gated lesson.
+  const [gateChecked, setGateChecked] = useState(!isPaidLesson);
+  const [gateCleared, setGateCleared] = useState(!isPaidLesson);
 
   useEffect(() => {
     const records = progressStore.getLessonRecords(locale);
@@ -104,7 +115,12 @@ export function LessonView({ lessonId, locale }: Props) {
     setDoneIds(new Set([...Object.keys(records).map(Number), ...skips]));
   }, [locale, lessonId, isLessonComplete]);
 
-  const lesson = getLesson(lessonId, locale);
+  useEffect(() => {
+    if (!isPaidLesson) return;
+    setGateCleared(isProWallCleared());
+    setGateChecked(true);
+  }, [lessonId, isPaidLesson]);
+
   const l = i18n[locale];
 
   if (!lesson) {
@@ -121,6 +137,11 @@ export function LessonView({ lessonId, locale }: Props) {
   const meta = lessonMeta[locale]?.[lessonId] ?? lessonMeta.en[lessonId];
   const phaseName = phaseNames[locale]?.[lesson.phase] ?? phaseNames.en[lesson.phase];
   const nextLesson = getNextLesson(lessonId, locale);
+
+  if (isPaidLesson && !gateCleared) {
+    if (!gateChecked) return null;
+    return <ProWall locale={locale} onCleared={() => setGateCleared(true)} />;
+  }
 
   function handleDrillComplete(result: DrillResult) {
     const newResults = [...results, result];
@@ -186,8 +207,6 @@ export function LessonView({ lessonId, locale }: Props) {
             </Link>
           </div>
         </div>
-
-        {lessonId === 1 && <SaveProgressPrompt locale={locale} />}
       </div>
     );
   }
