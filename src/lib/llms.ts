@@ -26,7 +26,7 @@ const FACTS = `- Fast Forward >> Typing is a web-based touch-typing course for a
 - Available in German (QWERTZ keyboard layout), English (QWERTY) and French (AZERTY). Each language has its own curriculum written for its keyboard layout, not a translation.
 - Unique approach: an adaptive placement test ("Einstufung") measures per-key accuracy and speed, then builds an individual training plan. Learners who already master some keys get a suggestion to skip those lessons; every lesson stays accessible.
 - Each lesson includes a short learning-science note ("Gut zu wissen") explaining why the practice method works (myelination, spacing effect, chunking).
-- For individuals, the typing speed test and the first lessons are free. The full course and the official typing certificate (speed + accuracy, 5 euros one-time) are paid. No subscriptions for individuals.
+- For individuals: the typing speed test and the first 6 lessons are free, no account needed. The rest of the course (lesson 7 onward) and the official typing certificate (speed + accuracy, 5 euros one-time) are Pro features - not purchasable yet, both currently collect a waitlist signup instead. No subscriptions for individuals.
 - For companies: team training on an annual per-employee license, with before/after measurement and certificates for each participant. Pricing on request via the contact form on the companies page.
 - Works with any keyboard (laptop, desktop, mechanical). Runs in the browser, no installation.
 - Typical outcome: noticeable improvement after 2-3 weeks of 10-15 minutes daily practice.`;
@@ -39,6 +39,7 @@ const STATIC_PAGES: { path: string; label: string; note: string }[] = [
   { path: "/tips", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
   { path: "/tools/keyboard-layouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
   { path: "/about", label: "About", note: "who is behind Fast Forward >> Typing" },
+  { path: "/help", label: "Help center", note: "FAQ covering the whole product, searchable, organized by category" },
   { path: "/for-teams", label: "For companies", note: "team training for companies: annual per-employee license, before/after measurement, certificates, pricing on request (DE: /de/unternehmen, FR: /fr/entreprises)" },
 ];
 

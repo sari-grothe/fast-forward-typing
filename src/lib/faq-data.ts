@@ -30,7 +30,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Kann ich meinen Fortschritt speichern?",
-        answer: "Ja, mit einem kostenlosen Konto werden deine Ergebnisse gespeichert und du kannst deinen Fortschritt über Zeit verfolgen.",
+        answer: "Dein Fortschritt wird automatisch in deinem Browser gespeichert, ganz ohne Konto oder Anmeldung. Auf einem neuen Gerät geht er aktuell verloren - geräteübergreifender Fortschritt ist geplant.",
       },
       {
         question: "Wie wird meine Tippgeschwindigkeit gemessen?",
@@ -67,7 +67,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Can I save my progress?",
-        answer: "Yes, with a free account your results are saved and you can track your progress over time.",
+        answer: "Your progress is saved automatically in your browser, no account or sign-up needed. It won't carry over to a new device yet - cross-device progress is planned.",
       },
       {
         question: "How is typing speed measured?",
@@ -104,7 +104,7 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
       },
       {
         question: "Puis-je sauvegarder mes progrès ?",
-        answer: "Oui, avec un compte gratuit, tes résultats sont sauvegardés et tu peux suivre ta progression dans le temps.",
+        answer: "Ta progression est sauvegardée automatiquement dans ton navigateur, sans compte ni inscription. Elle ne se transfère pas encore sur un nouvel appareil - la progression multi-appareils est prévue.",
       },
       {
         question: "Comment la vitesse de frappe est-elle mesurée ?",
@@ -144,7 +144,7 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Kann ich meine Tippgeschwindigkeit offiziell nachweisen?",
-        answer: "Klar - hol dir unser Tippzertifikat für 5 Euro. Mit WPM, Genauigkeit und Ausstellungsdatum, bereit für Lebenslauf oder LinkedIn.",
+        answer: "Klar - trag dich für unser Tippzertifikat (5 Euro, aktuell Warteliste) ein. Mit WPM, Genauigkeit und Ausstellungsdatum, bereit für Lebenslauf oder LinkedIn.",
       },
     ],
   },
@@ -177,7 +177,7 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Can I get proof of my typing speed?",
-        answer: "Yep - grab our typing certificate for 5 euros. It's got your WPM, your accuracy, and a real issue date, ready for your CV or LinkedIn.",
+        answer: "Yep - join the waitlist for our typing certificate (5 euros). It'll have your WPM, your accuracy, and a real issue date, ready for your CV or LinkedIn.",
       },
     ],
   },
@@ -210,7 +210,7 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Puis-je prouver ma vitesse de frappe ?",
-        answer: "Oui - récupère notre certificat de dactylographie pour 5 euros. Avec ta vitesse, ta précision et une date de délivrance, prêt pour ton CV ou LinkedIn.",
+        answer: "Oui - inscris-toi sur la liste d'attente de notre certificat de dactylographie (5 euros). Avec ta vitesse, ta précision et une date de délivrance, prêt pour ton CV ou LinkedIn.",
       },
     ],
   },
@@ -222,15 +222,15 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "Was kostet das Tippzertifikat?",
-        answer: "Das Zertifikat kostet einmalig 5 Euro. Keine Abos, keine versteckten Kosten.",
+        answer: "Einmalig 5 Euro, kein Abo. Das Zertifikat ist aktuell noch nicht käuflich - trag dich in die Warteliste ein und dein Preis von 5 Euro ist dir sicher, auch wenn er später steigt.",
       },
       {
         question: "Wie bekomme ich mein Zertifikat?",
-        answer: "Du misst zuerst deine Tippgeschwindigkeit. Wenn du mit deinem Ergebnis zufrieden bist, kaufst du das Zertifikat - und bekommst es sofort als PDF per E-Mail.",
+        answer: "Du misst zuerst deine Tippgeschwindigkeit, dann trägst du dich mit deiner E-Mail-Adresse in die Warteliste ein. Sobald das Zertifikat verfügbar ist, schreiben wir dir.",
       },
       {
         question: "Kann ich das Zertifikat in meinen Lebenslauf aufnehmen?",
-        answer: "Ja. Das Zertifikat enthält deine Tippgeschwindigkeit, Genauigkeit und ein Ausstellungsdatum. Es eignet sich für Lebensläufe, LinkedIn-Profile und Bewerbungen.",
+        answer: "Ja, das ist der Zweck. Es enthält deine Tippgeschwindigkeit, Genauigkeit und ein Ausstellungsdatum - geeignet für Lebenslauf, LinkedIn-Profil und Bewerbungen.",
       },
       {
         question: "Kann ich den Zertifikatstest wiederholen?",
@@ -243,15 +243,15 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "How much does the typing certificate cost?",
-        answer: "The certificate costs a one-time fee of 5 euros. No subscriptions, no hidden fees.",
+        answer: "A one-time 5 euros, no subscription. It's not purchasable yet - join the waitlist and your 5 euro price is locked in, even if it goes up later.",
       },
       {
         question: "How do I get my certificate?",
-        answer: "You take the typing test first. If you're happy with your result, you buy the certificate - and receive it instantly as a PDF via email.",
+        answer: "Take the typing test first, then sign up with your email on the waitlist. We'll email you the moment the certificate is available.",
       },
       {
         question: "Can I add the certificate to my CV?",
-        answer: "Yes. The certificate includes your typing speed, accuracy, and issue date. It's suitable for CVs, LinkedIn profiles, and job applications.",
+        answer: "Yes, that's the point. It includes your typing speed, accuracy, and issue date - suitable for a CV, LinkedIn profile, or job application.",
       },
       {
         question: "Can I retake the certificate test?",
@@ -264,15 +264,15 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "Combien coûte le certificat de dactylographie ?",
-        answer: "Le certificat coûte 5 euros en paiement unique. Pas d'abonnement, pas de frais cachés.",
+        answer: "5 euros en une fois, pas d'abonnement. Il n'est pas encore disponible à l'achat - inscris-toi sur la liste d'attente et ce prix de 5 euros est garanti, même s'il augmente plus tard.",
       },
       {
         question: "Comment obtenir mon certificat ?",
-        answer: "Tu passes d'abord le test de dactylographie. Si tu es content de ton résultat, tu achètes le certificat - et tu le reçois instantanément en PDF par e-mail.",
+        answer: "Passe d'abord le test de dactylographie, puis inscris-toi avec ton e-mail sur la liste d'attente. On t'écrit dès que le certificat est disponible.",
       },
       {
         question: "Puis-je ajouter le certificat à mon CV ?",
-        answer: "Oui. Le certificat inclut ta vitesse de frappe, ta précision et la date de délivrance. Il convient pour les CV, profils LinkedIn et candidatures.",
+        answer: "Oui, c'est fait pour ça. Il inclut ta vitesse de frappe, ta précision et la date de délivrance - adapté au CV, au profil LinkedIn et aux candidatures.",
       },
       {
         question: "Puis-je repasser le test du certificat ?",
