@@ -61,6 +61,7 @@ export default async function HomePage({ params }: Props) {
         <TypingHero
           locale={locale}
           subheadline={h.subheadline as string}
+          fact={h.heroFact as string}
           ctaLearn={h.ctaLearn as string}
           ctaTest={h.ctaTest as string}
         />
