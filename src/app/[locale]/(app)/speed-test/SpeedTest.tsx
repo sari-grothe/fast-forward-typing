@@ -389,7 +389,7 @@ export function SpeedTest({ locale }: Props) {
           </Link>
 
           <Link
-            href={`/${locale}/certificate`}
+            href={`/${locale}/certificate?wpm=${wpm}&accuracy=${accuracy}`}
             className="block mt-4 rounded-2xl border-2 border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 hover:border-indigo/30 transition-colors group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

@@ -2,9 +2,11 @@ import type { Locale } from "@/i18n/config";
 import { FAQ } from "@/components/FAQ";
 import { certificateFAQ } from "@/lib/faq-data";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
+import { WaitlistForm } from "@/components/WaitlistForm";
 
 type Props = {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ wpm?: string; accuracy?: string }>;
 };
 
 const i18n: Record<Locale, {
@@ -23,17 +25,24 @@ const i18n: Record<Locale, {
   benefit4Desc: string;
   priceLabel: string;
   priceNote: string;
-  buyCta: string;
+  founderNote: string;
   includesTitle: string;
   includes: string[];
   trustLine: string;
+  yourResultLabel: string;
+  emailPlaceholder: string;
+  waitlistSubmit: string;
+  waitlistSending: string;
+  waitlistError: string;
+  waitlistSuccessTitle: string;
+  waitlistSuccessText: string;
   testFirst: string;
   testFirstDesc: string;
   testCta: string;
 }> = {
   de: {
     heroTitle: "Mach deine Tippfähigkeiten offiziell",
-    heroSubtitle: "Du hast deine Tippgeschwindigkeit gemessen - jetzt sichere dir dein Ergebnis. Nach dem Kauf bekommst du dein personalisiertes Zertifikat sofort als PDF per E-Mail.",
+    heroSubtitle: "Du hast deine Tippgeschwindigkeit gemessen - bald sicherst du dir dein Ergebnis offiziell. Trag dich ein, dann bekommst du dein personalisiertes Zertifikat als PDF per E-Mail, sobald es verfügbar ist.",
     heroHighlight: "Einmalig 5 Euro. Kein Abo.",
     previewTitle: "So sieht dein Zertifikat aus",
     previewSubtitle: "Professionell. Mit deinem Namen, Tempo, Genauigkeit und Datum.",
@@ -47,7 +56,7 @@ const i18n: Record<Locale, {
     benefit4Desc: "Nicht zufrieden? Mach den Test nochmal - jeder Versuch ist inklusive.",
     priceLabel: "Tippzertifikat",
     priceNote: "Einmalzahlung, kein Abo",
-    buyCta: "Zertifikat kaufen",
+    founderNote: "Trag dich jetzt ein und sichere dir diesen Preis fest, auch wenn er später steigt.",
     includesTitle: "Enthalten:",
     includes: [
       "Personalisiertes PDF-Zertifikat",
@@ -55,14 +64,21 @@ const i18n: Record<Locale, {
       "Sofort per E-Mail zugestellt",
       "Unbegrenzte Testwiederholungen",
     ],
-    trustLine: "Sichere Zahlung über Stripe. Deine Daten bleiben bei dir.",
+    trustLine: "Keine Zahlungsdaten nötig. Nur deine E-Mail.",
+    yourResultLabel: "Dein Ergebnis",
+    emailPlaceholder: "Deine E-Mail-Adresse",
+    waitlistSubmit: "Auf die Warteliste",
+    waitlistSending: "Wird eingetragen ...",
+    waitlistError: "Das hat nicht geklappt. Nochmal versuchen?",
+    waitlistSuccessTitle: "Du bist auf der Liste",
+    waitlistSuccessText: "Wir schreiben dir, sobald das Zertifikat verfügbar ist. Dein Preis von 5 € ist dir sicher.",
     testFirst: "Noch keinen Test gemacht?",
     testFirstDesc: "Miss zuerst kostenlos deine Tippgeschwindigkeit - in wenigen Minuten weisst du, wo du stehst.",
     testCta: "Geschwindigkeit testen",
   },
   en: {
     heroTitle: "Make your typing skills official",
-    heroSubtitle: "You took the typing test - now lock in your result. After purchase, you'll receive your personalised certificate instantly as a PDF via email.",
+    heroSubtitle: "You took the typing test - soon you'll be able to lock in your result officially. Sign up and you'll get your personalised certificate as a PDF by email as soon as it's ready.",
     heroHighlight: "One-time 5 euros. No subscription.",
     previewTitle: "This is what your certificate looks like",
     previewSubtitle: "Professional. With your name, speed, accuracy, and date.",
@@ -76,7 +92,7 @@ const i18n: Record<Locale, {
     benefit4Desc: "Not satisfied? Take the test again - every attempt is included.",
     priceLabel: "Typing certificate",
     priceNote: "One-time payment, no subscription",
-    buyCta: "Buy certificate",
+    founderNote: "Sign up now and this price is locked in for you, even if it goes up later.",
     includesTitle: "Included:",
     includes: [
       "Personalised PDF certificate",
@@ -84,14 +100,21 @@ const i18n: Record<Locale, {
       "Instant email delivery",
       "Unlimited test retakes",
     ],
-    trustLine: "Secure payment via Stripe. Your data stays with you.",
+    trustLine: "No payment details needed. Just your email.",
+    yourResultLabel: "Your result",
+    emailPlaceholder: "Your email address",
+    waitlistSubmit: "Join the waitlist",
+    waitlistSending: "Adding you ...",
+    waitlistError: "That didn't work. Try again?",
+    waitlistSuccessTitle: "You're on the list",
+    waitlistSuccessText: "We'll email you the moment the certificate is ready. Your 5 EUR price is locked in.",
     testFirst: "Haven't taken the test yet?",
     testFirstDesc: "Take the free typing test first - in just a few minutes you'll know where you stand.",
     testCta: "Take the typing test",
   },
   fr: {
     heroTitle: "Rends tes compétences de frappe officielles",
-    heroSubtitle: "Tu as passé le test de frappe - maintenant garde ton résultat. Après l'achat, tu reçois ton certificat personnalisé instantanément en PDF par e-mail.",
+    heroSubtitle: "Tu as passé le test de frappe - bientôt tu pourras garder ton résultat officiellement. Inscris-toi et tu reçois ton certificat personnalisé en PDF par e-mail dès qu'il est disponible.",
     heroHighlight: "5 euros en une fois. Pas d'abonnement.",
     previewTitle: "Voici à quoi ressemble ton certificat",
     previewSubtitle: "Professionnel. Avec ton nom, ta vitesse, ta précision et la date.",
@@ -105,7 +128,7 @@ const i18n: Record<Locale, {
     benefit4Desc: "Pas satisfait ? Repasse le test - chaque tentative est incluse.",
     priceLabel: "Certificat de frappe",
     priceNote: "Paiement unique, pas d'abonnement",
-    buyCta: "Acheter le certificat",
+    founderNote: "Inscris-toi maintenant et garde ce prix, même s'il augmente plus tard.",
     includesTitle: "Inclus :",
     includes: [
       "Certificat PDF personnalisé",
@@ -113,7 +136,14 @@ const i18n: Record<Locale, {
       "Livraison instantanée par e-mail",
       "Reprises de test illimitées",
     ],
-    trustLine: "Paiement sécurisé via Stripe. Tes données restent chez toi.",
+    trustLine: "Pas de données de paiement nécessaires. Juste ton e-mail.",
+    yourResultLabel: "Ton résultat",
+    emailPlaceholder: "Ton adresse e-mail",
+    waitlistSubmit: "Rejoindre la liste d'attente",
+    waitlistSending: "Inscription ...",
+    waitlistError: "Ça n'a pas marché. Réessayer ?",
+    waitlistSuccessTitle: "Tu es sur la liste",
+    waitlistSuccessText: "On t'écrit dès que le certificat est disponible. Ton prix de 5 € est garanti.",
     testFirst: "Tu n'as pas encore passé le test ?",
     testFirstDesc: "Passe d'abord le test de frappe gratuit - en quelques minutes tu sauras où tu en es.",
     testCta: "Passer le test de frappe",
@@ -135,9 +165,11 @@ const benefitIcons = [
   </svg>,
 ];
 
-export default async function CertificatePage({ params }: Props) {
+export default async function CertificatePage({ params, searchParams }: Props) {
   const { locale } = await params;
+  const { wpm, accuracy } = await searchParams;
   const l = i18n[locale as Locale];
+  const hasResult = wpm && accuracy;
 
   const benefits = [
     { title: l.benefit1Title, desc: l.benefit1Desc },
@@ -177,6 +209,13 @@ export default async function CertificatePage({ params }: Props) {
             </div>
           </div>
 
+          {hasResult && (
+            <div className="rounded-lg bg-indigo/5 dark:bg-indigo/10 px-4 py-3 flex items-center justify-between">
+              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">{l.yourResultLabel}</span>
+              <span className="text-sm font-bold text-dark-text dark:text-white">{wpm} WPM · {accuracy}%</span>
+            </div>
+          )}
+
           <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
             <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
               {l.includesTitle}
@@ -193,20 +232,21 @@ export default async function CertificatePage({ params }: Props) {
             </ul>
           </div>
 
-          {/* Stripe embed placeholder */}
-          <div className="rounded-lg border-2 border-dashed border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark/50 p-8 text-center">
-            <svg className="w-8 h-8 mx-auto text-zinc-300 dark:text-zinc-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
-            </svg>
-            <p className="text-xs text-zinc-400">Stripe Checkout</p>
-          </div>
+          <WaitlistForm
+            locale={locale}
+            product="certificate"
+            extra={hasResult ? { wpm: wpm as string, accuracy: accuracy as string } : undefined}
+            labels={{
+              emailPlaceholder: l.emailPlaceholder,
+              submit: l.waitlistSubmit,
+              sending: l.waitlistSending,
+              error: l.waitlistError,
+              successTitle: l.waitlistSuccessTitle,
+              successText: l.waitlistSuccessText,
+            }}
+          />
 
-          <button
-            disabled
-            className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3.5 text-base font-semibold text-white opacity-50 cursor-not-allowed"
-          >
-            {l.buyCta} <span className="text-electric-yellow">&gt;&gt;</span>
-          </button>
+          <p className="text-center text-xs text-zinc-400">{l.founderNote}</p>
 
           <p className="text-center text-xs text-zinc-400 flex items-center justify-center gap-1.5">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
