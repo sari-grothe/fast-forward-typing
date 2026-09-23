@@ -9,6 +9,7 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { MobileMenu } from "@/components/MobileMenu";
+import { organization, BASE_URL } from "@/lib/schema";
 import "../globals.css";
 
 const poppins = Poppins({
@@ -81,9 +82,25 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const dict = await getDictionary(locale as Locale);
 
+  // Present on every page (not just the ones with their own Course/
+  // Service/Article schema) so AI answer engines and search always
+  // resolve the same brand entity, no matter which page they land on.
+  const siteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Fast Forward >> Typing",
+    url: `${BASE_URL}/${locale}`,
+    inLanguage: locale,
+    publisher: organization,
+  };
+
   return (
     <html lang={locale} className={`${poppins.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteSchema) }}
+        />
         <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})()` }} />
       </head>
       <body className="min-h-screen flex flex-col bg-lavender text-dark-text dark:bg-dark dark:text-white font-sans antialiased transition-colors">

@@ -10,6 +10,7 @@ import { ContactForm, type ContactFormLabels } from "@/components/companies/Cont
 import { CtaButton } from "@/components/CtaButton";
 import { FAQ } from "@/components/FAQ";
 import { companiesFAQ } from "@/lib/companies-faq-data";
+import { organization } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -95,10 +96,7 @@ export default async function CompaniesPage({ params }: Props) {
     name: meta.title,
     description: meta.description,
     serviceType: "Corporate touch-typing training",
-    provider: {
-      "@type": "Organization",
-      name: "Fast Forward >> Typing",
-    },
+    provider: organization,
     audience: {
       "@type": "BusinessAudience",
       audienceType: "Companies, HR and L&D teams",

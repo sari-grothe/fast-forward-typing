@@ -12,6 +12,7 @@ import { KeyCharacter } from "@/components/KeyCharacter";
 import { FinalCTA } from "@/components/FinalCTA";
 import { CtaButton } from "@/components/CtaButton";
 import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
+import { organization } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -33,10 +34,7 @@ export default async function HomePage({ params }: Props) {
     "@type": "Course",
     name: dict.meta.title,
     description: dict.meta.description,
-    provider: {
-      "@type": "Organization",
-      name: "Fast Forward >> Typing",
-    },
+    provider: organization,
     hasCourseInstance: {
       "@type": "CourseInstance",
       courseMode: "online",

@@ -9,6 +9,7 @@ import { Markdown } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PrintButton } from "@/components/tips/PrintButton";
+import { organization } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -66,8 +67,8 @@ export default async function TipArticlePage({ params }: Props) {
     dateModified: tip.date,
     url: articleUrl,
     mainEntityOfPage: { "@type": "WebPage", "@id": articleUrl },
-    author: { "@type": "Organization", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
-    publisher: { "@type": "Organization", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
+    author: organization,
+    publisher: organization,
     inLanguage: locale,
     isPartOf: { "@type": "WebSite", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
   };

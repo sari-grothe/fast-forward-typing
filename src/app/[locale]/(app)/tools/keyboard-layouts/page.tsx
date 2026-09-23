@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
 import { KeyboardComparison } from "@/components/tools/KeyboardComparison";
+import { organization } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -64,7 +65,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
     applicationCategory: "EducationalApplication",
     operatingSystem: "Any",
     offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
-    author: { "@type": "Organization", name: "Fast Forward >> Typing", url: "https://fastforwardtyping.com" },
+    author: organization,
     inLanguage: locale,
   };
 
