@@ -128,12 +128,19 @@
       "messagePlaceholder": "Worum geht es?",
       "submit": "Nachricht senden",
       "privacy": "Die Angaben werden ausschließlich zur Beantwortung der Anfrage verwendet.",
+      "consentText": "Ich bin mit der Verarbeitung meiner Daten gemäß",
+      "consentLinkText": "Datenschutzerklärung einverstanden.",
       "successTitle": "Danke für deine Nachricht.",
       "successText": "Wir melden uns innerhalb eines Werktags. Bis dahin: Schau doch mal im Hilfecenter vorbei, vielleicht ist deine Antwort schon da.",
       "successCta": "Zum Hilfecenter",
       "sending": "Wird gesendet ...",
       "error": "Das hat nicht geklappt. Bitte versuch es gleich noch einmal."
     }
+  },
+  "privacy": {
+    "title": "Datenschutz",
+    "placeholder": "Die Datenschutzerklärung wird gerade erstellt und ist in Kürze hier verfügbar.",
+    "contactCta": "Fragen zum Datenschutz? Schreib uns."
   },
   "footer": {
     "learnTyping": "10-Finger-System",
@@ -271,6 +278,8 @@
       "messagePlaceholder": "Onboarding, Ausbildung, Kundenservice ...",
       "submit": "Anfrage senden",
       "privacy": "Die Angaben werden ausschließlich zur Beantwortung der Anfrage verwendet.",
+      "consentText": "Ich bin mit der Verarbeitung unserer Daten gemäß",
+      "consentLinkText": "Datenschutzerklärung einverstanden.",
       "successTitle": "Danke für deine Anfrage.",
       "successText": "Wir melden uns innerhalb eines Werktags mit einem konkreten Vorschlag für dein Team. Bis dahin: Miss doch mal deine eigene Tippgeschwindigkeit.",
       "successCta": "Tippgeschwindigkeit messen",

@@ -128,12 +128,19 @@
       "messagePlaceholder": "De quoi s'agit-il ?",
       "submit": "Envoyer le message",
       "privacy": "Ces informations servent uniquement à répondre à la demande.",
+      "consentText": "J'accepte que mes données soient traitées conformément à la",
+      "consentLinkText": "politique de confidentialité.",
       "successTitle": "Merci pour ton message.",
       "successText": "On te répond sous un jour ouvré. En attendant, jette un œil au centre d'aide - ta réponse s'y trouve peut-être déjà.",
       "successCta": "Voir le centre d'aide",
       "sending": "Envoi en cours ...",
       "error": "Ça n'a pas marché. Réessaie dans un instant."
     }
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "placeholder": "La politique de confidentialité est en cours de rédaction et sera bientôt disponible ici.",
+    "contactCta": "Des questions sur la confidentialité ? Écris-nous."
   },
   "footer": {
     "learnTyping": "Apprendre à taper",
@@ -271,6 +278,8 @@
       "messagePlaceholder": "Onboarding, alternants, service client ...",
       "submit": "Envoyer la demande",
       "privacy": "Ces informations servent uniquement à répondre à la demande.",
+      "consentText": "J'accepte que nos données soient traitées conformément à la",
+      "consentLinkText": "politique de confidentialité.",
       "successTitle": "Merci pour ta demande.",
       "successText": "Nous te répondons sous un jour ouvré avec une proposition concrète pour ton équipe. En attendant, mesure donc ta propre vitesse de frappe.",
       "successCta": "Faire le test de dactylographie",

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export type WaitlistFormLabels = {
   emailPlaceholder: string;
@@ -9,6 +10,11 @@ export type WaitlistFormLabels = {
   error: string;
   successTitle: string;
   successText: string;
+  // DSGVO: explicit, required opt-in before the email address is
+  // stored anywhere - two parts so the privacy-policy link (locale
+  // path, not translatable text) stays out of the labels dictionaries.
+  consentText: string;
+  consentLinkText: string;
 };
 
 type Props = {
@@ -109,6 +115,20 @@ export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Prop
         placeholder={labels.emailPlaceholder}
         className="w-full rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark px-4 py-3 text-base text-dark-text dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo focus:border-indigo transition-colors"
       />
+      <label className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer">
+        <input
+          type="checkbox"
+          name="consent"
+          required
+          className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 dark:border-dark-border text-indigo focus:ring-indigo"
+        />
+        <span>
+          {labels.consentText}{" "}
+          <Link href={`/${locale}/privacy`} className="text-indigo underline hover:no-underline">
+            {labels.consentLinkText}
+          </Link>
+        </span>
+      </label>
       <button
         type="submit"
         disabled={status === "sending"}

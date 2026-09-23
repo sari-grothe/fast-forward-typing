@@ -128,12 +128,19 @@
       "messagePlaceholder": "What's this about?",
       "submit": "Send message",
       "privacy": "This information is used only to reply to your request.",
+      "consentText": "I agree to my data being processed per the",
+      "consentLinkText": "privacy policy.",
       "successTitle": "Thanks for your message.",
       "successText": "We'll reply within one business day. In the meantime, check the Help Center - your answer might already be there.",
       "successCta": "Go to Help Center",
       "sending": "Sending ...",
       "error": "That didn't work. Please try again in a moment."
     }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "placeholder": "The privacy policy is being written and will be available here shortly.",
+    "contactCta": "Questions about privacy? Write to us."
   },
   "footer": {
     "learnTyping": "Learn to type",
@@ -271,6 +278,8 @@
       "messagePlaceholder": "Onboarding, trainees, customer support ...",
       "submit": "Send request",
       "privacy": "We only use your details to reply to your request.",
+      "consentText": "I agree to our data being processed per the",
+      "consentLinkText": "privacy policy.",
       "successTitle": "Thank you for your request.",
       "successText": "We will get back to you within one business day with a concrete proposal for your team. In the meantime, why not measure your own typing speed?",
       "successCta": "Take the typing test",

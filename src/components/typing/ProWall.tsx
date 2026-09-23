@@ -28,6 +28,8 @@ const i18n: Record<Locale, {
   error: string;
   successTitle: string;
   successText: string;
+  consentText: string;
+  consentLinkText: string;
 }> = {
   de: {
     title: "Ab hier wird's Pro",
@@ -47,6 +49,8 @@ const i18n: Record<Locale, {
     error: "Das hat nicht geklappt. Nochmal versuchen?",
     successTitle: "Du bist auf der Liste",
     successText: "Wir schreiben dir, sobald du Pro freischalten kannst.",
+    consentText: "Ich bin mit der Speicherung meiner E-Mail-Adresse gemäß",
+    consentLinkText: "Datenschutzerklärung einverstanden.",
   },
   en: {
     title: "This is where Pro starts",
@@ -66,6 +70,8 @@ const i18n: Record<Locale, {
     error: "That didn't work. Try again?",
     successTitle: "You're on the list",
     successText: "We'll email you as soon as you can unlock Pro.",
+    consentText: "I agree to my email address being stored per the",
+    consentLinkText: "privacy policy.",
   },
   fr: {
     title: "À partir d'ici, c'est Pro",
@@ -85,6 +91,8 @@ const i18n: Record<Locale, {
     error: "Ça n'a pas marché. Réessayer ?",
     successTitle: "Tu es sur la liste",
     successText: "On t'écrit dès que tu peux débloquer Pro.",
+    consentText: "J'accepte que mon adresse e-mail soit conservée conformément à la",
+    consentLinkText: "politique de confidentialité.",
   },
 };
 
@@ -170,6 +178,8 @@ export function ProWall({ locale, onCleared }: { locale: Locale; onCleared: () =
               error: l.error,
               successTitle: l.successTitle,
               successText: l.successText,
+              consentText: l.consentText,
+              consentLinkText: l.consentLinkText,
             }}
             onSuccess={handleSignupSuccess}
           />

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactForm, type ContactFormLabels } from "@/components/ContactForm";
 import { BASE_URL } from "@/lib/schema";
 
 type Props = {
@@ -46,19 +46,7 @@ export default async function ContactPage({ params }: Props) {
   const c = dict.contact as {
     title: string;
     subtitle: string;
-    form: {
-      name: string;
-      email: string;
-      message: string;
-      messagePlaceholder: string;
-      submit: string;
-      privacy: string;
-      successTitle: string;
-      successText: string;
-      successCta: string;
-      sending: string;
-      error: string;
-    };
+    form: ContactFormLabels & { successCta: string };
   };
 
   return (

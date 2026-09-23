@@ -68,6 +68,8 @@ const i18n: Record<Locale, {
   waitlistError: string;
   waitlistSuccessTitle: string;
   waitlistSuccessText: string;
+  waitlistConsentText: string;
+  waitlistConsentLinkText: string;
   testFirst: string;
   testFirstDesc: string;
   testCta: string;
@@ -104,6 +106,8 @@ const i18n: Record<Locale, {
     waitlistError: "Das hat nicht geklappt. Nochmal versuchen?",
     waitlistSuccessTitle: "Du bist auf der Liste",
     waitlistSuccessText: "Wir schreiben dir, sobald das Zertifikat verfügbar ist. Dein Preis von 5 € ist dir sicher.",
+    waitlistConsentText: "Ich bin mit der Speicherung meiner E-Mail-Adresse gemäß",
+    waitlistConsentLinkText: "Datenschutzerklärung einverstanden.",
     testFirst: "Noch keinen Test gemacht?",
     testFirstDesc: "Miss zuerst kostenlos deine Tippgeschwindigkeit - in wenigen Minuten weisst du, wo du stehst.",
     testCta: "Geschwindigkeit testen",
@@ -140,6 +144,8 @@ const i18n: Record<Locale, {
     waitlistError: "That didn't work. Try again?",
     waitlistSuccessTitle: "You're on the list",
     waitlistSuccessText: "We'll email you the moment the certificate is ready. Your 5 EUR price is locked in.",
+    waitlistConsentText: "I agree to my email address being stored per the",
+    waitlistConsentLinkText: "privacy policy.",
     testFirst: "Haven't taken the test yet?",
     testFirstDesc: "Take the free typing test first - in just a few minutes you'll know where you stand.",
     testCta: "Take the typing test",
@@ -176,6 +182,8 @@ const i18n: Record<Locale, {
     waitlistError: "Ça n'a pas marché. Réessayer ?",
     waitlistSuccessTitle: "Tu es sur la liste",
     waitlistSuccessText: "On t'écrit dès que le certificat est disponible. Ton prix de 5 € est garanti.",
+    waitlistConsentText: "J'accepte que mon adresse e-mail soit conservée conformément à la",
+    waitlistConsentLinkText: "politique de confidentialité.",
     testFirst: "Tu n'as pas encore passé le test ?",
     testFirstDesc: "Passe d'abord le test de dactylographie gratuit - en quelques minutes tu sauras où tu en es.",
     testCta: "Passer le test de dactylographie",
@@ -275,6 +283,8 @@ export default async function CertificatePage({ params, searchParams }: Props) {
               error: l.waitlistError,
               successTitle: l.waitlistSuccessTitle,
               successText: l.waitlistSuccessText,
+              consentText: l.waitlistConsentText,
+              consentLinkText: l.waitlistConsentLinkText,
             }}
           />
 

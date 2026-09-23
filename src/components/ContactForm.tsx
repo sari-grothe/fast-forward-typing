@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { CtaButton } from "@/components/CtaButton";
 
 export type ContactFormLabels = {
@@ -10,6 +11,10 @@ export type ContactFormLabels = {
   messagePlaceholder: string;
   submit: string;
   privacy: string;
+  // DSGVO: explicit, required opt-in, split so the /privacy link (a
+  // locale path, not translatable text) stays out of the dictionaries.
+  consentText: string;
+  consentLinkText: string;
   successTitle: string;
   successText: string;
   successCta: string;
@@ -121,6 +126,21 @@ export function ContactForm({ locale, labels }: Props) {
               className={`${fieldClass} resize-y`}
             />
           </div>
+
+          <label className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer">
+            <input
+              type="checkbox"
+              name="consent"
+              required
+              className="mt-0.5 h-4 w-4 shrink-0 rounded border-zinc-300 dark:border-dark-border text-indigo focus:ring-indigo"
+            />
+            <span>
+              {labels.consentText}{" "}
+              <Link href={`/${locale}/privacy`} className="text-indigo underline hover:no-underline">
+                {labels.consentLinkText}
+              </Link>
+            </span>
+          </label>
 
           <div className="flex flex-col items-center gap-3 pt-2">
             <CtaButton type="submit" disabled={status === "sending"}>
