@@ -259,6 +259,7 @@
       "teamSizePlaceholder": "Select one",
       "sending": "Sending ...",
       "error": "That didn't go through. Please try again in a moment."
-    }
+    },
+    "whatYouGetTitle": "What you get"
   }
 }

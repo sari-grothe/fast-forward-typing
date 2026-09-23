@@ -65,6 +65,7 @@ export default async function CompaniesPage({ params }: Props) {
   const why = c.why as { eyebrow: string; title: string; intro: string; items: { title: string; desc: string }[]; closing: string };
   const included = c.included as { title: string; items: { title: string; desc: string }[] };
   const forCompany = c.forCompany as { title: string; items: { title: string; desc: string }[] };
+  const whatYouGetTitle = c.whatYouGetTitle as string;
   const pricing = c.pricing as Record<string, string>;
   const form = c.form as ContactFormLabels & { title: string; subtitle: string };
 
@@ -192,53 +193,61 @@ export default async function CompaniesPage({ params }: Props) {
         </div>
       </section>
 
-      {/* What's included + pricing */}
+      {/* What's included + pricing. Two compact icon-list columns under
+          one heading, not two stacked 2x2 card grids - eight near-identical
+          boxes in a row read as the same module repeated and are slow to
+          scan. Columns split by audience (team vs. company/HR), separated
+          by a vertical rule on desktop, stacked on mobile. */}
       <section id={pricingId} className="py-20 scroll-mt-24">
-        <div className="mx-auto max-w-5xl px-6">
+        <div className="mx-auto max-w-4xl px-6">
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">{included.title}</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-14">{whatYouGetTitle}</h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            {included.items.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 100} animation="scale-in">
-                <div className="group h-full rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-6 hover:shadow-xl hover:shadow-indigo/5 hover:-translate-y-1 transition-all duration-300">
-                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${i % 2 === 0 ? "bg-indigo/10" : "bg-peach/10"} group-hover:scale-110 transition-transform duration-300`}>
-                    <svg className={`h-5 w-5 ${i % 2 === 0 ? "text-indigo" : "text-peach"}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={INCLUDED_ICONS[i % INCLUDED_ICONS.length]} />
-                    </svg>
-                  </div>
-                  <h3 className="font-bold mb-1">{item.title}</h3>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* What the company gets: dashboard, progress, engagement, proof.
-              Demoted to an eyebrow-style sub-header (not a second full H2)
-              so this reads as one section with a primary and a secondary
-              audience, not the same card-grid module twice. */}
-          <ScrollReveal>
-            <p className="text-xs font-semibold text-indigo uppercase tracking-wider text-center mb-3 mt-14">{forCompany.title}</p>
-          </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-            {forCompany.items.map((item, i) => (
-              <ScrollReveal key={item.title} delay={i * 100} animation="scale-in">
-                <div className="group h-full rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-6 hover:shadow-xl hover:shadow-indigo/5 hover:-translate-y-1 transition-all duration-300">
-                  <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${i % 2 === 0 ? "bg-peach/10" : "bg-indigo/10"} group-hover:scale-110 transition-transform duration-300`}>
-                    <svg className={`h-5 w-5 ${i % 2 === 0 ? "text-peach" : "text-indigo"}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d={COMPANY_ICONS[i % COMPANY_ICONS.length]} />
-                    </svg>
-                  </div>
-                  <h3 className="font-bold mb-1">{item.title}</h3>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 mb-14">
+            <div className="lg:pr-8">
+              <p className="text-xs font-semibold uppercase tracking-wider text-indigo mb-6">{included.title}</p>
+              <ul className="space-y-6">
+                {included.items.map((item, i) => (
+                  <ScrollReveal key={item.title} delay={i * 80}>
+                    <li className="flex gap-4">
+                      <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo/10">
+                        <svg className="h-5 w-5 text-indigo" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={INCLUDED_ICONS[i % INCLUDED_ICONS.length]} />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold mb-0.5">{item.title}</p>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </li>
+                  </ScrollReveal>
+                ))}
+              </ul>
+            </div>
+            <div className="lg:pl-8 lg:border-l lg:border-zinc-200 dark:lg:border-dark-border">
+              <p className="text-xs font-semibold uppercase tracking-wider text-peach mb-6">{forCompany.title}</p>
+              <ul className="space-y-6">
+                {forCompany.items.map((item, i) => (
+                  <ScrollReveal key={item.title} delay={i * 80}>
+                    <li className="flex gap-4">
+                      <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-lg bg-peach/10">
+                        <svg className="h-5 w-5 text-peach" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d={COMPANY_ICONS[i % COMPANY_ICONS.length]} />
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="font-bold mb-0.5">{item.title}</p>
+                        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                      </div>
+                    </li>
+                  </ScrollReveal>
+                ))}
+              </ul>
+            </div>
           </div>
           {/* Pricing: anchored directly under the value it bundles, not a
               floating box - the bridging first sentence in pricing.text
-              ties it explicitly back to the eight cards above. */}
+              ties it explicitly back to the two lists above. */}
           <ScrollReveal delay={100}>
             <div className="rounded-2xl border-2 border-indigo/20 bg-indigo/5 dark:bg-indigo/10 p-8 sm:p-10 text-center">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">{pricing.title}</h3>
