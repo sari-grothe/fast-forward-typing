@@ -100,6 +100,8 @@ export default async function HomePage({ params }: Props) {
                   <p className="text-xs text-zinc-400">{prod.ctaSub}</p>
                 </div>
               </div>
+              {/* Source: fine print under the box, not inside it. */}
+              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{prod.source}</p>
             </ScrollReveal>
           </div>
         </div>

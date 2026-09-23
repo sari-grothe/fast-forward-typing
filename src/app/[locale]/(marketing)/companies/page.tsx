@@ -173,6 +173,8 @@ export default async function CompaniesPage({ params }: Props) {
               <div className="mt-6 rounded-2xl border border-white/60 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 backdrop-blur-sm p-8 sm:p-10">
                 <TypingTimeBreakdown labels={timeBreakdown} />
               </div>
+              {/* Source: fine print under the box, not inside it. */}
+              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{timeBreakdown.source}</p>
             </ScrollReveal>
           </div>
         </div>

@@ -20,7 +20,10 @@ type Props = {
 // The 40/60/80/100 WPM time-per-day bars, shared between the home page's
 // productivity section and the B2B savings section - same underlying
 // assumption (20 emails x 500 words/day), same source citation, so this
-// stays a single component instead of two copies drifting apart.
+// stays a single component instead of two copies drifting apart. Doesn't
+// render the source citation itself - callers place that outside their
+// own card (fine print under the box, not inside it), see how each page
+// uses `labels.source`.
 export function TypingTimeBreakdown({ labels }: Props) {
   const rows = [
     { wpm: 40, time: labels.row40Time, badge: labels.row40Badge, width: 100, bar: "bg-zinc-300 dark:bg-zinc-600", timeCls: "text-zinc-700 dark:text-zinc-100", chip: "bg-zinc-100 text-zinc-500 dark:bg-white/5 dark:text-zinc-400" },
@@ -56,7 +59,6 @@ export function TypingTimeBreakdown({ labels }: Props) {
         ))}
       </div>
       <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-5">{labels.chartNote}</p>
-      <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-2">{labels.source}</p>
     </div>
   );
 }
