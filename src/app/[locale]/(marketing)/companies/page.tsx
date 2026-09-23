@@ -57,6 +57,7 @@ export default async function CompaniesPage({ params }: Props) {
 
   const calculatorLabels: CalculatorLabels = {
     teamSize: savings.teamSize,
+    sliderHint: savings.sliderHint,
     perPerson: savings.perPerson,
     perDay: savings.perDay,
     perYear: savings.perYear,

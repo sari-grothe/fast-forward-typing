@@ -153,6 +153,7 @@
       "title": "How much time is hiding in your team",
       "baseline": "40 WPM is average, roughly the pace of a telegraph operator in 1920. A 500-word email takes 12.5 minutes at that speed. At 60 WPM, it's 8.3.",
       "teamSize": "Team size",
+      "sliderHint": "Drag the slider to set your team size",
       "perPerson": "That's {hours} hours per person, per day.",
       "perDay": "hours per day",
       "perYear": "hours per year",

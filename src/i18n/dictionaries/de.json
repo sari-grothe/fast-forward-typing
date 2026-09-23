@@ -153,6 +153,7 @@
       "title": "So viel Zeit steckt in deinem Team",
       "baseline": "40 WPM ist Durchschnittstempo, ungefähr so schnell wie ein Telegrafist 1920. Eine 500-Wort-Mail dauert damit 12,5 Minuten. Mit 60 WPM sind es 8,3.",
       "teamSize": "Teamgröße",
+      "sliderHint": "Regler verschieben, um deine Teamgröße einzustellen",
       "perPerson": "Das sind {hours} Stunden pro Person und Tag.",
       "perDay": "Stunden pro Tag",
       "perYear": "Stunden pro Jahr",

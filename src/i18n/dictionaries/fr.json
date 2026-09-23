@@ -153,6 +153,7 @@
       "title": "Tout ce temps qui dort dans ton équipe",
       "baseline": "40 MPM, c'est la moyenne, à peu près le rythme d'un télégraphiste en 1920. Un e-mail de 500 mots prend 12,5 minutes à cette vitesse. À 60 MPM, c'est 8,3.",
       "teamSize": "Taille de l'équipe",
+      "sliderHint": "Déplace le curseur pour indiquer la taille de ton équipe",
       "perPerson": "Ça fait {hours} heure par personne et par jour.",
       "perDay": "heures par jour",
       "perYear": "heures par an",

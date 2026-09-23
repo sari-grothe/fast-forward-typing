@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export type CalculatorLabels = {
   teamSize: string;
+  sliderHint: string;
   perPerson: string;
   perDay: string;
   perYear: string;
@@ -28,6 +29,9 @@ type Props = {
 
 export function TeamSavingsCalculator({ locale, labels }: Props) {
   const [teamSize, setTeamSize] = useState(25);
+  // The slider is the whole point of the card, but a range input alone
+  // reads as decoration - so the hint pulses until the first interaction.
+  const [touched, setTouched] = useState(false);
 
   const perDay = teamSize * HOURS_SAVED_PER_PERSON_PER_DAY;
   const perYear = perDay * WORKING_DAYS_PER_YEAR;
@@ -53,13 +57,27 @@ export function TeamSavingsCalculator({ locale, labels }: Props) {
           max={MAX_TEAM}
           step={10}
           value={teamSize}
-          onChange={(e) => setTeamSize(Number(e.target.value))}
+          onChange={(e) => {
+            setTeamSize(Number(e.target.value));
+            setTouched(true);
+          }}
+          onPointerDown={() => setTouched(true)}
           className="w-full accent-indigo cursor-pointer"
         />
         <div className="flex justify-between text-xs text-zinc-400 mt-1 tabular-nums">
           <span>{MIN_TEAM}</span>
           <span>{MAX_TEAM}</span>
         </div>
+        <p
+          className={`mt-2 flex items-center justify-center gap-2 text-sm font-medium ${
+            touched ? "text-zinc-400" : "text-indigo animate-pulse"
+          }`}
+        >
+          <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M7 8l-4 4 4 4M17 8l4 4-4 4M3 12h18" />
+          </svg>
+          {labels.sliderHint}
+        </p>
       </div>
 
       {/* Stat tiles */}
