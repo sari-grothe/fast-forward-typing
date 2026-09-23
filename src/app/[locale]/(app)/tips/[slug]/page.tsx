@@ -5,10 +5,12 @@ import type { Locale } from "@/i18n/config";
 import { locales } from "@/i18n/config";
 import { getTip, getRelatedTips, getAllTipSlugs, categoryLabels, tipsUi } from "@/lib/tips";
 import { getDictionary } from "@/i18n/dictionaries";
-import { Markdown } from "@/lib/markdown";
+import { Markdown, extractHeadings } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
 import { PrintButton } from "@/components/tips/PrintButton";
+import { ArticleToc } from "@/components/tips/ArticleToc";
+import { ArticleCtaCard } from "@/components/tips/ArticleCtaCard";
 import { organization } from "@/lib/schema";
 
 type Props = {
@@ -48,6 +50,7 @@ export default async function TipArticlePage({ params }: Props) {
 
   const related = getRelatedTips(slug, locale as Locale);
   const isLeadMagnet = tip.type === "lead-magnet";
+  const headings = extractHeadings(tip.content);
 
   const categoryColors: Record<string, string> = {
     learning: "bg-indigo/10 text-indigo",
@@ -88,92 +91,134 @@ export default async function TipArticlePage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <article className="mx-auto max-w-3xl px-6 py-10">
-        {/* Back link + meta */}
-        <ScrollReveal>
-          <div className="flex items-center justify-between mb-6">
-            <Link
-              href={`/${locale}/tips`}
-              className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-indigo transition-colors"
-            >
-              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-              {ui.backToTips}
-            </Link>
-            <div className="flex items-center gap-2 text-sm">
-              <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${categoryColors[tip.category]}`}>
-                {categoryLabels[locale as Locale][tip.category]}
-              </span>
-              <span className="text-zinc-400">{tip.readingTime} {ui.readingTime}</span>
-            </div>
-          </div>
-        </ScrollReveal>
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <div className="lg:grid lg:grid-cols-[200px_minmax(0,1fr)_240px] lg:gap-10 lg:items-start">
+          {/* Left: table of contents, sticky, desktop only - hidden entirely
+              on short articles (see ArticleToc's own 3-heading minimum). */}
+          <aside className="hidden lg:block sticky top-24 self-start">
+            <ArticleToc headings={headings} label={ui.tocLabel} />
+          </aside>
 
-        {/* Title */}
-        <ScrollReveal delay={60}>
-          <header className="mb-8 space-y-3">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white leading-tight">
-              {tip.title}
-            </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg max-w-2xl">
-              {tip.description}
-            </p>
-            {isLeadMagnet && (
-              <div className="flex items-center gap-3 pt-2">
-                <PrintButton label={ui.downloadPdf} />
-                <span className="text-xs text-zinc-400">{ui.downloadHint}</span>
+          <article className="min-w-0">
+            {/* Back link + meta */}
+            <ScrollReveal>
+              <div className="flex items-center justify-between mb-6">
+                <Link
+                  href={`/${locale}/tips`}
+                  className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-indigo transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                  {ui.backToTips}
+                </Link>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${categoryColors[tip.category]}`}>
+                    {categoryLabels[locale as Locale][tip.category]}
+                  </span>
+                  <span className="text-zinc-400">{tip.readingTime} {ui.readingTime}</span>
+                </div>
               </div>
+            </ScrollReveal>
+
+            {/* Title */}
+            <ScrollReveal delay={60}>
+              <header className="mb-8 space-y-3">
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white leading-tight">
+                  {tip.title}
+                </h1>
+                <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg max-w-2xl">
+                  {tip.description}
+                </p>
+                {isLeadMagnet && (
+                  <div className="flex items-center gap-3 pt-2">
+                    <PrintButton label={ui.downloadPdf} />
+                    <span className="text-xs text-zinc-400">{ui.downloadHint}</span>
+                  </div>
+                )}
+              </header>
+            </ScrollReveal>
+
+            {/* Mobile-only TOC: same headings, collapsed by default so it
+                doesn't push the article body below the fold. */}
+            {headings.length >= 3 && (
+              <details className="lg:hidden mb-8 rounded-xl border border-zinc-200 dark:border-dark-border p-4">
+                <summary className="text-sm font-semibold text-dark-text dark:text-white cursor-pointer">
+                  {ui.tocLabel}
+                </summary>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {headings.map((hd) => (
+                    <li key={hd.id} className={hd.level === 3 ? "pl-4" : ""}>
+                      <a href={`#${hd.id}`} className="text-zinc-500 dark:text-zinc-400 hover:text-indigo transition-colors">
+                        {hd.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </details>
             )}
-          </header>
-        </ScrollReveal>
 
-        <hr className="border-zinc-200 dark:border-dark-border mb-8" />
+            <hr className="border-zinc-200 dark:border-dark-border mb-8" />
 
-        {/* Content */}
-        <ScrollReveal delay={120}>
-          <div className="mb-12">
-            <Markdown content={tip.content} />
-          </div>
-        </ScrollReveal>
-
-        {/* CTA */}
-        <div className="mb-12">
-          <FinalCTA
-            locale={locale}
-            title={final_.title}
-            description={final_.desc}
-            ctaLearn={h.ctaLearn as string}
-            ctaTest={h.ctaTest as string}
-          />
-        </div>
-
-        {/* Related articles */}
-        {related.length > 0 && (
-          <ScrollReveal delay={200}>
-            <section className="space-y-4">
-              <h2 className="text-lg font-bold text-dark-text dark:text-white">{ui.relatedArticles}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                {related.map((r) => (
-                  <Link
-                    key={r.slug}
-                    href={`/${locale}/tips/${r.slug}`}
-                    className="group rounded-xl border border-zinc-200 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 p-4 hover:border-indigo/30 hover:shadow-md transition-all"
-                  >
-                    <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${categoryColors[r.category]}`}>
-                      {categoryLabels[locale as Locale][r.category]}
-                    </span>
-                    <p className="text-sm font-semibold text-dark-text dark:text-white mt-2 group-hover:text-indigo transition-colors line-clamp-2">
-                      {r.title}
-                    </p>
-                    <p className="text-xs text-zinc-400 mt-1">{r.readingTime} {ui.readingTime}</p>
-                  </Link>
-                ))}
+            {/* Content */}
+            <ScrollReveal delay={120}>
+              <div className="mb-12">
+                <Markdown content={tip.content} />
               </div>
-            </section>
-          </ScrollReveal>
-        )}
-      </article>
+            </ScrollReveal>
+
+            {/* CTA */}
+            <div className="mb-12">
+              <FinalCTA
+                locale={locale}
+                title={final_.title}
+                description={final_.desc}
+                ctaLearn={h.ctaLearn as string}
+                ctaTest={h.ctaTest as string}
+              />
+            </div>
+
+            {/* Related articles */}
+            {related.length > 0 && (
+              <ScrollReveal delay={200}>
+                <section className="space-y-4">
+                  <h2 className="text-lg font-bold text-dark-text dark:text-white">{ui.relatedArticles}</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {related.map((r) => (
+                      <Link
+                        key={r.slug}
+                        href={`/${locale}/tips/${r.slug}`}
+                        className="group rounded-xl border border-zinc-200 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 p-4 hover:border-indigo/30 hover:shadow-md transition-all"
+                      >
+                        <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${categoryColors[r.category]}`}>
+                          {categoryLabels[locale as Locale][r.category]}
+                        </span>
+                        <p className="text-sm font-semibold text-dark-text dark:text-white mt-2 group-hover:text-indigo transition-colors line-clamp-2">
+                          {r.title}
+                        </p>
+                        <p className="text-xs text-zinc-400 mt-1">{r.readingTime} {ui.readingTime}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              </ScrollReveal>
+            )}
+          </article>
+
+          {/* Right: sticky CTA card, desktop only - a mobile version would
+              either float awkwardly mid-content or duplicate the bottom
+              FinalCTA banner one scroll later, so mobile relies on that
+              banner instead. */}
+          <aside className="hidden lg:block sticky top-24 self-start">
+            <ArticleCtaCard
+              locale={locale}
+              title={ui.tryCta}
+              description={ui.tryCtaDesc}
+              ctaLabel={h.ctaTest as string}
+            />
+          </aside>
+        </div>
+      </div>
     </>
   );
 }

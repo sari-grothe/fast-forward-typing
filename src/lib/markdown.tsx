@@ -1,3 +1,37 @@
+// Strips the inline markdown/HTML markup a heading might carry (bold,
+// links, code) down to plain text, then to a URL-safe slug - shared by
+// the renderer (for the <h2 id>) and extractHeadings (for the TOC), so
+// the two can never drift into producing different ids for the same text.
+function slugify(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`(.+?)`/g, "$1")
+    .replace(/\[(.+?)\]\(.+?\)/g, "$1")
+    .toLowerCase()
+    .replace(/[^a-z0-9äöüß\s-]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
+}
+
+export type Heading = { id: string; text: string; level: 2 | 3 };
+
+// Same block-splitting logic as markdownToHtml below, but only pulls out
+// ## / ### lines - used to build the sidebar table of contents without
+// re-parsing the full HTML output.
+export function extractHeadings(md: string): Heading[] {
+  return md
+    .trim()
+    .split(/\n\n+/)
+    .map((block) => block.trim())
+    .filter((t) => t.startsWith("## ") || t.startsWith("### "))
+    .map((t) => {
+      const level = t.startsWith("### ") ? 3 : 2;
+      const text = t.slice(level === 3 ? 4 : 3);
+      return { id: slugify(text), text, level: level as 2 | 3 };
+    });
+}
+
 function processInline(text: string): string {
   return text
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
@@ -17,10 +51,14 @@ function markdownToHtml(md: string): string {
   return blocks
     .map((block) => {
       const t = block.trim();
-      if (t.startsWith("### "))
-        return `<h3 class="text-lg font-bold text-dark-text dark:text-white mt-8 mb-3">${processInline(t.slice(4))}</h3>`;
-      if (t.startsWith("## "))
-        return `<h2 class="text-xl font-bold text-dark-text dark:text-white mt-10 mb-4">${processInline(t.slice(3))}</h2>`;
+      if (t.startsWith("### ")) {
+        const raw = t.slice(4);
+        return `<h3 id="${slugify(raw)}" class="text-lg font-bold text-dark-text dark:text-white mt-8 mb-3 scroll-mt-24">${processInline(raw)}</h3>`;
+      }
+      if (t.startsWith("## ")) {
+        const raw = t.slice(3);
+        return `<h2 id="${slugify(raw)}" class="text-xl font-bold text-dark-text dark:text-white mt-10 mb-4 scroll-mt-24">${processInline(raw)}</h2>`;
+      }
       if (/^[-*] /m.test(t)) {
         const items = t
           .split("\n")
