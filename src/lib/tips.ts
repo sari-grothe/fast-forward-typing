@@ -318,6 +318,114 @@ Lerne nicht alle auf einmal. Nimm dir **3 Shortcuts pro Woche** vor und nutze si
 
 Die Cmd-Taste auf dem Mac entspricht Ctrl auf Windows. Wenn du beide Systeme nutzt, merke dir die Funktion - nicht die Taste.`,
   },
+  {
+    slug: "emoji-tastenkombinationen",
+    locale: "de",
+    type: "lead-magnet",
+    category: "shortcuts",
+    title: "Emojis per Tastatur einfügen: Windows & Mac Shortcuts",
+    description: "Kein Copy-Paste mehr nötig. So öffnest du das Emoji-Menü mit einem Tastenkürzel - auf Windows, Mac und in Slack oder Teams.",
+    readingTime: 3,
+    date: "2026-09-23",
+    downloadLabel: "Cheat Sheet",
+    content: `## Windows
+
+- \`Win + .\` oder \`Win + ;\` - Emoji-Menü öffnen
+- Funktioniert in praktisch jedem Textfeld: Browser, Word, Chat-Apps
+- Suchfeld oben nutzen, um gezielt nach einem Emoji zu suchen (z. B. "Feuer")
+
+## Mac
+
+- \`Cmd + Ctrl + Leertaste\` - Emoji- und Symbol-Übersicht öffnen
+- Zuletzt genutzte Emojis stehen oben, ideal für Wiederholungen
+- Funktioniert systemweit, auch in Mail, Notizen und im Browser
+
+## In Slack und Teams
+
+- \`:\` gefolgt vom Namen tippen, z. B. \`:fire:\` - die Vorschlagsliste erscheint automatisch
+- Häufig genutzte Emojis merkt sich das System und schlägt sie zuerst vor
+- Eigene Kürzel lassen sich in beiden Tools individuell anlegen
+
+## Warum das ein Tastenkürzel wert ist
+
+Wer viel schreibt, tippt auch viele Emojis - in Slack-Nachrichten, Team-Chats, Social Media. Copy-Paste aus einer Emoji-Liste kostet jedes Mal ein paar Sekunden Kontextwechsel. Das systemeigene Menü ist immer griffbereit, ohne den Browser-Tab zu wechseln.
+
+## Profi-Tipp
+
+Das Emoji-Menü merkt sich deine zuletzt genutzten Symbole. Nutze für die ersten Tage bewusst das Tastenkürzel statt Copy-Paste - nach einer Woche sitzt es im Muskelgedächtnis, genau wie jedes andere Tastenkürzel.`,
+  },
+  {
+    slug: "was-ist-das-10-finger-system",
+    locale: "de",
+    type: "article",
+    category: "learning",
+    title: "Was ist das 10-Finger-System? Definition & Erklärung",
+    description: "Die kurze Antwort: Jeder Finger hat einen festen Tastenbereich, du tippst blind. Hier die genaue Definition und wie es sich vom normalen Tippen unterscheidet.",
+    readingTime: 4,
+    date: "2026-09-23",
+    content: `## Kurz erklärt
+
+Das 10-Finger-System (auch Zehnfingersystem oder Tastschreiben genannt) ist eine Tipptechnik, bei der jedem der zehn Finger ein fester Bereich der Tastatur zugeordnet ist. Du tippst, ohne auf die Tasten zu schauen - dein Muskelgedächtnis kennt die Position jeder Taste.
+
+Der Unterschied zum "normalen" Tippen: Die meisten Menschen tippen mit vier bis sechs Fingern, suchen dabei ständig mit den Augen die nächste Taste und arbeiten sich Buchstabe für Buchstabe vor. Das funktioniert, hat aber ein hartes Tempolimit.
+
+## Woher kommt der Name
+
+Die Bezeichnung stammt aus der Zeit der Schreibmaschinen, als das System erstmals systematisch unterrichtet wurde - jede der zehn Fingerspitzen bekam ihren eigenen Platz auf der Tastatur, angelehnt an die Grundstellung A-S-D-F und J-K-L-Ö. Diese Grundstellung ist bis heute unverändert, auch auf modernen Computertastaturen.
+
+## Wie unterscheidet es sich von Tastschreiben allgemein
+
+"Tastschreiben" ist der umfassendere, ältere Begriff - er meint jedes blinde, systematische Tippen ohne Blick auf die Tasten. Das 10-Finger-System ist die konkrete, heute gebräuchlichste Methode dafür. In der Praxis werden beide Begriffe synonym verwendet.
+
+## Warum es sich lohnt
+
+Menschen, die mit dem 10-Finger-System tippen, sind im Schnitt 40-60% schneller als Selbstlerner, die nur mit ein paar Fingern arbeiten - und tippen dabei genauer, weil jeder Finger nur für eine kleine, feste Zahl an Tasten zuständig ist. Der Blick bleibt am Bildschirm statt an der Tastatur, was besonders beim Abschreiben oder gleichzeitigen Denken und Tippen einen echten Unterschied macht.
+
+## Wie lange dauert es, es zu lernen
+
+Die Grundlagen sitzen nach 2-4 Wochen regelmäßigem Üben, ein natürliches Tempo stellt sich nach 2-3 Monaten ein - vorausgesetzt, du übst 15-20 Minuten am Tag. Es ist keine Begabung, sondern eine Frage von Wiederholung.`,
+  },
+  {
+    slug: "schneller-tippen-techniken",
+    locale: "de",
+    type: "article",
+    category: "productivity",
+    title: "Schneller tippen: 7 Techniken, die wirklich helfen",
+    description: "Nicht nur das 10-Finger-System zählt. Diese sieben Gewohnheiten machen dich messbar schneller - egal, wie du gerade tippst.",
+    readingTime: 6,
+    date: "2026-09-23",
+    content: `## 1. Die Rücktaste seltener nutzen
+
+Jeder Tippfehler, den du sofort korrigierst, unterbricht deinen Rhythmus doppelt: einmal beim Fehler, einmal bei der Korrektur. Schreibe stattdessen erst den ganzen Satz zu Ende und korrigiere danach in einem Rutsch. Klingt riskant, ist aber messbar schneller.
+
+## 2. Nicht auf die Tastatur schauen
+
+Der größte Zeitfresser ist der Blickwechsel zwischen Bildschirm und Tastatur. Jeder Wechsel kostet einen Bruchteil einer Sekunde - bei tausenden Tastenanschlägen am Tag summiert sich das erheblich. Wer blind tippt, verliert diese Zeit nicht.
+
+## 3. Kurze Texte, aber täglich üben
+
+15 Minuten jeden Tag bringen mehr als zwei Stunden am Wochenende. Dein Muskelgedächtnis braucht regelmäßige, kurze Wiederholungen - lange Pausen zwischen den Sessions lassen den Fortschritt wieder abfallen.
+
+## 4. Echte Texte statt Zufallswörter
+
+Übe mit Sätzen, die du auch wirklich tippst - E-Mails, Nachrichten, Prompts an KI-Tools. Zufällige Buchstabenfolgen trainieren zwar die Finger, aber nicht das Sprachgefühl, das echtes Tippen schneller macht.
+
+## 5. Genauigkeit vor Tempo
+
+Klingt paradox, stimmt aber: Wer zuerst auf Fehlerfreiheit trainiert, wird am Ende schneller als jemand, der von Anfang an aufs Tempo drückt. Fehlerhafte Bewegungsmuster, die sich einschleifen, sind später schwer wieder loszuwerden.
+
+## 6. Tastenkombinationen lernen
+
+Copy, Paste, Wort löschen, zum Zeilenanfang springen - wer diese Kombinationen blind beherrscht, spart sich unzählige einzelne Tastenanschläge und Mausklicks im Alltag.
+
+## 7. Fortschritt messen
+
+Was du nicht misst, verbesserst du nicht bewusst. Eine kurze wöchentliche Messung deiner Tippgeschwindigkeit zeigt dir schwarz auf weiß, ob die anderen sechs Punkte wirken - und motiviert, dranzubleiben.
+
+## Was am meisten bringt
+
+Von allen sieben Punkten hat die Kombination aus "nicht auf die Tastatur schauen" und "täglich kurz üben" den größten Effekt. Beides zusammen ist im Kern das 10-Finger-System - alle anderen Techniken bauen darauf auf.`,
+  },
 
   // ─── EN ARTICLES ──────────────────────────────────────────
   {
@@ -554,6 +662,114 @@ Don't learn them all at once. Pick **3 shortcuts per week** and use them deliber
 ## Pro tip
 
 Cmd on Mac is Ctrl on Windows. If you use both systems, memorize the function - not the key.`,
+  },
+  {
+    slug: "emoji-keyboard-shortcuts",
+    locale: "en",
+    type: "lead-magnet",
+    category: "shortcuts",
+    title: "How to Type Emojis: Windows & Mac Keyboard Shortcuts",
+    description: "No more copy-pasting from a browser tab. One keyboard shortcut opens the emoji picker on Windows, Mac, Slack, and Teams.",
+    readingTime: 3,
+    date: "2026-09-23",
+    downloadLabel: "Cheat Sheet",
+    content: `## Windows
+
+- \`Win + .\` or \`Win + ;\` - opens the emoji panel
+- Works in almost any text field: browser, Word, chat apps
+- Use the search box at the top to find a specific emoji fast (e.g. "fire")
+
+## Mac
+
+- \`Cmd + Ctrl + Space\` - opens the emoji and symbol viewer
+- Recently used emojis show up first, handy for repeats
+- Works system-wide, including Mail, Notes, and the browser
+
+## In Slack and Teams
+
+- Type \`:\` followed by a name, e.g. \`:fire:\` - suggestions appear automatically
+- Both tools learn which emojis you use most and suggest them first
+- Custom emoji shortcodes can be set up in either tool
+
+## Why this shortcut is worth learning
+
+If you type a lot, you type a lot of emojis too - in Slack messages, team chats, social posts. Copy-pasting from an emoji website costs a few seconds of context switching every single time. The built-in picker is always one keystroke away, no tab switch required.
+
+## Pro tip
+
+The emoji panel remembers your recently used symbols. Force yourself to use the shortcut instead of copy-paste for a week - after that it's muscle memory, same as any other keyboard shortcut.`,
+  },
+  {
+    slug: "what-is-touch-typing",
+    locale: "en",
+    type: "article",
+    category: "learning",
+    title: "What Is Touch Typing? Definition & How It Works",
+    description: "The short answer: each finger owns a fixed set of keys, and you type without looking. Here's the full definition and how it differs from regular typing.",
+    readingTime: 4,
+    date: "2026-09-23",
+    content: `## Short answer
+
+Touch typing is a typing technique where each of your ten fingers is assigned a fixed set of keys on the keyboard. You type without looking down - your muscle memory knows where every key is.
+
+The difference from "regular" typing: most people type with four to six fingers, constantly glancing down to find the next key, working letter by letter. It works, but it has a hard speed ceiling.
+
+## Where the name comes from
+
+The technique dates back to the typewriter era, when it was first taught systematically - each fingertip got its own zone on the keyboard, built around the home-row position (ASDF and JKL;). That home position hasn't changed, even on modern computer keyboards.
+
+## Touch typing vs. the 10-finger system
+
+These two terms are used interchangeably in practice. "Touch typing" is the general skill - typing by feel, without looking. The "10-finger system" (or "touch-type method") is the specific technique most commonly taught to achieve it.
+
+## Why it's worth learning
+
+People who touch type are on average 40-60% faster than self-taught typists using only a few fingers - and more accurate, since each finger is responsible for only a small, fixed set of keys. Your eyes stay on the screen instead of the keyboard, which matters most when you're copying text or thinking and typing at the same time.
+
+## How long it takes
+
+The basics click after 2-4 weeks of regular practice, and it starts feeling natural after 2-3 months - assuming 15-20 minutes of practice a day. It's not a talent, it's repetition.`,
+  },
+  {
+    slug: "how-to-type-faster",
+    locale: "en",
+    type: "article",
+    category: "productivity",
+    title: "How to Type Faster: 7 Techniques That Actually Work",
+    description: "Touch typing isn't the only lever. These seven habits make a measurable difference, no matter how you currently type.",
+    readingTime: 6,
+    date: "2026-09-23",
+    content: `## 1. Use backspace less
+
+Every typo you fix immediately breaks your rhythm twice: once for the mistake, once for the correction. Finish the sentence first, then fix errors in one pass. It feels risky. It's measurably faster.
+
+## 2. Stop looking at the keyboard
+
+The biggest time sink is the glance back and forth between screen and keyboard. Each glance costs a fraction of a second - across thousands of keystrokes a day, that adds up fast. Touch typists never pay that cost.
+
+## 3. Short sessions, every day
+
+15 minutes daily beats two hours on a Saturday. Muscle memory needs frequent, short repetition - long gaps between sessions let progress slip backward.
+
+## 4. Practice on real text
+
+Train on sentences you'd actually type - emails, messages, AI prompts. Random letter strings train your fingers but not the language sense that makes real typing fast.
+
+## 5. Accuracy before speed
+
+Counterintuitive, but true: training for accuracy first makes you faster in the end than chasing speed from day one. Sloppy movement patterns that get baked in are hard to unlearn later.
+
+## 6. Learn keyboard shortcuts
+
+Copy, paste, delete a word, jump to line start - knowing these by heart saves you countless individual keystrokes and mouse clicks over the course of a day.
+
+## 7. Measure your progress
+
+What you don't measure, you don't consciously improve. A quick weekly typing speed check shows you in black and white whether the other six habits are working - and keeps you motivated to stick with it.
+
+## What matters most
+
+Of all seven, "stop looking at the keyboard" combined with "short daily practice" makes the biggest difference. Together, that's essentially the 10-finger system - every other technique here builds on top of it.`,
   },
 
   // ─── FR ARTICLES ──────────────────────────────────────────
@@ -838,6 +1054,114 @@ Aucune n'est objectivement meilleure. Utilise celle de ton pays - c'est celle qu
 Des dispositions comme **Dvorak** et **Colemak** promettent plus d'efficacité en plaçant les lettres les plus fréquentes sur la rangée du milieu. En théorie, c'est mieux. En pratique, très peu de gens les utilisent - et tous les claviers que tu rencontreras utilisent QWERTY/AZERTY/QWERTZ.
 
 Bref, apprends la disposition de ton clavier. Et apprends à la maîtriser.`,
+  },
+  {
+    slug: "raccourcis-clavier-emoji",
+    locale: "fr",
+    type: "lead-magnet",
+    category: "shortcuts",
+    title: "Raccourci clavier emoji : insérer un smiley sans copier-coller",
+    description: "Le raccourci clavier emoji qui évite le copier-coller depuis un site. Windows, Mac, et les codes rapides dans Slack ou Teams.",
+    readingTime: 3,
+    date: "2026-09-23",
+    downloadLabel: "Fiche pratique",
+    content: `## Sur Windows
+
+- \`Win + .\` ou \`Win + ;\` - ouvre le clavier emoji Windows
+- Fonctionne dans presque tous les champs de texte : navigateur, Word, messagerie
+- Utilise la barre de recherche en haut pour trouver un emoji précis (ex : "feu")
+
+## Sur Mac
+
+- \`Cmd + Ctrl + Espace\` - ouvre le sélecteur d'emojis et de symboles
+- Les emojis récemment utilisés apparaissent en premier
+- Fonctionne dans tout le système : Mail, Notes, navigateur
+
+## Dans Slack et Teams
+
+- Tape \`:\` suivi d'un mot, par exemple \`:feu:\` - les suggestions apparaissent automatiquement
+- Les deux outils retiennent tes emojis les plus utilisés et les proposent en premier
+- Des raccourcis d'emoji personnalisés peuvent être créés dans les deux outils
+
+## Pourquoi apprendre ce raccourci clavier
+
+Qui écrit beaucoup tape aussi beaucoup d'emojis - dans les messages Slack, les chats d'équipe, les réseaux sociaux. Copier-coller un emoji depuis un site coûte quelques secondes de changement de contexte à chaque fois. Le clavier emoji intégré est toujours accessible en une seule touche, sans changer d'onglet.
+
+## Astuce
+
+Le sélecteur d'emoji retient les symboles récemment utilisés. Force-toi à utiliser le raccourci clavier plutôt que le copier-coller pendant une semaine - après ça, c'est de la mémoire musculaire, comme n'importe quel autre raccourci clavier.`,
+  },
+  {
+    slug: "dactylographie-definition",
+    locale: "fr",
+    type: "article",
+    category: "learning",
+    title: "Dactylographie : définition et méthode des dix doigts",
+    description: "La dactylographie, c'est taper au clavier sans regarder tes mains - avec la méthode des dix doigts. Définition complète et comment ça marche.",
+    readingTime: 4,
+    date: "2026-09-23",
+    content: `## Définition
+
+La dactylographie désigne l'art de taper à la machine, aujourd'hui au clavier d'ordinateur. Dans son usage moderne, le mot renvoie presque toujours à la méthode des dix doigts : chaque doigt est responsable d'une zone fixe du clavier, et tu tapes sans regarder tes mains.
+
+La différence avec la façon de taper "classique" : la plupart des gens tapent avec deux à quatre doigts, cherchent chaque touche des yeux, et avancent lettre par lettre. Ça fonctionne, mais ça a une limite de vitesse difficile à dépasser.
+
+## D'où vient le mot
+
+Le terme vient de l'époque des machines à écrire, quand la technique a commencé à être enseignée de façon systématique - chaque doigt recevait sa propre zone sur le clavier, autour de la position de base (QSDF et JKLM sur AZERTY). Cette position de base n'a pas changé, même sur les claviers d'ordinateur modernes.
+
+## La méthode des dix doigts, concrètement
+
+Chaque main couvre la moitié du clavier. Les index reviennent toujours vers les touches F et J (ou leur équivalent sur ton clavier) entre deux frappes - ce sont tes points de repère. Avec de la pratique, tes doigts retrouvent leur position sans que tu aies besoin d'y penser.
+
+## Pourquoi apprendre à taper avec tes dix doigts
+
+Une personne qui maîtrise la dactylographie tape en moyenne 40 à 60 % plus vite qu'une personne autodidacte qui ne se sert que de quelques doigts - et avec moins d'erreurs, puisque chaque doigt n'est responsable que d'un petit nombre de touches fixes. Le regard reste sur l'écran plutôt que sur le clavier, ce qui change tout quand tu recopies un texte ou que tu réfléchis en tapant.
+
+## Combien de temps ça prend
+
+Les bases sont acquises en 2 à 4 semaines de pratique régulière, et le geste devient naturel après 2 à 3 mois - à raison de 15 à 20 minutes d'entraînement par jour. Ce n'est pas un talent, c'est de la répétition.`,
+  },
+  {
+    slug: "taper-plus-vite-techniques",
+    locale: "fr",
+    type: "article",
+    category: "productivity",
+    title: "Taper plus vite : 7 techniques qui fonctionnent vraiment",
+    description: "La méthode des dix doigts n'est pas le seul levier. Ces sept habitudes font une différence mesurable, quelle que soit ta façon de taper aujourd'hui.",
+    readingTime: 6,
+    date: "2026-09-23",
+    content: `## 1. Utilise moins la touche retour arrière
+
+Chaque faute que tu corriges immédiatement casse ton rythme deux fois : une fois pour l'erreur, une fois pour la correction. Termine ta phrase d'abord, corrige ensuite en une seule fois. Ça paraît risqué. C'est mesurablement plus rapide.
+
+## 2. Arrête de regarder le clavier
+
+Le plus gros gaspillage de temps, c'est l'aller-retour du regard entre l'écran et le clavier. Chaque coup d'œil coûte une fraction de seconde - sur des milliers de frappes par jour, ça s'additionne vite. Qui tape avec les dix doigts ne paie jamais ce coût.
+
+## 3. Des sessions courtes, mais chaque jour
+
+15 minutes par jour valent mieux que deux heures le week-end. La mémoire musculaire a besoin de répétitions courtes et fréquentes - de longues pauses entre les sessions font régresser les progrès.
+
+## 4. Entraîne-toi sur de vrais textes
+
+Pratique sur des phrases que tu tapes vraiment - e-mails, messages, prompts pour l'IA. Des suites de lettres aléatoires entraînent tes doigts, mais pas le sens de la langue qui rend la frappe vraiment rapide.
+
+## 5. La précision avant la vitesse
+
+Ça paraît contre-intuitif, mais c'est vrai : s'entraîner d'abord à la précision rend plus rapide à terme que de viser la vitesse dès le premier jour. Les mauvaises habitudes de frappe qui s'installent sont difficiles à corriger ensuite.
+
+## 6. Apprends les raccourcis clavier
+
+Copier, coller, supprimer un mot, revenir au début de la ligne - qui maîtrise ces raccourcis par cœur s'économise d'innombrables frappes et clics de souris au quotidien.
+
+## 7. Mesure ta progression
+
+Ce qu'on ne mesure pas, on ne l'améliore pas consciemment. Un test de vitesse de frappe rapide chaque semaine te montre noir sur blanc si les six autres habitudes fonctionnent - et te garde motivé.
+
+## Ce qui compte le plus
+
+Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner un peu chaque jour" fait la plus grande différence. Ensemble, c'est essentiellement la méthode des dix doigts - toutes les autres techniques s'appuient dessus.`,
   },
 ];
 

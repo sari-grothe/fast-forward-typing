@@ -109,7 +109,7 @@ const i18n: Record<Locale, {
     testCta: "Geschwindigkeit testen",
   },
   en: {
-    heroTitle: "Make your typing skills official",
+    heroTitle: "Get your official typing certificate",
     heroSubtitle: "You took the typing test - soon you'll be able to lock in your result officially. Sign up and you'll get your personalised certificate as a PDF by email as soon as it's ready.",
     heroHighlight: "One-time 5 euros. No subscription.",
     previewTitle: "This is what your certificate looks like",
