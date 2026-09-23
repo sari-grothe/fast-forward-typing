@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { ResourceMeta, ResourceCategory } from "@/lib/resources";
@@ -9,10 +9,9 @@ import { KeyCharacter } from "@/components/KeyCharacter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CtaButton } from "@/components/CtaButton";
 
-// Same icon per category everywhere it appears (browse cards, badges),
+// Same icon per category everywhere it appears (section headers, badges),
 // so a category reads as one visual identity across the page - matters
-// more once programmatic pages add many more items per category and
-// the badge becomes the main way people recognize a topic at a glance.
+// more once programmatic pages add many more items per category.
 const categoryIcons: Record<ResourceCategory, string> = {
   learning: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25",
   shortcuts: "M3.75 6A2.25 2.25 0 016 3.75h12A2.25 2.25 0 0120.25 6v9A2.25 2.25 0 0118 17.25h-5.25l-1.5 3H15a.75.75 0 010 1.5H9a.75.75 0 010-1.5h3.75l-1.5-3H6A2.25 2.25 0 013.75 15V6zM6 5.25a.75.75 0 00-.75.75v9c0 .414.336.75.75.75h12a.75.75 0 00.75-.75V6a.75.75 0 00-.75-.75H6z",
@@ -80,7 +79,6 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
 
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
-          <CategoryBadge category={item.category} locale={locale} />
           {isLeadMagnet && item.downloadLabel && (
             <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-peach/15 text-peach flex items-center gap-1">
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -113,10 +111,10 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
 
 type FinalCtaCopy = { title: string; description: string; ctaLearn: string; ctaTest: string };
 
-// Sits right under the category browser, above the fold, so the primary
-// conversion path (start the course) is visible without scrolling past
-// the whole article grid - the big FinalCTA at the page bottom stays too,
-// for anyone who reads all the way through instead.
+// Above the fold, right after the header - the primary conversion path
+// (start the course) is visible without scrolling past any content.
+// The big FinalCTA at the page bottom stays too, for anyone who reads
+// all the way through instead.
 function InlineCourseCta({ locale, copy }: { locale: Locale; copy: FinalCtaCopy }) {
   return (
     <div className="rounded-2xl bg-indigo/5 dark:bg-indigo/10 border border-indigo/15 p-5 sm:p-6 flex flex-col sm:flex-row items-center gap-5">
@@ -167,154 +165,69 @@ function LeadMagnetBanner({ locale }: { locale: Locale }) {
   );
 }
 
+// A category section header - icon, label, count. Plain text, not a
+// button: this page shows everything at once, nothing to filter into.
+function SectionHeader({ category, locale, count }: { category: ResourceCategory; locale: Locale; count: number }) {
+  return (
+    <div className="flex items-center gap-2 mb-4">
+      <svg className="w-5 h-5 text-indigo shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+        <path strokeLinecap="round" strokeLinejoin="round" d={categoryIcons[category]} />
+      </svg>
+      <h2 className="text-lg font-bold text-dark-text dark:text-white">{categoryLabels[locale][category]}</h2>
+      <span className="text-xs text-zinc-400">{count}</span>
+    </div>
+  );
+}
+
 type Props = {
   items: ResourceMeta[];
   locale: Locale;
   finalCta: FinalCtaCopy;
 };
 
+// No search, no click-to-filter: at this scale (a handful of articles
+// per category) the point is to see everything on one page, grouped so
+// it still reads clearly. If a single category grows into the dozens
+// once programmatic pages land, that's the point to cap it and add a
+// "view all in category" link - not before, since an unused pagination
+// path is just dead code today.
 export function ResourcesOverview({ items, locale, finalCta }: Props) {
-  const [activeCategory, setActiveCategory] = useState<ResourceCategory | "all">("all");
-  const [query, setQuery] = useState("");
   const ui = resourcesUi[locale];
-  const counts = useMemo(() => {
-    const c: Partial<Record<ResourceCategory, number>> = {};
-    for (const item of items) c[item.category] = (c[item.category] ?? 0) + 1;
-    return c;
-  }, [items]);
 
-  // Only categories with at least one article for this locale - an empty
-  // category is a dead end (a card promising content that isn't there
-  // yet), not a useful way to browse. Some locales lag others until a
-  // translation lands, so this varies per locale on its own.
-  const categories = (Object.keys(categoryLabels[locale]).filter((k) => k !== "all") as ResourceCategory[]).filter(
-    (cat) => (counts[cat] ?? 0) > 0
-  );
+  const featured = items.find((i) => i.featured);
 
-  const q = query.trim().toLowerCase();
-  const searching = q.length > 0;
-
-  const results = useMemo(() => {
-    let list = activeCategory === "all" ? items : items.filter((i) => i.category === activeCategory);
-    if (q) list = list.filter((i) => i.title.toLowerCase().includes(q) || i.description.toLowerCase().includes(q));
-    return list;
-  }, [items, activeCategory, q]);
-
-  const featured = !searching && activeCategory === "all" ? items.find((i) => i.featured) : undefined;
-  const gridItems = results.filter((i) => i.slug !== featured?.slug);
+  const sections = useMemo(() => {
+    const order = Object.keys(categoryLabels[locale]).filter((k) => k !== "all") as ResourceCategory[];
+    const byCategory = new Map<ResourceCategory, ResourceMeta[]>();
+    for (const item of items) {
+      if (item.slug === featured?.slug) continue;
+      const list = byCategory.get(item.category) ?? [];
+      list.push(item);
+      byCategory.set(item.category, list);
+    }
+    return order
+      .map((category) => ({ category, items: byCategory.get(category) ?? [] }))
+      .filter((section) => section.items.length > 0);
+  }, [items, featured, locale]);
 
   return (
     <div className="mx-auto max-w-5xl px-6 py-10 sm:py-14 space-y-12">
-      {/* Header + search */}
+      {/* Header */}
       <ScrollReveal>
-        <div className="text-center space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">
-              {ui.pageTitle}
-            </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-base max-w-xl mx-auto">
-              {ui.pageSubtitle}
-            </p>
-          </div>
-          <div className="relative max-w-xl mx-auto">
-            <svg
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 pointer-events-none"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-            </svg>
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={ui.searchPlaceholder}
-              aria-label={ui.searchPlaceholder}
-              className="w-full rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface pl-12 pr-4 py-3.5 text-base focus:outline-none focus:ring-2 focus:ring-indigo focus:border-indigo transition-colors"
-            />
-          </div>
+        <div className="text-center space-y-2">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">
+            {ui.pageTitle}
+          </h1>
+          <p className="text-zinc-500 dark:text-zinc-400 text-base max-w-xl mx-auto">
+            {ui.pageSubtitle}
+          </p>
         </div>
       </ScrollReveal>
 
-      {/* Browse by category - the primary entry point, not the flat
-          list below. Cards (not a pill row) so a count stays visible
-          and the section keeps working the same way whether there are
-          5 articles per category or 500 from future programmatic pages. */}
-      {!searching && (
-        <ScrollReveal delay={60}>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <button
-              type="button"
-              onClick={() => setActiveCategory("all")}
-              className={`rounded-2xl border p-4 text-left transition-all ${
-                activeCategory === "all"
-                  ? "border-indigo bg-indigo/5 dark:bg-indigo/10"
-                  : "border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface hover:border-indigo/30"
-              }`}
-            >
-              <p className="font-semibold text-dark-text dark:text-white text-sm">{categoryLabels[locale].all}</p>
-              <p className="text-xs text-zinc-400 mt-0.5">{items.length}</p>
-            </button>
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                className={`rounded-2xl border p-4 text-left transition-all ${
-                  activeCategory === cat
-                    ? "border-indigo bg-indigo/5 dark:bg-indigo/10"
-                    : "border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface hover:border-indigo/30"
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-indigo shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d={categoryIcons[cat]} />
-                  </svg>
-                  <p className="font-semibold text-dark-text dark:text-white text-sm">{categoryLabels[locale][cat]}</p>
-                </div>
-                <p className="text-xs text-zinc-400 mt-1">{counts[cat] ?? 0}</p>
-              </button>
-            ))}
-          </div>
-        </ScrollReveal>
-      )}
-
-      {/* Category filter chips while searching keeps the same controls
-          reachable without the full browse grid competing for space. */}
-      {searching && (
-        <div className="flex flex-wrap gap-2">
-          <button
-            type="button"
-            onClick={() => setActiveCategory("all")}
-            className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              activeCategory === "all" ? "bg-indigo text-white" : "bg-zinc-100 dark:bg-dark-surface text-zinc-500 dark:text-zinc-400"
-            }`}
-          >
-            {categoryLabels[locale].all}
-          </button>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              type="button"
-              onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-                activeCategory === cat ? "bg-indigo text-white" : "bg-zinc-100 dark:bg-dark-surface text-zinc-500 dark:text-zinc-400"
-              }`}
-            >
-              {categoryLabels[locale][cat]}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {/* Course CTA - above the fold, before the article grid */}
-      {!searching && (
-        <ScrollReveal delay={80}>
-          <InlineCourseCta locale={locale} copy={finalCta} />
-        </ScrollReveal>
-      )}
+      {/* Course CTA - above the fold, right after the header */}
+      <ScrollReveal delay={60}>
+        <InlineCourseCta locale={locale} copy={finalCta} />
+      </ScrollReveal>
 
       {/* Featured article */}
       {featured && (
@@ -323,28 +236,26 @@ export function ResourcesOverview({ items, locale, finalCta }: Props) {
         </ScrollReveal>
       )}
 
-      {/* Results */}
-      {results.length === 0 ? (
-        <div className="flex flex-col items-center gap-4 py-10 text-center">
-          <KeyCharacter pose="sitting" size={72} />
-          <p className="text-zinc-500 dark:text-zinc-400">{ui.searchNoResults}</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {gridItems.map((item, i) => (
-            <ScrollReveal key={item.slug} delay={60 + i * 40}>
-              <ArticleCard item={item} locale={locale} />
-            </ScrollReveal>
-          ))}
-        </div>
-      )}
+      {/* Every article, grouped by category, all visible at once */}
+      <div className="space-y-10">
+        {sections.map(({ category, items: sectionItems }, i) => (
+          <ScrollReveal key={category} delay={120 + i * 40}>
+            <section>
+              <SectionHeader category={category} locale={locale} count={sectionItems.length} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {sectionItems.map((item) => (
+                  <ArticleCard key={item.slug} item={item} locale={locale} />
+                ))}
+              </div>
+            </section>
+          </ScrollReveal>
+        ))}
+      </div>
 
       {/* Lead magnet banner */}
-      {!searching && activeCategory === "all" && (
-        <ScrollReveal delay={160}>
-          <LeadMagnetBanner locale={locale} />
-        </ScrollReveal>
-      )}
+      <ScrollReveal delay={160}>
+        <LeadMagnetBanner locale={locale} />
+      </ScrollReveal>
     </div>
   );
 }
