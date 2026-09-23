@@ -14,6 +14,7 @@ function CategoryBadge({ category, locale }: { category: TipCategory; locale: Lo
     shortcuts: "bg-electric-yellow/15 text-dark-text dark:text-electric-yellow",
     productivity: "bg-peach/15 text-peach",
     mobile: "bg-zinc-200/60 text-zinc-600 dark:bg-zinc-700/40 dark:text-zinc-300",
+    comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
   return (
     <span className={`text-[11px] font-medium px-2.5 py-1 rounded-full ${colors[category]}`}>

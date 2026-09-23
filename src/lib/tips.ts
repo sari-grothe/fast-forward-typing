@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 
-export type TipCategory = "learning" | "shortcuts" | "productivity" | "mobile";
+export type TipCategory = "learning" | "shortcuts" | "productivity" | "mobile" | "comparisons";
 export type TipType = "article" | "lead-magnet";
 
 export type TipMeta = {
@@ -18,9 +18,9 @@ export type TipMeta = {
 };
 
 export const categoryLabels: Record<Locale, Record<TipCategory | "all", string>> = {
-  de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", mobile: "Mobil" },
-  en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", mobile: "Mobile" },
-  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", mobile: "Mobile" },
+  de: { all: "Alle", learning: "Lernen", shortcuts: "Shortcuts", productivity: "Produktivität", mobile: "Mobil", comparisons: "Vergleiche" },
+  en: { all: "All", learning: "Learning", shortcuts: "Shortcuts", productivity: "Productivity", mobile: "Mobile", comparisons: "Comparisons" },
+  fr: { all: "Tous", learning: "Apprentissage", shortcuts: "Raccourcis", productivity: "Productivité", mobile: "Mobile", comparisons: "Comparatifs" },
 };
 
 export const tipsUi: Record<Locale, {
@@ -425,6 +425,62 @@ Was du nicht misst, verbesserst du nicht bewusst. Eine kurze wöchentliche Messu
 ## Was am meisten bringt
 
 Von allen sieben Punkten hat die Kombination aus "nicht auf die Tastatur schauen" und "täglich kurz üben" den größten Effekt. Beides zusammen ist im Kern das 10-Finger-System - alle anderen Techniken bauen darauf auf.`,
+  },
+  {
+    slug: "typingclub-alternative",
+    locale: "de",
+    type: "article",
+    category: "comparisons",
+    title: "TypingClub Alternative für Erwachsene: Der Vergleich",
+    description: "TypingClub ist kostenlos, aber klar für Schulen und Kinder gebaut. Hier der ehrliche Vergleich für alle, die als Erwachsene tippen lernen wollen.",
+    readingTime: 5,
+    date: "2026-09-23",
+    content: `## Kurz zusammengefasst
+
+TypingClub ist kostenlos, riesig (23 Millionen Nutzer weltweit) und funktioniert technisch einwandfrei. Aber das Programm ist für Schulen und Kinder entwickelt - Sterne, Abzeichen, Maskottchen-Geschichten, ein eigener Modus für Grundschulkinder. Fast Forward Typing ist von Grund auf für Erwachsene gebaut: kein Kinderkram, dafür ein klar definierter Kurs mit Ende und echtem Zertifikat. Wähle TypingClub, wenn dir Kosten wichtiger sind als Design. Wähle Fast Forward Typing, wenn du als Erwachsener ernst genommen werden willst.
+
+## Design und Zielgruppe
+
+TypingClub wurde für den Schuleinsatz entwickelt und das merkt man auf jeder Seite: Sterne sammeln, Level aufsteigen, animierte Geschichten-Serien mit Charakteren, ein separater "Jungle Junior"-Modus extra für jüngere Kinder. Für ein Klassenzimmer ist das genau richtig. Für einen Erwachsenen, der zwischen zwei Meetings kurz üben will, fühlt es sich schnell unpassend an.
+
+Fast Forward Typing hat kein Maskottchen-Universum und keine Abzeichen-Sammlung. Die Lektionen sind sachlich aufgebaut, die Sprache ist die eines Erwachsenenprodukts, nicht die eines Schulprogramms.
+
+## Kurs und Lernpfad
+
+TypingClub bietet eine riesige Zahl an Lektionen, Spielen und Videos - aber ohne ein klar definiertes Ende. Man übt, sammelt Sterne, macht weiter. Wann man "fertig" ist, bleibt offen.
+
+Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine Einstufung zeigt den Startpunkt, 31 Lektionen führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will, statt endlos zu üben, findet die hier.
+
+## Preise
+
+| | TypingClub | Fast Forward Typing |
+|---|---|---|
+| Kostenlose Version | Ja, voller Kernkurs | Erste 6 Lektionen |
+| Bezahlversion | 7,50 €/Monat oder 29,50 €/Jahr | Einmalzahlung, kein Abo |
+| Was das Bezahl-Upgrade bringt | Werbefrei, mehr Spiele, mehr Themes, "Story Typing" - nicht mehr Lerninhalt | Alle restlichen Lektionen bis zum Kursabschluss |
+| Zertifikat | Nicht vorhanden | Inklusive |
+
+Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlichen Lerninhalt frei, sondern Komfort-Features. Der eigentliche Kurs ist bei beiden Anbietern kostenlos zugänglich - der Unterschied liegt im Zertifikat und im Design.
+
+## Wer sollte TypingClub nutzen
+
+- Wer eine Schulklasse oder mehrere Kinder gleichzeitig unterrichten will
+- Wer maximale Spielauswahl und Gamification möchte
+- Wer kein Budget hat und Werbung im Programm nicht stört
+
+## Wer sollte Fast Forward Typing nutzen
+
+- Erwachsene, die zwischendurch üben wollen, ohne sich wie im Schulunterricht zu fühlen
+- Wer einen klar definierten Kursabschluss mit Zertifikat für Lebenslauf oder LinkedIn will
+- Wer 15 Minuten am Tag investieren will, mit einem Ende in Sicht statt endlosem Üben
+
+## Häufige Fragen
+
+**Ist TypingClub wirklich kostenlos?** Ja, der Kernkurs ist dauerhaft kostenlos, auch für Erwachsene. Das Bezahl-Abo ist optional und betrifft vor allem Komfort-Features.
+
+**Gibt es bei TypingClub ein Zertifikat?** Nein, TypingClub bietet aktuell keinen offiziellen Nachweis der Tippgeschwindigkeit.
+
+**Unterstützt TypingClub Deutsch?** Ja, es gibt einen deutschen Sprachkurs, allerdings mit demselben schulischen Design wie die englische Version.`,
   },
 
   // ─── EN ARTICLES ──────────────────────────────────────────
@@ -1162,6 +1218,60 @@ Ce qu'on ne mesure pas, on ne l'améliore pas consciemment. Un test de vitesse d
 ## Ce qui compte le plus
 
 Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner un peu chaque jour" fait la plus grande différence. Ensemble, c'est essentiellement la méthode des dix doigts - toutes les autres techniques s'appuient dessus.`,
+  },
+  {
+    slug: "agile-fingers-alternative",
+    locale: "fr",
+    type: "article",
+    category: "comparisons",
+    title: "Alternative à AgileFingers : le comparatif honnête",
+    description: "AgileFingers est gratuit et bien pensé, mais reste un outil d'entraînement libre, sans parcours défini ni certificat. Voici le comparatif complet.",
+    readingTime: 5,
+    date: "2026-09-23",
+    content: `## En résumé
+
+AgileFingers est un outil gratuit et minimaliste, bien pensé, avec des statistiques détaillées (MPM, carte de chaleur des erreurs par doigt). Mais c'est un outil de pratique libre, sans parcours structuré ni ligne d'arrivée définie - tu t'entraînes, sans savoir vraiment quand tu es "prêt". Fast Forward Typing propose un cours structuré avec un vrai début et une vraie fin, plus un certificat à la clé. Choisis AgileFingers si tu veux un outil gratuit et open-ended. Choisis Fast Forward Typing si tu veux un parcours avec un objectif clair et une preuve à la fin.
+
+## Structure et parcours
+
+AgileFingers propose trois briques : des leçons sur la position des doigts, des textes d'application, et des jeux. C'est efficace, mais il n'y a pas de progression construite ni d'objectif final - tu avances à ton rythme, sans savoir combien de temps il te reste ni ce que "terminer" veut dire.
+
+Fast Forward Typing est pensé comme un cours avec un début et une fin : une évaluation initiale montre où tu en es, 31 leçons structurées t'amènent jusqu'au bout, et l'achèvement du cours est clairement identifiable. Pour qui veut une ligne d'arrivée plutôt qu'une pratique sans fin, c'est la différence principale.
+
+## Suivi et statistiques
+
+AgileFingers est très fort sur ce point : mots par minute, carte de chaleur des erreurs par doigt, histogrammes par touche. C'est un vrai atout pour qui aime analyser ses propres données en détail.
+
+Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le cours, mais l'accent est mis sur la progression globale et le résultat final plutôt que sur l'analyse détaillée en cours de route.
+
+## Prix
+
+| | AgileFingers | Fast Forward Typing |
+|---|---|---|
+| Version gratuite | Oui, tout l'outil | Les 6 premières leçons |
+| Version payante | Aucune | Paiement unique, pas d'abonnement |
+| Certificat | Non | Inclus |
+| Ligne d'arrivée définie | Non | Oui |
+
+## Pour qui est AgileFingers
+
+- Qui veut un outil 100% gratuit, sans jamais avoir à payer
+- Qui aime analyser ses propres statistiques de frappe en détail
+- Qui préfère un entraînement libre, sans structure imposée
+
+## Pour qui est Fast Forward Typing
+
+- Qui veut un parcours avec un vrai début et une vraie fin
+- Qui veut un certificat officiel à la fin, pour le CV ou LinkedIn
+- Qui préfère 15 minutes par jour avec un objectif clair plutôt qu'une pratique sans fin
+
+## Questions fréquentes
+
+**AgileFingers est-il vraiment gratuit ?** Oui, l'intégralité de l'outil est gratuite, sans version payante.
+
+**AgileFingers propose-t-il un certificat ?** Non, aucun certificat ou attestation n'est mentionné sur le site.
+
+**AgileFingers fonctionne-t-il en français ?** Oui, l'outil prend en charge plus de 20 langues et dispositions de clavier, dont le français et l'AZERTY.`,
   },
 ];
 

@@ -39,6 +39,32 @@ function markdownToHtml(md: string): string {
       }
       if (t.startsWith("> "))
         return `<blockquote class="border-l-4 border-indigo/30 pl-4 italic text-zinc-500 dark:text-zinc-400 my-6">${processInline(t.replace(/^> /gm, ""))}</blockquote>`;
+      if (t.startsWith("|")) {
+        const rows = t
+          .split("\n")
+          .filter((l) => l.trim())
+          .map((l) => l.trim().replace(/^\|/, "").replace(/\|$/, "").split("|").map((c) => c.trim()));
+        // Row 1 is the header, row 2 is the "---|---" separator (discarded), the rest is the body.
+        const [header, , ...body] = rows;
+        const thead = `<tr>${header
+          .map(
+            (c) =>
+              `<th class="text-left font-semibold text-dark-text dark:text-white px-3 py-2 border-b-2 border-zinc-200 dark:border-dark-border">${processInline(c)}</th>`
+          )
+          .join("")}</tr>`;
+        const tbody = body
+          .map(
+            (row) =>
+              `<tr>${row
+                .map(
+                  (c, i) =>
+                    `<td class="px-3 py-2 border-b border-zinc-100 dark:border-dark-border/60 ${i === 0 ? "font-medium text-dark-text dark:text-white" : ""}">${processInline(c)}</td>`
+                )
+                .join("")}</tr>`
+          )
+          .join("");
+        return `<div class="overflow-x-auto my-6"><table class="w-full text-sm border-collapse"><thead>${thead}</thead><tbody>${tbody}</tbody></table></div>`;
+      }
       return `<p class="leading-relaxed">${processInline(t)}</p>`;
     })
     .join("\n");
