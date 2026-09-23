@@ -140,7 +140,28 @@ export default async function CompaniesPage({ params }: Props) {
         </div>
       </section>
 
-      {/* The blind spot: why nobody checks typing anymore (the sales argument) */}
+      {/* Savings calculator - the hook: quantify the cost first, right
+          after the hero, before explaining why nobody notices it */}
+      <section className="py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <ScrollReveal>
+            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{savings.title}</h2>
+            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12">{savings.baseline}</p>
+          </ScrollReveal>
+          <div className="mx-auto max-w-3xl">
+            <ScrollReveal delay={80}>
+              <TeamSavingsCalculator locale={locale} labels={calculatorLabels} />
+            </ScrollReveal>
+            <ScrollReveal delay={120}>
+              <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-6">{savings.source}</p>
+              <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mt-6">{savings.promise}</p>
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* The blind spot: why nobody checks typing anymore - the reason
+          the number above goes unnoticed */}
       <section className="py-20">
         <div className="mx-auto max-w-5xl px-6">
           <ScrollReveal>
@@ -171,25 +192,6 @@ export default async function CompaniesPage({ params }: Props) {
         </div>
       </section>
 
-      {/* Savings calculator */}
-      <section className="py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{savings.title}</h2>
-            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12">{savings.baseline}</p>
-          </ScrollReveal>
-          <div className="mx-auto max-w-3xl">
-            <ScrollReveal delay={80}>
-              <TeamSavingsCalculator locale={locale} labels={calculatorLabels} />
-            </ScrollReveal>
-            <ScrollReveal delay={120}>
-              <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-6">{savings.source}</p>
-              <p className="text-center text-sm font-medium text-zinc-600 dark:text-zinc-300 max-w-xl mx-auto mt-6">{savings.promise}</p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
       {/* What's included + pricing */}
       <section id={pricingId} className="py-20 scroll-mt-24">
         <div className="mx-auto max-w-5xl px-6">
@@ -212,9 +214,12 @@ export default async function CompaniesPage({ params }: Props) {
             ))}
           </div>
 
-          {/* What the company gets: dashboard, progress, engagement, proof */}
+          {/* What the company gets: dashboard, progress, engagement, proof.
+              Demoted to an eyebrow-style sub-header (not a second full H2)
+              so this reads as one section with a primary and a secondary
+              audience, not the same card-grid module twice. */}
           <ScrollReveal>
-            <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12 mt-20">{forCompany.title}</h2>
+            <p className="text-xs font-semibold text-indigo uppercase tracking-wider text-center mb-3 mt-14">{forCompany.title}</p>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
             {forCompany.items.map((item, i) => (
@@ -231,6 +236,9 @@ export default async function CompaniesPage({ params }: Props) {
               </ScrollReveal>
             ))}
           </div>
+          {/* Pricing: anchored directly under the value it bundles, not a
+              floating box - the bridging first sentence in pricing.text
+              ties it explicitly back to the eight cards above. */}
           <ScrollReveal delay={100}>
             <div className="rounded-2xl border-2 border-indigo/20 bg-indigo/5 dark:bg-indigo/10 p-8 sm:p-10 text-center">
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">{pricing.title}</h3>
