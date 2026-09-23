@@ -1,6 +1,6 @@
-# Kontaktformular Unternehmensseite (Formspree)
+# Formulare (Formspree)
 
-Stand: 2026-09-16. Das Kontaktformular auf der B2B-Seite sendet Anfragen an Formspree, Formspree schickt pro Anfrage eine E-Mail an Sarah. Kein eigenes Backend, keine Env-Vars.
+Stand: 2026-09-23. Ursprünglich nur das B2B-Kontaktformular, mittlerweile teilen sich **vier** Formulare denselben Formspree-Endpoint (`xljdrkvn`), unterschieden nur über `_subject`: B2B-Kontakt (`src/components/companies/ContactForm.tsx`), allgemeiner Kontakt (`src/components/ContactForm.tsx`), Zertifikat-Warteliste und Kurs-Pro-Warteliste (beide über `src/components/WaitlistForm.tsx`). Formspree schickt pro Anfrage eine E-Mail an Sarah. Kein eigenes Backend, keine Env-Vars.
 
 ## Wo
 
@@ -46,9 +46,19 @@ Gesendet wird per `fetch` mit `Accept: application/json` als `FormData`, kein Re
 
 1. **Konto-E-Mail bestätigen.** Ohne bestätigte Adresse nimmt Formspree Anfragen an, verschickt aber keine Benachrichtigungen. Das war am 16.09.2026 die Ursache für "keine Testmail". Bestätigungslink kommt von `noreply@formspree.io`.
 2. **Settings -> Email Notifications**: an, Empfängeradresse prüfen. Andere Adresse eintragen -> Bestätigungslink anklicken.
-3. **Settings -> Restrict to Domain**: `skip-the-manual.vercel.app` eintragen; beim Domain-Wechsel `fastforwardtyping.com` ergänzen. Achtung: Danach schlagen Tests von localhost fehl, das ist gewollt.
-4. **Settings -> Spam Protection**: Standard belassen (Formspree-Filter plus unser Honeypot).
+3. **Settings -> Restrict to Domain**: **offener Punkt, Stand 2026-09-23 noch nicht auf `fastforwardtyping.com` gesetzt** (nur `skip-the-manual.vercel.app` dokumentiert, die alte Domain). Ohne das nimmt Formspree Anfragen von jeder Website oder direkt per Skript an, nicht nur von unserer - das ist die größte offene Lücke gegen Missbrauch. `fastforwardtyping.com` jetzt eintragen. Achtung: Danach schlagen Tests von localhost fehl, das ist gewollt.
+4. **Settings -> Spam Protection**: Standard belassen (Formspree-Filter plus unser Honeypot plus eine Mindest-Ausfüllzeit im Code - siehe unten).
 5. **Submissions**: alle Anfragen bleiben hier gespeichert, auch wenn eine Mail verloren geht. "Resend notification" schickt eine Mail erneut.
+
+## Schutz gegen Spam und automatisierte Anfragen (Stand 2026-09-23)
+
+- **Honeypot** (`_gotcha`, verstecktes Feld): fängt einfache Skript-Bots, die jedes Feld im Formular ausfüllen, ohne zu prüfen, ob es sichtbar ist.
+- **Mindest-Ausfüllzeit** (im Code, alle drei Formular-Komponenten): Absenden schneller als 2-3 Sekunden nach Laden wird wie der Honeypot behandelt - stiller Fehlschlag mit gefälschter Erfolgsmeldung. Fängt auch Bots, die den Honeypot erkennen und bewusst überspringen, etwa KI-Agenten, die das Formular per Browser-Steuerung ausfüllen.
+- **Formspree-eigener Spam-Filter**: läuft automatisch, Wirksamkeit gegen KI-gesteuerte Einsendungen speziell nicht von uns geprüft.
+- **Restrict to Domain**: siehe Punkt 3 oben - aktuell die größte Lücke, weil noch nicht auf die aktuelle Domain gesetzt.
+- **Kein CAPTCHA.** Nicht eingebaut, wäre die nächste Stufe bei anhaltendem Missbrauch (Formspree unterstützt reCAPTCHA-Integration).
+
+Keine dieser Maßnahmen ist wasserdicht gegen gezielten, ausgefeilten Missbrauch - sie erhöhen die Hürde, verhindern ihn nicht vollständig.
 
 ## Testen
 
@@ -66,7 +76,7 @@ Antwort `{"ok":true}` heißt: angenommen. Kommt trotzdem keine Mail, liegt es an
 
 ## Limits und Kosten
 
-Free-Plan: 50 Anfragen pro Monat, danach werden weitere Anfragen abgelehnt (unser Formular zeigt dann den Fehlerhinweis). Bei mehr Volumen Plan upgraden oder auf Resend + eigene API-Route umstellen (im Tech-Stack vorgesehen, siehe `src/app/api/webhooks/email/route.ts`).
+Free-Plan: 50 Anfragen pro Monat, danach werden weitere Anfragen abgelehnt (unser Formular zeigt dann den Fehlerhinweis). Das Limit gilt für **alle vier Formulare zusammen**, nicht pro Formular - bei mehr Traffic auf mehreren Seiten gleichzeitig ist das Kontingent schnell aufgebraucht, auch ganz ohne Missbrauch. Ein einziger Spam-Schub reicht, um echte Anfragen für den Rest des Monats abzuweisen, ohne dass es auffällt (der Fehlerhinweis sieht für Besucher wie ein normaler Netzwerkfehler aus). Bei mehr Volumen Plan upgraden oder auf Resend + eigene API-Route umstellen (im Tech-Stack vorgesehen, siehe `src/app/api/webhooks/email/route.ts`).
 
 ## Datenschutz
 

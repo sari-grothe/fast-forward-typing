@@ -43,6 +43,11 @@ export function ContactForm({ locale, labels }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
+  // A form filled and submitted faster than a human plausibly could
+  // (this one has 5 fields) is almost always a script or an agent -
+  // catches bots that do inspect the DOM and skip the honeypot, which
+  // a hidden-field check alone can't.
+  const mountedAt = useRef(Date.now());
 
   // Move focus to the confirmation so keyboard and screen reader users
   // land on it instead of falling back to <body> when the form unmounts.
@@ -54,8 +59,9 @@ export function ContactForm({ locale, labels }: Props) {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    // Honeypot: real users never fill this hidden field.
-    if (data.get("_gotcha")) {
+    // Honeypot + fill-time check, treated the same: fail silently with
+    // a fake success, never reveal which check tripped.
+    if (data.get("_gotcha") || Date.now() - mountedAt.current < 3000) {
       setSubmitted(true);
       return;
     }

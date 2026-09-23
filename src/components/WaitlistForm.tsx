@@ -33,10 +33,19 @@ const FORMSPREE_ENDPOINT = "https://formspree.io/f/xljdrkvn";
 
 type Status = "idle" | "sending" | "error";
 
+// Second, cheap layer alongside the honeypot: a form filled and
+// submitted faster than a human plausibly could (reads the label,
+// types an email) is almost always a script or an agent that fills
+// every field in one pass, including hidden ones a naive honeypot
+// would catch. This one doesn't rely on the field being invisible to
+// the submitter, so it also catches bots that do inspect the DOM.
+const MIN_FILL_TIME_MS = 2000;
+
 export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
+  const mountedAt = useRef(Date.now());
 
   useEffect(() => {
     if (submitted) successHeadingRef.current?.focus();
@@ -46,8 +55,10 @@ export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Prop
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    // Honeypot: real users never fill this hidden field.
-    if (data.get("_gotcha")) {
+    // Honeypot + fill-time check. Either one is treated the same way a
+    // real anti-bot measure should be: fail silently with a fake
+    // success, never reveal to the caller which check tripped.
+    if (data.get("_gotcha") || Date.now() - mountedAt.current < MIN_FILL_TIME_MS) {
       setSubmitted(true);
       return;
     }
