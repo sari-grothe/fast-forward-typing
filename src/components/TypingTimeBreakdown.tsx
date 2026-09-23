@@ -9,6 +9,7 @@ export type TypingTimeBreakdownLabels = {
   tier100Time: string;
   tier100Saved: string;
   chartLabel: string;
+  legend: string;
   chartNote: string;
   source: string;
 };
@@ -34,7 +35,11 @@ export function TypingTimeBreakdown({ labels }: Props) {
 
   return (
     <div>
-      <p className="text-sm font-semibold text-dark-text dark:text-white text-center mb-5">{labels.chartLabel}</p>
+      <p className="text-sm font-semibold text-dark-text dark:text-white text-center mb-1.5">{labels.chartLabel}</p>
+      {/* Legend: without this, the bar number and the chip number read as
+          two competing claims - this says explicitly which is "time
+          needed" and which is "time saved". */}
+      <p className="text-xs text-zinc-400 text-center mb-5">{labels.legend}</p>
       <div className="space-y-2.5">
         {rows.map((row) => (
           <div key={row.wpm} className="flex flex-wrap items-center gap-x-3 gap-y-1">

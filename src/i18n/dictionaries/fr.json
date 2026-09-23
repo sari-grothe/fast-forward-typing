@@ -31,7 +31,8 @@
       "source": "Source : la plus grande étude sur la vitesse de frappe jamais menée - Aalto University, 168 000 participants.",
       "cta": "À quelle vitesse tu tapes ?",
       "ctaSub": "Essai gratuit · 1 min",
-      "chartLabel": "Ce que 20 mails par jour te coûtent en temps :",
+      "chartLabel": "Voici le temps que prennent 20 mails par jour, selon ta vitesse :",
+      "legend": "Barre : temps que prennent 20 mails. Pastille : gain par rapport à 40 MPM.",
       "chartNote": "40 MPM, c'est le rythme moyen - environ un télégraphiste de 1920. Base : 20 mails de 500 mots.",
       "row40Time": "4,2 h",
       "row40Badge": "moyenne actuelle"

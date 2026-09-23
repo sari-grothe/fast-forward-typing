@@ -31,7 +31,8 @@
       "source": "Source: the largest typing-speed study ever conducted - Aalto University, 168,000 participants.",
       "cta": "How fast do you type?",
       "ctaSub": "Try it free · 1 min",
-      "chartLabel": "What 20 emails a day cost you in time:",
+      "chartLabel": "How much time 20 emails a day cost you, depending on your speed:",
+      "legend": "Bar: time 20 emails take you. Chip: time saved versus 40 WPM.",
       "chartNote": "40 WPM is the average pace - roughly a 1920s telegraph operator. Basis: 20 emails of 500 words.",
       "row40Time": "4.2 h",
       "row40Badge": "today's average"

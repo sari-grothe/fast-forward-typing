@@ -31,7 +31,8 @@
       "source": "Quelle: die bisher größte Studie zur Tippgeschwindigkeit weltweit - Aalto University, 168.000 Teilnehmer.",
       "cta": "Jetzt Tippgeschwindigkeit messen",
       "ctaSub": "Jetzt kostenlos testen",
-      "chartLabel": "So viel Zeit stecken in 20 Mails am Tag:",
+      "chartLabel": "So viel Zeit brauchst du täglich für 20 Mails, je nach Tempo:",
+      "legend": "Balken: Zeit, die 20 Mails kosten. Chip: Ersparnis gegenüber 40 WPM.",
       "chartNote": "40 WPM ist Durchschnittstempo - ungefähr so schnell wie ein Telegrafist 1920. Rechenbasis: 20 E-Mails à 500 Wörter.",
       "row40Time": "4,2 Std",
       "row40Badge": "Durchschnitt heute"
