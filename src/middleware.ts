@@ -16,6 +16,15 @@ function getPreferredLocale(request: NextRequest): Locale {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Every route is lowercase (locales, slugs, lesson ids). A typed
+  // /DE/hilfe or /de/Hilfe would otherwise fall through to the locale
+  // prefixing below and end on /en/DE/hilfe (404).
+  const lower = pathname.toLowerCase();
+  if (lower !== pathname) {
+    request.nextUrl.pathname = lower;
+    return NextResponse.redirect(request.nextUrl, 308);
+  }
+
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
