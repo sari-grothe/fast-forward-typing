@@ -39,6 +39,7 @@ const qwertyFingerMap: Record<string, Finger> = {
   "ö": "right-pinky", "ü": "right-pinky", "-": "right-pinky",
   "0": "right-pinky", "'": "right-pinky", "\"": "right-pinky",
   ":": "right-pinky", "?": "right-pinky",
+  "`": "left-pinky", "=": "right-pinky", "[": "right-pinky", "]": "right-pinky", "\\": "right-pinky",
   // Thumb
   " ": "thumb",
 };
@@ -52,6 +53,10 @@ const qwertzOverrides: Record<string, Finger> = {
   "ä": "right-pinky",
   "ü": "right-pinky",
   "ß": "right-pinky",
+  "^": "left-pinky",
+  "´": "right-pinky",
+  "+": "right-pinky",
+  "#": "right-pinky",
 };
 
 // AZERTY: a/q swapped, z/w swapped, m on the home row right pinky,
@@ -64,6 +69,17 @@ const azertyOverrides: Record<string, Finger> = {
   m: "right-pinky",
   "é": "left-ring",
   "è": "right-index",
+  "&": "left-pinky",
+  "\"": "left-middle",
+  "(": "left-index",
+  "_": "right-middle",
+  ")": "right-pinky",
+  "=": "right-pinky",
+  "²": "left-pinky",
+  "^": "right-pinky",
+  "$": "right-pinky",
+  "*": "right-pinky",
+  "ù": "right-pinky",
   "ç": "right-ring",
   "à": "right-pinky",
   ",": "right-index",

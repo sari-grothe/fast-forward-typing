@@ -44,6 +44,9 @@ export const resourcesUi: Record<Locale, {
   teamCtaLink: string;
   searchPlaceholder: string;
   searchNoResults: string;
+  worksheetsTitle: string;
+  worksheetsSubtitle: string;
+  worksheetFree: string;
   gateTitle: string;
   gateDesc: string;
   namePlaceholder: string;
@@ -75,6 +78,9 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Für dein Team?",
     teamCtaDesc: "Team-Training mit Vorher-Nachher-Messung, für Unternehmen.",
     teamCtaLink: "Team-Training anfragen",
+    worksheetsTitle: "Arbeitsblätter zum Ausdrucken",
+    worksheetsSubtitle: "Finger-Karte, Leer-Layout, Tracker, Nummernblock, Poster, Selbsttest, Sonderzeichen. Jedes Blatt eine A4-Seite, für deine Tastatur (QWERTZ).",
+    worksheetFree: "ohne Anmeldung",
     gateTitle: "Trag dich ein und lade sofort herunter",
     gateDesc: "Vorname und E-Mail reichen - kein Spam, nur dein Cheat Sheet.",
     namePlaceholder: "Vorname",
@@ -106,6 +112,9 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "For your team?",
     teamCtaDesc: "Team training with before/after measurement, for companies.",
     teamCtaLink: "Request team training",
+    worksheetsTitle: "Printable worksheets",
+    worksheetsSubtitle: "Finger map, blank layout, tracker, numpad, poster, self-test, special characters. One A4 page each, for your keyboard (QWERTY).",
+    worksheetFree: "no sign-up",
     gateTitle: "Enter your details for instant access",
     gateDesc: "First name and email is all it takes - no spam, just your cheat sheet.",
     namePlaceholder: "First name",
@@ -137,6 +146,9 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Pour ton équipe ?",
     teamCtaDesc: "Formation d'équipe avec mesure avant/après, pour les entreprises.",
     teamCtaLink: "Demander une formation d'équipe",
+    worksheetsTitle: "Fiches à imprimer",
+    worksheetsSubtitle: "Carte des doigts, clavier vierge, suivi, pavé numérique, affiche, auto-évaluation, caractères spéciaux. Une page A4 chacune, pour ton clavier (AZERTY).",
+    worksheetFree: "sans inscription",
     gateTitle: "Inscris-toi pour un accès immédiat",
     gateDesc: "Prénom et e-mail suffisent - pas de spam, juste ta fiche pratique.",
     namePlaceholder: "Prénom",
