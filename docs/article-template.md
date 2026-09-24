@@ -66,3 +66,45 @@ a business buyer; the others (shortcuts, learning basics, mobile) are
 individual-only. Widen this rule (e.g. include `comparisons`) only if
 a specific page's content actually supports the B2B framing - don't
 add the team CTA reflexively to everything.
+
+## Internal linking (mandatory, since 2026-09-24)
+
+Every article, guide or comparison, in every language, follows these
+rules. `next build` enforces the first four (`validateArticleLinks` in
+`src/lib/internal-links.ts`, called from the article route's
+`generateStaticParams`), so a new article that breaks them fails the
+build.
+
+1. **At least 3 contextual links in the body**, placed where the reader
+   needs them, not collected in a list at the end.
+2. **At least 1 link to a product page** (speed test, course, placement,
+   certificate, keyboard layouts) and **at least 1 to another article**.
+3. **Never hardcode internal URLs.** Write keys, the renderer resolves
+   them to the language-native URL:
+   - `[anchor](page:speedTest)`, `page:lessons`, `page:placement`,
+     `page:certificate`, `page:keyboardLayouts`, `page:resources`,
+     `page:help`, `page:home`, `page:companies`
+   - `[anchor](article:slug)` for an article in the same language
+   Unknown keys or slugs fail the build.
+4. **No self-links.**
+5. **Descriptive anchor text** that says what's behind the link and uses
+   the target's keyword where it reads naturally ("Test deiner
+   Tippgeschwindigkeit", "Guide zum 10-Finger-Schreiben"). Never "hier",
+   "click here", "ce lien". Vary the anchors for the same target across
+   articles.
+6. **Hub and spoke.** Every article links to its pillar guide
+   (`zehn-finger-schreiben-lernen` / `learn-touch-typing` /
+   `apprendre-dactylographie`); the pillar links out to its cluster.
+   Cheat sheets link to their sibling (Windows <-> Mac <-> emoji).
+   Comparisons link to each other and to the certificate.
+7. **Tool pages link into content.** The explainer text under each tool
+   (`src/lib/tool-explainers.ts`) links to at least one matching
+   article, same key syntax.
+8. **When you publish a new article, also link TO it** from at least two
+   existing articles or tool pages in the same language, so it isn't an
+   orphan. The "Weiterlesen" block (pillar first, then same category) is
+   automatic and doesn't count.
+9. **External links** (sources, competitors) open in a new tab
+   automatically (`target="_blank" rel="noopener noreferrer"`, see
+   `src/lib/markdown.tsx`). Every number gets a source in the article's
+   `## Quellen` / `## Sources` section.

@@ -41,7 +41,7 @@ keine Personennennung, jede Seite in DE/EN/FR.
 | 0.5 | Verzeichnisse Tier 1 (Skill directory-submissions): alternativeto.net (als Alternative zu Tipp10, TypingClub, typing.com, Monkeytype), saashub.com, capterra.com, g2.com, crunchbase.com, softonic.com, webwiki.de | erste Backlinks und AI-sichtbare Drittquellen; Product Hunt erst, wenn poliert |
 | 0.6 | AI-Baseline: die 10 Prüffragen (unten) in ChatGPT, Perplexity, Gemini stellen, Ergebnis in `docs/ai-visibility-log.md` protokollieren | Nullpunkt vor jeder Änderung |
 | 0.7 | Middleware: Großbuchstaben im Locale-Segment lowercase-redirecten | 404 auf `/DE/hilfe` |
-| 0.8 | Entscheidung G1 (Tipptest-Vokabel) treffen | blockiert 1.2 |
+| 0.8 | ~~Entscheidung G1 (Tipptest-Vokabel)~~ entschieden 24.09.: Ausnahme auf der Tipptest-Seite und im Tipptest-Artikel, siehe copywriting-de.md | erledigt |
 
 ## Phase 1: Zitierbar werden (Oktober 2026)
 
@@ -56,7 +56,7 @@ the money month"). Jede Woche zählt.
 | 1.4 | **Alle 27 Artikel: Direktantwort-Absatz vor dem TOC, Abschnitt "Quellen" mit Links, Zahlen mit Quelle.** Vergleichsartikel bekommen "Stand [Monat] 2026" in der Tabelle | AI-Zitierbarkeit | Template-Änderung + 27 Edits |
 | 1.5 | **TypingClub-Artikel DE auf "typingclub deutsch" ausrichten** (Title, H1, Abschnitt "TypingClub auf Deutsch: was fehlt"), auf 1.000+ Wörter; FR AgileFingers-Artikel auf "agile finger" | typingclub deutsch 7.900/1; agile finger FR 4.200/0, agile fingers DE 600/25 | 2 Artikel |
 | 1.6 | **Kursseite auf 800-1.200 Wörter** mit Course-Schema (heute nur auf Home), H1 mit Keyword, Abschnitte: was lernst du, Methode, Phasen, Zeitaufwand, für wen, FAQ. FR mit "dix doigts" im Title | DE 10 finger schreiben lernen 15.000/21-39 (AI Overview, trotzdem Pflicht); FR dix doigts 1.900/0 | x3 |
-| 1.7 | **Über uns als E-E-A-T-Seite**: Organisation, Standort Paris, Methodik, Quellen, warum vertrauen, SIRET sobald da | Vertrauen für Google und AI ohne Personennennung | x3 |
+| 1.7 | ~~Über uns als E-E-A-T-Seite~~ entfällt: Entscheidung 24.09., keine Über-uns-Seite (Redirect auf die Startseite). Vertrauenssignale kommen stattdessen aus verlinkten Quellen in jedem Text, Organization-Schema, Impressum mit SIRET und der Methodik in den Tool-Texten | - | - |
 | 1.8 | Startseite: Abschnitt "Quellen" für die Zahlen (zwei Stunden pro Tag, 40-60 %, Cambridge, Aalto) | die meistverlinkte Seite muss belegen | x3 |
 
 ## Phase 2: Autorität aufbauen (November bis Dezember 2026)
@@ -96,7 +96,7 @@ the money month"). Jede Woche zählt.
 
 | # | Frage | Empfehlung |
 |---|---|---|
-| G1 | "Tipptest" als sichtbares Wort auf der Tipptest-Seite erlauben? | Ja, nur dort: H2 und FAQ-Fragen. Rest der Site bleibt Tippgeschwindigkeit. Sonst ~7.500/Monat bei KD 0-15 abschreiben |
+| G1 | "Tipptest" als sichtbares Wort erlauben? | Entschieden 24.09.: ja, auf der Tipptest-Seite (H2, FAQ) und im neuen Tipptest-Artikel, Details in copywriting-de.md |
 | G3 | Zeichen-/Wortzähler bauen? | Entschieden 24.09.: ja, Phase 2 (2.8), nicht zum Go-live |
 | G5 | Kinder-Cluster (~880/Monat)? | Entschieden 24.09.: ja, Phase 2 oder 3 (3.3), nicht zum Go-live |
 
@@ -155,3 +155,4 @@ einer der 10 Fragen, 1.000 Tests für 3.2, 25 Referring Domains.
   is-crawlable, beabsichtigt.
 - 24.09.2026: Audit und diese Roadmap.
 - 24.09.2026: Inhalt, erster Block (Roadmap 1.2, 1.3, 1.4 teilweise): Direktantwort-Absatz und Quellen-Abschnitt mit verlinkten Quellen auf allen 28 Artikeln, externe Links öffnen in neuem Tab, Artikel im DOM vor dem Inhaltsverzeichnis; erklärender Text mit Benchmark-Tabelle und Quellen unter Tipptest, Einstufung und Tastaturlayout-Tool (DE/EN/FR); Über-uns im Footer verlinkt (war verwaist). Die Behauptung "40-60 % schneller" wurde in den Artikeln durch belegte Zahlen ersetzt (Zwei-Finger-Tipper 27/37 WPM, Zehn-Finger 40-60, Aalto 8,4 vs 5,3 Finger), weil keine Studie sie stützt; auf Home, Über uns und Unternehmen steht sie noch (Entscheidung offen).
+- 24.09.2026: Über-uns-Seite entfernt (Entscheidung Sarah), /de/ueber-uns, /en/about, /fr/a-propos und die alten Pfade leiten per 308 auf die Startseite der Sprache. Interne Verlinkung nach Best Practice: alle 28 Artikel mit mindestens 3 kontextuellen Links (Produktseite + Nachbarartikel, Hub-and-Spoke zum Pillar-Guide), Links als page:/article:-Schlüssel statt fester URLs, Build bricht bei Verstoß ab, Regeln in article-template.md und CLAUDE.md. Tipptest: H2 und FAQ auf /de/tippgeschwindigkeit, neuer Artikel Tipptest / Typing Test / Test de frappe (DE/EN/FR) mit allen Test-Keywords. FAQ-Fakten korrigiert (Rekord 1946 auf elektrischer IBM-Schreibmaschine, Durchschnitt 33 bis 52 WPM je nach Studie).

@@ -13,12 +13,16 @@ import { ArticleToc } from "@/components/resources/ArticleToc";
 import { ArticleCtaCard } from "@/components/resources/ArticleCtaCard";
 import { organization } from "@/lib/schema";
 import { companiesPath, localizedPath } from "@/i18n/routes";
+import { locales } from "@/i18n/config";
+import { validateArticleLinks } from "@/lib/internal-links";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
 export async function generateStaticParams() {
+  // Fails the build if any article breaks the internal linking rules.
+  validateArticleLinks([...locales]);
   return getAllResourceSlugs().map(({ slug, locale }) => ({ locale, slug }));
 }
 
@@ -201,7 +205,7 @@ export default async function ResourceArticlePage({ params }: Props) {
             {/* Content */}
             <ScrollReveal delay={120}>
               <div className="mb-12">
-                <Markdown content={resource.content} />
+                <Markdown content={resource.content} locale={locale as Locale} />
               </div>
             </ScrollReveal>
 

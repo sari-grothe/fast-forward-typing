@@ -116,26 +116,26 @@ export const homeFAQ: Record<string, { title: string; items: FAQItem[] }> = {
 
 export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> = {
   de: {
-    title: "Häufig gestellte Fragen zur Tippgeschwindigkeit",
+    title: "Häufige Fragen zum Tipptest",
     items: [
       {
-        question: "Wie funktioniert der Test?",
+        question: "Wie funktioniert der Tipptest?",
         answer: "Wähle eine Dauer (1, 2 oder 5 Minuten), klicke in das Textfeld und tippe den angezeigten Text ab. Der Timer startet mit dem ersten Tastendruck. Bei falschen Eingaben wird die Eingabe blockiert, bis du die richtige Taste triffst.",
       },
       {
         question: "Was ist eine gute Tippgeschwindigkeit?",
-        answer: "Der Median liegt bei 44-46 WPM - etwas höher, als die meisten Seiten dir erzählen. Ab 60 WPM bist du schnell, das ist Chefsekretärinnen-Tempo aus einem 90er-Film. Profi-Schreibkräfte schaffen 100+.",
+        answer: "Der Durchschnitt liegt je nach Studie zwischen 33 und 52 WPM. Ab 60 WPM bist du schnell, das ist Chefsekretärinnen-Tempo aus einem 90er-Film. Profi-Schreibkräfte tippen 43 bis 80 WPM, die Schnellsten über 120.",
       },
       {
         question: "Was ist die schnellste je gemessene Tippgeschwindigkeit?",
-        answer: "216 WPM, aufgestellt von Stella Pajunas 1946 - auf einer mechanischen Schreibmaschine. Die brauchte deutlich mehr Kraft pro Taste als deine. So schnell musst du gar nicht sein, um als schnell zu gelten.",
+        answer: "216 WPM, aufgestellt von Stella Pajunas 1946 - auf einer elektrischen IBM-Schreibmaschine. So schnell musst du gar nicht sein, um als schnell zu gelten.",
       },
       {
         question: "Warum wird meine Eingabe blockiert, wenn ich falsch tippe?",
         answer: "Die Blockierung bei Fehlern trainiert Genauigkeit. Statt Fehler zu überspringen, lernst du, jeden Buchstaben richtig zu treffen. Das verbessert langfristig sowohl Geschwindigkeit als auch Präzision.",
       },
       {
-        question: "Kann ich den Test mehrmals machen?",
+        question: "Kann ich den Tipptest mehrmals machen?",
         answer: "Ja, so oft du möchtest. Klicke nach dem Ergebnis einfach auf 'Nochmal tippen' oder 'Neuer Text' für einen neuen Versuch. Jeder Test verwendet einen zufälligen Text.",
       },
       {
@@ -157,11 +157,11 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "What is a good typing speed?",
-        answer: "Median is 44-46 WPM - a bit higher than most sites tell you. Cross 60 and you're fast, think secretary in a 90s movie. Professional typists clear 100+.",
+        answer: "The average sits between 33 and 52 WPM, depending on the study. Cross 60 and you're fast, think secretary in a 90s movie. Professional typists work at 43 to 80 WPM, the fastest clear 120.",
       },
       {
         question: "What's the fastest typing speed ever recorded?",
-        answer: "216 WPM, set by Stella Pajunas back in 1946 - on a manual typewriter. Those needed way more force per key than yours does. You don't need anywhere close to that to call yourself fast.",
+        answer: "216 WPM, set by Stella Pajunas back in 1946 - on an IBM electric typewriter. You don't need anywhere close to that to call yourself fast.",
       },
       {
         question: "Why is my input blocked when I mistype?",
@@ -190,11 +190,11 @@ export const speedTestFAQ: Record<string, { title: string; items: FAQItem[] }> =
       },
       {
         question: "Quelle est une bonne vitesse de frappe ?",
-        answer: "La médiane est de 44-46 MPM - un peu plus haute que ce que la plupart des sites te disent. Au-dessus de 60 MPM, tu es rapide, façon secrétaire de direction dans un film des années 90. Les dactylos professionnels dépassent 100.",
+        answer: "La moyenne se situe entre 33 et 52 MPM selon les études. Au-dessus de 60 MPM, tu es rapide, façon secrétaire de direction dans un film des années 90. Les dactylos professionnels tapent entre 43 et 80 MPM, les plus rapides dépassent 120.",
       },
       {
         question: "Quelle est la vitesse de frappe la plus rapide jamais enregistrée ?",
-        answer: "216 MPM, record établi par Stella Pajunas en 1946 - sur une machine à écrire mécanique, qui demandait bien plus de force par touche que ton clavier. Pas besoin d'être aussi rapide pour être considéré comme rapide.",
+        answer: "216 MPM, record établi par Stella Pajunas en 1946 - sur une machine à écrire électrique IBM. Pas besoin d'être aussi rapide pour être considéré comme rapide.",
       },
       {
         question: "Pourquoi ma saisie est-elle bloquée quand je fais une erreur ?",

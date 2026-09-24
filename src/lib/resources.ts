@@ -177,13 +177,13 @@ Alles beginnt mit acht Tasten. Lege deine Finger auf die mittlere Reihe deiner T
 - **Rechte Hand:** J - K - L - Ö (Zeigefinger bis kleiner Finger)
 - **Daumen:** Leertaste
 
-Die Tasten F und J haben kleine Erhebungen - du findest die Position blind.
+Die Tasten F und J haben kleine Erhebungen - du findest die Position blind. Was genau hinter der Technik steckt, erklärt [Was ist das 10-Finger-System?](article:was-ist-das-10-finger-system)
 
 ## Schritt für Schritt vorgehen
 
 ### Phase 1: Grundreihe (Woche 1)
 
-Übe nur die mittlere Reihe. Das Ziel ist nicht Geschwindigkeit, sondern **Genauigkeit**. Tippe langsam und korrekt. Dein Muskelgedächtnis braucht korrekte Wiederholungen.
+Übe nur die mittlere Reihe. Das Ziel ist nicht Geschwindigkeit, sondern **Genauigkeit**. Tippe langsam und korrekt. Dein Muskelgedächtnis braucht korrekte Wiederholungen. Genau so startet auch der [10-Finger-System-Kurs](page:lessons): erst die Grundreihe, dann Reihe für Reihe.
 
 ### Phase 2: Obere und untere Reihe (Woche 2-3)
 
@@ -195,7 +195,7 @@ Erst wenn du fehlerfrei tippen kannst, arbeitest du an der Geschwindigkeit. Gena
 
 ## Wie lange dauert es wirklich?
 
-Kurze Antwort: **2-4 Wochen** für die Grundlagen, **2-3 Monate** bis es sich natürlich anfühlt. Bei 15-20 Minuten Übung pro Tag.
+Kurze Antwort: **2-4 Wochen** für die Grundlagen, **2-3 Monate** bis es sich natürlich anfühlt. Bei 15-20 Minuten Übung pro Tag. Wie weit du schon bist, zeigt dir die [Einstufung](page:placement) in wenigen Minuten.
 
 Das klingt nach viel. Aber rechne mal (Beispielrechnung): Wenn du jeden Tag 3 Stunden tippst und 40% schneller wirst, sparst du über eine Stunde pro Tag. Für den Rest deines Berufslebens.
 
@@ -205,13 +205,13 @@ Das klingt nach viel. Aber rechne mal (Beispielrechnung): Wenn du jeden Tag 3 St
 2. **Kurze Sessions, jeden Tag.** 15 Minuten täglich schlagen 2 Stunden am Wochenende. Die Lernforschung nennt das Spacing-Effekt: verteiltes Üben bleibt besser hängen als geballtes.
 3. **Genauigkeit vor Geschwindigkeit.** Langsam und richtig baut bessere Muster auf als schnell und fehlerhaft.
 4. **Echte Texte üben.** Nicht nur "asdf jklö" - sondern Sätze und Absätze.
-5. **Fortschritt messen.** Miss deine Tippgeschwindigkeit einmal pro Woche - so siehst du, wo du stehst.
+5. **Fortschritt messen.** [Miss deine Tippgeschwindigkeit](page:speedTest) einmal pro Woche - so siehst du, wo du stehst. Was dein Ergebnis bedeutet, steht im [Tipptest-Ratgeber](article:tipptest).
 
 ## Die ersten zwei Wochen sind hart
 
 Mal ehrlich: Am Anfang tippst du *langsamer* als vorher. Das ist normal und dauert etwa eine Woche. Danach beschleunigst du schnell.
 
-Der Trick ist, die ersten 7 Tage durchzuhalten. Danach spürst du den Fortschritt.
+Der Trick ist, die ersten 7 Tage durchzuhalten. Danach spürst du den Fortschritt. Sieben Gewohnheiten, die dich zusätzlich beschleunigen, findest du unter [Schneller tippen: 7 Techniken](article:schneller-tippen-techniken).
 
 ## Quellen
 
@@ -284,12 +284,13 @@ Die Standard-Tastatur ist OK, aber Drittanbieter-Apps bieten mehr:
 
 ## Am Desktop geht noch mehr
 
-Auf dem Handy sind 40-50 Wörter pro Minute schon gut. Am Desktop schaffen Touch-Typisten 60-80 WPM - und das lässt sich mit 15 Minuten am Tag lernen.
+Am Rechner ist blindes Tippen der größte Hebel: Geübte 10-Finger-Tipper schaffen 40 bis 60 Wörter pro Minute, Zwei-Finger-Tipper beim Abschreiben etwa 27. Wie das geht, zeigt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen). Wo du gerade stehst, verrät ein kurzer [Test deiner Tippgeschwindigkeit](page:speedTest). Und für Emojis am Rechner gibt es eigene Kürzel: [Emojis per Tastatur einfügen](article:emoji-tastenkombinationen).
 
 ## Quellen
 
 - [Auf dem iPhone mit der Bildschirmtastatur schreiben](https://support.apple.com/de-de/guide/iphone/iph3c50f96e/ios) - Apple Support: Streichen zum Tippen, Textersetzung, Einhandtastatur.
-- [Glide-Typing in Gboard verwenden](https://support.google.com/gboard/answer/6380730) - Google Support.`,
+- [Glide-Typing in Gboard verwenden](https://support.google.com/gboard/answer/6380730) - Google Support.
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - Zwei-Finger-Tipper etwa 27 WPM beim Abschreiben, geübte Tipper 40 bis 60 WPM und mehr.`,
   },
   {
     slug: "tastenkombinationen-windows",
@@ -347,7 +348,11 @@ Auf dem Handy sind 40-50 Wörter pro Minute schon gut. Am Desktop schaffen Touch
 
 ## Profi-Tipp
 
-Lerne nicht alle auf einmal. Nimm dir **3 Shortcuts pro Woche** vor und nutze sie bewusst. Nach 10 Wochen hast du alle 30 drin.
+Lerne nicht alle auf einmal. Nimm dir **3 Shortcuts pro Woche** vor und nutze sie bewusst. Nach 10 Wochen hast du alle 30 drin. Auf dem Mac? Hier sind die [30 wichtigsten Mac-Kürzel](article:tastenkombinationen-mac). Emojis haben ein eigenes Kürzel: [Emojis per Tastatur einfügen](article:emoji-tastenkombinationen).
+
+## Nächster Schritt
+
+Tastenkürzel sparen Klicks, blindes Tippen spart Zeit bei jedem Wort. Miss zuerst kostenlos [deine Tippgeschwindigkeit](page:speedTest), dann weißt du, wie viel drin ist. Wie das 10-Finger-System funktioniert, erklärt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
 
 ## Quellen
 
@@ -409,7 +414,11 @@ Lerne nicht alle auf einmal. Nimm dir **3 Shortcuts pro Woche** vor und nutze si
 
 ## Profi-Tipp
 
-Die Cmd-Taste auf dem Mac entspricht Ctrl auf Windows. Wenn du beide Systeme nutzt, merke dir die Funktion - nicht die Taste.
+Die Cmd-Taste auf dem Mac entspricht Ctrl auf Windows. Wenn du beide Systeme nutzt, merke dir die Funktion - nicht die Taste. Die Gegenstücke stehen in den [30 wichtigsten Windows-Kürzeln](article:tastenkombinationen-windows).
+
+## Nächster Schritt
+
+Tastenkürzel sparen Klicks, blindes Tippen spart Zeit bei jedem Wort. Miss zuerst kostenlos [deine Tippgeschwindigkeit](page:speedTest), dann weißt du, wie viel drin ist. Wie das 10-Finger-System funktioniert, erklärt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
 
 ## Quellen
 
@@ -451,7 +460,11 @@ Wer viel schreibt, tippt auch viele Emojis - in Slack-Nachrichten, Team-Chats, S
 
 ## Profi-Tipp
 
-Das Emoji-Menü merkt sich deine zuletzt genutzten Symbole. Nutze für die ersten Tage bewusst das Tastenkürzel statt Copy-Paste - nach einer Woche sitzt es im Muskelgedächtnis, genau wie jedes andere Tastenkürzel.
+Das Emoji-Menü merkt sich deine zuletzt genutzten Symbole. Nutze für die ersten Tage bewusst das Tastenkürzel statt Copy-Paste - nach einer Woche sitzt es im Muskelgedächtnis, genau wie jedes andere Tastenkürzel. Die wichtigsten davon stehen in den Cheat Sheets für [Windows](article:tastenkombinationen-windows) und [Mac](article:tastenkombinationen-mac).
+
+## Nächster Schritt
+
+Tastenkürzel sparen Klicks, blindes Tippen spart Zeit bei jedem Wort. Miss zuerst kostenlos [deine Tippgeschwindigkeit](page:speedTest), dann weißt du, wie viel drin ist. Wie das 10-Finger-System funktioniert, erklärt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
 
 ## Quellen
 
@@ -474,7 +487,7 @@ Das Emoji-Menü merkt sich deine zuletzt genutzten Symbole. Nutze für die erste
 
 Das 10-Finger-System (auch Zehnfingersystem oder Tastschreiben genannt) ist eine Tipptechnik, bei der jedem der zehn Finger ein fester Bereich der Tastatur zugeordnet ist. Du tippst, ohne auf die Tasten zu schauen - dein Muskelgedächtnis kennt die Position jeder Taste.
 
-Der Unterschied zum "normalen" Tippen: Die meisten Menschen tippen mit vier bis sechs Fingern, suchen dabei ständig mit den Augen die nächste Taste und arbeiten sich Buchstabe für Buchstabe vor. Das funktioniert, hat aber ein hartes Tempolimit.
+Der Unterschied zum "normalen" Tippen: Die meisten Menschen tippen mit vier bis sechs Fingern, suchen dabei ständig mit den Augen die nächste Taste und arbeiten sich Buchstabe für Buchstabe vor. Das funktioniert, hat aber ein hartes Tempolimit. Wo deins liegt, zeigt ein kurzer [Test deiner Tippgeschwindigkeit](page:speedTest).
 
 ## Woher kommt der Name
 
@@ -486,11 +499,11 @@ Die Bezeichnung stammt aus der Zeit der Schreibmaschinen, als das System erstmal
 
 ## Warum es sich lohnt
 
-Zwei-Finger-Tipper kommen beim Abschreiben auf rund 27 Wörter pro Minute, Zehn-Finger-Tipper auf 40 bis 60. In der größten Tippstudie der Welt (168.000 Teilnehmer) nutzten die schnellen Tipper im Schnitt 8,4 Finger, die langsamen 5,3. Entscheidend ist dabei weniger die Zahl der Finger als die feste Zuordnung: Wenn jede Taste immer vom selben Finger getroffen wird, tippst du schneller und genauer. Der Blick bleibt am Bildschirm statt an der Tastatur, was besonders beim Abschreiben oder gleichzeitigen Denken und Tippen einen echten Unterschied macht.
+Zwei-Finger-Tipper kommen beim Abschreiben auf rund 27 Wörter pro Minute, Zehn-Finger-Tipper auf 40 bis 60. In der größten Tippstudie der Welt (168.000 Teilnehmer) nutzten die schnellen Tipper im Schnitt 8,4 Finger, die langsamen 5,3. Entscheidend ist dabei weniger die Zahl der Finger als die feste Zuordnung: Wenn jede Taste immer vom selben Finger getroffen wird, tippst du schneller und genauer. Der Blick bleibt am Bildschirm statt an der Tastatur, was besonders beim Abschreiben oder gleichzeitigen Denken und Tippen einen echten Unterschied macht. Welche Gewohnheiten zusätzlich helfen, steht in [Schneller tippen: 7 Techniken](article:schneller-tippen-techniken).
 
 ## Wie lange dauert es, es zu lernen
 
-Die Grundlagen sitzen nach 2-4 Wochen regelmäßigem Üben, ein natürliches Tempo stellt sich nach 2-3 Monaten ein - vorausgesetzt, du übst 15-20 Minuten am Tag. Es ist keine Begabung, sondern eine Frage von Wiederholung.
+Die Grundlagen sitzen nach 2-4 Wochen regelmäßigem Üben, ein natürliches Tempo stellt sich nach 2-3 Monaten ein - vorausgesetzt, du übst 15-20 Minuten am Tag. Es ist keine Begabung, sondern eine Frage von Wiederholung. Den Weg Schritt für Schritt beschreibt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen), der [10-Finger-System-Kurs](page:lessons) führt dich in 31 Lektionen hindurch.
 
 ## Quellen
 
@@ -533,15 +546,15 @@ Klingt paradox, stimmt aber: Wer zuerst auf Fehlerfreiheit trainiert, wird am En
 
 ## 6. Tastenkombinationen lernen
 
-Copy, Paste, Wort löschen, zum Zeilenanfang springen - wer diese Kombinationen blind beherrscht, spart sich unzählige einzelne Tastenanschläge und Mausklicks im Alltag.
+Copy, Paste, Wort löschen, zum Zeilenanfang springen - wer diese Kombinationen blind beherrscht, spart sich unzählige einzelne Tastenanschläge und Mausklicks im Alltag. Die wichtigsten stehen in den Cheat Sheets für [Windows](article:tastenkombinationen-windows) und [Mac](article:tastenkombinationen-mac).
 
 ## 7. Fortschritt messen
 
-Was du nicht misst, verbesserst du nicht bewusst. Eine kurze wöchentliche Messung deiner Tippgeschwindigkeit zeigt dir schwarz auf weiß, ob die anderen sechs Punkte wirken - und motiviert, dranzubleiben.
+Was du nicht misst, verbesserst du nicht bewusst. Eine kurze wöchentliche [Messung deiner Tippgeschwindigkeit](page:speedTest) zeigt dir schwarz auf weiß, ob die anderen sechs Punkte wirken - und motiviert, dranzubleiben.
 
 ## Was am meisten bringt
 
-Von allen sieben Punkten hat die Kombination aus "nicht auf die Tastatur schauen" und "täglich kurz üben" den größten Effekt. Beides zusammen ist im Kern das 10-Finger-System - alle anderen Techniken bauen darauf auf.
+Von allen sieben Punkten hat die Kombination aus "nicht auf die Tastatur schauen" und "täglich kurz üben" den größten Effekt. Beides zusammen ist im Kern das 10-Finger-System - alle anderen Techniken bauen darauf auf. Wie du es lernst, zeigt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen). Am Handy gelten eigene Regeln: [Schneller tippen am Handy](article:schneller-tippen-handy).
 
 ## Quellen
 
@@ -574,7 +587,7 @@ Fast Forward Typing hat kein Maskottchen-Universum und keine Abzeichen-Sammlung.
 
 TypingClub bietet eine riesige Zahl an Lektionen, Spielen und Videos - aber ohne ein klar definiertes Ende. Man übt, sammelt Sterne, macht weiter. Wann man "fertig" ist, bleibt offen.
 
-Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine Einstufung zeigt den Startpunkt, 31 Lektionen führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will, statt endlos zu üben, findet die hier.
+Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine [Einstufung](page:placement) zeigt den Startpunkt, [31 Lektionen](page:lessons) führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will, statt endlos zu üben, findet die hier.
 
 ## Preise
 
@@ -583,9 +596,9 @@ Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine Einstufung zei
 | Kostenlose Version | Ja, voller Kernkurs | Erste 6 Lektionen |
 | Bezahlversion | 7,50 €/Monat oder 29,50 €/Jahr | Einmalzahlung, kein Abo |
 | Was das Bezahl-Upgrade bringt | Werbefrei, mehr Spiele, mehr Themes, "Story Typing" - nicht mehr Lerninhalt | Alle restlichen Lektionen bis zum Kursabschluss |
-| Zertifikat | Nicht vorhanden | Inklusive |
+| Zertifikat | Nicht vorhanden | [Inklusive](page:certificate) |
 
-Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlichen Lerninhalt frei, sondern Komfort-Features. Der eigentliche Kurs ist bei beiden Anbietern kostenlos zugänglich - der Unterschied liegt im Zertifikat und im Design.
+Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlichen Lerninhalt frei, sondern Komfort-Features. Der eigentliche Kurs ist bei beiden Anbietern kostenlos zugänglich - der Unterschied liegt im Zertifikat und im Design. Einen zweiten Vergleich findest du unter [AgileFingers Alternative](article:agile-fingers-alternative).
 
 ## Wer sollte TypingClub nutzen
 
@@ -633,13 +646,13 @@ Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlic
 
 AgileFingers bietet drei Bausteine: Lektionen zur Fingerposition, Übungstexte und Spiele. Das funktioniert gut, aber es gibt keinen aufgebauten Fortschritt und kein Endziel - man übt in seinem eigenen Tempo, ohne zu wissen, wie viel noch übrig ist oder was "fertig" bedeutet.
 
-Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine Einstufung zeigt den Startpunkt, 31 Lektionen führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will statt endlosem Üben, findet die hier.
+Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine [Einstufung](page:placement) zeigt den Startpunkt, [31 Lektionen](page:lessons) führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will statt endlosem Üben, findet die hier.
 
 ## Auswertung und Statistiken
 
 Hier ist AgileFingers stark: Wörter pro Minute, Fehler-Heatmap pro Finger, Histogramme pro Taste. Ein echter Vorteil für alle, die ihre eigenen Daten gerne im Detail analysieren.
 
-Fast Forward Typing misst ebenfalls Geschwindigkeit und Genauigkeit, vor und nach dem Kurs, der Fokus liegt aber auf dem Gesamtfortschritt und dem Endergebnis statt auf der detaillierten Analyse unterwegs.
+Fast Forward Typing misst ebenfalls Geschwindigkeit und Genauigkeit, vor und nach dem Kurs, der Fokus liegt aber auf dem Gesamtfortschritt und dem Endergebnis statt auf der detaillierten Analyse unterwegs. Wie TypingClub im Vergleich abschneidet, steht in [TypingClub Alternative für Erwachsene](article:typingclub-alternative).
 
 ## Preise
 
@@ -647,7 +660,7 @@ Fast Forward Typing misst ebenfalls Geschwindigkeit und Genauigkeit, vor und nac
 |---|---|---|
 | Kostenlose Version | Ja, das komplette Tool | Erste 6 Lektionen |
 | Bezahlversion | Keine | Einmalzahlung, kein Abo |
-| Zertifikat | Nicht vorhanden | Inklusive |
+| Zertifikat | Nicht vorhanden | [Inklusive](page:certificate) |
 | Definiertes Kursende | Nein | Ja |
 
 ## Wer sollte AgileFingers nutzen
@@ -677,6 +690,93 @@ Fast Forward Typing misst ebenfalls Geschwindigkeit und Genauigkeit, vor und nac
 - [AgileFingers](https://agilefingers.com/) - offizielle Website, Funktionen und Sprachen (Stand September 2026).`,
   },
 
+  {
+    slug: "tipptest",
+    locale: "de",
+    type: "article",
+    category: "learning",
+    title: "Tipptest: Ablauf, gute Werte und Tipps für mehr Tempo",
+    description: "Was ein Tipptest misst, wie viele Anschläge pro Minute gut sind und wie du beim Schreibtest besser abschneidest. Mit Werte-Tabelle und kostenlosem Test.",
+    readingTime: 6,
+    date: "2026-09-24",
+    content: `Ein Tipptest misst in 1 bis 5 Minuten, wie viele Wörter pro Minute (WPM) du tippst und wie genau. 40 WPM, also 200 Anschläge pro Minute, sind ein solides Alltagstempo, ab 60 WPM bist du schnell. Den [kostenlosen Tipptest](page:speedTest) machst du direkt im Browser, ohne Anmeldung.
+
+## Was ist ein Tipptest?
+
+Ein Tipptest, oft auch Schreibtest oder Tipp-Test genannt, ist ein kurzer Abschreibtest am Computer. Du tippst einen vorgegebenen Text ab, die Zeit läuft mit. Am Ende stehen zwei Zahlen: Tempo und Genauigkeit. Online läuft das komplett im Browser, auf deiner eigenen Tastatur.
+
+Fun Fact: Der Weltrekord liegt bei 216 Wörtern pro Minute. Aufgestellt 1946, auf einer elektrischen IBM-Schreibmaschine.
+
+## So läuft ein Tipptest ab
+
+1. **Dauer wählen.** 1, 2 oder 5 Minuten. Kurze Tests zeigen dein Spitzentempo, längere dein Dauertempo.
+2. **Text abtippen.** Die Zeit startet mit dem ersten Tastendruck.
+3. **Ergebnis lesen.** WPM, Anschläge pro Minute und Genauigkeit in Prozent.
+
+Im [Tipptest von Fast Forward Typing](page:speedTest) tippst du echte Sätze statt Zufallswörter, auf QWERTZ. Fehler blockieren die Eingabe, bis die richtige Taste kommt. Das Ergebnis zeigt also dein fehlerfreies Tempo.
+
+## WPM oder Anschläge pro Minute?
+
+Beide Einheiten messen dasselbe. Ein Wort zählt als 5 Zeichen inklusive Leerzeichen. Deshalb gilt: Anschläge pro Minute geteilt durch 5 ergibt WPM.
+
+| Anschläge pro Minute | WPM | Einordnung |
+|---|---|---|
+| 135 | 27 | Zwei-Finger-Tipper beim Abschreiben |
+| 200 | 40 | Solides Alltagstempo |
+| 260 | 52 | Durchschnitt der Aalto-Studie (168.000 Teilnehmer) |
+| 300 | 60 | Schnell |
+| 400 | 80 | Profi-Niveau |
+| 600 und mehr | 120 und mehr | Die Schnellsten der Aalto-Studie |
+
+## Wie viele Anschläge pro Minute sind gut?
+
+Kurz gesagt: Ab 200 Anschlägen pro Minute (40 WPM) tippst du solide, ab 300 (60 WPM) schnell, ab 400 (80 WPM) auf Profi-Niveau. Geübte 10-Finger-Tipper schaffen im 10-Minuten-Test 200 bis 400 Anschläge.
+
+Der Durchschnitt hängt davon ab, wer gemessen wird. Eine Studie von 1999 fand 32,5 WPM beim Abschreiben. Die Aalto-Studie mit 168.000 Freiwilligen kam auf 51,6 WPM. Wo du im Vergleich stehst, zeigt die Einordnung direkt nach dem Test.
+
+Genauso wichtig ist die Genauigkeit. In der Aalto-Studie blieben im Schnitt nur gut 1 Prozent der Zeichen unkorrigiert falsch. Und schnelle Tipper machten weniger Fehler als langsame, nicht mehr. Peile im Tipptest mindestens 95 Prozent an.
+
+## Tipptest für die Bewerbung
+
+Manche Stellen mit viel Schreibarbeit verlangen einen Schreibtest: Sekretariat, Assistenz, Sachbearbeitung, Dateneingabe. Die genauen Anforderungen stehen in der Stellenanzeige. Als Orientierung: Professionelle Schreibkräfte tippen 43 bis 80 WPM, für manche Positionen werden 80 bis 95 WPM verlangt.
+
+Wer seinen Wert belegen will, legt ein [Tippzertifikat](page:certificate) mit WPM, Genauigkeit und Datum bei. Das passt in den Lebenslauf und ins LinkedIn-Profil.
+
+## 5 Tipps für ein besseres Ergebnis
+
+1. **Aufwärmen.** Tippe zwei, drei Minuten locker, bevor du misst.
+2. **Genauigkeit zuerst.** Jeder Fehler kostet Korrekturzeit. Sauber und gleichmäßig schlägt hektisch.
+3. **Auf den Bildschirm schauen.** Die Aalto-Studie "How We Type" rät genau das: Blick auf den Text, nicht auf die Finger.
+4. **Immer derselbe Finger.** Wenn jede Taste stets vom selben Finger getroffen wird, steigt das Tempo. Das ist der Kern des [10-Finger-Systems](article:was-ist-das-10-finger-system).
+5. **Regelmäßig messen.** Ein Tipptest pro Woche zeigt dir deinen Fortschritt. Weitere Gewohnheiten stehen in [Schneller tippen: 7 Techniken](article:schneller-tippen-techniken).
+
+## Vom Tipptest zum Kurs
+
+Ein Tipptest zeigt dir, wo du stehst. Schneller wirst du durch Übung. Die [Einstufung](page:placement) misst pro Taste, was schon sitzt, und der [10-Finger-System-Kurs](page:lessons) trainiert gezielt den Rest. Mit 15 Minuten am Tag sitzen die Grundlagen nach 2 bis 4 Wochen. Schritt für Schritt erklärt das der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
+
+## Häufige Fragen zum Tipptest
+
+**Wie lange dauert ein Tipptest?** Meist 1 bis 5 Minuten. Für ein stabiles Ergebnis nimm 2 oder 5 Minuten.
+
+**Ist der Tipptest kostenlos?** Ja. Den [Tipptest online](page:speedTest) machst du kostenlos und ohne Anmeldung.
+
+**Was ist der Unterschied zwischen Tipptest und Schreibtest?** Keiner. Beides meint dasselbe: Text abtippen, Tempo und Genauigkeit messen.
+
+**Kann ich einen 10-Finger-Schreiben-Test machen, wenn ich das System noch nicht kann?** Ja. Der Test misst dein aktuelles Tempo, egal mit wie vielen Fingern du tippst.
+
+**Gibt es einen WPM-Test auf Deutsch?** Ja. Der [Schnell-tippen-Test](page:speedTest) nutzt deutsche Texte mit Umlauten und ß auf QWERTZ.
+
+**Wie schnell kann ich tippen?** Das zeigt dir ein Tipptest in einer Minute. Danach weißt du, wie viel Luft nach oben ist.
+
+## Quellen
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - 5 Zeichen = 1 Wort, Studie von 1999 mit 32,5 WPM beim Abschreiben, Zwei-Finger-Tipper 27 WPM, Schreibkräfte 43 bis 80 WPM, manche Stellen 80 bis 95 WPM.
+- [Anschläge pro Minute](https://de.wikipedia.org/wiki/Anschl%C3%A4ge_pro_Minute) (Wikipedia) - Umrechnung durch 5 in WPM, geübte Zehnfinger-Tipper 200 bis 400 Anschläge im 10-Minuten-Test.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University und University of Cambridge, CHI 2018: 168.000 Teilnehmer, Durchschnitt 51,6 WPM, unkorrigierte Fehlerrate 1,167 Prozent, Schnellste über 120 WPM.
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016: Blick auf den Bildschirm, feste Finger-Tasten-Zuordnung.
+- [Typing](https://en.wikipedia.org/wiki/Typing) (Wikipedia, englisch) - Rekord von 216 WPM, Stella Pajunas-Garnand, 1946.`,
+  },
+
   // ─── EN ARTICLES ──────────────────────────────────────────
   {
     slug: "learn-touch-typing",
@@ -704,13 +804,13 @@ It all starts with eight keys. Place your fingers on the middle row of your keyb
 - **Right hand:** J - K - L - ; (index finger to pinky)
 - **Thumbs:** Space bar
 
-The F and J keys have small bumps - you can find the position without looking.
+The F and J keys have small bumps - you can find the position without looking. For the full definition, read [What Is Touch Typing?](article:what-is-touch-typing)
 
 ## Step by step
 
 ### Phase 1: Home row (Week 1)
 
-Practice only the middle row. The goal isn't speed, it's **accuracy**. Type slowly and correctly. Your muscle memory needs correct repetitions to build.
+Practice only the middle row. The goal isn't speed, it's **accuracy**. Type slowly and correctly. Your muscle memory needs correct repetitions to build. The [touch typing course](page:lessons) starts exactly here: home row first, then row by row.
 
 ### Phase 2: Top and bottom rows (Week 2-3)
 
@@ -722,7 +822,7 @@ Only once you can type without errors should you work on speed. Accuracy beats s
 
 ## How long does it actually take?
 
-Short answer: **2-4 weeks** for the basics, **2-3 months** until it feels natural. At 15-20 minutes of practice per day.
+Short answer: **2-4 weeks** for the basics, **2-3 months** until it feels natural. At 15-20 minutes of practice per day. The [placement test](page:placement) shows where you stand in a few minutes.
 
 Sounds like a lot. But do the math (a worked example): if you type 3 hours a day and get 40% faster, you save over an hour per day. For the rest of your career.
 
@@ -732,13 +832,13 @@ Sounds like a lot. But do the math (a worked example): if you type 3 hours a day
 2. **Short sessions, every day.** 15 minutes daily beats 2 hours on the weekend. Learning research calls this the spacing effect: spread-out practice sticks better than one long block.
 3. **Accuracy before speed.** Slow and correct builds better patterns than fast and sloppy.
 4. **Practice with real text.** Not just "asdf jkl;" but actual sentences and paragraphs.
-5. **Measure your progress.** One typing test per week shows you where you stand.
+5. **Measure your progress.** One [typing speed test](page:speedTest) per week shows you where you stand. How to read your score is covered in the [typing test guide](article:typing-test).
 
 ## The first two weeks are tough
 
 Let's be honest: at first, you'll type *slower* than before. That's normal and lasts about a week. After that, you accelerate quickly.
 
-The trick is to push through the first 7 days. After that, you'll feel the progress.
+The trick is to push through the first 7 days. After that, you'll feel the progress. Seven habits that speed you up further: [How to Type Faster](article:how-to-type-faster).
 
 ## Sources
 
@@ -811,12 +911,13 @@ The default keyboard is fine, but third-party apps offer more:
 
 ## On desktop, there's even more potential
 
-On your phone, 40-50 words per minute is solid. On a desktop, touch typists hit 60-80 WPM - and you can learn that with 15 minutes a day.
+At a computer, touch typing is the biggest lever: trained touch typists reach 40 to 60 words per minute, two-finger typists about 27 when copying text. The [complete touch typing guide](article:learn-touch-typing) shows how to get there. A quick [typing speed test](page:speedTest) tells you where you stand today. And emojis on a computer have their own shortcuts: [How to Type Emojis](article:emoji-keyboard-shortcuts).
 
 ## Sources
 
 - [Type with the onscreen keyboard on iPhone](https://support.apple.com/guide/iphone/type-with-the-onscreen-keyboard-iph3c50f96e/ios) - Apple Support: slide to type, text replacement, one-handed keyboard.
-- [Use glide typing in Gboard](https://support.google.com/gboard/answer/6380730) - Google Support.`,
+- [Use glide typing in Gboard](https://support.google.com/gboard/answer/6380730) - Google Support.
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - two-finger typists about 27 WPM when copying, trained typists 40 to 60 WPM and above.`,
   },
   {
     slug: "keyboard-shortcuts-windows",
@@ -874,7 +975,11 @@ On your phone, 40-50 words per minute is solid. On a desktop, touch typists hit 
 
 ## Pro tip
 
-Don't learn them all at once. Pick **3 shortcuts per week** and use them deliberately. After 10 weeks, you'll know all 30.
+Don't learn them all at once. Pick **3 shortcuts per week** and use them deliberately. After 10 weeks, you'll know all 30. On a Mac? Here are the [30 most important Mac shortcuts](article:keyboard-shortcuts-mac). Emojis have their own shortcut too: [How to Type Emojis](article:emoji-keyboard-shortcuts).
+
+## Next step
+
+Shortcuts save clicks, touch typing saves time on every word. Start with a free [typing speed test](page:speedTest) to see how much room there is. How touch typing works is explained in the [complete touch typing guide](article:learn-touch-typing).
 
 ## Sources
 
@@ -936,7 +1041,11 @@ Don't learn them all at once. Pick **3 shortcuts per week** and use them deliber
 
 ## Pro tip
 
-Cmd on Mac is Ctrl on Windows. If you use both systems, memorize the function - not the key.
+Cmd on Mac is Ctrl on Windows. If you use both systems, memorize the function - not the key. The Windows counterparts are in the [30 most important Windows shortcuts](article:keyboard-shortcuts-windows).
+
+## Next step
+
+Shortcuts save clicks, touch typing saves time on every word. Start with a free [typing speed test](page:speedTest) to see how much room there is. How touch typing works is explained in the [complete touch typing guide](article:learn-touch-typing).
 
 ## Sources
 
@@ -978,7 +1087,11 @@ If you type a lot, you type a lot of emojis too - in Slack messages, team chats,
 
 ## Pro tip
 
-The emoji panel remembers your recently used symbols. Force yourself to use the shortcut instead of copy-paste for a week - after that it's muscle memory, same as any other keyboard shortcut.
+The emoji panel remembers your recently used symbols. Force yourself to use the shortcut instead of copy-paste for a week - after that it's muscle memory, same as any other keyboard shortcut. The most useful ones are in the cheat sheets for [Windows](article:keyboard-shortcuts-windows) and [Mac](article:keyboard-shortcuts-mac).
+
+## Next step
+
+Shortcuts save clicks, touch typing saves time on every word. Start with a free [typing speed test](page:speedTest) to see how much room there is. How touch typing works is explained in the [complete touch typing guide](article:learn-touch-typing).
 
 ## Sources
 
@@ -1001,7 +1114,7 @@ The emoji panel remembers your recently used symbols. Force yourself to use the 
 
 Touch typing is a typing technique where each of your ten fingers is assigned a fixed set of keys on the keyboard. You type without looking down - your muscle memory knows where every key is.
 
-The difference from "regular" typing: most people type with four to six fingers, constantly glancing down to find the next key, working letter by letter. It works, but it has a hard speed ceiling.
+The difference from "regular" typing: most people type with four to six fingers, constantly glancing down to find the next key, working letter by letter. It works, but it has a hard speed ceiling. A quick [typing speed test](page:speedTest) shows where yours is.
 
 ## Where the name comes from
 
@@ -1013,11 +1126,11 @@ These two terms are used interchangeably in practice. "Touch typing" is the gene
 
 ## Why it's worth learning
 
-Two-finger typists reach about 27 words per minute when copying text, touch typists 40 to 60. In the largest typing study ever run (168,000 participants), fast typists used 8.4 fingers on average, slow typists 5.3. What matters most is not the finger count but the fixed mapping: when every key is always hit by the same finger, you type faster and more accurately. Your eyes stay on the screen instead of the keyboard, which matters most when you're copying text or thinking and typing at the same time.
+Two-finger typists reach about 27 words per minute when copying text, touch typists 40 to 60. In the largest typing study ever run (168,000 participants), fast typists used 8.4 fingers on average, slow typists 5.3. What matters most is not the finger count but the fixed mapping: when every key is always hit by the same finger, you type faster and more accurately. Your eyes stay on the screen instead of the keyboard, which matters most when you're copying text or thinking and typing at the same time. Habits that help on top of that are in [How to Type Faster](article:how-to-type-faster).
 
 ## How long it takes
 
-The basics click after 2-4 weeks of regular practice, and it starts feeling natural after 2-3 months - assuming 15-20 minutes of practice a day. It's not a talent, it's repetition.
+The basics click after 2-4 weeks of regular practice, and it starts feeling natural after 2-3 months - assuming 15-20 minutes of practice a day. It's not a talent, it's repetition. The [complete touch typing guide](article:learn-touch-typing) walks you through it step by step, and the [touch typing course](page:lessons) takes you there in 31 lessons.
 
 ## Sources
 
@@ -1059,15 +1172,15 @@ Counterintuitive, but true: training for accuracy first makes you faster in the 
 
 ## 6. Learn keyboard shortcuts
 
-Copy, paste, delete a word, jump to line start - knowing these by heart saves you countless individual keystrokes and mouse clicks over the course of a day.
+Copy, paste, delete a word, jump to line start - knowing these by heart saves you countless individual keystrokes and mouse clicks over the course of a day. The most useful ones are in the cheat sheets for [Windows](article:keyboard-shortcuts-windows) and [Mac](article:keyboard-shortcuts-mac).
 
 ## 7. Measure your progress
 
-What you don't measure, you don't consciously improve. A quick weekly typing speed check shows you in black and white whether the other six habits are working - and keeps you motivated to stick with it.
+What you don't measure, you don't consciously improve. A quick weekly [typing speed check](page:speedTest) shows you in black and white whether the other six habits are working - and keeps you motivated to stick with it.
 
 ## What matters most
 
-Of all seven, "stop looking at the keyboard" combined with "short daily practice" makes the biggest difference. Together, that's essentially the 10-finger system - every other technique here builds on top of it.
+Of all seven, "stop looking at the keyboard" combined with "short daily practice" makes the biggest difference. Together, that's essentially the 10-finger system - every other technique here builds on top of it. The [complete touch typing guide](article:learn-touch-typing) shows how to learn it. On a phone, different rules apply: [Faster Typing on Your Phone](article:faster-typing-phone).
 
 ## Sources
 
@@ -1100,7 +1213,7 @@ Fast Forward Typing has no mascot universe and no badge collection. Lessons are 
 
 TypingClub offers a huge number of lessons, games and videos - but with no clearly defined end. You practice, collect stars, keep going. When you're "done" stays open.
 
-Fast Forward Typing is built as a course with a beginning and an end: a placement test shows your starting point, 31 lessons lead you through in a structured way, and completion is clearly visible. If you want a finish line instead of endless practice, this is it.
+Fast Forward Typing is built as a course with a beginning and an end: a [placement test](page:placement) shows your starting point, [31 lessons](page:lessons) lead you through in a structured way, and completion is clearly visible. If you want a finish line instead of endless practice, this is it.
 
 ## Pricing
 
@@ -1109,9 +1222,9 @@ Fast Forward Typing is built as a course with a beginning and an end: a placemen
 | Free version | Yes, full core course | First 6 lessons |
 | Paid version | 7.50€/month or 29.50€/year | One-time payment, no subscription |
 | What the paid upgrade gets you | Ad-free, more games, more themes, "Story Typing" - not more learning content | All remaining lessons through course completion |
-| Certificate | Not available | Included |
+| Certificate | Not available | [Included](page:certificate) |
 
-Important to understand: with TypingClub, the subscription doesn't unlock more learning content, it unlocks comfort features. The actual course is free with both providers - the difference is the certificate and the design.
+Important to understand: with TypingClub, the subscription doesn't unlock more learning content, it unlocks comfort features. The actual course is free with both providers - the difference is the certificate and the design. A second comparison: [AgileFingers Alternative](article:agile-fingers-alternative).
 
 ## Who should use TypingClub
 
@@ -1159,13 +1272,13 @@ Important to understand: with TypingClub, the subscription doesn't unlock more l
 
 AgileFingers offers three building blocks: finger-position lessons, practice texts, and games. That works well, but there's no built-up progression and no final goal - you move at your own pace, without knowing how much is left or what "finished" even means.
 
-Fast Forward Typing is built as a course with a beginning and an end: a placement test shows where you stand, 31 structured lessons take you all the way through, and course completion is clearly visible. For anyone who wants a finish line instead of open-ended practice, that's the main difference.
+Fast Forward Typing is built as a course with a beginning and an end: a [placement test](page:placement) shows where you stand, [31 structured lessons](page:lessons) take you all the way through, and course completion is clearly visible. For anyone who wants a finish line instead of open-ended practice, that's the main difference.
 
 ## Tracking and stats
 
 This is where AgileFingers is strong: words per minute, a per-finger error heatmap, per-key histograms. A real advantage for anyone who enjoys analyzing their own data in detail.
 
-Fast Forward Typing also measures your speed and accuracy, before and after the course, but the focus is on overall progress and the final result rather than detailed analysis along the way.
+Fast Forward Typing also measures your speed and accuracy, before and after the course, but the focus is on overall progress and the final result rather than detailed analysis along the way. How TypingClub compares is covered in [TypingClub Alternative for Adults](article:typingclub-alternative).
 
 ## Pricing
 
@@ -1173,7 +1286,7 @@ Fast Forward Typing also measures your speed and accuracy, before and after the 
 |---|---|---|
 | Free version | Yes, the entire tool | First 6 lessons |
 | Paid version | None | One-time payment, no subscription |
-| Certificate | Not available | Included |
+| Certificate | Not available | [Included](page:certificate) |
 | Defined course end | No | Yes |
 
 ## Who should use AgileFingers
@@ -1203,6 +1316,91 @@ Fast Forward Typing also measures your speed and accuracy, before and after the 
 - [AgileFingers](https://agilefingers.com/) - official website, features and languages (as of September 2026).`,
   },
 
+  {
+    slug: "typing-test",
+    locale: "en",
+    type: "article",
+    category: "learning",
+    title: "Typing Test: How It Works, Good Scores and Tips",
+    description: "What a typing test measures, what counts as a good WPM score and how to do better on a typing test for a job. With a score table and a free test.",
+    readingTime: 6,
+    date: "2026-09-24",
+    content: `A typing test measures, in 1 to 5 minutes, how many words per minute (WPM) you type and how accurately. 40 WPM, or 200 characters per minute, is a solid everyday pace, 60 WPM and up is fast. You can take a [free typing test](page:speedTest) right in your browser, no signup.
+
+## What is a typing test?
+
+A typing test, also called a typing speed test or WPM test, is a short copy test at the computer. You type out a given text while a timer runs. At the end you get two numbers: speed and accuracy. Online, it all runs in the browser on your own keyboard.
+
+Here's the thing: the world record is 216 words per minute. Set in 1946, on an IBM electric typewriter.
+
+## How a typing test works
+
+1. **Pick a duration.** A 1 minute typing test shows your peak speed, a 5 minute typing test your sustained pace.
+2. **Type the text.** The clock starts with your first keystroke.
+3. **Read your score.** WPM, characters per minute and accuracy in percent.
+
+In the [Fast Forward Typing speed test](page:speedTest) you type real sentences, not random words. Wrong keys block input until you hit the right one, so your score is your error-free speed.
+
+## WPM or characters per minute?
+
+Both measure the same thing. One word counts as 5 characters including spaces. So characters per minute divided by 5 equals WPM.
+
+| Characters per minute | WPM | What it means |
+|---|---|---|
+| 135 | 27 | Two-finger typist copying text |
+| 200 | 40 | Solid everyday pace |
+| 260 | 52 | Average in the Aalto study (168,000 participants) |
+| 300 | 60 | Fast |
+| 400 | 80 | Professional level |
+| 600 and up | 120 and up | The fastest in the Aalto study |
+
+## What is a good WPM score?
+
+Short answer: 40 WPM is solid, 60 WPM is fast, 80 WPM is professional level. Trained touch typists reach 200 to 400 characters per minute in a 10 minute test.
+
+The average depends on who gets measured. A 1999 study found 32.5 WPM for copying text. The Aalto study with 168,000 volunteers measured an average typing speed of 51.6 WPM. The result screen shows where you land right after the test.
+
+Accuracy matters just as much. In the Aalto study, only about 1 percent of characters stayed wrong on average. And fast typists made fewer errors than slow ones, not more. Aim for at least 95 percent.
+
+## Typing tests for jobs
+
+Some roles with a lot of writing ask for a typing test: administrative assistants, office clerks, data entry, customer support. The job ad states the exact requirement. As a rough guide: professional typists work at 43 to 80 WPM, and some positions require 80 to 95 WPM.
+
+If you want to prove your score, add a [typing certificate](page:certificate) with WPM, accuracy and date. It fits on a resume and a LinkedIn profile.
+
+## 5 tips for a better score
+
+1. **Warm up.** Type loosely for two or three minutes before you measure.
+2. **Accuracy first.** Every error costs correction time. Clean and steady beats rushed.
+3. **Look at the screen.** The Aalto study "How We Type" recommends exactly that: eyes on the text, not on your fingers.
+4. **Same finger, every time.** When every key is always hit by the same finger, speed goes up. That's the core of [touch typing](article:what-is-touch-typing).
+5. **Measure regularly.** One typing test a week shows your progress. More habits are in [How to Type Faster](article:how-to-type-faster).
+
+## From typing test to course
+
+A typing test shows where you stand. Practice is what makes you faster. The [placement test](page:placement) measures every key, and the [touch typing course](page:lessons) trains exactly what's missing. At 15 minutes a day, the basics click after 2 to 4 weeks. The [complete touch typing guide](article:learn-touch-typing) walks you through it step by step.
+
+## Typing test FAQ
+
+**How long is a typing test?** Usually 1 to 5 minutes. For a stable score, go for 2 or 5 minutes.
+
+**Is the typing test free?** Yes. The [online typing test](page:speedTest) is free and needs no account.
+
+**What's the difference between a typing test and a typing speed test?** None. Both mean the same: type a text, measure speed and accuracy.
+
+**Can I take a typing test if I can't touch type yet?** Yes. The test measures your current speed, no matter how many fingers you use.
+
+**What is the average typing speed?** Between 33 and 52 WPM, depending on the study. A one-minute test tells you where you stand.
+
+## Sources
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - 5 characters = 1 word, a 1999 study with 32.5 WPM for copying, two-finger typists at 27 WPM, professional typists 43 to 80 WPM, some positions 80 to 95 WPM.
+- [Anschläge pro Minute](https://de.wikipedia.org/wiki/Anschl%C3%A4ge_pro_Minute) (Wikipedia, German) - dividing by 5 converts to WPM, trained touch typists reach 200 to 400 characters per minute in a 10 minute test.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University and University of Cambridge, CHI 2018: 168,000 participants, average 51.6 WPM, uncorrected error rate 1.167 percent, fastest above 120 WPM.
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016: eyes on the screen, consistent finger-to-key mapping.
+- [Typing](https://en.wikipedia.org/wiki/Typing) (Wikipedia) - the 216 WPM record, Stella Pajunas-Garnand, 1946.`,
+  },
+
   // ─── FR ARTICLES ──────────────────────────────────────────
   {
     slug: "apprendre-dactylographie",
@@ -1224,19 +1422,19 @@ Le truc dingue : le record mondial de frappe est de 216 mots par minute. Établi
 
 ## La position de base
 
-Tout commence avec huit touches. Place tes doigts sur la rangée du milieu de ton clavier AZERTY :
+Tout commence avec huit touches. Place tes doigts sur la rangée du milieu de ton clavier [AZERTY](article:qwerty-azerty-qwertz) :
 
 - **Main gauche :** Q - S - D - F (auriculaire à index)
 - **Main droite :** J - K - L - M (index à auriculaire)
 - **Pouces :** Barre d'espace
 
-Les touches F et J ont de petites bosses - tu trouves la position sans regarder.
+Les touches F et J ont de petites bosses - tu trouves la position sans regarder. La définition complète est dans [Dactylographie : définition et méthode](article:dactylographie-definition).
 
 ## Étape par étape
 
 ### Phase 1 : Rangée de base (Semaine 1)
 
-Entraîne-toi uniquement sur la rangée du milieu. L'objectif n'est pas la vitesse, c'est la **précision**. Tape lentement et correctement. Ta mémoire musculaire a besoin de répétitions correctes.
+Entraîne-toi uniquement sur la rangée du milieu. L'objectif n'est pas la vitesse, c'est la **précision**. Tape lentement et correctement. Ta mémoire musculaire a besoin de répétitions correctes. Le [cours de dactylographie](page:lessons) commence exactement là : la rangée de base d'abord, puis rangée par rangée.
 
 ### Phase 2 : Rangées du haut et du bas (Semaine 2-3)
 
@@ -1248,7 +1446,7 @@ Seulement quand tu tapes sans erreurs, tu travailles la vitesse. La précision b
 
 ## Combien de temps ça prend vraiment ?
 
-Réponse courte : **2 à 4 semaines** pour les bases, **2 à 3 mois** pour que ça devienne naturel. À 15-20 minutes d'entraînement par jour.
+Réponse courte : **2 à 4 semaines** pour les bases, **2 à 3 mois** pour que ça devienne naturel. À 15-20 minutes d'entraînement par jour. L'[évaluation](page:placement) te montre où tu en es en quelques minutes.
 
 Ça semble beaucoup. Mais fais le calcul (exemple chiffré) : si tu tapes 3 heures par jour et que tu deviens 40% plus rapide, tu économises plus d'une heure par jour. Pour le reste de ta carrière.
 
@@ -1258,13 +1456,13 @@ Réponse courte : **2 à 4 semaines** pour les bases, **2 à 3 mois** pour que �
 2. **Sessions courtes, tous les jours.** 15 minutes par jour battent 2 heures le week-end. La recherche appelle ça l'effet d'espacement : un entraînement réparti tient mieux qu'un seul gros bloc.
 3. **Précision avant vitesse.** Lent et correct construit de meilleurs automatismes que rapide et approximatif.
 4. **Entraîne-toi avec du vrai texte.** Pas seulement "qsdf jklm" mais des phrases et des paragraphes.
-5. **Mesure tes progrès.** Un test de dactylographie par semaine te montre où tu en es.
+5. **Mesure tes progrès.** Un [test de dactylographie](page:speedTest) par semaine te montre où tu en es. Pour lire ton résultat, vois le [guide du test de frappe](article:test-de-frappe).
 
 ## Les deux premières semaines sont difficiles
 
 Soyons honnêtes : au début, tu tapes *plus lentement* qu'avant. C'est normal et ça dure environ une semaine. Après, tu accélères vite.
 
-Le truc, c'est de tenir les 7 premiers jours. Après ça, tu sens le progrès.
+Le truc, c'est de tenir les 7 premiers jours. Après ça, tu sens le progrès. Sept habitudes pour aller encore plus vite : [Taper plus vite : 7 techniques](article:taper-plus-vite-techniques).
 
 ## Sources
 
@@ -1337,12 +1535,13 @@ Le clavier par défaut est correct, mais les applis tierces offrent plus :
 
 ## Sur un ordi, le potentiel est encore plus grand
 
-Sur ton téléphone, 40-50 mots par minute c'est déjà bien. Sur un ordinateur, les dactylos atteignent 60-80 MPM - et ça s'apprend à raison de 15 minutes par jour.
+Sur un ordinateur, la frappe à dix doigts est le plus gros levier : un dactylo entraîné tape entre 40 et 60 mots par minute, contre environ 27 pour qui recopie un texte à deux doigts. Le [guide complet de la dactylographie](article:apprendre-dactylographie) montre comment y arriver. Un rapide [test de vitesse de frappe](page:speedTest) te dit où tu en es. Et pour les emojis sur ordinateur, il existe des raccourcis : [Raccourci clavier emoji](article:raccourcis-clavier-emoji).
 
 ## Sources
 
 - [Saisir du texte avec le clavier à l'écran sur l'iPhone](https://support.apple.com/fr-fr/guide/iphone/iph3c50f96e/ios) - Assistance Apple : glisser pour taper, remplacement de texte, clavier à une main.
-- [Utiliser la saisie gestuelle dans Gboard](https://support.google.com/gboard/answer/6380730) - Aide Google.`,
+- [Utiliser la saisie gestuelle dans Gboard](https://support.google.com/gboard/answer/6380730) - Aide Google.
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, en anglais) - frappe à deux doigts environ 27 MPM en recopiant, dactylos entraînés de 40 à 60 MPM et plus.`,
   },
   {
     slug: "raccourcis-clavier-windows",
@@ -1400,7 +1599,11 @@ Sur ton téléphone, 40-50 mots par minute c'est déjà bien. Sur un ordinateur,
 
 ## Astuce pro
 
-N'apprends pas tout d'un coup. Choisis **3 raccourcis par semaine** et utilise-les consciemment. Au bout de 10 semaines, tu les maîtrises tous.
+N'apprends pas tout d'un coup. Choisis **3 raccourcis par semaine** et utilise-les consciemment. Au bout de 10 semaines, tu les maîtrises tous. Sur Mac ? Voici les [30 raccourcis macOS indispensables](article:raccourcis-clavier-mac). Les emojis ont aussi leur raccourci : [Raccourci clavier emoji](article:raccourcis-clavier-emoji).
+
+## Prochaine étape
+
+Les raccourcis font gagner des clics, la frappe à dix doigts fait gagner du temps sur chaque mot. Commence par un [test de vitesse de frappe](page:speedTest) gratuit pour voir ta marge de progression. Le fonctionnement de la méthode est expliqué dans le [guide complet de la dactylographie](article:apprendre-dactylographie).
 
 ## Sources
 
@@ -1462,7 +1665,11 @@ N'apprends pas tout d'un coup. Choisis **3 raccourcis par semaine** et utilise-l
 
 ## Astuce pro
 
-Cmd sur Mac correspond à Ctrl sur Windows. Si tu utilises les deux systèmes, retiens la fonction - pas la touche.
+Cmd sur Mac correspond à Ctrl sur Windows. Si tu utilises les deux systèmes, retiens la fonction - pas la touche. Les équivalents sont dans les [30 raccourcis Windows indispensables](article:raccourcis-clavier-windows).
+
+## Prochaine étape
+
+Les raccourcis font gagner des clics, la frappe à dix doigts fait gagner du temps sur chaque mot. Commence par un [test de vitesse de frappe](page:speedTest) gratuit pour voir ta marge de progression. Le fonctionnement de la méthode est expliqué dans le [guide complet de la dactylographie](article:apprendre-dactylographie).
 
 ## Sources
 
@@ -1483,7 +1690,7 @@ Cmd sur Mac correspond à Ctrl sur Windows. Si tu utilises les deux systèmes, r
 
 Tu as sûrement remarqué : les claviers ne sont pas les mêmes partout. En France, c'est AZERTY. Aux États-Unis et au Royaume-Uni, c'est QWERTY. En Allemagne et en Suisse, c'est QWERTZ.
 
-Le nom vient tout simplement des 6 premières touches de la rangée du haut.
+Le nom vient tout simplement des 6 premières touches de la rangée du haut. Tu peux les comparer touche par touche dans le [comparateur QWERTY, AZERTY, QWERTZ](page:keyboardLayouts).
 
 ## D'où vient le QWERTY ?
 
@@ -1509,13 +1716,13 @@ En Allemagne, la disposition QWERTZ échange Y et Z - parce que le Z est beaucou
 
 ## Laquelle est la meilleure ?
 
-Aucune n'est objectivement meilleure. Utilise celle de ton pays - c'est celle que tu trouveras partout. Le plus important n'est pas la disposition, c'est d'apprendre à taper avec tes dix doigts.
+Aucune n'est objectivement meilleure. Utilise celle de ton pays - c'est celle que tu trouveras partout. Le plus important n'est pas la disposition, c'est d'apprendre à [taper avec tes dix doigts](article:apprendre-dactylographie).
 
 ## Et les alternatives ?
 
 Des dispositions comme **Dvorak** et **Colemak** promettent plus d'efficacité en plaçant les lettres les plus fréquentes sur la rangée du milieu. En théorie, c'est mieux. En pratique, très peu de gens les utilisent - et tous les claviers que tu rencontreras utilisent QWERTY/AZERTY/QWERTZ.
 
-Bref, apprends la disposition de ton clavier. Et apprends à la maîtriser.
+Bref, apprends la disposition de ton clavier. Et apprends à la maîtriser. Commence par mesurer ta [vitesse de frappe](page:speedTest).
 
 ## Sources
 
@@ -1559,7 +1766,11 @@ Qui écrit beaucoup tape aussi beaucoup d'emojis - dans les messages Slack, les 
 
 ## Astuce
 
-Le sélecteur d'emoji retient les symboles récemment utilisés. Force-toi à utiliser le raccourci clavier plutôt que le copier-coller pendant une semaine - après ça, c'est de la mémoire musculaire, comme n'importe quel autre raccourci clavier.
+Le sélecteur d'emoji retient les symboles récemment utilisés. Force-toi à utiliser le raccourci clavier plutôt que le copier-coller pendant une semaine - après ça, c'est de la mémoire musculaire, comme n'importe quel autre raccourci clavier. Les plus utiles sont dans les aide-mémoires [Windows](article:raccourcis-clavier-windows) et [Mac](article:raccourcis-clavier-mac).
+
+## Prochaine étape
+
+Les raccourcis font gagner des clics, la frappe à dix doigts fait gagner du temps sur chaque mot. Commence par un [test de vitesse de frappe](page:speedTest) gratuit pour voir ta marge de progression. Le fonctionnement de la méthode est expliqué dans le [guide complet de la dactylographie](article:apprendre-dactylographie).
 
 ## Sources
 
@@ -1582,7 +1793,7 @@ Le sélecteur d'emoji retient les symboles récemment utilisés. Force-toi à ut
 
 La dactylographie désigne l'art de taper à la machine, aujourd'hui au clavier d'ordinateur. Dans son usage moderne, le mot renvoie presque toujours à la méthode des dix doigts : chaque doigt est responsable d'une zone fixe du clavier, et tu tapes sans regarder tes mains.
 
-La différence avec la façon de taper "classique" : la plupart des gens tapent avec deux à quatre doigts, cherchent chaque touche des yeux, et avancent lettre par lettre. Ça fonctionne, mais ça a une limite de vitesse difficile à dépasser.
+La différence avec la façon de taper "classique" : la plupart des gens tapent avec deux à quatre doigts, cherchent chaque touche des yeux, et avancent lettre par lettre. Ça fonctionne, mais ça a une limite de vitesse difficile à dépasser. Un rapide [test de vitesse de frappe](page:speedTest) te montre où se trouve la tienne.
 
 ## D'où vient le mot
 
@@ -1594,11 +1805,11 @@ Chaque main couvre la moitié du clavier. Les index reviennent toujours vers les
 
 ## Pourquoi apprendre à taper avec tes dix doigts
 
-Qui tape à deux doigts recopie un texte à environ 27 mots par minute, un dactylo à dix doigts tape entre 40 et 60. Dans la plus grande étude jamais menée sur la frappe (168 000 participants), les typistes rapides utilisaient 8,4 doigts en moyenne, les lents 5,3. Ce qui compte le plus, ce n'est pas le nombre de doigts mais l'attribution fixe : quand chaque touche est toujours frappée par le même doigt, tu tapes plus vite et avec moins d'erreurs. Le regard reste sur l'écran plutôt que sur le clavier, ce qui change tout quand tu recopies un texte ou que tu réfléchis en tapant.
+Qui tape à deux doigts recopie un texte à environ 27 mots par minute, un dactylo à dix doigts tape entre 40 et 60. Dans la plus grande étude jamais menée sur la frappe (168 000 participants), les typistes rapides utilisaient 8,4 doigts en moyenne, les lents 5,3. Ce qui compte le plus, ce n'est pas le nombre de doigts mais l'attribution fixe : quand chaque touche est toujours frappée par le même doigt, tu tapes plus vite et avec moins d'erreurs. Le regard reste sur l'écran plutôt que sur le clavier, ce qui change tout quand tu recopies un texte ou que tu réfléchis en tapant. D'autres habitudes utiles sont dans [Taper plus vite : 7 techniques](article:taper-plus-vite-techniques).
 
 ## Combien de temps ça prend
 
-Les bases sont acquises en 2 à 4 semaines de pratique régulière, et le geste devient naturel après 2 à 3 mois - à raison de 15 à 20 minutes d'entraînement par jour. Ce n'est pas un talent, c'est de la répétition.
+Les bases sont acquises en 2 à 4 semaines de pratique régulière, et le geste devient naturel après 2 à 3 mois - à raison de 15 à 20 minutes d'entraînement par jour. Ce n'est pas un talent, c'est de la répétition. Le [guide complet de la dactylographie](article:apprendre-dactylographie) détaille chaque étape, et le [cours de dactylographie](page:lessons) t'y amène en 31 leçons.
 
 ## Sources
 
@@ -1641,15 +1852,15 @@ Pratique sur des phrases que tu tapes vraiment - e-mails, messages, prompts pour
 
 ## 6. Apprends les raccourcis clavier
 
-Copier, coller, supprimer un mot, revenir au début de la ligne - qui maîtrise ces raccourcis par cœur s'économise d'innombrables frappes et clics de souris au quotidien.
+Copier, coller, supprimer un mot, revenir au début de la ligne - qui maîtrise ces raccourcis par cœur s'économise d'innombrables frappes et clics de souris au quotidien. Les plus utiles sont dans les aide-mémoires [Windows](article:raccourcis-clavier-windows) et [Mac](article:raccourcis-clavier-mac).
 
 ## 7. Mesure ta progression
 
-Ce qu'on ne mesure pas, on ne l'améliore pas consciemment. Un test de vitesse de frappe rapide chaque semaine te montre noir sur blanc si les six autres habitudes fonctionnent - et te garde motivé.
+Ce qu'on ne mesure pas, on ne l'améliore pas consciemment. Un [test de vitesse de frappe](page:speedTest) rapide chaque semaine te montre noir sur blanc si les six autres habitudes fonctionnent - et te garde motivé.
 
 ## Ce qui compte le plus
 
-Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner un peu chaque jour" fait la plus grande différence. Ensemble, c'est essentiellement la méthode des dix doigts - toutes les autres techniques s'appuient dessus.
+Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner un peu chaque jour" fait la plus grande différence. Ensemble, c'est essentiellement la méthode des dix doigts - toutes les autres techniques s'appuient dessus. Le [guide complet de la dactylographie](article:apprendre-dactylographie) explique comment l'apprendre. Sur téléphone, les règles changent : [Taper plus vite sur ton téléphone](article:taper-plus-vite-telephone).
 
 ## Sources
 
@@ -1676,13 +1887,13 @@ Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner
 
 AgileFingers propose trois briques : des leçons sur la position des doigts, des textes d'application, et des jeux. C'est efficace, mais il n'y a pas de progression construite ni d'objectif final - tu avances à ton rythme, sans savoir combien de temps il te reste ni ce que "terminer" veut dire.
 
-Fast Forward Typing est pensé comme un cours avec un début et une fin : une évaluation initiale montre où tu en es, 31 leçons structurées t'amènent jusqu'au bout, et l'achèvement du cours est clairement identifiable. Pour qui veut une ligne d'arrivée plutôt qu'une pratique sans fin, c'est la différence principale.
+Fast Forward Typing est pensé comme un cours avec un début et une fin : une [évaluation](page:placement) initiale montre où tu en es, [31 leçons structurées](page:lessons) t'amènent jusqu'au bout, et l'achèvement du cours est clairement identifiable. Pour qui veut une ligne d'arrivée plutôt qu'une pratique sans fin, c'est la différence principale.
 
 ## Suivi et statistiques
 
 AgileFingers est très fort sur ce point : mots par minute, carte de chaleur des erreurs par doigt, histogrammes par touche. C'est un vrai atout pour qui aime analyser ses propres données en détail.
 
-Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le cours, mais l'accent est mis sur la progression globale et le résultat final plutôt que sur l'analyse détaillée en cours de route.
+Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le cours, mais l'accent est mis sur la progression globale et le résultat final plutôt que sur l'analyse détaillée en cours de route. La comparaison avec TypingClub est dans [Alternative à TypingClub pour adultes](article:typingclub-alternative).
 
 ## Prix
 
@@ -1690,7 +1901,7 @@ Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le
 |---|---|---|
 | Version gratuite | Oui, tout l'outil | Les 6 premières leçons |
 | Version payante | Aucune | Paiement unique, pas d'abonnement |
-| Certificat | Non | Inclus |
+| Certificat | Non | [Inclus](page:certificate) |
 | Ligne d'arrivée définie | Non | Oui |
 
 ## Pour qui est AgileFingers
@@ -1744,7 +1955,7 @@ Fast Forward Typing n'a ni univers de mascottes ni collection de badges. Les le�
 
 TypingClub propose un très grand nombre de leçons, jeux et vidéos - mais sans fin clairement définie. On s'entraîne, on collectionne des étoiles, on continue. Le moment où on est "prêt" reste flou.
 
-Fast Forward Typing est pensé comme un cours avec un début et une fin : une évaluation initiale montre où tu en es, 31 leçons structurées t'amènent jusqu'au bout, et l'achèvement du cours est clairement identifiable. Pour qui veut une ligne d'arrivée plutôt qu'une pratique sans fin, c'est la différence principale.
+Fast Forward Typing est pensé comme un cours avec un début et une fin : une [évaluation](page:placement) initiale montre où tu en es, [31 leçons structurées](page:lessons) t'amènent jusqu'au bout, et l'achèvement du cours est clairement identifiable. Pour qui veut une ligne d'arrivée plutôt qu'une pratique sans fin, c'est la différence principale.
 
 ## Prix
 
@@ -1753,9 +1964,9 @@ Fast Forward Typing est pensé comme un cours avec un début et une fin : une é
 | Version gratuite | Oui, cours complet | Les 6 premières leçons |
 | Version payante | 7,50 €/mois ou 29,50 €/an | Paiement unique, pas d'abonnement |
 | Ce que l'abonnement payant apporte | Sans pub, plus de jeux, plus de thèmes, "Story Typing" - pas plus de contenu pédagogique | Toutes les leçons restantes jusqu'à la fin du cours |
-| Certificat | Non disponible | Inclus |
+| Certificat | Non disponible | [Inclus](page:certificate) |
 
-Point important : chez TypingClub, l'abonnement ne débloque pas plus de contenu pédagogique, mais des fonctionnalités de confort. Le cours en lui-même est gratuit chez les deux, la différence se joue sur le certificat et le design.
+Point important : chez TypingClub, l'abonnement ne débloque pas plus de contenu pédagogique, mais des fonctionnalités de confort. Le cours en lui-même est gratuit chez les deux, la différence se joue sur le certificat et le design. Un second comparatif : [Alternative à AgileFingers](article:agile-fingers-alternative).
 
 ## Pour qui est TypingClub
 
@@ -1784,6 +1995,90 @@ Point important : chez TypingClub, l'abonnement ne débloque pas plus de contenu
 - [TypingClub](https://www.typingclub.com/) - site officiel, nombre d'utilisateurs et contenu du cours.
 - [edclub Pricing](https://www.edclub.com/pricing) - page de prix officielle du fournisseur (à jour en septembre 2026).`,
   },
+  {
+    slug: "test-de-frappe",
+    locale: "fr",
+    type: "article",
+    category: "learning",
+    title: "Test de frappe : déroulement, bon score et conseils",
+    description: "Ce que mesure un test de frappe, combien de mots par minute font un bon score et comment réussir un test de dactylographie pour un emploi. Test gratuit.",
+    readingTime: 6,
+    date: "2026-09-24",
+    content: `Un test de frappe mesure, en 1 à 5 minutes, combien de mots par minute (MPM) tu tapes et avec quelle précision. 40 MPM, soit 200 caractères par minute, c'est un bon rythme au quotidien ; à partir de 60 MPM, tu es rapide. Le [test de dactylographie gratuit](page:speedTest) se fait directement dans ton navigateur, sans inscription.
+
+## C'est quoi, un test de frappe ?
+
+Un test de frappe, aussi appelé test de dactylographie ou test de vitesse de frappe, c'est une courte épreuve de recopie à l'ordinateur. Tu tapes un texte donné pendant que le chrono tourne. À la fin, deux chiffres : vitesse et précision. En ligne, tout se passe dans le navigateur, sur ton propre clavier.
+
+Le truc dingue : le record du monde est de 216 mots par minute. Établi en 1946, sur une machine à écrire électrique IBM.
+
+## Comment se déroule un test de frappe
+
+1. **Choisis la durée.** 1, 2 ou 5 minutes. Un test court montre ta vitesse de pointe, un test long ton rythme de croisière.
+2. **Recopie le texte.** Le chrono démarre à la première touche.
+3. **Lis ton résultat.** MPM, caractères par minute et précision en pourcentage.
+
+Dans le [test de rapidité clavier de Fast Forward Typing](page:speedTest), tu tapes de vraies phrases en AZERTY, pas des mots au hasard. Les erreurs bloquent la saisie jusqu'à la bonne touche : ton score, c'est ta vitesse sans faute.
+
+## MPM ou caractères par minute ?
+
+Les deux mesurent la même chose. Un mot compte pour 5 caractères, espaces compris. Donc : caractères par minute divisés par 5 = MPM.
+
+| Caractères par minute | MPM | Ce que ça veut dire |
+|---|---|---|
+| 135 | 27 | Frappe à deux doigts, texte recopié |
+| 200 | 40 | Bon rythme au quotidien |
+| 260 | 52 | Moyenne de l'étude d'Aalto (168 000 participants) |
+| 300 | 60 | Rapide |
+| 400 | 80 | Niveau professionnel |
+| 600 et plus | 120 et plus | Les plus rapides de l'étude d'Aalto |
+
+## Quel est un bon score ?
+
+En bref : 40 MPM, c'est bien ; 60 MPM, c'est rapide ; 80 MPM, c'est le niveau des pros. Un dactylo à dix doigts entraîné atteint 200 à 400 caractères par minute sur un test de 10 minutes.
+
+La vitesse de frappe moyenne dépend de qui est mesuré. Une étude de 1999 a relevé 32,5 MPM en recopie. L'étude d'Aalto, avec 168 000 volontaires, arrive à 51,6 MPM. L'écran de résultat te situe juste après le test.
+
+La précision compte tout autant. Dans l'étude d'Aalto, à peine plus de 1 % des caractères restaient faux en moyenne. Et les typistes rapides faisaient moins d'erreurs que les lents, pas plus. Vise au moins 95 %.
+
+## Le test de dactylographie pour un emploi
+
+Certains postes demandent un test de frappe : secrétariat, assistanat, gestion administrative, saisie de données. L'offre d'emploi précise le niveau attendu. Pour te repérer : les dactylos professionnels tapent entre 43 et 80 MPM, et certains postes exigent 80 à 95 MPM.
+
+Pour prouver ton score, joins un [certificat de dactylographie](page:certificate) avec MPM, précision et date. Il trouve sa place sur un CV ou un profil LinkedIn.
+
+## 5 conseils pour un meilleur score
+
+1. **Échauffe-toi.** Tape tranquillement deux ou trois minutes avant de te mesurer.
+2. **La précision d'abord.** Chaque erreur coûte du temps de correction. Propre et régulier bat précipité.
+3. **Regarde l'écran.** L'étude d'Aalto "How We Type" recommande exactement ça : les yeux sur le texte, pas sur les doigts.
+4. **Toujours le même doigt.** Quand chaque touche est toujours frappée par le même doigt, la vitesse monte. C'est le cœur de la [méthode des dix doigts](article:dactylographie-definition).
+5. **Mesure-toi régulièrement.** Un test de frappe par semaine montre ta progression. D'autres habitudes sont dans [Taper plus vite : 7 techniques](article:taper-plus-vite-techniques).
+
+## Du test de frappe au cours
+
+Un test de frappe te montre où tu en es. C'est l'entraînement qui te rend plus rapide. L'[évaluation](page:placement) mesure chaque touche, et le [cours de dactylographie](page:lessons) travaille précisément ce qui manque. À raison de 15 minutes par jour, les bases sont acquises en 2 à 4 semaines. Le [guide complet de la dactylographie](article:apprendre-dactylographie) détaille chaque étape.
+
+## Questions fréquentes sur le test de frappe
+
+**Combien de temps dure un test de frappe ?** En général 1 à 5 minutes. Pour un résultat stable, choisis 2 ou 5 minutes.
+
+**Le test de dactylographie est-il gratuit ?** Oui. Le [test de frappe en ligne](page:speedTest) est gratuit et sans compte.
+
+**Test de frappe, test de dactylographie, test de vitesse de frappe : quelle différence ?** Aucune. Les trois désignent la même chose : recopier un texte, mesurer vitesse et précision.
+
+**Puis-je faire un test si je ne tape pas encore à dix doigts ?** Oui. Le test mesure ta vitesse actuelle, quel que soit le nombre de doigts que tu utilises.
+
+**Le test fonctionne-t-il en AZERTY ?** Oui. Les textes sont en français, avec accents, sur une disposition [AZERTY](article:qwerty-azerty-qwertz).
+
+## Sources
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, en anglais) - 5 caractères = 1 mot, étude de 1999 à 32,5 MPM en recopie, frappe à deux doigts à 27 MPM, dactylos professionnels de 43 à 80 MPM, certains postes 80 à 95 MPM.
+- [Anschläge pro Minute](https://de.wikipedia.org/wiki/Anschl%C3%A4ge_pro_Minute) (Wikipedia, en allemand) - division par 5 pour obtenir les MPM, dactylos entraînés à 200 à 400 caractères par minute sur 10 minutes.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University et University of Cambridge, CHI 2018 : 168 000 participants, moyenne 51,6 MPM, taux d'erreurs non corrigées 1,167 %, les plus rapides au-delà de 120 MPM.
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016 : regard sur l'écran, attribution fixe doigt-touche.
+- [Typing](https://en.wikipedia.org/wiki/Typing) (Wikipedia, en anglais) - le record de 216 MPM, Stella Pajunas-Garnand, 1946.`,
+  },
 ];
 
 export function getResourcesByLocale(locale: Locale): ResourceMeta[] {
@@ -1798,9 +2093,11 @@ export function getRelatedResources(slug: string, locale: Locale, limit = 3): Re
   const current = getResource(slug, locale);
   if (!current) return [];
   const localeTips = getResourcesByLocale(locale).filter((t) => t.slug !== slug);
-  const sameCategory = localeTips.filter((t) => t.category === current.category);
-  const others = localeTips.filter((t) => t.category !== current.category);
-  return [...sameCategory, ...others].slice(0, limit);
+  // Pillar guide first (hub-and-spoke linking), then same category, then the rest.
+  const pillar = localeTips.filter((t) => t.featured);
+  const sameCategory = localeTips.filter((t) => t.category === current.category && !t.featured);
+  const others = localeTips.filter((t) => t.category !== current.category && !t.featured);
+  return [...pillar, ...sameCategory, ...others].slice(0, limit);
 }
 
 // Articles that are translations of each other. Slugs differ per language
@@ -1814,6 +2111,7 @@ const translationGroups: string[][] = [
   ["emoji-tastenkombinationen", "emoji-keyboard-shortcuts", "raccourcis-clavier-emoji"],
   ["was-ist-das-10-finger-system", "what-is-touch-typing", "dactylographie-definition"],
   ["schneller-tippen-techniken", "how-to-type-faster", "taper-plus-vite-techniques"],
+  ["tipptest", "typing-test", "test-de-frappe"],
   ["typingclub-alternative"],
   ["agile-fingers-alternative"],
 ];

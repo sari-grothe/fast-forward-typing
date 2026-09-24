@@ -21,9 +21,9 @@ export function speedTestExplainer(locale: Locale): string {
   const course = localizedPath(locale, "lessons");
   const placement = localizedPath(locale, "placement");
   const cert = localizedPath(locale, "certificate");
-  const de = `## Was der Test misst
+  const de = `## Tipptest: Wie schnell kannst du tippen?
 
-Der Test misst zwei Werte: deine Tippgeschwindigkeit in Wörtern pro Minute (WPM) und deine Genauigkeit in Prozent. Ein Wort zählt als 5 Zeichen inklusive Leerzeichen und Satzzeichen, so rechnen alle gängigen Messungen weltweit. Du tippst echte Sätze, keine Zufallswörter, wahlweise 1, 2 oder 5 Minuten lang. Falsche Eingaben werden blockiert, bis die richtige Taste kommt. Das Ergebnis zeigt also, wie schnell du fehlerfrei tippst.
+Dieser Tipptest, auch Schreibtest genannt, misst zwei Werte: deine Tippgeschwindigkeit in Wörtern pro Minute (WPM) und deine Genauigkeit in Prozent. Ein Wort zählt als 5 Zeichen inklusive Leerzeichen und Satzzeichen, so rechnen alle gängigen Messungen weltweit. In Anschlägen pro Minute heißt das: WPM mal 5, 40 WPM sind also 200 Anschläge. Du tippst echte Sätze, keine Zufallswörter, wahlweise 1, 2 oder 5 Minuten lang. Falsche Eingaben werden blockiert, bis die richtige Taste kommt. Das Ergebnis zeigt also, wie schnell du fehlerfrei tippst.
 
 ## Was ist eine gute Tippgeschwindigkeit?
 
@@ -52,7 +52,7 @@ Achte auf die Genauigkeit: Unter 95 Prozent lohnt es sich, langsamer und saubere
 
 ## Und dann?
 
-Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum.
+Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum. Wie du im nächsten Tipptest besser abschneidest und was im Schreibtest für die Bewerbung zählt, steht im [Tipptest-Ratgeber](article:tipptest).
 
 ## Quellen
 
@@ -91,7 +91,7 @@ Watch your accuracy: below 95 percent, slowing down and typing cleanly pays off.
 
 ## What next?
 
-If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date.
+If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date. How to score higher next time, and what counts in a typing test for a job, is in the [typing test guide](article:typing-test).
 
 ## Sources
 
@@ -130,7 +130,7 @@ Surveille ta précision : en dessous de 95 %, ralentir et taper proprement rappo
 
 ## Et ensuite ?
 
-Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date.
+Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date. Pour faire mieux au prochain essai et savoir ce qui compte dans un test de frappe pour un emploi, lis le [guide du test de frappe](article:test-de-frappe).
 
 ## Sources
 
@@ -159,6 +159,8 @@ Ein einzelner WPM-Wert sagt dir, wie schnell du bist. Er sagt dir nicht, woran e
 - Dein Fortschritt wird im Browser gespeichert, ohne Konto und ohne Anmeldung.
 - Nach dem [Kurs](${course}) misst du deine [Tippgeschwindigkeit](${speed}) erneut und siehst den Unterschied in Zahlen.
 
+Wie der ganze Weg aussieht, von der Grundreihe bis zum vollen Tempo, beschreibt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
+
 ## Quellen
 
 - [How We Type: Movement Strategies and Performance in Everyday Typing](${FE}) - Aalto University, CHI 2016: feste Finger-Tasten-Zuordnung, Vorbereitung des nächsten Anschlags und wenig Handbewegung sagen die Geschwindigkeit voraus; Zusammenfassung auf [ScienceDaily](${SD}).
@@ -179,6 +181,8 @@ A single WPM number tells you how fast you are. It doesn't tell you why. The Aal
 - Your progress is saved in your browser, no account and no signup.
 - After the [course](${course}), take the [typing speed test](${speed}) again and see the difference in numbers.
 
+The whole path, from home row to full speed, is laid out in the [complete touch typing guide](article:learn-touch-typing).
+
 ## Sources
 
 - [How We Type: Movement Strategies and Performance in Everyday Typing](${FE}) - Aalto University, CHI 2016: consistent finger-to-key mapping, preparing the next keystroke and little hand movement predict speed; summary on [ScienceDaily](${SD}).
@@ -198,6 +202,8 @@ Un chiffre de MPM te dit à quelle vitesse tu tapes. Il ne te dit pas pourquoi. 
 - Ton plan démarre à la première leçon qui t'apporte vraiment quelque chose.
 - Ta progression est enregistrée dans ton navigateur, sans compte ni inscription.
 - Après le [cours](${course}), refais le [test de dactylographie](${speed}) et mesure la différence en chiffres.
+
+Tout le parcours, de la rangée de base à la pleine vitesse, est détaillé dans le [guide complet de la dactylographie](article:apprendre-dactylographie).
 
 ## Sources
 
@@ -229,7 +235,7 @@ QWERTZ tauscht Y und Z, weil das Z im Deutschen deutlich häufiger vorkommt als 
 
 ## Welches Layout solltest du lernen?
 
-Das deines Landes. Es ist das Layout auf jeder Tastatur, die dir im Büro, im Hotel oder beim Kollegen begegnet. Auf das Tempo hat das Layout kaum Einfluss: Die Aalto-Studie "How We Type" fand als stärkste Prädiktoren die feste Zuordnung von Finger zu Taste, die Vorbereitung des nächsten Anschlags und wenig Handbewegung. Alles drei lernst du im [Kurs](${course}) auf QWERTZ, QWERTY oder AZERTY. Alternativen wie Dvorak oder Colemak ordnen die häufigsten Buchstaben auf die Grundreihe, werden aber nur von wenigen genutzt.
+Das deines Landes. Es ist das Layout auf jeder Tastatur, die dir im Büro, im Hotel oder beim Kollegen begegnet. Auf das Tempo hat das Layout kaum Einfluss: Die Aalto-Studie "How We Type" fand als stärkste Prädiktoren die feste Zuordnung von Finger zu Taste, die Vorbereitung des nächsten Anschlags und wenig Handbewegung. Alles drei lernst du im [Kurs](${course}) auf QWERTZ, QWERTY oder AZERTY. Alternativen wie Dvorak oder Colemak ordnen die häufigsten Buchstaben auf die Grundreihe, werden aber nur von wenigen genutzt. Was das Layout-unabhängige System ausmacht, erklärt [Was ist das 10-Finger-System?](article:was-ist-das-10-finger-system)
 
 ## Quellen
 
@@ -258,7 +264,7 @@ QWERTZ swaps Y and Z because Z is far more common in German than Y. Umlauts and 
 
 ## Which layout should you learn?
 
-The one used in your country. It's the layout on every keyboard you'll meet at the office, in a hotel or at a colleague's desk. The layout barely affects your speed: the Aalto study "How We Type" found the strongest predictors to be a consistent finger-to-key mapping, preparing the next keystroke and little hand movement. You learn all three in the [course](${course}) on QWERTY, QWERTZ or AZERTY. Alternatives like Dvorak or Colemak put the most frequent letters on the home row, but very few people use them.
+The one used in your country. It's the layout on every keyboard you'll meet at the office, in a hotel or at a colleague's desk. The layout barely affects your speed: the Aalto study "How We Type" found the strongest predictors to be a consistent finger-to-key mapping, preparing the next keystroke and little hand movement. You learn all three in the [course](${course}) on QWERTY, QWERTZ or AZERTY. Alternatives like Dvorak or Colemak put the most frequent letters on the home row, but very few people use them. What the layout-independent technique is all about: [What Is Touch Typing?](article:what-is-touch-typing)
 
 ## Sources
 
@@ -287,7 +293,7 @@ Le QWERTZ échange le Y et le Z parce que le Z est bien plus fréquent en allema
 
 ## Quelle disposition apprendre ?
 
-Celle de ton pays. C'est celle que tu trouveras sur chaque clavier au bureau, à l'hôtel ou chez un collègue. La disposition n'a presque aucun effet sur la vitesse : l'étude d'Aalto "How We Type" a identifié comme meilleurs prédicteurs une attribution fixe doigt-touche, la préparation de la frappe suivante et peu de mouvement des mains. Tu apprends les trois dans le [cours](${course}), en AZERTY, QWERTY ou QWERTZ. Des alternatives comme Dvorak ou Colemak placent les lettres les plus fréquentes sur la rangée de base, mais très peu de gens les utilisent.
+Celle de ton pays. C'est celle que tu trouveras sur chaque clavier au bureau, à l'hôtel ou chez un collègue. La disposition n'a presque aucun effet sur la vitesse : l'étude d'Aalto "How We Type" a identifié comme meilleurs prédicteurs une attribution fixe doigt-touche, la préparation de la frappe suivante et peu de mouvement des mains. Tu apprends les trois dans le [cours](${course}), en AZERTY, QWERTY ou QWERTZ. Des alternatives comme Dvorak ou Colemak placent les lettres les plus fréquentes sur la rangée de base, mais très peu de gens les utilisent. L'histoire complète des trois dispositions est dans [QWERTY, AZERTY, QWERTZ : pourquoi ton clavier est différent](article:qwerty-azerty-qwertz).
 
 ## Sources
 

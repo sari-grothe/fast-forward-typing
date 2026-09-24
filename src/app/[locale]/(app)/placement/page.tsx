@@ -57,7 +57,7 @@ export default async function PlacementPage({ params }: Props) {
       </div>
       <PlacementTest locale={locale as Locale} />
       <section className="pt-8">
-        <Markdown content={placementExplainer(locale as Locale)} />
+        <Markdown content={placementExplainer(locale as Locale)} locale={locale as Locale} />
       </section>
     </div>
   );

@@ -31,7 +31,6 @@ export type PageKey =
   | "resources"
   | "help"
   | "contact"
-  | "about"
   | "keyboardLayouts";
 
 export const pageRoutes: Record<PageKey, { internal: string; slug: Record<Locale, string> }> = {
@@ -42,7 +41,6 @@ export const pageRoutes: Record<PageKey, { internal: string; slug: Record<Locale
   resources: { internal: "resources", slug: { de: "ressourcen", en: "resources", fr: "ressources" } },
   help: { internal: "help", slug: { de: "hilfe", en: "help", fr: "aide" } },
   contact: { internal: "contact", slug: { de: "kontakt", en: "contact", fr: "contact" } },
-  about: { internal: "about", slug: { de: "ueber-uns", en: "about", fr: "a-propos" } },
   keyboardLayouts: { internal: "tools/keyboard-layouts", slug: { de: "tools/tastaturlayouts", en: "tools/keyboard-layouts", fr: "outils/dispositions-clavier" } },
 };
 

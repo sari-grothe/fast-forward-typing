@@ -22,6 +22,16 @@ For brand voice, tone, and how to *phrase* a sentence, see [DESIGN.md](../DESIGN
 | Tips/blog hub - nav, H1 | **Ressourcen** | Tipptipps, Übungen | "Tipptipps" is an ungrounded alliteration with no search volume behind it. "Übungen" has real keyword volume (`tippen üben` 600/mo) but describes the wrong content type - this hub is guides/blog articles (learning, shortcuts, productivity, mobile), not practice drills. Category/hub labels usually have no dedicated search volume of their own (normal - the SEO targeting happens on individual articles), so match the actual content over forcing a keyword fit. |
 | Keyboard layout tool | **Tastaturlayout** / **Layout** | - | `layout deutsch` 700/mo KD 0. FR: bare `qwerty` is 11.000/mo KD 1 in France - the single biggest keyword-content-match opportunity found so far; make sure FR title/meta lead with it. |
 
+## Exception: "Tipptest" (Sarah's decision 2026-09-24)
+
+"Tipptest" is still not a UI label and not a word for body prose elsewhere, but it is allowed in exactly three places, because about 7,500 searches a month use it (tipptest 1,600, tipp test 1,700, schreibtest 800, schnell tippen test 600, 10 finger schreiben test 1,100, all KD 0-15) and a page can't rank for a word it never uses:
+
+1. **The speed test page** (`/de/tippgeschwindigkeit`): one H2 ("Tipptest: Wie schnell kannst du tippen?"), the FAQ title and the FAQ questions. H1, nav, buttons and meta title stay "Tippgeschwindigkeit".
+2. **The Tipptest article** (`/de/ressourcen/tipptest`), which targets the informational side of the keyword (what it measures, good values, Bewerbung). It links to the speed test page with anchors like "kostenloser Tipptest".
+3. **Anchor text of links pointing to one of those two pages** ("Tipptest-Ratgeber").
+
+Everywhere else the approved term stays Tippgeschwindigkeit.
+
 ## Meta descriptions may still mention a deprecated term's *keyword*, worded around it
 
 One exception, and it's narrow: a meta `description` can legitimately reference multiple real search terms to maximize coverage (that's a standard, valid SEO technique). But construct the sentence so the deprecated term doesn't appear as the visible word - e.g. don't write "...kostenloser Tipptest, Tippgeschwindigkeit messen...", write "...kostenlos deine Tippgeschwindigkeit messen..." and drop the noun form entirely. If in doubt, just use the approved term - the volume difference between "Tipptest" and "Tippgeschwindigkeit" is small enough (1.600 vs 2.000/mo) that consistency wins.

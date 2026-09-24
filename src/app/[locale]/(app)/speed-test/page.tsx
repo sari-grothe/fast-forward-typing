@@ -53,7 +53,7 @@ export default async function SpeedTestPage({ params }: Props) {
         locale={locale as Locale}
         explainer={
           <section className="mt-12 mb-4">
-            <Markdown content={speedTestExplainer(locale as Locale)} />
+            <Markdown content={speedTestExplainer(locale as Locale)} locale={locale as Locale} />
           </section>
         }
       />

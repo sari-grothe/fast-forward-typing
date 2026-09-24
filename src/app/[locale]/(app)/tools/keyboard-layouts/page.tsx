@@ -123,7 +123,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
 
         <ScrollReveal delay={160}>
           <section className="mt-14 mx-auto max-w-3xl">
-            <Markdown content={keyboardLayoutsExplainer(l)} />
+            <Markdown content={keyboardLayoutsExplainer(l)} locale={l} />
           </section>
         </ScrollReveal>
 

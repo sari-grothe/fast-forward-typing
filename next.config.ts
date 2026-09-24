@@ -10,6 +10,9 @@ const localizedPages = Object.values(pageRoutes).flatMap((route) =>
     .map((locale) => ({ locale, internal: route.internal, slug: route.slug[locale] }))
 );
 
+// Former About page slugs (page removed 2026-09-24), kept only for redirects.
+const aboutSlugs: Record<(typeof locales)[number], string> = { de: "ueber-uns", en: "about", fr: "a-propos" };
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
@@ -67,6 +70,19 @@ const nextConfig: NextConfig = {
         { source: `/${slug}`, destination: `/${locale}/${slug}`, permanent: true },
         { source: `/${slug}/:path*`, destination: `/${locale}/${slug}/:path*`, permanent: true },
       ]),
+      // About page removed 2026-09-24 (Sarah's decision: no About page on
+      // the site). Every URL it ever had - internal segment, native slug,
+      // bare slug - goes to the locale home in one permanent hop.
+      ...locales.flatMap((locale) =>
+        [...new Set([`/${locale}/about`, `/${locale}/${aboutSlugs[locale]}`])].map((source) => ({
+          source,
+          destination: `/${locale}`,
+          permanent: true,
+        }))
+      ),
+      ...locales
+        .filter((locale) => aboutSlugs[locale] !== "about")
+        .map((locale) => ({ source: `/${aboutSlugs[locale]}`, destination: `/${locale}`, permanent: true })),
       // /tips -> resources rename (2026-09-23): preserve link equity and
       // indexing for existing articles under the old path. Straight to
       // the native slug so it stays a single hop.

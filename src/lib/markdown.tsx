@@ -1,3 +1,6 @@
+import type { Locale } from "@/i18n/config";
+import { resolveInternalLinks } from "@/lib/internal-links";
+
 // Strips the inline markdown/HTML markup a heading might carry (bold,
 // links, code) down to plain text, then to a URL-safe slug - shared by
 // the renderer (for the <h2 id>) and extractHeadings (for the TOC), so
@@ -111,11 +114,14 @@ function markdownToHtml(md: string): string {
     .join("\n");
 }
 
-export function Markdown({ content, className = "" }: { content: string; className?: string }) {
+export function Markdown({ content, className = "", locale }: { content: string; className?: string; locale?: Locale }) {
+  // With a locale, internal links written as page:/article: keys are
+  // resolved to language-native URLs (src/lib/internal-links.ts).
+  const md = locale ? resolveInternalLinks(content, locale) : content;
   return (
     <div
       className={`space-y-4 text-zinc-700 dark:text-zinc-300 text-base ${className}`}
-      dangerouslySetInnerHTML={{ __html: markdownToHtml(content) }}
+      dangerouslySetInnerHTML={{ __html: markdownToHtml(md) }}
     />
   );
 }

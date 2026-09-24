@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Language-native URLs (see src/i18n/routes.ts), never the internal
   // English segment - the sitemap must list the canonical address.
-  const staticPages: PageKey[] = ["speedTest", "lessons", "placement", "certificate", "resources", "about", "keyboardLayouts", "help", "contact"];
+  const staticPages: PageKey[] = ["speedTest", "lessons", "placement", "certificate", "resources", "keyboardLayouts", "help", "contact"];
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
