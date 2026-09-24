@@ -6,6 +6,8 @@ import { getLessons, lessonMeta, phaseNames, displayKey } from "@/lib/lessons";
 import { progressStore, type LessonRecord } from "@/lib/progress-store";
 import type { SkillProfile } from "@/lib/skill-profile";
 import { KeyCharacter } from "@/components/KeyCharacter";
+import { CertificateStackSVG } from "@/components/CertificateStackSVG";
+import { CtaButton } from "@/components/CtaButton";
 import type { Locale } from "@/i18n/config";
 
 const i18n: Record<Locale, {
@@ -32,6 +34,11 @@ const i18n: Record<Locale, {
   optionalBadge: string;
   completedBadge: string;
   startHereBadge: string;
+  finishEyebrow: string;
+  finishTitle: string;
+  finishDesc: string;
+  finishPoints: string[];
+  finishCta: string;
 }> = {
   de: {
     title: "Dein 10-Finger-System-Kurs",
@@ -57,6 +64,15 @@ const i18n: Record<Locale, {
     optionalBadge: "Optional",
     completedBadge: "Fertig",
     startHereBadge: "Hier starten",
+    finishEyebrow: "Kursabschluss",
+    finishTitle: "Am Ende: dein Zertifikat",
+    finishDesc: "Sobald du alle 31 Lektionen geschafft hast, bekommst du dein offizielles Zertifikat mit Tempo, Genauigkeit und Datum. Es ist im Kurspreis enthalten.",
+    finishPoints: [
+      "Personalisiertes PDF mit deinem Namen",
+      "Nachweis für Lebenslauf und LinkedIn",
+      "Im Kurspreis enthalten",
+    ],
+    finishCta: "Zertifikat ansehen",
   },
   en: {
     title: "Your Typing Course",
@@ -82,6 +98,15 @@ const i18n: Record<Locale, {
     optionalBadge: "Optional",
     completedBadge: "Done",
     startHereBadge: "Start here",
+    finishEyebrow: "Course completion",
+    finishTitle: "The finish line: your certificate",
+    finishDesc: "Once you've completed all 31 lessons, you get your official certificate with your speed, accuracy and date. It's included in the course price.",
+    finishPoints: [
+      "Personalised PDF with your name",
+      "Proof for your resume and LinkedIn",
+      "Included in the course price",
+    ],
+    finishCta: "See the certificate",
   },
   fr: {
     title: "Ton cours de dactylographie",
@@ -107,6 +132,15 @@ const i18n: Record<Locale, {
     optionalBadge: "Optionnel",
     completedBadge: "Fini",
     startHereBadge: "Commencer ici",
+    finishEyebrow: "Fin du cours",
+    finishTitle: "À l'arrivée : ton certificat",
+    finishDesc: "Une fois les 31 leçons terminées, tu reçois ton certificat officiel avec ta vitesse, ta précision et la date. Il est inclus dans le prix du cours.",
+    finishPoints: [
+      "PDF personnalisé à ton nom",
+      "Preuve pour ton CV et LinkedIn",
+      "Inclus dans le prix du cours",
+    ],
+    finishCta: "Voir le certificat",
   },
 };
 
@@ -357,6 +391,34 @@ export function LessonsList({ locale }: { locale: Locale }) {
           </div>
         );
       })}
+
+      {/* Finish line: the certificate is part of the course price, but the
+          list used to just stop after the last lesson with no sign of it. */}
+      <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-b from-white to-lavender/30 dark:from-dark-surface dark:to-dark p-6 sm:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+          <div className="w-full max-w-[220px] mx-auto sm:mx-0 shrink-0">
+            <CertificateStackSVG locale={locale} />
+          </div>
+          <div className="flex-1 space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-wider text-indigo">{l.finishEyebrow}</p>
+            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-dark-text dark:text-white">{l.finishTitle}</h2>
+            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{l.finishDesc}</p>
+            <ul className="space-y-1.5 pt-1">
+              {l.finishPoints.map((point) => (
+                <li key={point} className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300">
+                  <svg className="w-4 h-4 shrink-0 text-indigo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className="pt-2">
+              <CtaButton href={`/${locale}/certificate`}>{l.finishCta}</CtaButton>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
