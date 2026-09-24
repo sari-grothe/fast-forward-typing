@@ -283,7 +283,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm text-zinc-600 dark:text-zinc-300">{l.planWeakKeys}</span>
               {weakKeys.map((k) => (
-                <kbd key={k} className="inline-flex items-center justify-center min-w-6 h-6 px-1 rounded border border-peach/30 bg-peach/10 text-peach text-xs font-mono font-semibold">
+                <kbd key={k} className="inline-flex items-center justify-center min-w-6 h-6 px-1 rounded border border-peach/30 bg-peach/10 text-dark-text dark:text-peach text-xs font-mono font-semibold">
                   {displayKey(k)}
                 </kbd>
               ))}

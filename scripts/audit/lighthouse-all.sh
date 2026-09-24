@@ -46,9 +46,14 @@ for f in sorted(glob.glob(out + "/*.json")):
     cls = a["cumulative-layout-shift"]["numericValue"]
     u = d["finalDisplayedUrl"].replace(base, "") or "/"
     print(f"{u:60} {s['performance']:>3} {s['accessibility']:>3} {s['best-practices']:>3} {s['seo']:>3} {lcp:>6.1f}s {cls:>6.3f}")
+    # Legal pages are noindex on purpose until the SIRET is filled in
+    # (src/lib/legal/company.ts), so "is-crawlable" is expected there.
+    legal = any(seg in u for seg in ("/privacy", "/imprint", "/terms", "/withdrawal", "/business-terms", "/dpa"))
     for k in ("accessibility", "best-practices", "seo"):
         if s[k] < 100:
             fails = [n for n, v in a.items() if v.get("score") is not None and v["score"] < 1 and n in [r["id"] for r in c[k]["auditRefs"] if r.get("weight", 0) > 0]]
+            if legal and fails == ["is-crawlable"]:
+                continue
             bad.append((u, f"{k} {s[k]}: {', '.join(fails)}"))
     if s["performance"] < 90:
         bad.append((u, f"performance {s['performance']}"))

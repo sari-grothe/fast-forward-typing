@@ -24,7 +24,7 @@ function CategoryBadge({ category, locale }: { category: ResourceCategory; local
   const colors: Record<ResourceCategory, string> = {
     learning: "bg-indigo/10 text-indigo",
     shortcuts: "bg-electric-yellow/15 text-dark-text dark:text-electric-yellow",
-    productivity: "bg-peach/15 text-peach",
+    productivity: "bg-peach/20 text-dark-text dark:text-peach",
     comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
   return (
@@ -49,9 +49,9 @@ function FeaturedCard({ item, locale }: { item: ResourceMeta; locale: Locale }) 
             <CategoryBadge category={item.category} locale={locale} />
             <span className="text-[11px] text-zinc-600">{item.readingTime} {ui.readingTime}</span>
           </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white group-hover:text-indigo transition-colors">
+          <h2 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white group-hover:text-indigo transition-colors">
             {item.title}
-          </h3>
+          </h2>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-lg">
             {item.description}
           </p>
@@ -81,7 +81,7 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
           {isLeadMagnet && item.downloadLabel && (
-            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-peach/15 text-peach flex items-center gap-1">
+            <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-peach/20 text-dark-text dark:text-peach flex items-center gap-1">
               <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
               </svg>

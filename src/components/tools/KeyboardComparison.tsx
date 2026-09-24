@@ -176,6 +176,8 @@ type UI = {
   title: string;
   subtitle: string;
   selectLayouts: string;
+  firstLayout: string;
+  secondLayout: string;
   usedIn: string;
   highlightDiffs: string;
   diffsFound: string;
@@ -192,6 +194,8 @@ const ui: Record<Locale, UI> = {
     title: "Keyboard Layout Vergleich",
     subtitle: "QWERTY, AZERTY und QWERTZ im direkten Vergleich. Finde die Unterschiede auf einen Blick.",
     selectLayouts: "Layouts vergleichen",
+    firstLayout: "Erstes Layout",
+    secondLayout: "Zweites Layout",
     usedIn: "Verwendet in",
     highlightDiffs: "Unterschiede hervorheben",
     diffsFound: "Unterschiede",
@@ -216,6 +220,8 @@ const ui: Record<Locale, UI> = {
     title: "Keyboard Layout Comparison",
     subtitle: "QWERTY, AZERTY, and QWERTZ side by side. Spot the differences at a glance.",
     selectLayouts: "Compare layouts",
+    firstLayout: "First layout",
+    secondLayout: "Second layout",
     usedIn: "Used in",
     highlightDiffs: "Highlight differences",
     diffsFound: "differences",
@@ -240,6 +246,8 @@ const ui: Record<Locale, UI> = {
     title: "Comparaison des dispositions clavier",
     subtitle: "QWERTY, AZERTY et QWERTZ côte à côte. Repère les différences en un coup d'œil.",
     selectLayouts: "Comparer les dispositions",
+    firstLayout: "Première disposition",
+    secondLayout: "Deuxième disposition",
     usedIn: "Utilisé en",
     highlightDiffs: "Surligner les différences",
     diffsFound: "différences",
@@ -334,6 +342,7 @@ export function KeyboardComparison({ locale }: { locale: Locale }) {
         <div className="flex items-center gap-3">
           <label className="text-sm font-medium text-zinc-600 dark:text-zinc-400">{t.selectLayouts}</label>
           <select
+            aria-label={t.firstLayout}
             value={layoutA}
             onChange={(e) => setLayoutA(e.target.value as LayoutName)}
             className="rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-2 text-sm font-mono font-semibold text-dark-text dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo/30"
@@ -344,6 +353,7 @@ export function KeyboardComparison({ locale }: { locale: Locale }) {
           </select>
           <span className="text-zinc-600 font-medium">vs</span>
           <select
+            aria-label={t.secondLayout}
             value={layoutB}
             onChange={(e) => setLayoutB(e.target.value as LayoutName)}
             className="rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-3 py-2 text-sm font-mono font-semibold text-dark-text dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo/30"

@@ -129,7 +129,7 @@ export function Dashboard({ locale }: { locale: Locale }) {
               {weak.map((k) => (
                 <kbd
                   key={k}
-                  className="inline-flex items-center justify-center min-w-7 h-7 px-1.5 rounded-md border border-peach/30 bg-peach/10 text-peach text-sm font-mono font-semibold"
+                  className="inline-flex items-center justify-center min-w-7 h-7 px-1.5 rounded-md border border-peach/30 bg-peach/10 text-dark-text dark:text-peach text-sm font-mono font-semibold"
                 >
                   {displayKey(k)}
                 </kbd>

@@ -66,7 +66,7 @@ export default async function ResourceArticlePage({ params }: Props) {
   const categoryColors: Record<string, string> = {
     learning: "bg-indigo/10 text-indigo",
     shortcuts: "bg-electric-yellow/15 text-dark-text dark:text-electric-yellow",
-    productivity: "bg-peach/15 text-peach",
+    productivity: "bg-peach/20 text-dark-text dark:text-peach",
     comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
 
