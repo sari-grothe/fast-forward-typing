@@ -8,7 +8,8 @@ directory-submissions. Wo alles liegt: [seo-knowledge-map.md](seo-knowledge-map.
 
 ## Ausgangslage
 
-Technik fertig (Lighthouse 99-100 auf allen Seiten, 61 URLs, hreflang,
+Technik fertig (Lighthouse mobil auf 67 URLs: A11y, Best Practices, SEO 100,
+Performance 91-100; 61 Sitemap-URLs, hreflang,
 Schema, llms.txt, alle AI-Bots erlaubt). Nicht indexiert, 0 Backlinks, keine
 Quelle auf der Site, Kernseiten 190-450 Wörter, die günstigsten Cluster der
 Research unbesetzt. Kein Stripe vor 05/2027, keine Ads, keine gekauften Links,
@@ -142,4 +143,13 @@ einer der 10 Fragen, 1.000 Tests für 3.2, 25 Referring Domains.
   Zertifikats- und Lektionsseiten (Metadaten im Body statt Head), 404 auf
   `/apple-icon`, Chip-Kontrast 1,6:1 auf sechs Artikeln, Überschriftenreihenfolge
   im Ressourcen-Hub, Select-Labels im Tastaturlayout-Tool (c2d4533).
+- 24.09.2026: Zweiter Volllauf nach den Fixes, 67 URLs (61 Sitemap + 3
+  Lektions- + 3 Rechtsseiten), Lighthouse mobil: A11y, Best Practices und SEO
+  auf jeder indexierbaren Seite 100; Performance 91-100 (Median 99); crawl.py
+  0 Fehler (jede URL 200, Canonical = URL, hreflang self + x-default, keine
+  Redirect-Ketten, 109 interne Links außerhalb der Sitemap sauber). Rest: Cookie-
+  Bar reflowte beim Font-Swap (CLS 0,16 auf FR-Tool-Seite, Fix 1a63bcb: Bar
+  erscheint erst nach `document.fonts.ready`); Lektionsseiten LCP 2,6-2,7 s
+  (Mono-Font, noindex, kein SEO-Hebel); Lektionen und Rechtsseiten SEO 66 =
+  is-crawlable, beabsichtigt.
 - 24.09.2026: Audit und diese Roadmap.
