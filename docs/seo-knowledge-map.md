@@ -17,7 +17,7 @@ im Repo und außerhalb. Der operative Plan bleibt in
 | [docs/article-template.md](article-template.md) | Layout-Standard für Artikel: Anker-IDs, TOC, CTA-Karte |
 | [docs/legal-golive.md](legal-golive.md) | Rechtsseiten bleiben noindex, bis die SIRET eingetragen ist |
 | [gtm/ai-traffic-strategy.md](../gtm/ai-traffic-strategy.md) | Sechs-Kanal-Framework (Kim Doyal), Prioritäten-Tabelle: AI Search Visibility = High |
-| [CLAUDE.md](../CLAUDE.md) | feste Regeln: sprachnative Slugs über `localizedPath`, hreflang im Locale-Layout, llms.txt-Pflegepflicht |
+| [CLAUDE.md](../CLAUDE.md) | feste Regeln: sprachnative Slugs über `localizedPath`, hreflang im Locale-Layout, llms.txt-Pflegepflicht, "komplette Prüfung" = `scripts/audit/crawl.py` + `lighthouse-all.sh` grün |
 
 Code, der SEO trägt:
 
@@ -32,6 +32,7 @@ Code, der SEO trägt:
 | `src/middleware.ts` | Locale-Redirect; Lowercase-Redirect fehlt noch (Roadmap A3) |
 | `src/app/[locale]/opengraph-image.tsx` | OG-Bild pro Sprache |
 | `lessons/[id]/page.tsx`, `dashboard/page.tsx`, `src/lib/legal/route.ts` | die drei Stellen mit `noindex` |
+| `scripts/audit/crawl.py`, `scripts/audit/lighthouse-all.sh` | der vollständige technische Check: alle Sitemap-URLs plus interne Links (Status, Canonical, hreflang, Titel, H1, OG, JSON-LD, Redirects, Header) und Lighthouse mobil auf jeder URL. CLAUDE.md-Regel seit 24.09.: "komplette Prüfung" heißt beide Skripte mit Exit 0, nie eine Stichprobe |
 
 Im Repo liegen keine eigenen SEO-Skills. `.claude/skills/` enthält nur
 tdd, grill-me, to-prd, to-issues und improve-codebase-architecture.
