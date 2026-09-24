@@ -13,7 +13,7 @@ type Props = {
 
 const meta: Record<Locale, { title: string; description: string }> = {
   de: {
-    title: "Tippzertifikat - deine Tippgeschwindigkeit offiziell bestätigen",
+    title: "Tippzertifikat: Tippgeschwindigkeit offiziell bestätigen",
     description: "Sichere dir dein Tippzertifikat mit WPM, Genauigkeit und Datum - ideal für Lebenslauf und LinkedIn. Trag dich jetzt kostenlos in die Warteliste ein.",
   },
   en: {
