@@ -2,6 +2,7 @@ import { locales, localeNames, type Locale } from "@/i18n/config";
 import { getLessons, lessonMeta, phaseNames } from "@/lib/lessons";
 import { getResourcesByLocale } from "@/lib/resources";
 import { homeFAQ } from "@/lib/faq-data";
+import { localizedPath, companiesPath, type PageKey } from "@/i18n/routes";
 
 // Machine-readable site knowledge for AI agents (llms.txt standard,
 // https://llmstxt.org). Served by src/app/llms.txt/route.ts and
@@ -31,17 +32,31 @@ const FACTS = `- Fast Forward >> Typing is a web-based touch-typing course for a
 - Works with any keyboard (laptop, desktop, mechanical). Runs in the browser, no installation.
 - Typical outcome: noticeable improvement after 2-3 weeks of 10-15 minutes daily practice.`;
 
-const STATIC_PAGES: { path: string; label: string; note: string }[] = [
-  { path: "", label: "Home", note: "product overview, how it works, FAQ" },
-  { path: "/placement", label: "Placement test", note: "adaptive skill assessment, builds the individual training plan" },
-  { path: "/speed-test", label: "Typing speed test", note: "free WPM and accuracy test" },
-  { path: "/lessons", label: "Course", note: "full touch-typing curriculum" },
-  { path: "/resources", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
-  { path: "/tools/keyboard-layouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
-  { path: "/about", label: "About", note: "who is behind Fast Forward >> Typing" },
-  { path: "/help", label: "Help center", note: "FAQ covering the whole product, searchable, organized by category" },
-  { path: "/for-teams", label: "For companies", note: "team training for companies: annual per-employee license, before/after measurement, certificates, pricing on request (DE: /de/unternehmen, FR: /fr/entreprises)" },
+// Keyed by page (src/i18n/routes.ts) so the listed URLs are the
+// language-native ones: /de/tippgeschwindigkeit, not /de/speed-test.
+const STATIC_PAGES: { key: PageKey | "home" | "companies"; label: string; note: string }[] = [
+  { key: "home", label: "Home", note: "product overview, how it works, FAQ" },
+  { key: "placement", label: "Placement test", note: "adaptive skill assessment, builds the individual training plan" },
+  { key: "speedTest", label: "Typing speed test", note: "free WPM and accuracy test" },
+  { key: "lessons", label: "Course", note: "full touch-typing curriculum" },
+  { key: "resources", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
+  { key: "keyboardLayouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
+  { key: "about", label: "About", note: "who is behind Fast Forward >> Typing" },
+  { key: "help", label: "Help center", note: "FAQ covering the whole product, searchable, organized by category" },
+  { key: "companies", label: "For companies", note: "team training for companies: annual per-employee license, before/after measurement, certificates, pricing on request" },
 ];
+
+function pagePath(locale: Locale, key: PageKey | "home" | "companies"): string {
+  if (key === "home") return `/${locale}`;
+  if (key === "companies") return companiesPath(locale);
+  return localizedPath(locale, key);
+}
+
+// "Home: EN /en, DE /de, FR /fr" per page - URLs are language-native, so
+// a reader can't derive the DE address from the EN one.
+function pageUrls(key: PageKey | "home" | "companies"): string {
+  return locales.map((l) => `${l.toUpperCase()} ${BASE_URL}${pagePath(l, key)}`).join(", ");
+}
 
 function localeLine(): string {
   return locales
@@ -53,7 +68,7 @@ export function buildLlmsTxt(): string {
   const lessonCount = getLessons("en").length;
 
   const pages = STATIC_PAGES.map(
-    (p) => `- [${p.label}](${BASE_URL}/en${p.path}): ${p.note}`
+    (p) => `- [${p.label}](${BASE_URL}${pagePath("en", p.key)}): ${p.note} (${pageUrls(p.key)})`
   ).join("\n");
 
   const guides = getResourcesByLocale("en")
@@ -71,7 +86,7 @@ ${FACTS}
 ## Languages
 
 ${localeLine()}
-Pages exist in all three languages: replace /en/ in any URL with /de/ or /fr/.
+Pages exist in all three languages with language-native URLs; each page below lists its DE, EN and FR address.
 
 ## Pages
 
@@ -138,7 +153,7 @@ ${phaseBlocks}`);
     const articles = getResourcesByLocale(locale)
       .map(
         (t) =>
-          `### ${t.title}\n\nURL: ${BASE_URL}/${locale}/resources/${t.slug}\nCategory: ${t.category}. Updated: ${t.date}.\n\n${t.content.replace(/^## /gm, "#### ").replace(/^### /gm, "##### ")}`
+          `### ${t.title}\n\nURL: ${BASE_URL}${localizedPath(locale, "resources")}/${t.slug}\nCategory: ${t.category}. Updated: ${t.date}.\n\n${t.content.replace(/^## /gm, "#### ").replace(/^### /gm, "##### ")}`
       )
       .join("\n\n");
     sections.push(`## Guides in ${localeNames[locale]} (full text)\n\n${articles}`);
@@ -154,7 +169,7 @@ ${phaseBlocks}`);
 
   sections.push(`## Contact and pages
 
-${STATIC_PAGES.map((p) => `- ${p.label}: ${BASE_URL}/en${p.path}`).join("\n")}`);
+${STATIC_PAGES.map((p) => `- ${p.label}: ${pageUrls(p.key)}`).join("\n")}`);
 
   return sections.join("\n\n") + "\n";
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { PlacementTest } from "@/components/typing/PlacementTest";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -36,8 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: m.description,
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/placement`,
-      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/placement`]), ["x-default", `/en/placement`]]),
+      canonical: `https://fastforwardtyping.com${localizedPath(locale, "placement")}`,
+      languages: Object.fromEntries([...locales.map((loc) => [loc, localizedPath(loc, "placement")]), ["x-default", `/en/placement`]]),
     },
   };
 }

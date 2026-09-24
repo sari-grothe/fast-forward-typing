@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   locale: string;
@@ -41,21 +42,21 @@ export function MobileMenu({ locale, dict }: Props) {
         <div className="absolute top-full left-0 right-0 border-b border-zinc-200 dark:border-dark-border bg-white/95 dark:bg-dark/95 backdrop-blur-sm">
           <nav className="mx-auto max-w-5xl px-4 py-4 flex flex-col gap-1">
             <Link
-              href={`/${locale}/speed-test`}
+              href={localizedPath(locale, "speedTest")}
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-indigo/5 hover:text-indigo transition-colors"
             >
               {dict.nav.typingTest}
             </Link>
             <Link
-              href={`/${locale}/lessons`}
+              href={localizedPath(locale, "lessons")}
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-indigo/5 hover:text-indigo transition-colors"
             >
               {dict.nav.typingCourse}
             </Link>
             <Link
-              href={`/${locale}/resources`}
+              href={localizedPath(locale, "resources")}
               onClick={() => setOpen(false)}
               className="rounded-lg px-4 py-2.5 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:bg-indigo/5 hover:text-indigo transition-colors"
             >

@@ -1,5 +1,6 @@
 import { CtaButton } from "@/components/CtaButton";
 import { KeyCharacter } from "@/components/KeyCharacter";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   locale: string;
@@ -30,8 +31,8 @@ export function ArticleCtaCard({ locale, title, description, courseLabel, testLa
         <p className="font-bold text-dark-text dark:text-white mb-1.5">{title}</p>
         <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-4">{description}</p>
         <div className="flex flex-col gap-2">
-          <CtaButton href={`/${locale}/placement`} className="w-full">{courseLabel}</CtaButton>
-          <CtaButton href={`/${locale}/speed-test`} variant="secondary" className="w-full">{testLabel}</CtaButton>
+          <CtaButton href={localizedPath(locale, "placement")} className="w-full">{courseLabel}</CtaButton>
+          <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary" className="w-full">{testLabel}</CtaButton>
         </div>
       </div>
 

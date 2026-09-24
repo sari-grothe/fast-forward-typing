@@ -7,6 +7,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { FinalCTA } from "@/components/FinalCTA";
 import { KeyboardComparison } from "@/components/tools/KeyboardComparison";
 import { organization } from "@/lib/schema";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -41,8 +42,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: m.description,
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/tools/keyboard-layouts`,
-      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/tools/keyboard-layouts`]), ["x-default", `/en/tools/keyboard-layouts`]]),
+      canonical: `https://fastforwardtyping.com${localizedPath(locale, "keyboardLayouts")}`,
+      languages: Object.fromEntries([...locales.map((loc) => [loc, localizedPath(loc, "keyboardLayouts")]), ["x-default", `/en/tools/keyboard-layouts`]]),
     },
   };
 }
@@ -55,7 +56,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
   const h = dict.home as Record<string, unknown>;
   const final_ = h.finalCta as Record<string, string>;
 
-  const pageUrl = `https://fastforwardtyping.com/${locale}/tools/keyboard-layouts`;
+  const pageUrl = `https://fastforwardtyping.com${localizedPath(locale, "keyboardLayouts")}`;
 
   const pageSchema = {
     "@context": "https://schema.org",
@@ -106,7 +107,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
           <ScrollReveal delay={120}>
             <div className="mt-8 text-center">
               <Link
-                href={`/${locale}/resources/${resourceSlug}`}
+                href={`${localizedPath(locale, "resources")}/${resourceSlug}`}
                 className="inline-flex items-center gap-2 text-sm font-medium text-indigo hover:underline"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">

@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { locales, localeNames, type Locale } from "@/i18n/config";
+import { pageRoutes, companiesSlug } from "@/i18n/routes";
 import { usePathname } from "next/navigation";
 
 const keyboardLayouts: Record<Locale, string> = {
@@ -18,6 +19,9 @@ export function LanguageSwitcher({ currentLocale }: Props) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  // Per-locale target URLs read from the page's own hreflang tags (they
+  // carry the translated article slug etc.); filled in after mount.
+  const [alternates, setAlternates] = useState<Partial<Record<Locale, string>>>({});
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -27,9 +31,41 @@ export function LanguageSwitcher({ currentLocale }: Props) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
+  useEffect(() => {
+    const found: Partial<Record<Locale, string>> = {};
+    document.querySelectorAll<HTMLLinkElement>('link[rel="alternate"][hreflang]').forEach((link) => {
+      const lang = link.hreflang as Locale;
+      // Path only: hreflang hrefs are absolute production URLs, and the
+      // switcher should stay on whatever host the visitor is on.
+      if (locales.includes(lang) && link.href) found[lang] = new URL(link.href).pathname;
+    });
+    setAlternates(found);
+  }, [pathname]);
+
+  // URLs are language-native (/de/tippgeschwindigkeit vs /en/speed-test),
+  // so swapping only the locale segment would 404. Prefer the page's
+  // hreflang alternate; otherwise translate the first path segment via
+  // the slug table and keep the rest (lesson id, query, anchor).
   function switchedPath(newLocale: Locale) {
+    const alternate = alternates[newLocale];
+    if (alternate) return alternate;
+
     const segments = pathname.split("/");
     segments[1] = newLocale;
+    const rest = segments.slice(2).join("/");
+    const slugTables: [string, Record<Locale, string>][] = [
+      ["companies", companiesSlug],
+      ...Object.entries(pageRoutes).map(([key, r]) => [key, r.slug] as [string, Record<Locale, string>]),
+    ];
+    for (const [key, table] of slugTables) {
+      const current = table[currentLocale];
+      if (rest === current || rest.startsWith(`${current}/`)) {
+        // An article without hreflang has no edition in the other
+        // language - land on that language's guide index, not a 404.
+        const tail = key === "resources" ? "" : rest.slice(current.length);
+        return `/${newLocale}/${table[newLocale]}${tail}`;
+      }
+    }
     return segments.join("/");
   }
 

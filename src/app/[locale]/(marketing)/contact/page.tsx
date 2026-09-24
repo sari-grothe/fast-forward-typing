@@ -4,6 +4,7 @@ import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { ContactForm, type ContactFormLabels } from "@/components/ContactForm";
 import { BASE_URL } from "@/lib/schema";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -34,8 +35,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: m.description,
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/contact`,
-      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/contact`]), ["x-default", `/en/contact`]]),
+      canonical: `${BASE_URL}${localizedPath(locale, "contact")}`,
+      languages: Object.fromEntries([...locales.map((loc) => [loc, localizedPath(loc, "contact")]), ["x-default", `/en/contact`]]),
     },
   };
 }

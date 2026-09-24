@@ -146,6 +146,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 import { KeyCharacter } from "./KeyCharacter";
 import { CtaButton } from "./CtaButton";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   locale: string;
@@ -211,7 +212,7 @@ export function TestimonialSlider({ locale, segments, rows = 2, showCta = true }
 
       {showCta && (
         <div className="flex justify-center">
-          <CtaButton href={`/${locale}/placement`}>{l.cta}</CtaButton>
+          <CtaButton href={localizedPath(locale, "placement")}>{l.cta}</CtaButton>
         </div>
       )}
     </div>

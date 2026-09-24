@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ogImages } from "@/lib/seo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
-import { companiesPath, companiesAnchorId } from "@/i18n/routes";
+import { companiesPath, companiesAnchorId, localizedPath } from "@/i18n/routes";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { KeyCharacter } from "@/components/KeyCharacter";
@@ -133,7 +133,7 @@ export default async function CompaniesPage({ params }: Props) {
               <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">{hero.fact}</p>
               <div className="flex flex-wrap gap-3">
                 <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
-                <CtaButton href={`/${locale}/speed-test`} variant="secondary" newTab>{hero.ctaSecondary}</CtaButton>
+                <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary" newTab>{hero.ctaSecondary}</CtaButton>
               </div>
             </div>
             <div className="hidden md:block animate-float">

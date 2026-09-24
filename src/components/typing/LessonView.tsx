@@ -9,6 +9,7 @@ import { ProWall, isProWallCleared } from "./ProWall";
 import { getLesson, getLessons, getNextLesson, lessonMeta, phaseNames, displayKey, homeRestingKeys } from "@/lib/lessons";
 import { progressStore } from "@/lib/progress-store";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   lessonId: number;
@@ -127,7 +128,7 @@ export function LessonView({ lessonId, locale }: Props) {
     return (
       <div className="text-center py-20">
         <p className="text-zinc-600">{l.lessonNotFound}</p>
-        <Link href={`/${locale}/lessons`} className="text-indigo hover:underline mt-2 inline-block">
+        <Link href={localizedPath(locale, "lessons")} className="text-indigo hover:underline mt-2 inline-block">
           {l.backToLessons}
         </Link>
       </div>
@@ -188,7 +189,7 @@ export function LessonView({ lessonId, locale }: Props) {
           <div className="flex items-center justify-center gap-3 pt-2">
             {nextLesson ? (
               <Link
-                href={`/${locale}/lessons/${nextLesson.id}`}
+                href={`${localizedPath(locale, "lessons")}/${nextLesson.id}`}
                 className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
               >
                 {l.nextLesson} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
@@ -200,7 +201,7 @@ export function LessonView({ lessonId, locale }: Props) {
               </div>
             )}
             <Link
-              href={`/${locale}/lessons`}
+              href={localizedPath(locale, "lessons")}
               className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-dark-border px-6 py-3 text-sm font-semibold hover:bg-zinc-50 dark:hover:bg-dark-surface transition-colors"
             >
               {l.backToLessons}
@@ -217,7 +218,7 @@ export function LessonView({ lessonId, locale }: Props) {
       <div className="space-y-2">
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-zinc-600 dark:text-zinc-400">
           <Link
-            href={`/${locale}/lessons`}
+            href={localizedPath(locale, "lessons")}
             className="inline-flex items-center gap-1.5 hover:text-indigo transition-colors"
           >
             <span aria-hidden>&lsaquo;</span> {l.backToLessons}

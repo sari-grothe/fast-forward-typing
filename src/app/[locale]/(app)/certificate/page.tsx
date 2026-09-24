@@ -5,6 +5,7 @@ import { FAQ } from "@/components/FAQ";
 import { certificateFAQ } from "@/lib/faq-data";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -36,8 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: m.description,
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/certificate`,
-      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/certificate`]), ["x-default", `/en/certificate`]]),
+      canonical: `https://fastforwardtyping.com${localizedPath(locale, "certificate")}`,
+      languages: Object.fromEntries([...locales.map((loc) => [loc, localizedPath(loc, "certificate")]), ["x-default", `/en/certificate`]]),
     },
   };
 }
@@ -343,7 +344,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
           {l.testFirstDesc}
         </p>
         <a
-          href={`/${locale}/speed-test`}
+          href={localizedPath(locale, "speedTest")}
           className="inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-3.5 text-base font-semibold text-white hover:bg-indigo/90 transition-colors"
         >
           {l.testCta} <span className="text-electric-yellow">&gt;&gt;</span>

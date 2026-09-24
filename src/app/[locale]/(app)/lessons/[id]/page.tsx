@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { LessonView } from "@/components/typing/LessonView";
 import { getLesson, lessonMeta } from "@/lib/lessons";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     robots: { index: false, follow: true },
     openGraph: { title, description: info.subtitle, type: "website" },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/lessons/${lessonId}`,
+      canonical: `https://fastforwardtyping.com${localizedPath(locale, "lessons")}/${lessonId}`,
     },
   };
 }

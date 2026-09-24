@@ -21,6 +21,7 @@ import { progressStore } from "@/lib/progress-store";
 import { getLessons, lessonMeta, displayKey } from "@/lib/lessons";
 import { Keyboard } from "./Keyboard";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routes";
 
 const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
@@ -294,14 +295,14 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           )}
           <div className="flex flex-wrap items-center gap-3 pt-3">
             <Link
-              href={`/${locale}/lessons/${result.recommendedLessonId}`}
+              href={`${localizedPath(locale, "lessons")}/${result.recommendedLessonId}`}
               className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-4 font-bold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
             >
               {l.startCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
             </Link>
             {skipped > 0 && (
               <Link
-                href={`/${locale}/lessons/0`}
+                href={`${localizedPath(locale, "lessons")}/0`}
                 className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-dark-border px-6 py-3 text-sm font-semibold hover:bg-zinc-50 dark:hover:bg-dark-surface transition-colors"
               >
                 {l.warmUpCta}

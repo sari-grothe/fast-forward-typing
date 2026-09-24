@@ -12,7 +12,7 @@ import { CheatSheetGate } from "@/components/resources/CheatSheetGate";
 import { ArticleToc } from "@/components/resources/ArticleToc";
 import { ArticleCtaCard } from "@/components/resources/ArticleCtaCard";
 import { organization } from "@/lib/schema";
-import { companiesPath } from "@/i18n/routes";
+import { companiesPath, localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const title = pageTitle(resource.title);
   const translations = getTranslations(slug, locale as Locale);
   const languages = Object.fromEntries(
-    Object.entries(translations).map(([l, s]) => [l, `/${l}/resources/${s}`])
+    Object.entries(translations).map(([l, s]) => [l, `${localizedPath(l, "resources")}/${s}`])
   );
   if (translations.en) languages["x-default"] = `/en/resources/${translations.en}`;
   return {
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: resource.description,
     openGraph: { title, description: resource.description, type: "article", images: ogImages(locale) },
     alternates: {
-      canonical: `https://fastforwardtyping.com/${locale}/resources/${slug}`,
+      canonical: `https://fastforwardtyping.com${localizedPath(locale, "resources")}/${slug}`,
       // Only editions that exist; a single-language article gets none.
       ...(Object.keys(languages).length > 1 ? { languages } : {}),
     },
@@ -70,7 +70,7 @@ export default async function ResourceArticlePage({ params }: Props) {
     comparisons: "bg-lavender text-indigo dark:bg-indigo/15 dark:text-electric-yellow",
   };
 
-  const articleUrl = `https://fastforwardtyping.com/${locale}/resources/${slug}`;
+  const articleUrl = `https://fastforwardtyping.com${localizedPath(locale, "resources")}/${slug}`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -92,7 +92,7 @@ export default async function ResourceArticlePage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `https://fastforwardtyping.com/${locale}` },
-      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com/${locale}/resources` },
+      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `https://fastforwardtyping.com${localizedPath(locale, "resources")}` },
       { "@type": "ListItem", position: 3, name: resource.title, item: articleUrl },
     ],
   };
@@ -115,7 +115,7 @@ export default async function ResourceArticlePage({ params }: Props) {
             <ScrollReveal>
               <div className="flex items-center justify-between mb-6">
                 <Link
-                  href={`/${locale}/resources`}
+                  href={localizedPath(locale, "resources")}
                   className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-indigo transition-colors"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -228,7 +228,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                     {related.map((r) => (
                       <Link
                         key={r.slug}
-                        href={`/${locale}/resources/${r.slug}`}
+                        href={`${localizedPath(locale, "resources")}/${r.slug}`}
                         className="group rounded-xl border border-zinc-200 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 p-4 hover:border-indigo/30 hover:shadow-md transition-all"
                       >
                         <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${categoryColors[r.category]}`}>

@@ -9,6 +9,7 @@ import { KeyCharacter } from "@/components/KeyCharacter";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
 import { CtaButton } from "@/components/CtaButton";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routes";
 
 const i18n: Record<Locale, {
   title: string;
@@ -228,7 +229,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
               header stays CTA-free for them (no competing "start course"). */}
           {loaded && placement && (
             <Link
-              href={`/${locale}/lessons/${continueId}`}
+              href={`${localizedPath(locale, "lessons")}/${continueId}`}
               className="group inline-flex items-center gap-2 rounded-xl bg-indigo px-7 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 mt-2"
             >
               {l.continueAt(continueId)} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
@@ -249,14 +250,14 @@ export function LessonsList({ locale }: { locale: Locale }) {
               <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">{l.placementDesc}</p>
             </div>
             <Link
-              href={`/${locale}/placement`}
+              href={localizedPath(locale, "placement")}
               className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
             >
               {l.placementCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
             </Link>
           </div>
           <Link
-            href={`/${locale}/lessons/0`}
+            href={`${localizedPath(locale, "lessons")}/0`}
             className="inline-block text-xs text-zinc-600 hover:text-indigo transition-colors"
           >
             {l.skipHint}
@@ -268,7 +269,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
         <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 space-y-2.5">
           <div className="flex items-center justify-between gap-3">
             <p className="font-semibold text-dark-text dark:text-white">{l.planTitle}</p>
-            <Link href={`/${locale}/placement`} className="text-xs text-zinc-600 hover:text-indigo transition-colors">
+            <Link href={localizedPath(locale, "placement")} className="text-xs text-zinc-600 hover:text-indigo transition-colors">
               {l.planRedo}
             </Link>
           </div>
@@ -317,7 +318,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
                 return (
                   <Link
                     key={lesson.id}
-                    href={`/${locale}/lessons/${lesson.id}`}
+                    href={`${localizedPath(locale, "lessons")}/${lesson.id}`}
                     className={[
                       "group flex items-center gap-3.5 rounded-xl border px-4 py-3.5 transition-all duration-150",
                       isRecommended
@@ -414,7 +415,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
               ))}
             </ul>
             <div className="pt-2">
-              <CtaButton href={`/${locale}/certificate`}>{l.finishCta}</CtaButton>
+              <CtaButton href={localizedPath(locale, "certificate")}>{l.finishCta}</CtaButton>
             </div>
           </div>
         </div>

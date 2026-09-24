@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Poppins, JetBrains_Mono } from "next/font/google";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { companiesPath, companiesAnchorId } from "@/i18n/routes";
+import { companiesPath, companiesAnchorId, localizedPath } from "@/i18n/routes";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { KeyCharacter } from "@/components/KeyCharacter";
@@ -131,13 +131,13 @@ export default async function LocaleLayout({ children, params }: Props) {
             </Link>
             <div className="flex items-center gap-2 sm:gap-4">
               <div className="hidden md:flex items-center gap-1 text-sm font-medium">
-                <Link href={`/${locale}/speed-test`} className="nav-keycap">
+                <Link href={localizedPath(locale, "speedTest")} className="nav-keycap">
                   {dict.nav.typingTest}
                 </Link>
-                <Link href={`/${locale}/lessons`} className="nav-keycap">
+                <Link href={localizedPath(locale, "lessons")} className="nav-keycap">
                   {dict.nav.typingCourse}
                 </Link>
-                <Link href={`/${locale}/resources`} className="nav-keycap">
+                <Link href={localizedPath(locale, "resources")} className="nav-keycap">
                   {dict.nav.resources}
                 </Link>
               </div>
@@ -159,9 +159,9 @@ export default async function LocaleLayout({ children, params }: Props) {
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.learnTyping}</p>
                 <div className="flex flex-col gap-2 text-zinc-600">
-                  <Link href={`/${locale}/speed-test`} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</Link>
-                  <Link href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
-                  <Link href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
+                  <Link href={localizedPath(locale, "speedTest")} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</Link>
+                  <Link href={localizedPath(locale, "lessons")} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
+                  <Link href={localizedPath(locale, "certificate")} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
                 </div>
               </div>
               <div>
@@ -175,15 +175,15 @@ export default async function LocaleLayout({ children, params }: Props) {
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.tools}</p>
                 <div className="flex flex-col gap-2 text-zinc-600">
-                  <Link href={`/${locale}/tools/keyboard-layouts`} className="hover:text-indigo transition-colors">{dict.footer.keyboardLayouts}</Link>
+                  <Link href={localizedPath(locale, "keyboardLayouts")} className="hover:text-indigo transition-colors">{dict.footer.keyboardLayouts}</Link>
                 </div>
               </div>
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.resources}</p>
                 <div className="flex flex-col gap-2 text-zinc-600">
-                  <Link href={`/${locale}/resources`} className="hover:text-indigo transition-colors">{dict.footer.resourcesLink}</Link>
-                  <Link href={`/${locale}/help`} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</Link>
-                  <Link href={`/${locale}/contact`} className="hover:text-indigo transition-colors">{dict.footer.contact}</Link>
+                  <Link href={localizedPath(locale, "resources")} className="hover:text-indigo transition-colors">{dict.footer.resourcesLink}</Link>
+                  <Link href={localizedPath(locale, "help")} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</Link>
+                  <Link href={localizedPath(locale, "contact")} className="hover:text-indigo transition-colors">{dict.footer.contact}</Link>
                 </div>
               </div>
             </div>

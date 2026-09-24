@@ -15,7 +15,7 @@ Trilingual typing tutor for adults (DE/EN/FR).
 - Middleware auto-redirects based on browser Accept-Language
 - Dictionaries: src/i18n/dictionaries/{locale}.json
 - Every page must exist in all three languages
-- URL slugs are language-native (e.g. /de/tipptest, /en/typing-test, /fr/test-de-frappe)
+- URL slugs are language-native (e.g. /de/tippgeschwindigkeit, /en/speed-test, /fr/test-de-dactylographie). The folder under src/app/[locale] keeps the English segment; the public slug lives in `pageRoutes` in src/i18n/routes.ts and next.config.ts generates rewrites + 301s from it. Never hardcode `/${locale}/speed-test` in a link, canonical or sitemap entry - use `localizedPath(locale, "speedTest")`.
 - hreflang tags in locale layout for SEO
 
 ## Design and Brand Voice

@@ -8,6 +8,7 @@ import { categoryLabels, resourcesUi } from "@/lib/resources";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CtaButton } from "@/components/CtaButton";
+import { localizedPath } from "@/i18n/routes";
 
 // Same icon per category everywhere it appears (section headers, badges),
 // so a category reads as one visual identity across the page - matters
@@ -37,7 +38,7 @@ function FeaturedCard({ item, locale }: { item: ResourceMeta; locale: Locale }) 
   const ui = resourcesUi[locale];
   return (
     <Link
-      href={`/${locale}/resources/${item.slug}`}
+      href={`${localizedPath(locale, "resources")}/${item.slug}`}
       className="group block rounded-2xl border border-indigo/20 bg-white dark:bg-dark-surface overflow-hidden hover:shadow-lg hover:shadow-indigo/10 transition-all duration-200"
     >
       <div className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
@@ -72,7 +73,7 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
 
   return (
     <Link
-      href={`/${locale}/resources/${item.slug}`}
+      href={`${localizedPath(locale, "resources")}/${item.slug}`}
       className="group flex flex-col rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface overflow-hidden hover:border-indigo/30 hover:shadow-md transition-all duration-200"
     >
       <div className={`h-1 ${isLeadMagnet ? "bg-gradient-to-r from-electric-yellow to-peach" : "bg-indigo"}`} />
@@ -126,8 +127,8 @@ function InlineCourseCta({ locale, copy }: { locale: Locale; copy: FinalCtaCopy 
         <p className="text-sm text-zinc-600 dark:text-zinc-400">{copy.description}</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
-        <CtaButton href={`/${locale}/placement`}>{copy.ctaLearn}</CtaButton>
-        <CtaButton href={`/${locale}/speed-test`} variant="secondary">{copy.ctaTest}</CtaButton>
+        <CtaButton href={localizedPath(locale, "placement")}>{copy.ctaLearn}</CtaButton>
+        <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary">{copy.ctaTest}</CtaButton>
       </div>
     </div>
   );

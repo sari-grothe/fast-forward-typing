@@ -22,7 +22,7 @@ Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG) und Art. 6 III des französis
 
 - E-Mail: {{email}}
 - Telefon: {{phone}}
-- Kontaktformular: [zum Kontaktformular](/de/contact)
+- Kontaktformular: [zum Kontaktformular](/de/kontakt)
 
 Wir antworten in der Regel innerhalb eines Werktags.
 

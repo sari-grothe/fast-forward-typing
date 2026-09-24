@@ -7,6 +7,7 @@ import { ResourcesOverview } from "@/components/resources/ResourcesOverview";
 import { FinalCTA } from "@/components/FinalCTA";
 import { BASE_URL } from "@/lib/schema";
 import { pageTitle, ogImages } from "@/lib/seo";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -23,8 +24,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description,
     openGraph: { title, description, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/resources`,
-      languages: Object.fromEntries([...locales.map((l) => [l, `/${l}/resources`]), ["x-default", `/en/resources`]]),
+      canonical: `${BASE_URL}${localizedPath(locale, "resources")}`,
+      languages: Object.fromEntries([...locales.map((l) => [l, localizedPath(l, "resources")]), ["x-default", `/en/resources`]]),
     },
   };
 }
@@ -42,7 +43,7 @@ export default async function ResourcesPage({ params }: Props) {
     "@type": "CollectionPage",
     name: ui.pageTitle,
     description: ui.pageSubtitle,
-    url: `${BASE_URL}/${locale}/resources`,
+    url: `${BASE_URL}${localizedPath(locale, "resources")}`,
     inLanguage: locale,
     isPartOf: {
       "@type": "WebSite",
@@ -55,7 +56,7 @@ export default async function ResourcesPage({ params }: Props) {
       itemListElement: items.map((item, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `${BASE_URL}/${locale}/resources/${item.slug}`,
+        url: `${BASE_URL}${localizedPath(locale, "resources")}/${item.slug}`,
         name: item.title,
       })),
     },
@@ -66,7 +67,7 @@ export default async function ResourcesPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: `${BASE_URL}/${locale}` },
-      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `${BASE_URL}/${locale}/resources` },
+      { "@type": "ListItem", position: 2, name: ui.pageTitle, item: `${BASE_URL}${localizedPath(locale, "resources")}` },
     ],
   };
 

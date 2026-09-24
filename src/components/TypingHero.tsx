@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { CtaButton } from "@/components/CtaButton";
 import { KeyCharacter } from "@/components/KeyCharacter";
+import { localizedPath } from "@/i18n/routes";
 
 // Same asymmetric hero pattern as the companies page (text left, mascot
 // right, animate-float) - replaces the earlier self-typing keyboard
@@ -89,8 +90,8 @@ export function TypingHero({ locale, subheadline, fact, ctaLearn, ctaTest }: Pro
             {fact}
           </p>
           <div className="flex flex-wrap gap-3">
-            <CtaButton href={`/${locale}/placement`}>{ctaLearn}</CtaButton>
-            <CtaButton href={`/${locale}/speed-test`} variant="secondary">{ctaTest}</CtaButton>
+            <CtaButton href={localizedPath(locale, "placement")}>{ctaLearn}</CtaButton>
+            <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary">{ctaTest}</CtaButton>
           </div>
         </div>
         <div className="hidden md:block animate-float">

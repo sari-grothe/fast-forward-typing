@@ -4,6 +4,7 @@ import { locales, type Locale } from "@/i18n/config";
 import { getHelpCategories, helpUi, strengths } from "@/lib/help-data";
 import { HelpCenter } from "@/components/help/HelpCenter";
 import { BASE_URL } from "@/lib/schema";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -18,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: l.metaDescription,
     openGraph: { title: l.metaTitle, description: l.metaDescription, type: "website", images: ogImages(locale) },
     alternates: {
-      canonical: `${BASE_URL}/${locale}/help`,
-      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/help`]), ["x-default", `/en/help`]]),
+      canonical: `${BASE_URL}${localizedPath(locale, "help")}`,
+      languages: Object.fromEntries([...locales.map((loc) => [loc, localizedPath(loc, "help")]), ["x-default", `/en/help`]]),
     },
   };
 }

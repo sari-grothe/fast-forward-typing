@@ -6,6 +6,7 @@ import { getLessons, displayKey } from "@/lib/lessons";
 import { progressStore, type LessonRecord } from "@/lib/progress-store";
 import { groupKeysByLevel, type SkillProfile } from "@/lib/skill-profile";
 import type { Locale } from "@/i18n/config";
+import { localizedPath } from "@/i18n/routes";
 
 const i18n: Record<Locale, {
   title: string;
@@ -110,7 +111,7 @@ export function Dashboard({ locale }: { locale: Locale }) {
         <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 flex flex-col sm:flex-row sm:items-center gap-4">
           <p className="text-sm text-zinc-600 dark:text-zinc-300 flex-1">{l.placementMissing}</p>
           <Link
-            href={`/${locale}/placement`}
+            href={localizedPath(locale, "placement")}
             className="group inline-flex items-center justify-center gap-2 rounded-xl bg-indigo px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-indigo/25 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
           >
             {l.placementCta} <span className="text-electric-yellow group-hover:translate-x-0.5 transition-transform">&gt;&gt;</span>
@@ -136,7 +137,7 @@ export function Dashboard({ locale }: { locale: Locale }) {
             </div>
           )}
           <Link
-            href={`/${locale}/lessons`}
+            href={localizedPath(locale, "lessons")}
             className="inline-flex items-center gap-2 text-sm font-semibold text-indigo hover:text-indigo/80 transition-colors"
           >
             {l.continueCta} &rarr;

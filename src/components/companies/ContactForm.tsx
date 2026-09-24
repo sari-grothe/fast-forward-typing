@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { CtaButton } from "@/components/CtaButton";
+import { localizedPath } from "@/i18n/routes";
 
 export type ContactFormLabels = {
   name: string;
@@ -101,7 +102,7 @@ export function ContactForm({ locale, labels }: Props) {
             {labels.successTitle}
           </h3>
           <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-md mx-auto">{labels.successText}</p>
-          <CtaButton href={`/${locale}/speed-test`}>{labels.successCta}</CtaButton>
+          <CtaButton href={localizedPath(locale, "speedTest")}>{labels.successCta}</CtaButton>
         </div>
       ) : (
         <form

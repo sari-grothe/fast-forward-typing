@@ -10,6 +10,7 @@ import { calculateWPM, calculateAccuracy } from "@/lib/typing-engine";
 import type { Locale } from "@/i18n/config";
 import { FAQ } from "@/components/FAQ";
 import { speedTestFAQ } from "@/lib/faq-data";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   locale: Locale;
@@ -374,7 +375,7 @@ export function SpeedTest({ locale }: Props) {
           <h3 className="text-xl font-bold text-dark-text dark:text-white text-center mb-6">{l.nextStepSection}</h3>
 
           <Link
-            href={`/${locale}/placement`}
+            href={localizedPath(locale, "placement")}
             className="block rounded-2xl bg-gradient-to-r from-indigo to-indigo/90 dark:from-indigo-action dark:to-indigo-action/90 p-6 sm:p-8 text-white shadow-lg shadow-indigo/20 hover:shadow-xl hover:shadow-indigo/30 hover:scale-[1.01] active:scale-[0.99] transition-all duration-200 group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -389,7 +390,7 @@ export function SpeedTest({ locale }: Props) {
           </Link>
 
           <Link
-            href={`/${locale}/certificate?wpm=${wpm}&accuracy=${accuracy}`}
+            href={`${localizedPath(locale, "certificate")}?wpm=${wpm}&accuracy=${accuracy}`}
             className="block mt-4 rounded-2xl border-2 border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 sm:p-8 hover:border-indigo/30 transition-colors group"
           >
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -420,7 +421,7 @@ export function SpeedTest({ locale }: Props) {
           </button>
           <button
             onClick={() => {
-              const shareText = `${wpm} WPM, ${accuracy}% ${locale === "de" ? "Genauigkeit" : locale === "fr" ? "précision" : "accuracy"} - ${tier.label} (${tier.percentile}) ${window.location.origin}/${locale}/speed-test`;
+              const shareText = `${wpm} WPM, ${accuracy}% ${locale === "de" ? "Genauigkeit" : locale === "fr" ? "précision" : "accuracy"} - ${tier.label} (${tier.percentile}) ${window.location.origin}${localizedPath(locale, "speedTest")}`;
               navigator.clipboard.writeText(shareText).then(() => {
                 setCopied(true);
                 setTimeout(() => setCopied(false), 2000);

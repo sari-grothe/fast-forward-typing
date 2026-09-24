@@ -13,6 +13,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { CtaButton } from "@/components/CtaButton";
 import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
 import { organization } from "@/lib/schema";
+import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -94,7 +95,7 @@ export default async function HomePage({ params }: Props) {
 
                 {/* CTA */}
                 <div className="mt-8 flex flex-col items-center gap-2">
-                  <CtaButton href={`/${locale}/speed-test`}>{prod.cta}</CtaButton>
+                  <CtaButton href={localizedPath(locale, "speedTest")}>{prod.cta}</CtaButton>
                   <p className="text-xs text-zinc-600">{prod.ctaSub}</p>
                 </div>
               </div>
@@ -135,8 +136,8 @@ export default async function HomePage({ params }: Props) {
             ))}
           </div>
           <ScrollReveal className="mt-12 flex flex-wrap justify-center gap-3">
-            <CtaButton href={`/${locale}/placement`}>{how.cta}</CtaButton>
-            <CtaButton href={`/${locale}/speed-test`} variant="secondary">{h.ctaTest as string}</CtaButton>
+            <CtaButton href={localizedPath(locale, "placement")}>{how.cta}</CtaButton>
+            <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary">{h.ctaTest as string}</CtaButton>
           </ScrollReveal>
         </div>
       </section>
@@ -188,7 +189,7 @@ export default async function HomePage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                <CtaButton href={`/${locale}/speed-test`}>{speed.cta}</CtaButton>
+                <CtaButton href={localizedPath(locale, "speedTest")}>{speed.cta}</CtaButton>
               </div>
             </ScrollReveal>
 
@@ -232,8 +233,8 @@ export default async function HomePage({ params }: Props) {
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
                 <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
                 <div className="flex flex-wrap gap-3">
-                  <CtaButton href={`/${locale}/placement`}>{cert.ctaLearn}</CtaButton>
-                  <CtaButton href={`/${locale}/speed-test`} variant="secondary">{cert.ctaTest}</CtaButton>
+                  <CtaButton href={localizedPath(locale, "placement")}>{cert.ctaLearn}</CtaButton>
+                  <CtaButton href={localizedPath(locale, "speedTest")} variant="secondary">{cert.ctaTest}</CtaButton>
                 </div>
               </div>
             </ScrollReveal>
