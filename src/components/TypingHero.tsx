@@ -23,10 +23,26 @@ type Props = {
 };
 
 export function TypingHero({ locale, subheadline, fact, ctaLearn, ctaTest }: Props) {
-  const [idx, setIdx] = useState(0);
-  const [phase, setPhase] = useState<"typing" | "pause" | "wait">("wait");
-
   const { static: prefix, typed } = splits[locale] || splits.en;
+
+  // The full headline is in the server HTML (crawlers and the LCP metric
+  // see the complete H1). The typing effect only starts after hydration,
+  // on wide screens, and never for people who prefer reduced motion. Until
+  // then the typed part is kept transparent on wide screens (CSS class
+  // below) so nothing flashes and gets erased.
+  const [idx, setIdx] = useState(typed.length);
+  const [phase, setPhase] = useState<"typing" | "pause" | "wait" | "static">("static");
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+    const wide = window.matchMedia("(min-width: 768px)").matches;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (wide && !reduced) {
+      setIdx(0);
+      setPhase("wait");
+    }
+  }, []);
 
   useEffect(() => {
     let t: ReturnType<typeof setTimeout>;
@@ -42,12 +58,14 @@ export function TypingHero({ locale, subheadline, fact, ctaLearn, ctaTest }: Pro
         }
         break;
       case "pause":
+      case "static":
         break;
     }
     return () => clearTimeout(t);
   }, [idx, phase, typed]);
 
   const isIdle = phase === "pause" || phase === "wait";
+  const pendingOnWide = !hydrated;
 
   return (
     <section className="pt-12 pb-20 sm:pt-20">
@@ -56,7 +74,7 @@ export function TypingHero({ locale, subheadline, fact, ctaLearn, ctaTest }: Pro
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">
             <span className="block">{prefix}</span>
             <span className="block">
-              <span className="text-indigo">{typed.slice(0, idx)}</span>
+              <span className={`text-indigo ${pendingOnWide ? "md:text-transparent" : ""}`}>{typed.slice(0, idx)}</span>
               <span
                 className={`inline-block w-[3px] h-[0.8em] bg-indigo align-baseline ml-0.5 ${
                   isIdle ? "animate-cursor-blink" : ""
@@ -67,7 +85,7 @@ export function TypingHero({ locale, subheadline, fact, ctaLearn, ctaTest }: Pro
           <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6 max-w-2xl">
             {subheadline}
           </p>
-          <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">
+          <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">
             {fact}
           </p>
           <div className="flex flex-wrap gap-3">

@@ -76,7 +76,7 @@ function markdownToHtml(md: string): string {
         return `<ol class="list-decimal pl-6 space-y-2 my-4">${items}</ol>`;
       }
       if (t.startsWith("> "))
-        return `<blockquote class="border-l-4 border-indigo/30 pl-4 italic text-zinc-500 dark:text-zinc-400 my-6">${processInline(t.replace(/^> /gm, ""))}</blockquote>`;
+        return `<blockquote class="border-l-4 border-indigo/30 pl-4 italic text-zinc-600 dark:text-zinc-400 my-6">${processInline(t.replace(/^> /gm, ""))}</blockquote>`;
       if (t.startsWith("|")) {
         const rows = t
           .split("\n")

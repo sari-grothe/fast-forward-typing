@@ -27,7 +27,7 @@ type Props = {
 // uses `labels.source`.
 export function TypingTimeBreakdown({ labels }: Props) {
   const rows = [
-    { wpm: 40, time: labels.row40Time, badge: labels.row40Badge, width: 100, bar: "bg-zinc-300 dark:bg-zinc-600", timeCls: "text-zinc-700 dark:text-zinc-100", chip: "bg-zinc-100 text-zinc-500 dark:bg-white/5 dark:text-zinc-400" },
+    { wpm: 40, time: labels.row40Time, badge: labels.row40Badge, width: 100, bar: "bg-zinc-300 dark:bg-zinc-600", timeCls: "text-zinc-700 dark:text-zinc-100", chip: "bg-zinc-100 text-zinc-600 dark:bg-white/5 dark:text-zinc-400" },
     { wpm: 60, time: labels.tier60Time, badge: labels.tier60Saved, width: 67, bar: "bg-indigo/60", timeCls: "text-white", chip: "bg-electric-yellow/20 text-dark-text dark:text-electric-yellow" },
     { wpm: 80, time: labels.tier80Time, badge: labels.tier80Saved, width: 50, bar: "bg-indigo/80", timeCls: "text-white", chip: "bg-electric-yellow/20 text-dark-text dark:text-electric-yellow" },
     { wpm: 100, time: labels.tier100Time, badge: labels.tier100Saved, width: 40, bar: "bg-indigo", timeCls: "text-white", chip: "bg-electric-yellow text-dark-text" },
@@ -39,13 +39,13 @@ export function TypingTimeBreakdown({ labels }: Props) {
       {/* Legend: without this, the bar number and the chip number read as
           two competing claims - this says explicitly which is "time
           needed" and which is "time saved". */}
-      <p className="text-xs text-zinc-400 text-center mb-5">{labels.legend}</p>
+      <p className="text-xs text-zinc-600 text-center mb-5">{labels.legend}</p>
       <div className="space-y-2.5">
         {rows.map((row) => (
           <div key={row.wpm} className="flex flex-wrap items-center gap-x-3 gap-y-1">
             <span className="w-16 shrink-0 text-right whitespace-nowrap">
               <span className="font-bold text-dark-text dark:text-white">{row.wpm}</span>{" "}
-              <span className="text-[10px] font-semibold text-zinc-400">{labels.unit}</span>
+              <span className="text-[10px] font-semibold text-zinc-600">{labels.unit}</span>
             </span>
             <div className="flex-1 min-w-40 h-7 rounded-lg bg-zinc-100 dark:bg-white/5">
               <div
@@ -63,7 +63,7 @@ export function TypingTimeBreakdown({ labels }: Props) {
           </div>
         ))}
       </div>
-      <p className="text-center text-xs text-zinc-400 max-w-md mx-auto mt-5">{labels.chartNote}</p>
+      <p className="text-center text-xs text-zinc-600 max-w-md mx-auto mt-5">{labels.chartNote}</p>
     </div>
   );
 }

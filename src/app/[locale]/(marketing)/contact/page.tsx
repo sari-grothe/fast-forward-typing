@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `${BASE_URL}/${locale}/contact`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/contact`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/contact`]), ["x-default", `/en/contact`]]),
     },
   };
 }
@@ -55,7 +55,7 @@ export default async function ContactPage({ params }: Props) {
       <div className="mx-auto max-w-xl px-6 py-16 sm:py-20">
         <div className="text-center mb-10">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">{c.title}</h1>
-          <p className="text-lg text-zinc-500 dark:text-zinc-400">{c.subtitle}</p>
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">{c.subtitle}</p>
         </div>
         <ContactForm locale={l} labels={c.form} />
       </div>

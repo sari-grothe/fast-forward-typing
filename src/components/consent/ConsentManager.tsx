@@ -168,7 +168,7 @@ export function ConsentManager({ locale }: { locale: Locale }) {
                   setDraft(false);
                   setPanelOpen(true);
                 }}
-                className="text-sm font-medium text-zinc-500 hover:text-indigo underline underline-offset-2 px-1"
+                className="text-sm font-medium text-zinc-600 hover:text-indigo underline underline-offset-2 px-1"
               >
                 {l.settings}
               </button>
@@ -190,7 +190,7 @@ export function ConsentManager({ locale }: { locale: Locale }) {
               <button
                 type="button"
                 onClick={() => setPanelOpen(false)}
-                className="text-sm text-zinc-500 hover:text-indigo"
+                className="text-sm text-zinc-600 hover:text-indigo"
                 aria-label={l.close}
               >
                 {l.close}
@@ -200,12 +200,12 @@ export function ConsentManager({ locale }: { locale: Locale }) {
             <div className="space-y-4 mb-6">
               <div className="rounded-xl border border-zinc-200 dark:border-dark-border p-4">
                 <p className="font-semibold text-sm text-dark-text dark:text-white">{l.necessaryTitle}</p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{l.necessaryText}</p>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">{l.necessaryText}</p>
               </div>
               <label className="flex items-start justify-between gap-4 rounded-xl border border-zinc-200 dark:border-dark-border p-4 cursor-pointer">
                 <span>
                   <span className="block font-semibold text-sm text-dark-text dark:text-white">{l.analyticsTitle}</span>
-                  <span className="block text-xs text-zinc-500 dark:text-zinc-400 mt-1">{l.analyticsText}</span>
+                  <span className="block text-xs text-zinc-600 dark:text-zinc-400 mt-1">{l.analyticsText}</span>
                 </span>
                 <input
                   type="checkbox"

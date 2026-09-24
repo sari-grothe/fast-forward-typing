@@ -75,13 +75,13 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
           onPointerDown={() => setTouched(true)}
           className="w-full accent-indigo cursor-pointer"
         />
-        <div className="flex justify-between text-xs text-zinc-400 mt-1 tabular-nums">
+        <div className="flex justify-between text-xs text-zinc-600 mt-1 tabular-nums">
           <span>{MIN_TEAM}</span>
           <span>{MAX_TEAM}</span>
         </div>
         <p
           className={`mt-2 flex items-center justify-center gap-2 text-sm font-medium ${
-            touched ? "text-zinc-400" : "text-indigo animate-pulse"
+            touched ? "text-zinc-600" : "text-indigo animate-pulse"
           }`}
         >
           <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -118,12 +118,12 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-2xl font-bold text-zinc-600 dark:text-zinc-300 tabular-nums">{stat.value}</p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{stat.label}</p>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 mt-1">{stat.label}</p>
             </div>
           ))}
         </div>
       </div>
-      <p className="text-center text-xs text-zinc-400 mt-4 max-w-md mx-auto">{labels.assumption}</p>
+      <p className="text-center text-xs text-zinc-600 mt-4 max-w-md mx-auto">{labels.assumption}</p>
 
       {/* Payoff + action, still inside the same card - nothing about this
           calculator lives loose outside its own border. */}

@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/placement`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/placement`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/placement`]), ["x-default", `/en/placement`]]),
     },
   };
 }
@@ -50,7 +50,7 @@ export default async function PlacementPage({ params }: Props) {
     <div className="mx-auto max-w-3xl px-6 py-12 space-y-8">
       <div className="space-y-2">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">{m.h1}</h1>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-xl">{m.intro}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">{m.intro}</p>
       </div>
       <PlacementTest locale={locale as Locale} />
     </div>

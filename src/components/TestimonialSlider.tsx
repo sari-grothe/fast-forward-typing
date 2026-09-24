@@ -136,7 +136,7 @@ function TestimonialCard({ t }: { t: Testimonial }) {
     <div className="w-[260px] sm:w-[280px] shrink-0 rounded-2xl bg-white dark:bg-dark-surface border border-zinc-100 dark:border-dark-border p-5 shadow-sm">
       <div className="mb-2">
         <p className="font-semibold text-sm text-dark-text dark:text-white">{t.name}</p>
-        <p className="text-xs text-zinc-400">{t.role}</p>
+        <p className="text-xs text-zinc-600">{t.role}</p>
       </div>
       <Stars count={t.stars} />
       <p className="mt-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{t.text}</p>
@@ -182,7 +182,7 @@ export function TestimonialSlider({ locale, segments, rows = 2, showCta = true }
           <KeyCharacter pose="running" size={120} />
         </div>
         <h2 className="text-3xl sm:text-4xl font-extrabold">{l.title}</h2>
-        <p className="text-zinc-400 max-w-lg mx-auto">{l.subtitle}</p>
+        <p className="text-zinc-600 max-w-lg mx-auto">{l.subtitle}</p>
       </div>
 
       <div

@@ -35,7 +35,7 @@ const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
   incorrect: "text-peach bg-peach/20",
   current: "text-dark-text dark:text-white bg-indigo/20 dark:bg-indigo/30 border-b-2 border-indigo",
-  upcoming: "text-zinc-400 dark:text-zinc-500",
+  upcoming: "text-zinc-600 dark:text-zinc-500",
 };
 
 const i18n: Record<Locale, {
@@ -230,7 +230,7 @@ export function LessonDrill({
       {/* Header: drill counter + threshold notice */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-sm text-zinc-600 dark:text-zinc-400">
             {l.drill} {drillIndex + 1} {l.of} {totalDrills}
           </span>
           {/* Drill progress dots */}
@@ -249,7 +249,7 @@ export function LessonDrill({
             ))}
           </div>
         </div>
-        <span className="text-xs font-medium text-zinc-400 dark:text-zinc-500 bg-zinc-100 dark:bg-dark-surface px-2.5 py-1 rounded-full">
+        <span className="text-xs font-medium text-zinc-600 dark:text-zinc-500 bg-zinc-100 dark:bg-dark-surface px-2.5 py-1 rounded-full">
           {l.minAccuracy.replace("{threshold}", String(completionThreshold))}
         </span>
       </div>
@@ -258,17 +258,17 @@ export function LessonDrill({
       {hasStarted && !state.isComplete && (
         <div className="flex items-center gap-4 px-4 py-2.5 rounded-xl bg-zinc-50 dark:bg-dark-surface border border-zinc-100 dark:border-dark-border">
           <div className="flex items-center gap-1.5 text-sm">
-            <span className="text-zinc-400 dark:text-zinc-500">{l.time}</span>
+            <span className="text-zinc-600 dark:text-zinc-500">{l.time}</span>
             <span className="font-mono font-semibold text-dark-text dark:text-white tabular-nums">{formatTime(elapsed)}</span>
           </div>
           <div className="w-px h-4 bg-zinc-200 dark:bg-dark-border" />
           <div className="flex items-center gap-1.5 text-sm">
-            <span className="text-zinc-400 dark:text-zinc-500">WPM</span>
+            <span className="text-zinc-600 dark:text-zinc-500">WPM</span>
             <span className="font-mono font-semibold text-dark-text dark:text-white tabular-nums">{wpm}</span>
           </div>
           <div className="w-px h-4 bg-zinc-200 dark:bg-dark-border" />
           <div className="flex items-center gap-1.5 text-sm">
-            <span className="text-zinc-400 dark:text-zinc-500">{l.accuracy}</span>
+            <span className="text-zinc-600 dark:text-zinc-500">{l.accuracy}</span>
             <span className={`font-mono font-semibold tabular-nums ${accuracy >= completionThreshold ? "text-indigo" : "text-peach"}`}>{accuracy}%</span>
           </div>
           {/* Progress bar */}
@@ -313,7 +313,7 @@ export function LessonDrill({
 
       {/* Start hint - shown until the first keystroke */}
       {!hasStarted && !state.isComplete && (
-        <p className="text-center text-xs text-zinc-400 dark:text-zinc-500">{l.startHint}</p>
+        <p className="text-center text-xs text-zinc-600 dark:text-zinc-500">{l.startHint}</p>
       )}
 
       {/* Virtual keyboard */}
@@ -355,15 +355,15 @@ export function LessonDrill({
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="text-center p-3 rounded-xl bg-white dark:bg-dark-surface border border-zinc-100 dark:border-dark-border">
               <div className="text-2xl font-bold text-dark-text dark:text-white">{wpm}</div>
-              <div className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5">WPM</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-500 mt-0.5">WPM</div>
             </div>
             <div className="text-center p-3 rounded-xl bg-white dark:bg-dark-surface border border-zinc-100 dark:border-dark-border">
               <div className={`text-2xl font-bold ${passed ? "text-indigo" : "text-peach"}`}>{accuracy}%</div>
-              <div className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5">{l.accuracy}</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-500 mt-0.5">{l.accuracy}</div>
             </div>
             <div className="text-center p-3 rounded-xl bg-white dark:bg-dark-surface border border-zinc-100 dark:border-dark-border">
               <div className="text-2xl font-bold text-dark-text dark:text-white">{formatTime(elapsed)}</div>
-              <div className="text-xs text-zinc-400 dark:text-zinc-500 mt-0.5">{l.time}</div>
+              <div className="text-xs text-zinc-600 dark:text-zinc-500 mt-0.5">{l.time}</div>
             </div>
           </div>
 
@@ -384,7 +384,7 @@ export function LessonDrill({
                 {l.tryAgain} <span className="text-white/70">&gt;&gt;</span>
               </button>
             )}
-            <kbd className="rounded-md border border-zinc-300 dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-xs font-mono font-semibold text-zinc-500 dark:text-zinc-400">
+            <kbd className="rounded-md border border-zinc-300 dark:border-dark-border bg-white dark:bg-dark-surface px-2 py-1 text-xs font-mono font-semibold text-zinc-600 dark:text-zinc-400">
               ENTER
             </kbd>
           </div>

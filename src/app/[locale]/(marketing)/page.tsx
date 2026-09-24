@@ -82,7 +82,7 @@ export default async function HomePage({ params }: Props) {
                     <CountUpOnView value={2.5} decimals={1} decimalSeparator={locale === "en" ? "." : ","} duration={1400} />
                     <span className="text-2xl sm:text-3xl font-bold ml-2 align-middle">{prod.heroUnit}</span>
                   </p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-3">{prod.heroCaption}</p>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-3">{prod.heroCaption}</p>
                 </div>
 
                 {/* Time-per-day bars: the whole argument in one glance -
@@ -95,11 +95,11 @@ export default async function HomePage({ params }: Props) {
                 {/* CTA */}
                 <div className="mt-8 flex flex-col items-center gap-2">
                   <CtaButton href={`/${locale}/speed-test`}>{prod.cta}</CtaButton>
-                  <p className="text-xs text-zinc-400">{prod.ctaSub}</p>
+                  <p className="text-xs text-zinc-600">{prod.ctaSub}</p>
                 </div>
               </div>
               {/* Source: fine print under the box, not inside it. */}
-              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{prod.source}</p>
+              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6">{prod.source}</p>
             </ScrollReveal>
           </div>
         </div>
@@ -129,7 +129,7 @@ export default async function HomePage({ params }: Props) {
                   </div>
                   <p className="text-sm font-semibold text-indigo mb-2">0{step.num}</p>
                   <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                  <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{step.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -162,7 +162,7 @@ export default async function HomePage({ params }: Props) {
                     </svg>
                   </div>
                   <h3 className="font-bold mb-1">{f.title}</h3>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{f.desc}</p>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{f.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -177,7 +177,7 @@ export default async function HomePage({ params }: Props) {
             <ScrollReveal>
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">{speed.title}</h2>
-                <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-6">{speed.desc}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-6">{speed.desc}</p>
                 <ul className="space-y-3 mb-8">
                   {[speed.bullet1, speed.bullet2, speed.bullet3].map((b, i) => (
                     <li key={i} className="flex items-start gap-3">
@@ -196,25 +196,25 @@ export default async function HomePage({ params }: Props) {
               <div className="rounded-2xl border border-white/60 bg-white/80 backdrop-blur-sm p-6 shadow-xl shadow-indigo/5 hover:shadow-2xl hover:shadow-indigo/10 transition-shadow duration-300">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="rounded-lg bg-indigo px-3 py-1.5 text-xs font-semibold text-white">{speed.mockDuration1}</span>
-                  <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-500">{speed.mockDuration2}</span>
-                  <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-500">{speed.mockDuration3}</span>
+                  <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600">{speed.mockDuration2}</span>
+                  <span className="rounded-lg bg-zinc-100 px-3 py-1.5 text-xs font-medium text-zinc-600">{speed.mockDuration3}</span>
                 </div>
                 <p className="text-center text-2xl font-bold text-indigo mb-4 font-mono">{speed.mockTimer}</p>
                 <div className="rounded-xl border-2 border-indigo/20 bg-lavender/30 p-4 sm:p-5">
                   <p className="font-mono text-sm sm:text-base leading-relaxed">
                     <span className="text-indigo">{speed.mockText.slice(0, 45)}</span>
                     <span className="border-l-2 border-indigo animate-cursor-blink" />
-                    <span className="text-zinc-400">{speed.mockText.slice(45)}</span>
+                    <span className="text-zinc-600">{speed.mockText.slice(45)}</span>
                   </p>
                 </div>
                 <div className="mt-4 flex justify-center gap-6">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-indigo">56</p>
-                    <p className="text-xs text-zinc-400">{speed.wpm}</p>
+                    <p className="text-xs text-zinc-600">{speed.wpm}</p>
                   </div>
                   <div className="text-center">
                     <p className="text-2xl font-bold text-peach">98.2</p>
-                    <p className="text-xs text-zinc-400">%</p>
+                    <p className="text-xs text-zinc-600">%</p>
                   </div>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default async function HomePage({ params }: Props) {
             <ScrollReveal>
               <div>
                 <h2 className="text-3xl sm:text-4xl font-bold mb-4">{cert.title}</h2>
-                <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-lg leading-relaxed mb-8">{cert.desc}</p>
                 <div className="flex flex-wrap gap-3">
                   <CtaButton href={`/${locale}/placement`}>{cert.ctaLearn}</CtaButton>
                   <CtaButton href={`/${locale}/speed-test`} variant="secondary">{cert.ctaTest}</CtaButton>

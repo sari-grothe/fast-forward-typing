@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/lessons`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/lessons`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/lessons`]), ["x-default", `/en/lessons`]]),
     },
   };
 }

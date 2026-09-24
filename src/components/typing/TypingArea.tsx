@@ -28,7 +28,7 @@ const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
   incorrect: "text-peach bg-peach/20",
   current: "text-dark-text dark:text-white bg-indigo/20 dark:bg-indigo/30 border-b-2 border-indigo",
-  upcoming: "text-zinc-400 dark:text-zinc-500",
+  upcoming: "text-zinc-600 dark:text-zinc-500",
 };
 
 function formatTime(totalSeconds: number): string {
@@ -248,7 +248,7 @@ export function TypingArea({
         ].join(" ")}
       >
         {!state.startTime && !isFinished && (
-          <p className="text-zinc-500 text-sm mb-4 font-sans">
+          <p className="text-zinc-600 text-sm mb-4 font-sans">
             {startPrompt[locale] || startPrompt.en}
           </p>
         )}
@@ -275,7 +275,7 @@ export function TypingArea({
           >
             {locale === "fr" ? "Recommencer" : locale === "de" ? "Nochmal" : "Try again"} <span className="text-electric-yellow">&gt;&gt;</span>
           </button>
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-zinc-600">
             {wpm} WPM · {accuracy}% {locale === "fr" ? "précision" : locale === "de" ? "Genauigkeit" : "accuracy"} · {state.errors.length} {locale === "fr" ? "erreurs" : locale === "de" ? "Fehler" : "errors"}
           </p>
         </div>

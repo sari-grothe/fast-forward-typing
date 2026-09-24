@@ -41,11 +41,11 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
       {/* Header + search */}
       <div className="text-center space-y-6">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">{l.title}</h1>
-        <p className="text-lg text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">{l.subtitle}</p>
+        <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">{l.subtitle}</p>
 
         <div className="relative max-w-xl mx-auto">
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-400 pointer-events-none"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-zinc-600 pointer-events-none"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -70,7 +70,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
                 key={cat.id}
                 type="button"
                 onClick={() => setQuery("")}
-                className="text-xs font-medium px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-dark-surface text-zinc-500 dark:text-zinc-400 hover:text-indigo transition-colors"
+                className="text-xs font-medium px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-dark-surface text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors"
               >
                 {cat.title}
               </button>
@@ -83,7 +83,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
-                className="text-xs font-medium px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-dark-surface text-zinc-500 dark:text-zinc-400 hover:text-indigo transition-colors"
+                className="text-xs font-medium px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-dark-surface text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors"
               >
                 {cat.title}
               </a>
@@ -97,7 +97,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
         <section className="space-y-6">
           <div className="text-center space-y-2">
             <h2 className="text-2xl sm:text-3xl font-bold">{l.strengthsTitle}</h2>
-            <p className="text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto">{l.strengthsSubtitle}</p>
+            <p className="text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto">{l.strengthsSubtitle}</p>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {strengths.map((s) => (
@@ -106,7 +106,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
                 className="rounded-2xl border border-zinc-200 dark:border-dark-border bg-white/60 dark:bg-dark-surface/60 p-5"
               >
                 <p className="font-semibold text-dark-text dark:text-white mb-1.5">{s.title}</p>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{s.desc}</p>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -117,7 +117,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
       {totalResults === 0 ? (
         <div className="flex flex-col items-center gap-4 py-10 text-center">
           <KeyCharacter pose="sitting" size={72} />
-          <p className="text-zinc-500 dark:text-zinc-400">{l.searchNoResults}</p>
+          <p className="text-zinc-600 dark:text-zinc-400">{l.searchNoResults}</p>
         </div>
       ) : (
         <div className="space-y-12">
@@ -137,7 +137,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
                       >
                         <span className="font-medium text-dark-text dark:text-white">{item.question}</span>
                         <svg
-                          className={`w-5 h-5 shrink-0 text-zinc-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+                          className={`w-5 h-5 shrink-0 text-zinc-600 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
                           fill="none"
                           viewBox="0 0 24 24"
                           stroke="currentColor"
@@ -147,7 +147,7 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
                         </svg>
                       </button>
                       <div className={`overflow-hidden transition-all duration-200 ${open ? "max-h-96 pb-4" : "max-h-0"}`}>
-                        <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.answer}</p>
+                        <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.answer}</p>
                       </div>
                     </div>
                   );

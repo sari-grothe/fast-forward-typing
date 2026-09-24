@@ -26,7 +26,7 @@ const charStatusColors: Record<CharStatus, string> = {
   correct: "text-indigo",
   incorrect: "text-peach bg-peach/20",
   current: "text-dark-text dark:text-white bg-indigo/20 dark:bg-indigo/30 border-b-2 border-indigo",
-  upcoming: "text-zinc-400 dark:text-zinc-500",
+  upcoming: "text-zinc-600 dark:text-zinc-500",
 };
 
 const i18n: Record<Locale, {
@@ -239,11 +239,11 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           <div className="flex items-center justify-center gap-10">
             <div>
               <p className="text-4xl font-extrabold text-indigo">{result.wpm}</p>
-              <p className="text-xs text-zinc-400 mt-1">{l.wpmLabel}</p>
+              <p className="text-xs text-zinc-600 mt-1">{l.wpmLabel}</p>
             </div>
             <div>
               <p className="text-4xl font-extrabold text-peach">{result.accuracy}%</p>
-              <p className="text-xs text-zinc-400 mt-1">{l.accuracyLabel}</p>
+              <p className="text-xs text-zinc-600 mt-1">{l.accuracyLabel}</p>
             </div>
           </div>
         </div>
@@ -265,10 +265,10 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           ] as const).map((group) => (
             <div key={group.title} className="rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-4">
               <p className="font-semibold text-sm text-dark-text dark:text-white">{group.title}</p>
-              <p className="text-xs text-zinc-400 mt-0.5 mb-3">{group.desc}</p>
+              <p className="text-xs text-zinc-600 mt-0.5 mb-3">{group.desc}</p>
               <div className="flex flex-wrap gap-1.5">
                 {group.keys.length === 0 ? (
-                  <span className="text-xs text-zinc-400">-</span>
+                  <span className="text-xs text-zinc-600">-</span>
                 ) : (
                   group.keys.map((k) => (
                     <kbd key={k} className={`inline-flex items-center justify-center min-w-7 h-7 px-1.5 rounded-md border text-sm font-mono font-semibold ${group.chip}`}>
@@ -309,7 +309,7 @@ export function PlacementTest({ locale }: { locale: Locale }) {
             )}
             <button
               onClick={() => window.location.reload()}
-              className="text-sm text-zinc-400 hover:text-indigo transition-colors"
+              className="text-sm text-zinc-600 hover:text-indigo transition-colors"
             >
               {l.redoCta}
             </button>
@@ -329,7 +329,7 @@ export function PlacementTest({ locale }: { locale: Locale }) {
       {/* Round header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-sm text-zinc-600 dark:text-zinc-400">
             {l.roundLabel} {round + 1} {l.of} {texts.length}: {l.roundNames[round]}
           </span>
           <div className="flex gap-1">
@@ -344,7 +344,7 @@ export function PlacementTest({ locale }: { locale: Locale }) {
           </div>
         </div>
         {!hasStarted && (
-          <span className="text-xs text-zinc-400 dark:text-zinc-500">{l.startHint}</span>
+          <span className="text-xs text-zinc-600 dark:text-zinc-500">{l.startHint}</span>
         )}
       </div>
 

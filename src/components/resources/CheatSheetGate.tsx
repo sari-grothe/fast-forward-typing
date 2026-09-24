@@ -71,7 +71,7 @@ export function CheatSheetGate({ locale, title, labels }: Props) {
     return (
       <div className="flex items-center gap-3 pt-2">
         <PrintButton label={labels.downloadPdf} />
-        <span className="text-xs text-zinc-400">{labels.downloadHint}</span>
+        <span className="text-xs text-zinc-600">{labels.downloadHint}</span>
       </div>
     );
   }
@@ -79,7 +79,7 @@ export function CheatSheetGate({ locale, title, labels }: Props) {
   return (
     <div className="mt-2 rounded-2xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-5 max-w-md">
       <p className="font-bold text-dark-text dark:text-white mb-1">{labels.gateTitle}</p>
-      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-4">{labels.gateDesc}</p>
+      <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">{labels.gateDesc}</p>
       <form onSubmit={handleSubmit} className="space-y-3" role="status" aria-live="polite">
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
         <div className="flex flex-col sm:flex-row gap-2">
@@ -104,7 +104,7 @@ export function CheatSheetGate({ locale, title, labels }: Props) {
             className="flex-1 rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark px-4 py-2.5 text-sm text-dark-text dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo focus:border-indigo transition-colors"
           />
         </div>
-        <label className="flex items-start gap-2.5 text-xs text-zinc-500 dark:text-zinc-400 cursor-pointer">
+        <label className="flex items-start gap-2.5 text-xs text-zinc-600 dark:text-zinc-400 cursor-pointer">
           <input
             type="checkbox"
             name="consent"

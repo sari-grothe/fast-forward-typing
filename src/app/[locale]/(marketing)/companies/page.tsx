@@ -130,7 +130,7 @@ export default async function CompaniesPage({ params }: Props) {
               <p className="text-xs font-semibold text-indigo uppercase tracking-wider mb-4">{hero.eyebrow}</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] mb-6">{hero.title}</h1>
               <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-300 leading-relaxed mb-6 max-w-2xl">{hero.subtitle}</p>
-              <p className="text-base text-zinc-500 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">{hero.fact}</p>
+              <p className="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-10 max-w-2xl border-l-2 border-peach pl-4">{hero.fact}</p>
               <div className="flex flex-wrap gap-3">
                 <CtaButton href={`#${contactId}`}>{hero.ctaPrimary}</CtaButton>
                 <CtaButton href={`/${locale}/speed-test`} variant="secondary" newTab>{hero.ctaSecondary}</CtaButton>
@@ -161,7 +161,7 @@ export default async function CompaniesPage({ params }: Props) {
                 ctaLabel={hero.ctaPrimary}
                 ctaHref={`#${contactId}`}
               />
-              <p className="text-center text-[11px] text-zinc-400/70 max-w-md mx-auto mt-6">{savings.source}</p>
+              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6">{savings.source}</p>
             </ScrollReveal>
           </div>
         </div>
@@ -174,7 +174,7 @@ export default async function CompaniesPage({ params }: Props) {
           <ScrollReveal>
             <p className="text-xs font-semibold text-peach uppercase tracking-wider text-center mb-3">{why.eyebrow}</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{why.title}</h2>
-            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">{why.intro}</p>
+            <p className="text-center text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-12 leading-relaxed">{why.intro}</p>
           </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 max-w-4xl mx-auto">
             {why.items.map((item, i) => (
@@ -185,7 +185,7 @@ export default async function CompaniesPage({ params }: Props) {
                   </span>
                   <div>
                     <h3 className="font-bold text-lg mb-1.5">{item.title}</h3>
-                    <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                    <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>
@@ -225,7 +225,7 @@ export default async function CompaniesPage({ params }: Props) {
                       </div>
                       <div>
                         <p className="font-bold mb-0.5">{item.title}</p>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </li>
                   </ScrollReveal>
@@ -245,7 +245,7 @@ export default async function CompaniesPage({ params }: Props) {
                       </div>
                       <div>
                         <p className="font-bold mb-0.5">{item.title}</p>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </li>
                   </ScrollReveal>
@@ -289,7 +289,7 @@ export default async function CompaniesPage({ params }: Props) {
         <section className="py-20">
           <FAQ title={faq.title} items={faq.items} />
           <ScrollReveal>
-            <p className="text-center text-sm text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mt-10 pt-8 border-t border-zinc-200 dark:border-dark-border">
+            <p className="text-center text-sm text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mt-10 pt-8 border-t border-zinc-200 dark:border-dark-border">
               {faqBridge}
             </p>
           </ScrollReveal>
@@ -302,7 +302,7 @@ export default async function CompaniesPage({ params }: Props) {
         <div className="mx-auto max-w-3xl px-6">
           <ScrollReveal>
             <h2 className="text-3xl sm:text-4xl font-bold text-center mb-4">{form.title}</h2>
-            <p className="text-center text-zinc-500 dark:text-zinc-400 max-w-xl mx-auto mb-12">{form.subtitle}</p>
+            <p className="text-center text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto mb-12">{form.subtitle}</p>
           </ScrollReveal>
           <ScrollReveal delay={80}>
             <ContactForm locale={locale} labels={form} />

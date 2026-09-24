@@ -267,7 +267,7 @@ function KeyCap({
       className={[
         "relative flex items-center justify-center rounded-lg border bg-white dark:bg-dark-surface select-none transition-all duration-75",
         keyDef.isModifier
-          ? "border-zinc-100 dark:border-dark-border text-[10px] text-zinc-400 dark:text-zinc-600 font-sans"
+          ? "border-zinc-100 dark:border-dark-border text-[10px] text-zinc-600 dark:text-zinc-600 font-sans"
           : "border-zinc-200 dark:border-dark-border text-sm font-mono font-medium shadow-[0_2px_0_0_rgba(0,0,0,0.05)] dark:shadow-[0_2px_0_0_rgba(255,255,255,0.03)]",
       ].join(" ")}
       style={{ width, height: 40, ...style }}
@@ -309,7 +309,7 @@ export function Keyboard({
   return (
     <div className={`select-none ${className}`}>
       {/* Finger placement instruction */}
-      <div className="flex items-center justify-center gap-1.5 mb-3 text-sm text-zinc-500 dark:text-zinc-400">
+      <div className="flex items-center justify-center gap-1.5 mb-3 text-sm text-zinc-600 dark:text-zinc-400">
         <span>{homeKeyInstruction[locale]}</span>
         <div className="flex gap-1">
           {leftKeys.map((k) => (
@@ -357,7 +357,7 @@ export function Keyboard({
 
       {/* Finger legend - compact */}
       {showFingers && (
-        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 mt-2.5 text-[11px] text-zinc-400 dark:text-zinc-500">
+        <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 mt-2.5 text-[11px] text-zinc-600 dark:text-zinc-500">
           {(["left-pinky", "left-ring", "left-middle", "left-index", "right-index", "right-middle", "right-ring", "right-pinky"] as Finger[]).map((f) => (
             <div key={f} className="flex items-center gap-1">
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: fingerColors[f] }} />

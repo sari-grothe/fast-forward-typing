@@ -46,12 +46,12 @@ function FeaturedCard({ item, locale }: { item: ResourceMeta; locale: Locale }) 
             <span className="text-[11px] font-semibold uppercase tracking-wider text-indigo">{ui.featured}</span>
             <span className="text-zinc-300 dark:text-dark-border">&middot;</span>
             <CategoryBadge category={item.category} locale={locale} />
-            <span className="text-[11px] text-zinc-400">{item.readingTime} {ui.readingTime}</span>
+            <span className="text-[11px] text-zinc-600">{item.readingTime} {ui.readingTime}</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white group-hover:text-indigo transition-colors">
             {item.title}
           </h3>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-lg">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-lg">
             {item.description}
           </p>
           <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo">
@@ -87,14 +87,14 @@ function ArticleCard({ item, locale }: { item: ResourceMeta; locale: Locale }) {
               {item.downloadLabel}
             </span>
           )}
-          <span className="text-[11px] text-zinc-400 ml-auto">{item.readingTime} {ui.readingTime}</span>
+          <span className="text-[11px] text-zinc-600 ml-auto">{item.readingTime} {ui.readingTime}</span>
         </div>
 
         <h3 className="text-base font-bold text-dark-text dark:text-white group-hover:text-indigo transition-colors mb-2 line-clamp-2">
           {item.title}
         </h3>
 
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 line-clamp-2 flex-1">
+        <p className="text-sm text-zinc-600 dark:text-zinc-400 line-clamp-2 flex-1">
           {item.description}
         </p>
 
@@ -123,7 +123,7 @@ function InlineCourseCta({ locale, copy }: { locale: Locale; copy: FinalCtaCopy 
       </div>
       <div className="flex-1 text-center sm:text-left">
         <p className="font-bold text-dark-text dark:text-white">{copy.title}</p>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{copy.description}</p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">{copy.description}</p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2.5 shrink-0">
         <CtaButton href={`/${locale}/placement`}>{copy.ctaLearn}</CtaButton>
@@ -142,7 +142,7 @@ function SectionHeader({ category, locale, count }: { category: ResourceCategory
         <path strokeLinecap="round" strokeLinejoin="round" d={categoryIcons[category]} />
       </svg>
       <h2 className="text-lg font-bold text-dark-text dark:text-white">{categoryLabels[locale][category]}</h2>
-      <span className="text-xs text-zinc-400">{count}</span>
+      <span className="text-xs text-zinc-600">{count}</span>
     </div>
   );
 }
@@ -186,7 +186,7 @@ export function ResourcesOverview({ items, locale, finalCta }: Props) {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">
             {ui.pageTitle}
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-base max-w-xl mx-auto">
+          <p className="text-zinc-600 dark:text-zinc-400 text-base max-w-xl mx-auto">
             {ui.pageSubtitle}
           </p>
         </div>

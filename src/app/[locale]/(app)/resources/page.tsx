@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title, description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `${BASE_URL}/${locale}/resources`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/resources`])),
+      languages: Object.fromEntries([...locales.map((l) => [l, `/${l}/resources`]), ["x-default", `/en/resources`]]),
     },
   };
 }

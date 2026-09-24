@@ -147,7 +147,7 @@ export function ProWall({ locale, onCleared }: { locale: Locale; onCleared: () =
 
       <div className="space-y-2">
         <h2 className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">{l.title}</h2>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">{l.subtitle}</p>
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">{l.subtitle}</p>
       </div>
 
       <div className="max-w-sm mx-auto rounded-xl border border-zinc-200 dark:border-dark-border bg-white/70 dark:bg-dark-surface/70 p-6 space-y-4 text-left">
@@ -155,7 +155,7 @@ export function ProWall({ locale, onCleared }: { locale: Locale; onCleared: () =
           <span className="text-sm font-medium text-indigo">Pro</span>
           <span className="text-3xl font-extrabold text-dark-text dark:text-white">{l.price}</span>
         </div>
-        <p className="text-xs text-zinc-400 -mt-2">{l.priceNote}</p>
+        <p className="text-xs text-zinc-600 -mt-2">{l.priceNote}</p>
         <ul className="space-y-2">
           {l.benefits.map((b) => (
             <li key={b} className="flex items-start gap-2.5 text-sm text-dark-text dark:text-zinc-300">
@@ -197,7 +197,7 @@ export function ProWall({ locale, onCleared }: { locale: Locale; onCleared: () =
       <button
         type="button"
         onClick={handleSkip}
-        className="text-sm text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 underline underline-offset-2 transition-colors"
+        className="text-sm text-zinc-600 hover:text-zinc-600 dark:hover:text-zinc-200 underline underline-offset-2 transition-colors"
       >
         {l.skipCta}
       </button>

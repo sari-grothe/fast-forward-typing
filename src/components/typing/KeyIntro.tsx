@@ -300,12 +300,12 @@ export function KeyIntro({ locale, onComplete }: Props) {
             {l.explainP1}
           </p>
 
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed text-center max-w-lg mx-auto">
             {l.explainP2} {l.explainP3}
           </p>
 
           {/* Press ENTER */}
-          <div className="flex items-center justify-center gap-2 pt-1 text-sm text-zinc-400 dark:text-zinc-500">
+          <div className="flex items-center justify-center gap-2 pt-1 text-sm text-zinc-600 dark:text-zinc-500">
             <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
               ENTER
             </kbd>
@@ -321,12 +321,12 @@ export function KeyIntro({ locale, onComplete }: Props) {
           {isRightHandDone && stepIndex === RIGHT_HAND_STEPS.length && (
             <div className="mb-4 pb-4 border-b border-zinc-100 dark:border-dark-border">
               <p className="font-semibold text-dark-text dark:text-white">{l.nowLeftHand}</p>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">{l.nowLeftHandDesc}</p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">{l.nowLeftHandDesc}</p>
             </div>
           )}
 
           {/* Finger instruction */}
-          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="text-sm text-zinc-600 dark:text-zinc-400">
             {l.useYour}{" "}
             <span className="font-semibold" style={{ color: fingerColor }}>
               {names[currentStep.finger]}
@@ -404,7 +404,7 @@ export function KeyIntro({ locale, onComplete }: Props) {
           </p>
 
           <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
-            <div className="flex items-center justify-center gap-2 text-sm text-zinc-400 dark:text-zinc-500">
+            <div className="flex items-center justify-center gap-2 text-sm text-zinc-600 dark:text-zinc-500">
               <span>{l.pressEnter}</span>
               <kbd className="px-3 py-1 rounded-lg border border-zinc-200 dark:border-dark-border bg-zinc-50 dark:bg-dark font-mono text-xs font-semibold text-dark-text dark:text-white">
                 ENTER
@@ -434,7 +434,7 @@ export function KeyIntro({ locale, onComplete }: Props) {
             <KeyCharacter pose="sitting-waving" size={80} />
           </div>
           <h2 className="text-xl font-bold text-dark-text dark:text-white">{l.allDone}</h2>
-          <p className="text-sm text-zinc-500 dark:text-zinc-400 max-w-md mx-auto">{l.allDoneDesc}</p>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md mx-auto">{l.allDoneDesc}</p>
           <button
             onClick={onComplete}
             className="mt-4 inline-flex items-center gap-2 rounded-xl bg-indigo px-8 py-3 text-sm font-semibold text-white hover:bg-indigo/90 transition-colors shadow-lg shadow-indigo/20"

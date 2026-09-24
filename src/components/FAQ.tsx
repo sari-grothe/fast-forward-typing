@@ -65,7 +65,7 @@ export function FAQ({ title, items }: Props) {
             >
               <span className="font-medium text-dark-text dark:text-white">{item.question}</span>
               <svg
-                className={`w-5 h-5 shrink-0 text-zinc-400 transition-transform duration-200 ${
+                className={`w-5 h-5 shrink-0 text-zinc-600 transition-transform duration-200 ${
                   open === i ? "rotate-180" : ""
                 }`}
                 fill="none"
@@ -81,7 +81,7 @@ export function FAQ({ title, items }: Props) {
                 open === i ? "max-h-96 pb-5" : "max-h-0"
               }`}
             >
-              <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">{renderAnswer(item)}</p>
+              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{renderAnswer(item)}</p>
             </div>
           </div>
         ))}

@@ -214,7 +214,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">
             {l.title}
           </h1>
-          <p className="text-zinc-500 dark:text-zinc-400 text-base max-w-md">{l.subtitle}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-base max-w-md">{l.subtitle}</p>
           <div className="flex items-center gap-3 text-sm">
             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo/10 text-indigo font-medium">
               {l.freeLessons}
@@ -246,7 +246,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">
               <p className="font-bold text-dark-text dark:text-white">{l.placementTitle}</p>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">{l.placementDesc}</p>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1 leading-relaxed">{l.placementDesc}</p>
             </div>
             <Link
               href={`/${locale}/placement`}
@@ -257,7 +257,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
           </div>
           <Link
             href={`/${locale}/lessons/0`}
-            className="inline-block text-xs text-zinc-400 hover:text-indigo transition-colors"
+            className="inline-block text-xs text-zinc-600 hover:text-indigo transition-colors"
           >
             {l.skipHint}
           </Link>
@@ -268,7 +268,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
         <div className="rounded-xl border border-indigo/20 bg-indigo/5 p-5 space-y-2.5">
           <div className="flex items-center justify-between gap-3">
             <p className="font-semibold text-dark-text dark:text-white">{l.planTitle}</p>
-            <Link href={`/${locale}/placement`} className="text-xs text-zinc-400 hover:text-indigo transition-colors">
+            <Link href={`/${locale}/placement`} className="text-xs text-zinc-600 hover:text-indigo transition-colors">
               {l.planRedo}
             </Link>
           </div>
@@ -301,7 +301,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
               </div>
               <div className="flex items-center gap-2">
                 <h2 className="text-sm font-semibold text-dark-text dark:text-white">{pName}</h2>
-                <span className="text-xs text-zinc-400 dark:text-zinc-500">
+                <span className="text-xs text-zinc-600 dark:text-zinc-500">
                   {phaseLessons.length} {phaseLessons.length === 1 ? l.lesson : l.lessons}
                 </span>
               </div>
@@ -330,7 +330,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
                         "flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center text-sm font-bold transition-colors",
                         record
                           ? "bg-indigo/10 text-indigo"
-                          : "bg-zinc-50 dark:bg-dark text-zinc-400 dark:text-zinc-500 group-hover:bg-indigo/10 group-hover:text-indigo",
+                          : "bg-zinc-50 dark:bg-dark text-zinc-600 dark:text-zinc-500 group-hover:bg-indigo/10 group-hover:text-indigo",
                       ].join(" ")}
                     >
                       {record ? (
@@ -346,7 +346,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
                       <p className="font-semibold text-sm text-dark-text dark:text-white truncate group-hover:text-indigo transition-colors">
                         {meta?.title ?? `Lesson ${lesson.id}`}
                       </p>
-                      <p className="text-xs text-zinc-400 dark:text-zinc-500 truncate">
+                      <p className="text-xs text-zinc-600 dark:text-zinc-500 truncate">
                         {lesson.newKeys.length > 0
                           ? `${l.keys}: ${lesson.newKeys.map((k) => displayKey(k)).join(", ")}`
                           : l.review}
@@ -365,7 +365,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
                         </span>
                       )}
                       {!isRecommended && !record && isSuggestedSkip && (
-                        <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-dark text-zinc-500">
+                        <span className="text-[11px] font-medium px-2 py-0.5 rounded-full bg-zinc-100 dark:bg-dark text-zinc-600">
                           {l.optionalBadge}
                         </span>
                       )}
@@ -402,7 +402,7 @@ export function LessonsList({ locale }: { locale: Locale }) {
           <div className="flex-1 space-y-3">
             <p className="text-xs font-semibold uppercase tracking-wider text-indigo">{l.finishEyebrow}</p>
             <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-dark-text dark:text-white">{l.finishTitle}</h2>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">{l.finishDesc}</p>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{l.finishDesc}</p>
             <ul className="space-y-1.5 pt-1">
               {l.finishPoints.map((point) => (
                 <li key={point} className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300">

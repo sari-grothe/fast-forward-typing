@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/certificate`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/certificate`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/certificate`]), ["x-default", `/en/certificate`]]),
     },
   };
 }
@@ -229,7 +229,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
             {l.heroTitle}
           </h1>
-          <p className="text-lg text-zinc-500 dark:text-zinc-400">
+          <p className="text-lg text-zinc-600 dark:text-zinc-400">
             {l.heroSubtitle}
           </p>
           <p className="inline-block rounded-full bg-electric-yellow/20 px-4 py-1.5 text-sm font-semibold text-dark-text dark:text-white">
@@ -246,19 +246,19 @@ export default async function CertificatePage({ params, searchParams }: Props) {
             </div>
             <div className="text-right">
               <p className="text-4xl font-extrabold text-dark-text dark:text-white">5 <span className="text-2xl">€</span></p>
-              <p className="text-xs text-zinc-400 mt-0.5">{l.priceNote}</p>
+              <p className="text-xs text-zinc-600 mt-0.5">{l.priceNote}</p>
             </div>
           </div>
 
           {hasResult && (
             <div className="rounded-lg bg-indigo/5 dark:bg-indigo/10 px-4 py-3 flex items-center justify-between">
-              <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">{l.yourResultLabel}</span>
+              <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">{l.yourResultLabel}</span>
               <span className="text-sm font-bold text-dark-text dark:text-white">{wpm} WPM · {accuracy}%</span>
             </div>
           )}
 
           <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
-            <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-3">
+            <p className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider mb-3">
               {l.includesTitle}
             </p>
             <ul className="space-y-2.5">
@@ -289,9 +289,9 @@ export default async function CertificatePage({ params, searchParams }: Props) {
             }}
           />
 
-          <p className="text-center text-xs text-zinc-400">{l.founderNote}</p>
+          <p className="text-center text-xs text-zinc-600">{l.founderNote}</p>
 
-          <p className="text-center text-xs text-zinc-400 flex items-center justify-center gap-1.5">
+          <p className="text-center text-xs text-zinc-600 flex items-center justify-center gap-1.5">
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
             </svg>
@@ -313,7 +313,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
             <h2 className="text-2xl sm:text-3xl font-bold">
               {l.previewTitle}
             </h2>
-            <p className="mt-2 text-zinc-500 dark:text-zinc-400">
+            <p className="mt-2 text-zinc-600 dark:text-zinc-400">
               {l.previewSubtitle}
             </p>
           </div>
@@ -326,7 +326,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
                 </div>
                 <div>
                   <p className="font-semibold text-dark-text dark:text-white">{b.title}</p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">{b.desc}</p>
+                  <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-0.5">{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -339,7 +339,7 @@ export default async function CertificatePage({ params, searchParams }: Props) {
         <h2 className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white">
           {l.testFirst}
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-lg mx-auto">
+        <p className="text-zinc-600 dark:text-zinc-400 max-w-lg mx-auto">
           {l.testFirstDesc}
         </p>
         <a

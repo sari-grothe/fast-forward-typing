@@ -100,7 +100,7 @@ export function ContactForm({ locale, labels }: Props) {
           <h3 ref={successHeadingRef} tabIndex={-1} className="text-2xl font-bold mb-3 focus:outline-none">
             {labels.successTitle}
           </h3>
-          <p className="text-zinc-500 dark:text-zinc-400 mb-8 max-w-md mx-auto">{labels.successText}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 mb-8 max-w-md mx-auto">{labels.successText}</p>
           <CtaButton href={`/${locale}/speed-test`}>{labels.successCta}</CtaButton>
         </div>
       ) : (
@@ -155,7 +155,7 @@ export function ContactForm({ locale, labels }: Props) {
             />
           </div>
 
-          <label className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer">
+          <label className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400 cursor-pointer">
             <input
               type="checkbox"
               name="consent"
@@ -177,7 +177,7 @@ export function ContactForm({ locale, labels }: Props) {
             {status === "error" && (
               <p className="text-sm text-peach font-medium text-center" role="alert">{labels.error}</p>
             )}
-            <p className="text-xs text-zinc-400 text-center max-w-sm">{labels.privacy}</p>
+            <p className="text-xs text-zinc-600 text-center max-w-sm">{labels.privacy}</p>
           </div>
         </form>
       )}

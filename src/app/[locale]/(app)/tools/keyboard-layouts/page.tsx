@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/tools/keyboard-layouts`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/tools/keyboard-layouts`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/tools/keyboard-layouts`]), ["x-default", `/en/tools/keyboard-layouts`]]),
     },
   };
 }
@@ -92,7 +92,7 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white">
               {m.title.split(" - ")[0]}
             </h1>
-            <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
+            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg max-w-2xl mx-auto">
               {m.description}
             </p>
           </header>

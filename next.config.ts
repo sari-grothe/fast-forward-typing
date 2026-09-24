@@ -3,6 +3,19 @@ import { locales } from "./src/i18n/config";
 import { companiesSlug } from "./src/i18n/routes";
 
 const nextConfig: NextConfig = {
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(self)" },
+        ],
+      },
+    ];
+  },
   // Language-native slugs (see src/i18n/routes.ts): the public URL is
   // /de/unternehmen etc., the page lives at /[locale]/companies.
   async rewrites() {

@@ -126,7 +126,7 @@ export function LessonView({ lessonId, locale }: Props) {
   if (!lesson) {
     return (
       <div className="text-center py-20">
-        <p className="text-zinc-500">{l.lessonNotFound}</p>
+        <p className="text-zinc-600">{l.lessonNotFound}</p>
         <Link href={`/${locale}/lessons`} className="text-indigo hover:underline mt-2 inline-block">
           {l.backToLessons}
         </Link>
@@ -180,7 +180,7 @@ export function LessonView({ lessonId, locale }: Props) {
           <h2 className="text-2xl font-bold text-dark-text dark:text-white">
             {meta?.completionMessage ?? "Complete!"}
           </h2>
-          <div className="flex items-center justify-center gap-6 text-sm text-zinc-500">
+          <div className="flex items-center justify-center gap-6 text-sm text-zinc-600">
             <span>{l.avgWpm}: <strong className="text-dark-text dark:text-white">{avgWpm} WPM</strong></span>
             <span>{l.avgAccuracy}: <strong className="text-dark-text dark:text-white">{avgAccuracy}%</strong></span>
           </div>
@@ -196,7 +196,7 @@ export function LessonView({ lessonId, locale }: Props) {
             ) : (
               <div className="space-y-2">
                 <p className="text-lg font-bold text-indigo">{l.courseComplete}</p>
-                <p className="text-sm text-zinc-500">{l.courseCompleteDesc}</p>
+                <p className="text-sm text-zinc-600">{l.courseCompleteDesc}</p>
               </div>
             )}
             <Link
@@ -215,7 +215,7 @@ export function LessonView({ lessonId, locale }: Props) {
     <div className="space-y-6">
       {/* Lesson header */}
       <div className="space-y-2">
-        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-zinc-500 dark:text-zinc-400">
+        <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-zinc-600 dark:text-zinc-400">
           <Link
             href={`/${locale}/lessons`}
             className="inline-flex items-center gap-1.5 hover:text-indigo transition-colors"
@@ -249,7 +249,7 @@ export function LessonView({ lessonId, locale }: Props) {
                   />
                 ))}
               </div>
-              <div className="flex items-center justify-between pt-1.5 text-xs text-zinc-400 dark:text-zinc-500">
+              <div className="flex items-center justify-between pt-1.5 text-xs text-zinc-600 dark:text-zinc-500">
                 <span>{l.progressDone(done, all.length)}</span>
                 {left > 0 && <span>{l.progressLeft(left)}</span>}
               </div>
@@ -259,12 +259,12 @@ export function LessonView({ lessonId, locale }: Props) {
         <h1 className="text-2xl sm:text-3xl font-bold text-dark-text dark:text-white">
           {meta?.title ?? `Lesson ${lessonId}`}
         </h1>
-        <p className="text-zinc-500 dark:text-zinc-400">
+        <p className="text-zinc-600 dark:text-zinc-400">
           {meta?.subtitle}
         </p>
         {meta?.newKeysLabel && lesson.newKeys.length > 0 && (
           <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-zinc-500">{lessonId === 0 ? l.homePosition : l.newKeys}:</span>
+            <span className="text-zinc-600">{lessonId === 0 ? l.homePosition : l.newKeys}:</span>
             <div className="flex flex-wrap gap-1">
               {(lessonId === 0 ? homeRestingKeys[locale] : lesson.newKeys).map((key) => (
                 <kbd
@@ -288,7 +288,7 @@ export function LessonView({ lessonId, locale }: Props) {
             <KeyCharacter pose="pointing" size={44} />
           </div>
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-1">{l.insightLabel}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-1">{l.insightLabel}</p>
             <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{meta.insight}</p>
           </div>
         </div>

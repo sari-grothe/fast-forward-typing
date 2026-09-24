@@ -97,7 +97,7 @@ export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Prop
         <h3 ref={successHeadingRef} tabIndex={-1} className="text-base font-bold text-dark-text dark:text-white focus:outline-none">
           {labels.successTitle}
         </h3>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400">{labels.successText}</p>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400">{labels.successText}</p>
       </div>
     );
   }
@@ -115,7 +115,7 @@ export function WaitlistForm({ locale, product, labels, extra, onSuccess }: Prop
         placeholder={labels.emailPlaceholder}
         className="w-full rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark px-4 py-3 text-base text-dark-text dark:text-white placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo focus:border-indigo transition-colors"
       />
-      <label className="flex items-start gap-2.5 text-sm text-zinc-500 dark:text-zinc-400 cursor-pointer">
+      <label className="flex items-start gap-2.5 text-sm text-zinc-600 dark:text-zinc-400 cursor-pointer">
         <input
           type="checkbox"
           name="consent"

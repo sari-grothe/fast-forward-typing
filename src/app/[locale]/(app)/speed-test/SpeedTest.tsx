@@ -273,7 +273,7 @@ export function SpeedTest({ locale }: Props) {
         <div className="text-center space-y-4 pt-6">
           <div className="text-5xl">&#9889;</div>
           <h2 className="text-3xl sm:text-4xl font-bold">{l.resultsTitle}</h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-lg max-w-lg mx-auto">{funFacts[locale](wpm)}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-lg mx-auto">{funFacts[locale](wpm)}</p>
         </div>
 
         {/* --- Section 2: WPM + Accuracy big cards --- */}
@@ -329,7 +329,7 @@ export function SpeedTest({ locale }: Props) {
             />
           </div>
 
-          <div className="flex justify-between text-xs text-zinc-400 mt-2 mb-6">
+          <div className="flex justify-between text-xs text-zinc-600 mt-2 mb-6">
             <span>0</span>
             <span>{l.benchmarkAvg} (42)</span>
             <span>{l.benchmarkPro} (80)</span>
@@ -337,7 +337,7 @@ export function SpeedTest({ locale }: Props) {
           </div>
 
           <p className="text-base text-dark-text dark:text-white font-medium mb-2">{tier.comparison}</p>
-          <div className="flex flex-wrap items-center gap-x-2 text-sm text-zinc-500">
+          <div className="flex flex-wrap items-center gap-x-2 text-sm text-zinc-600">
             <span>{l.benchmarkMatches}:</span>
             <span className="font-semibold text-dark-text dark:text-white">{profession.profession}</span>
             <span>({profession.wpmRange} {l.wpmUnit})</span>
@@ -349,7 +349,7 @@ export function SpeedTest({ locale }: Props) {
           <h3 className="text-xl font-bold text-dark-text dark:text-white mb-2">{l.focusSection}</h3>
           {weakKeys.length > 0 ? (
             <>
-              <p className="text-sm text-zinc-500 mb-5">{l.focusNudge(weakKeys.length)}</p>
+              <p className="text-sm text-zinc-600 mb-5">{l.focusNudge(weakKeys.length)}</p>
               <div className="flex gap-3 flex-wrap">
                 {weakKeys.map(([key, count]) => (
                   <div
@@ -365,7 +365,7 @@ export function SpeedTest({ locale }: Props) {
               </div>
             </>
           ) : (
-            <p className="text-base text-zinc-500 leading-relaxed">{l.focusPerfect}</p>
+            <p className="text-base text-zinc-600 leading-relaxed">{l.focusPerfect}</p>
           )}
         </div>
 
@@ -395,7 +395,7 @@ export function SpeedTest({ locale }: Props) {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div>
                 <p className="text-xl sm:text-2xl font-bold text-dark-text dark:text-white">{l.certTitle}</p>
-                <p className="text-base text-zinc-500 mt-1">{l.certDesc}</p>
+                <p className="text-base text-zinc-600 mt-1">{l.certDesc}</p>
               </div>
               <span className="inline-flex items-center justify-center gap-2 shrink-0 rounded-xl bg-electric-yellow px-6 py-3 text-base font-bold text-dark-text group-hover:bg-electric-yellow/80 transition-colors">
                 {l.certCta} <span className="text-indigo">&gt;&gt;</span>
@@ -408,7 +408,7 @@ export function SpeedTest({ locale }: Props) {
         <div className="flex items-center justify-center gap-3 pt-2">
           <button
             onClick={handleNewText}
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-600 hover:text-indigo hover:border-indigo/30 transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 2v6h-6" />
@@ -426,7 +426,7 @@ export function SpeedTest({ locale }: Props) {
                 setTimeout(() => setCopied(false), 2000);
               });
             }}
-            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-600 hover:text-indigo hover:border-indigo/30 transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8" />
@@ -445,7 +445,7 @@ export function SpeedTest({ locale }: Props) {
       <div className="flex flex-col sm:flex-row sm:items-end gap-4">
         <div>
           <h1 className="text-3xl font-bold">{l.title}</h1>
-          <p className="mt-2 text-zinc-400">{l.subtitle(mins)}</p>
+          <p className="mt-2 text-zinc-600">{l.subtitle(mins)}</p>
         </div>
         <div className="flex items-center rounded-lg border border-zinc-200 dark:border-dark-border bg-white/5 dark:bg-dark-surface p-0.5 text-sm">
           {durations.map((d) => (
@@ -455,7 +455,7 @@ export function SpeedTest({ locale }: Props) {
               className={`rounded-md px-3 py-1.5 font-medium transition-colors ${
                 d === seconds
                   ? "bg-indigo text-white shadow-sm"
-                  : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                  : "text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300"
               }`}
             >
               {d / 60} {l.minLabel}
@@ -476,7 +476,7 @@ export function SpeedTest({ locale }: Props) {
 
       <button
         onClick={handleNewText}
-        className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-500 hover:text-indigo hover:border-indigo/30 transition-colors"
+        className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-4 py-2 text-sm text-zinc-600 hover:text-indigo hover:border-indigo/30 transition-colors"
       >
         <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 2v6h-6" />

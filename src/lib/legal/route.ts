@@ -22,7 +22,7 @@ export function legalMetadata(key: LegalKey, locale: string): Metadata {
     openGraph: { title: doc.title, description: doc.description, type: "website", images: ogImages(l) },
     alternates: {
       canonical: `${BASE_URL}/${l}/${key}`,
-      languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/${key}`])),
+      languages: Object.fromEntries([...locales.map((loc) => [loc, `/${loc}/${key}`]), ["x-default", `/en/${key}`]]),
     },
   };
 }

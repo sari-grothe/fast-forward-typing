@@ -50,7 +50,7 @@ export function ArticleToc({ headings, label }: Props) {
               } ${
                 activeId === h.id
                   ? "border-indigo text-indigo font-medium"
-                  : "border-transparent text-zinc-500 dark:text-zinc-400 hover:text-dark-text dark:hover:text-white"
+                  : "border-transparent text-zinc-600 dark:text-zinc-400 hover:text-dark-text dark:hover:text-white"
               }`}
             >
               {h.text}

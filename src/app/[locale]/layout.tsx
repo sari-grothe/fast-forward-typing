@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Poppins, JetBrains_Mono } from "next/font/google";
@@ -31,6 +31,13 @@ const jetbrainsMono = JetBrains_Mono({
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#eeecfe" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0b" },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -143,7 +150,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               </div>
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.learnTyping}</p>
-                <div className="flex flex-col gap-2 text-zinc-500">
+                <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={`/${locale}/speed-test`} className="hover:text-indigo transition-colors">{dict.footer.typingTest}</Link>
                   <Link href={`/${locale}/lessons`} className="hover:text-indigo transition-colors">{dict.footer.typingCourse}</Link>
                   <Link href={`/${locale}/certificate`} className="hover:text-indigo transition-colors">{dict.footer.certificate}</Link>
@@ -151,7 +158,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               </div>
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.forCompanies}</p>
-                <div className="flex flex-col gap-2 text-zinc-500">
+                <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={companiesPath(locale)} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
                   <Link href={`${companiesPath(locale)}#${companiesAnchorId(locale, "pricing")}`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
                   <Link href={`/${locale}/business-terms`} className="hover:text-indigo transition-colors">{dict.footer.businessTerms}</Link>
@@ -159,20 +166,20 @@ export default async function LocaleLayout({ children, params }: Props) {
               </div>
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.tools}</p>
-                <div className="flex flex-col gap-2 text-zinc-500">
+                <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={`/${locale}/tools/keyboard-layouts`} className="hover:text-indigo transition-colors">{dict.footer.keyboardLayouts}</Link>
                 </div>
               </div>
               <div>
                 <p className="font-semibold text-dark-text dark:text-white mb-3">{dict.footer.resources}</p>
-                <div className="flex flex-col gap-2 text-zinc-500">
+                <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={`/${locale}/resources`} className="hover:text-indigo transition-colors">{dict.footer.resourcesLink}</Link>
                   <Link href={`/${locale}/help`} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</Link>
                   <Link href={`/${locale}/contact`} className="hover:text-indigo transition-colors">{dict.footer.contact}</Link>
                 </div>
               </div>
             </div>
-            <div className="border-t border-zinc-200 dark:border-dark-border pt-4 mb-4 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-400">
+            <div className="border-t border-zinc-200 dark:border-dark-border pt-4 mb-4 flex flex-wrap items-center justify-center gap-4 text-sm text-zinc-600">
               <Link href={`/${locale}/privacy`} className="hover:text-indigo transition-colors">{dict.footer.privacy}</Link>
               <span className="text-zinc-300 dark:text-dark-border">·</span>
               <Link href={`/${locale}/terms`} className="hover:text-indigo transition-colors">{dict.footer.terms}</Link>
@@ -183,7 +190,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               <Link href={`/${locale}/imprint`} className="hover:text-indigo transition-colors">{dict.footer.imprint}</Link>
               <CookieSettingsButton label={dict.footer.cookieSettings} />
             </div>
-            <div className="flex items-center justify-between text-sm text-zinc-500">
+            <div className="flex items-center justify-between text-sm text-zinc-600">
               <p>&copy; {new Date().getFullYear()} Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing</p>
               <ThemeToggle label={dict.footer.darkMode} />
             </div>

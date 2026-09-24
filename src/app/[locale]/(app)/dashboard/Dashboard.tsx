@@ -91,15 +91,15 @@ export function Dashboard({ locale }: { locale: Locale }) {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
-          <p className="text-sm text-zinc-500">{l.bestWpm}</p>
+          <p className="text-sm text-zinc-600">{l.bestWpm}</p>
           <p className="mt-2 text-3xl font-bold text-indigo">{bestWpm ?? l.noData}</p>
         </div>
         <div className="rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
-          <p className="text-sm text-zinc-500">{l.avgAccuracy}</p>
+          <p className="text-sm text-zinc-600">{l.avgAccuracy}</p>
           <p className="mt-2 text-3xl font-bold text-peach">{avgAccuracy !== null ? `${avgAccuracy}%` : l.noData}</p>
         </div>
         <div className="rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6">
-          <p className="text-sm text-zinc-500">{l.lessonsDone}</p>
+          <p className="text-sm text-zinc-600">{l.lessonsDone}</p>
           <p className="mt-2 text-3xl font-bold text-dark-text dark:text-electric-yellow">
             {done}/{totalLessons}
           </p>
@@ -122,7 +122,7 @@ export function Dashboard({ locale }: { locale: Locale }) {
         <div className="rounded-xl border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface p-6 space-y-3">
           <p className="font-semibold text-dark-text dark:text-white">{l.weakKeysTitle}</p>
           {weak.length === 0 ? (
-            <p className="text-sm text-zinc-500">{l.weakKeysEmpty}</p>
+            <p className="text-sm text-zinc-600">{l.weakKeysEmpty}</p>
           ) : (
             <div className="flex flex-wrap gap-1.5">
               {weak.map((k) => (

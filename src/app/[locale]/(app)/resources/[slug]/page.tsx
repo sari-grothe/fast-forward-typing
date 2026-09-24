@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const languages = Object.fromEntries(
     Object.entries(translations).map(([l, s]) => [l, `/${l}/resources/${s}`])
   );
+  if (translations.en) languages["x-default"] = `/en/resources/${translations.en}`;
   return {
     title,
     description: resource.description,
@@ -115,7 +116,7 @@ export default async function ResourceArticlePage({ params }: Props) {
               <div className="flex items-center justify-between mb-6">
                 <Link
                   href={`/${locale}/resources`}
-                  className="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-indigo transition-colors"
+                  className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-indigo transition-colors"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -126,9 +127,9 @@ export default async function ResourceArticlePage({ params }: Props) {
                   <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${categoryColors[resource.category]}`}>
                     {categoryLabels[locale as Locale][resource.category]}
                   </span>
-                  <span className="text-zinc-400">{resource.readingTime} {ui.readingTime}</span>
+                  <span className="text-zinc-600">{resource.readingTime} {ui.readingTime}</span>
                   <span className="text-zinc-300 dark:text-zinc-600">·</span>
-                  <time dateTime={resource.date} className="text-zinc-400">
+                  <time dateTime={resource.date} className="text-zinc-600">
                     {ui.updatedLabel} {new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(new Date(resource.date))}
                   </time>
                 </div>
@@ -141,7 +142,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white leading-tight">
                   {resource.title}
                 </h1>
-                <p className="text-zinc-500 dark:text-zinc-400 text-base sm:text-lg max-w-2xl">
+                <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg max-w-2xl">
                   {resource.description}
                 </p>
                 {isLeadMagnet && (
@@ -176,7 +177,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                 <ul className="mt-3 space-y-2 text-sm">
                   {headings.map((hd) => (
                     <li key={hd.id} className={hd.level === 3 ? "pl-4" : ""}>
-                      <a href={`#${hd.id}`} className="text-zinc-500 dark:text-zinc-400 hover:text-indigo transition-colors">
+                      <a href={`#${hd.id}`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                         {hd.text}
                       </a>
                     </li>
@@ -191,7 +192,7 @@ export default async function ResourceArticlePage({ params }: Props) {
             {showTeamCta && (
               <div className="lg:hidden mb-8 rounded-xl border border-peach/30 bg-peach/5 dark:bg-peach/10 p-4">
                 <p className="text-sm font-semibold text-dark-text dark:text-white mb-1">{ui.teamCtaTitle}</p>
-                <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-3">{ui.teamCtaDesc}</p>
+                <p className="text-xs text-zinc-600 dark:text-zinc-400 mb-3">{ui.teamCtaDesc}</p>
                 <Link href={companiesPath(locale)} className="text-sm font-semibold text-indigo hover:underline">
                   {ui.teamCtaLink} &gt;&gt;
                 </Link>
@@ -236,7 +237,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                         <p className="text-sm font-semibold text-dark-text dark:text-white mt-2 group-hover:text-indigo transition-colors line-clamp-2">
                           {r.title}
                         </p>
-                        <p className="text-xs text-zinc-400 mt-1">{r.readingTime} {ui.readingTime}</p>
+                        <p className="text-xs text-zinc-600 mt-1">{r.readingTime} {ui.readingTime}</p>
                       </Link>
                     ))}
                   </div>

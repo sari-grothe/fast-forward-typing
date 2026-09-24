@@ -32,7 +32,7 @@ export function LegalPage({ docKey, locale }: { docKey: LegalKey; locale: Locale
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-dark-text dark:text-white leading-tight">
               {doc.title}
             </h1>
-            <p className="text-sm text-zinc-400">
+            <p className="text-sm text-zinc-600">
               {l.updated}: {doc.updated}
             </p>
           </header>
@@ -43,7 +43,7 @@ export function LegalPage({ docKey, locale }: { docKey: LegalKey; locale: Locale
               <ul className="mt-3 space-y-2 text-sm">
                 {headings.map((hd) => (
                   <li key={hd.id} className={hd.level === 3 ? "pl-4" : ""}>
-                    <a href={`#${hd.id}`} className="text-zinc-500 dark:text-zinc-400 hover:text-indigo transition-colors">
+                    <a href={`#${hd.id}`} className="text-zinc-600 dark:text-zinc-400 hover:text-indigo transition-colors">
                       {hd.text}
                     </a>
                   </li>
@@ -55,7 +55,7 @@ export function LegalPage({ docKey, locale }: { docKey: LegalKey; locale: Locale
           <Markdown content={content} className="[&_p]:whitespace-pre-line [&_blockquote]:whitespace-pre-line [&_p]:max-w-3xl [&_ul]:max-w-3xl [&_ol]:max-w-3xl [&_blockquote]:max-w-3xl" />
 
           <nav aria-label={l.more} className="mt-14 pt-6 border-t border-zinc-200 dark:border-dark-border">
-            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-3">{l.more}</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 mb-3">{l.more}</p>
             <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               {navOrder
                 .filter((k) => k !== docKey)
