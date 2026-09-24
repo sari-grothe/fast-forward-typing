@@ -43,3 +43,5 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 - [ ] **Checkout-Pflichten bauen** (Stripe-Anbindung): Button "Zahlungspflichtig bestellen", Häkchen für Verzicht auf das Widerrufsrecht bei digitalen Inhalten, Links zu AGB/Widerruf/Datenschutz, Bestätigungsmail mit AGB und Widerrufsbelehrung
 - [ ] **Verträge zur Auftragsverarbeitung** mit Vercel, Stripe, Supabase, Resend, Formspree, ALL-INKL und Google abschließen (siehe legal-golive.md Punkt 5)
 - [ ] Telefonnummer in `company.ts` prüfen (10 Stellen, internationales Format)
+- [ ] **Formspree: Restrict to Domain** am Go-live-Tag von `skip-the-manual.vercel.app` auf `fastforwardtyping.com` umstellen (erst wenn die Domain verbunden ist, sonst gehen Test-Formulare nicht mehr); danach mit dem Formular auf der Live-Seite testen. Anleitung: contact-form-formspree.md, Abschnitt Einstellungen
+- [ ] **Formspree: alte Einsendungen löschen** (alle 6 Monate, Fristen: Kontakt 12 Monate, Warteliste 24 Monate)
