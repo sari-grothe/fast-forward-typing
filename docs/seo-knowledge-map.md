@@ -1,4 +1,4 @@
-# SEO-Wissenslandkarte: wo alles liegt und wie wir für AI ranken (Stand 24.09.2026)
+# SEO-Wissenslandkarte: wo alles liegt und wie wir für AI ranken (Stand 24.09.2026, abends)
 
 Zweck: eine Seite, die jede Session zuerst liest, bevor sie an SEO, Inhalten
 oder AI-Sichtbarkeit arbeitet. Sie verweist auf alles, was zu SEO existiert,
@@ -10,7 +10,8 @@ im Repo und außerhalb. Der operative Plan bleibt in
 
 | Datei | Was drin ist |
 |---|---|
-| [docs/seo-geo-roadmap.md](seo-geo-roadmap.md) | Ist-Stand nach dem technischen SEO-Pass (Lighthouse, Sitemap, hreflang, JSON-LD), offene Technik-Reste, Inhaltsplan, GEO-Plan, Reihenfolge |
+| [docs/seo-geo-roadmap.md](seo-geo-roadmap.md) | die Roadmap (neu am 24.09.2026): Prinzipien, Phasen 0-4, offene Entscheidungen, Messkadenz mit den 10 AI-Prüffragen, Erledigt-Log |
+| [docs/seo-audit-2026-09-24.md](seo-audit-2026-09-24.md) | Audit: Crawl aller 61 URLs, Indexierung, Inhalt, Keyword-Abdeckung gegen die Research, AI-Zitierbarkeit, Spannungen G1-G5 |
 | [docs/copywriting-de.md](copywriting-de.md) | keyword-basiertes DE-Glossar (Tippgeschwindigkeit statt Tipptest, 10-Finger-System statt Tippkurs, Ressourcen als Hub); Prozess zur Wortwahl |
 | [docs/golive-checklist.md](golive-checklist.md) | SEO-Status als Checkliste (GSC offen, GA4-Datenschutz offen, Inhaltsausbau offen) |
 | [docs/article-template.md](article-template.md) | Layout-Standard für Artikel: Anker-IDs, TOC, CTA-Karte |
@@ -120,21 +121,12 @@ entschieden:
   Preise stehen bereits im FACTS-Block von llms.txt. Eine separate Datei
   lohnt erst, wenn Stripe live ist (ab 05/2027).
 
-## 5. Eine Spannung, die die Roadmap nicht auflöst
+## 5. Aufgelöste Spannung
 
-`ai-search-and-architecture.md` (Juni 2026) zeigt: jede "lernen"-Query
-(10 finger schreiben lernen, 15.000/Monat) hat bereits ein AI Overview,
-Google beantwortet sie selbst. Tool-Queries (typing test, tastatur test,
-compteur de mots, test clavier azerty) haben keines und brauchen ein
-interaktives Werkzeug. Die Empfehlung dort: Tools zuerst, Inhalt zweitens.
-
-Die Roadmap vom 24.09. setzt B1 (Kursseite auf 800-1.200 Wörter für "10
-finger schreiben lernen") vor B3 (Text unter Tipptest, Einstufung,
-Tastatur-Tool). Beides ist richtig, aber die Reihenfolge sollte beim
-nächsten Inhaltsblock geprüft werden: der Text unter den Tool-Seiten
-zielt auf die AI-sicheren Keywords, die Kursseite auf ein Keyword, dessen
-Klicks Google zunehmend behält. Der FR-Tool-Cluster (bare `qwerty` 11.000/Monat,
-`compteur de mots` 25.000/Monat) ist komplett AI-Overview-frei.
+Die Research vom Juni (Tools zuerst, weil jede "lernen"-Query ein AI Overview
+hat) und die alte Roadmap (Kursseite zuerst) widersprachen sich. Die neue
+Roadmap folgt der Research: Benchmark-, Tool- und Vergleichsseiten vor dem
+Ausbau der Kursseite. Details im Audit, Abschnitt G.
 
 ## 6. Pflege dieser Datei
 
