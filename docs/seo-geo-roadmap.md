@@ -137,4 +137,9 @@ einer der 10 Fragen, 1.000 Tests für 3.2, 25 Referring Domains.
   100, Unternehmen 100, Hilfe 100, Artikel 99, Einstufung 93-98 (LCP 2,3-2,9 s).
 - 24.09.2026: Sprachnative Slugs (ce448c9), llms.txt + llms-full.txt, GA4 nach
   Consent, Rechtstexte DE/EN/FR (noindex bis SIRET).
+- 24.09.2026: Prüfskripte `scripts/audit/crawl.py` und `lighthouse-all.sh`
+  angelegt (6b030e0); erster Volllauf fand und behob: dynamisch gerenderte
+  Zertifikats- und Lektionsseiten (Metadaten im Body statt Head), 404 auf
+  `/apple-icon`, Chip-Kontrast 1,6:1 auf sechs Artikeln, Überschriftenreihenfolge
+  im Ressourcen-Hub, Select-Labels im Tastaturlayout-Tool (c2d4533).
 - 24.09.2026: Audit und diese Roadmap.
