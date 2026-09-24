@@ -38,6 +38,26 @@ Quick reference:
 
 /llms.txt and /llms-full.txt are generated routes (src/lib/llms.ts). Lessons, guides and FAQ flow in automatically from their data sources - do not duplicate them. But the hand-written FACTS block and STATIC_PAGES list in src/lib/llms.ts MUST be updated whenever positioning, pricing, major features or top-level pages change (e.g. paywall goes live, B2B pages launch, new tools). Treat this as part of the definition of done for any such change.
 
+## Final checks ("komplette Prüfung")
+
+When Sarah asks for a complete or final check, "checked" means the full audit
+ran green, nothing less:
+
+1. `python3 scripts/audit/crawl.py` - every sitemap URL plus every internal
+   link (status, canonical, hreflang self-reference + x-default, title and
+   description lengths, single H1, og:image, JSON-LD parses, img alt, native
+   slugs in links, no redirect chains, legacy redirects, robots/llms, 404,
+   security headers). Exit 0 required.
+2. `sh scripts/audit/lighthouse-all.sh` - Lighthouse mobile on every sitemap
+   URL plus lesson and legal pages, all three locales. Thresholds: A11y, Best
+   Practices, SEO 100; Performance >= 90; LCP < 2.5 s; CLS < 0.1. Exit 0.
+3. Report the numbers, including what the scripts do not cover (content depth,
+   backlinks, Search Console data). Never call a sample of pages "geprüft".
+
+Lesson from 2026-09-24: three "final" checks in a row each sampled 4-6 pages
+and missed a CLS bug, a contrast bug, streamed metadata on the certificate
+page and a 404 apple-touch-icon that the full run found immediately.
+
 ## Conventions
 
 - Push directly to main, no PRs

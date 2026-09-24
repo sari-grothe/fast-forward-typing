@@ -4,12 +4,12 @@ import { locales, type Locale } from "@/i18n/config";
 import { FAQ } from "@/components/FAQ";
 import { certificateFAQ } from "@/lib/faq-data";
 import { CertificateStackSVG } from "@/components/CertificateStackSVG";
-import { WaitlistForm } from "@/components/WaitlistForm";
+import { Suspense } from "react";
+import { CertificateSignup } from "@/components/CertificateSignup";
 import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ wpm?: string; accuracy?: string }>;
 };
 
 const meta: Record<Locale, { title: string; description: string }> = {
@@ -207,11 +207,9 @@ const benefitIcons = [
   </svg>,
 ];
 
-export default async function CertificatePage({ params, searchParams }: Props) {
+export default async function CertificatePage({ params }: Props) {
   const { locale } = await params;
-  const { wpm, accuracy } = await searchParams;
   const l = i18n[locale as Locale];
-  const hasResult = wpm && accuracy;
 
   const benefits = [
     { title: l.benefit1Title, desc: l.benefit1Desc },
@@ -251,13 +249,6 @@ export default async function CertificatePage({ params, searchParams }: Props) {
             </div>
           </div>
 
-          {hasResult && (
-            <div className="rounded-lg bg-indigo/5 dark:bg-indigo/10 px-4 py-3 flex items-center justify-between">
-              <span className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider">{l.yourResultLabel}</span>
-              <span className="text-sm font-bold text-dark-text dark:text-white">{wpm} WPM · {accuracy}%</span>
-            </div>
-          )}
-
           <div className="border-t border-zinc-100 dark:border-dark-border pt-4">
             <p className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 uppercase tracking-wider mb-3">
               {l.includesTitle}
@@ -274,21 +265,24 @@ export default async function CertificatePage({ params, searchParams }: Props) {
             </ul>
           </div>
 
-          <WaitlistForm
-            locale={locale}
-            product="certificate"
-            extra={hasResult ? { wpm: wpm as string, accuracy: accuracy as string } : undefined}
-            labels={{
-              emailPlaceholder: l.emailPlaceholder,
-              submit: l.waitlistSubmit,
-              sending: l.waitlistSending,
-              error: l.waitlistError,
-              successTitle: l.waitlistSuccessTitle,
-              successText: l.waitlistSuccessText,
-              consentText: l.waitlistConsentText,
-              consentLinkText: l.waitlistConsentLinkText,
-            }}
-          />
+          {/* Suspense: useSearchParams needs a boundary for the static
+              prerender of this page. */}
+          <Suspense>
+            <CertificateSignup
+              locale={locale}
+              resultLabel={l.yourResultLabel}
+              labels={{
+                emailPlaceholder: l.emailPlaceholder,
+                submit: l.waitlistSubmit,
+                sending: l.waitlistSending,
+                error: l.waitlistError,
+                successTitle: l.waitlistSuccessTitle,
+                successText: l.waitlistSuccessText,
+                consentText: l.waitlistConsentText,
+                consentLinkText: l.waitlistConsentLinkText,
+              }}
+            />
+          </Suspense>
 
           <p className="text-center text-xs text-zinc-600">{l.founderNote}</p>
 
