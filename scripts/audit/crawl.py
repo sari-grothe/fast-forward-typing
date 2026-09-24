@@ -17,6 +17,8 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
 BASE = sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "https://fastforwardtyping.com"
+# Canonicals and hreflang always point at production, also on a local build.
+PROD = "https://fastforwardtyping.com"
 LOCALES = ("de", "en", "fr")
 UA = {"User-Agent": "fft-audit/1.0"}
 
@@ -58,6 +60,7 @@ def fail(url, what):
 def audit_page(url):
     st, loc, body = fetch(url)
     row = {"url": url, "status": st}
+    prod_url = url.replace(BASE, PROD)
     if st != 200:
         fail(url, f"status {st} {loc}")
         return row, set()
@@ -74,14 +77,14 @@ def audit_page(url):
     canon = re.findall(r'<link rel="canonical" href="([^"]+)"', head)
     if len(canon) != 1:
         fail(url, f"{len(canon)} canonical tags")
-    elif canon[0] != url:
+    elif canon[0] != prod_url:
         fail(url, f"canonical {canon[0]}")
     alts = dict(re.findall(r'<link rel="alternate" hrefLang="([^"]+)" href="([^"]+)"', head))
     row["hreflang"] = len(alts)
     noindex = "noindex" in (re.search(r'<meta name="robots" content="([^"]*)"', head) or [""])[0] if re.search(r'<meta name="robots"', head) else False
     row["noindex"] = noindex
     if alts:
-        if locale and alts.get(locale) != url:
+        if locale and alts.get(locale) != prod_url:
             fail(url, f"hreflang self-reference missing/wrong ({alts.get(locale)})")
         if "x-default" not in alts:
             fail(url, "hreflang without x-default")
