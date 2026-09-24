@@ -48,3 +48,6 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 - [x] Google Analytics 4 angelegt (G-1FHTX8E42N, in Vercel als NEXT_PUBLIC_GA_ID, 24.09.2026); Banner live geprüft
 - [ ] **GA4-Datenschutz-Einstellungen**: Datenaufbewahrung 14 Monate, Google Signals aus, personalisierte Werbung aus, Datenfreigabe aus, Datenverarbeitungsbedingungen akzeptieren (Verwaltung > Datenerhebung / Datenaufbewahrung / Kontoeinstellungen)
 - [ ] Google Search Console: Domain-Property fastforwardtyping.com anlegen, Sitemap einreichen
+- [x] SEO-Audit 24.09.2026 umgesetzt (hreflang, Titel, OG-Bilder, Lektionen noindex, Sitemap-Daten, llms-full) - Commit 83a3986
+- [ ] **Inhalt ausbauen** (Hebel für die großen Keywords): je Sprache die drei Kernartikel (10-Finger-System lernen, schneller tippen, was ist das 10-Finger-System) auf 1.500 bis 2.000 Wörter mit Bildern, Übungen und Quellen; Quellen für alle Zahlen (Cambridge, Aalto, 40-60 %) im Text nennen
+- [ ] Startseite verschlanken (462 KB HTML: 260 KB eingebettete Daten, 135 KB Inline-SVG) für Core Web Vitals auf Mobil
