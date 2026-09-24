@@ -42,8 +42,15 @@ for f in sorted(glob.glob(out + "/*.json")):
         bad.append((f, "unreadable report")); continue
     c, a = d["categories"], d["audits"]
     s = {k: round((c[k]["score"] or 0) * 100) for k in ("performance", "accessibility", "best-practices", "seo")}
-    lcp = a["largest-contentful-paint"]["numericValue"] / 1000
-    cls = a["cumulative-layout-shift"]["numericValue"]
+    # A metric can be missing when Lighthouse could not measure the page
+    # (runtime error, timeout); report it as a failure instead of crashing.
+    lcp_v = a.get("largest-contentful-paint", {}).get("numericValue")
+    cls_v = a.get("cumulative-layout-shift", {}).get("numericValue")
+    if lcp_v is None or cls_v is None:
+        bad.append((d.get("finalDisplayedUrl", f).replace(base, "") or "/", "metrics missing: " + (d.get("runtimeError") or {}).get("message", "unknown error")))
+        continue
+    lcp = lcp_v / 1000
+    cls = cls_v
     u = d["finalDisplayedUrl"].replace(base, "") or "/"
     print(f"{u:60} {s['performance']:>3} {s['accessibility']:>3} {s['best-practices']:>3} {s['seo']:>3} {lcp:>6.1f}s {cls:>6.3f}")
     # Legal pages are noindex on purpose until the SIRET is filled in
