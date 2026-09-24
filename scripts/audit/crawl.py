@@ -145,7 +145,9 @@ def main():
     if st != 200:
         print("sitemap unreachable", st)
         sys.exit(1)
-    sitemap_urls = re.findall(r"<loc>(.*?)</loc>", sm)
+    # The sitemap always lists production URLs; against a local server
+    # (BASE = http://localhost:3000) crawl the same paths on that server.
+    sitemap_urls = [re.sub(r"^https?://[^/]+", BASE, u) for u in re.findall(r"<loc>(.*?)</loc>", sm)]
     print(f"Sitemap: {len(sitemap_urls)} URLs")
 
     with ThreadPoolExecutor(8) as ex:
