@@ -216,8 +216,7 @@ export default async function CompaniesPage({ params }: Props) {
               <p className="text-xs font-semibold uppercase tracking-wider text-indigo mb-6">{included.title}</p>
               <ul className="space-y-6">
                 {included.items.map((item, i) => (
-                  <ScrollReveal key={item.title} delay={i * 80}>
-                    <li className="flex gap-4">
+                  <ScrollReveal key={item.title} delay={i * 80} as="li" className="flex gap-4">
                       <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo/10">
                         <svg className="h-5 w-5 text-indigo" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d={INCLUDED_ICONS[i % INCLUDED_ICONS.length]} />
@@ -227,7 +226,6 @@ export default async function CompaniesPage({ params }: Props) {
                         <p className="font-bold mb-0.5">{item.title}</p>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
                       </div>
-                    </li>
                   </ScrollReveal>
                 ))}
               </ul>
@@ -236,8 +234,7 @@ export default async function CompaniesPage({ params }: Props) {
               <p className="text-xs font-semibold uppercase tracking-wider text-peach mb-6">{forCompany.title}</p>
               <ul className="space-y-6">
                 {forCompany.items.map((item, i) => (
-                  <ScrollReveal key={item.title} delay={i * 80}>
-                    <li className="flex gap-4">
+                  <ScrollReveal key={item.title} delay={i * 80} as="li" className="flex gap-4">
                       <div className="shrink-0 flex h-9 w-9 items-center justify-center rounded-lg bg-peach/10">
                         <svg className="h-5 w-5 text-peach" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" d={COMPANY_ICONS[i % COMPANY_ICONS.length]} />
@@ -247,7 +244,6 @@ export default async function CompaniesPage({ params }: Props) {
                         <p className="font-bold mb-0.5">{item.title}</p>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.desc}</p>
                       </div>
-                    </li>
                   </ScrollReveal>
                 ))}
               </ul>
