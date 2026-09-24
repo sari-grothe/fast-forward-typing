@@ -4,7 +4,7 @@ import { useState, useCallback } from "react";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingArea } from "@/components/typing/TypingArea";
-import { getRandomText } from "@/lib/sample-texts";
+import { getRandomText, getInitialText } from "@/lib/sample-texts";
 import type { TypingState } from "@/lib/typing-engine";
 import { calculateWPM, calculateAccuracy } from "@/lib/typing-engine";
 import type { Locale } from "@/i18n/config";
@@ -233,7 +233,7 @@ const i18n: Record<Locale, {
 
 export function SpeedTest({ locale }: Props) {
   const [seconds, setSeconds] = useState<(typeof durations)[number]>(60);
-  const [text, setText] = useState(() => getRandomText(locale, 60));
+  const [text, setText] = useState(() => getInitialText(locale, 60));
   const [result, setResult] = useState<TypingState | null>(null);
   const [copied, setCopied] = useState(false);
 

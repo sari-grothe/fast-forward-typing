@@ -47,8 +47,18 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export function getRandomText(locale: string, durationSeconds = 60): string {
-  const pool = texts[locale] || texts.en;
-  const shuffled = shuffle(pool);
+  return buildText(shuffle(texts[locale] || texts.en), durationSeconds);
+}
+
+// Deterministic variant for the first server-rendered text: server and
+// client must produce identical HTML, so the initial text cannot be random
+// (React hydration error #418). "New text" and duration changes still use
+// getRandomText.
+export function getInitialText(locale: string, durationSeconds = 60): string {
+  return buildText(texts[locale] || texts.en, durationSeconds);
+}
+
+function buildText(shuffled: string[], durationSeconds: number): string {
 
   const charsPerSecond = 2;
   const targetChars = durationSeconds * charsPerSecond;
