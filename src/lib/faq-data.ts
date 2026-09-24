@@ -222,7 +222,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "Was kostet das Tippzertifikat?",
-        answer: "Einmalig 5 Euro, kein Abo. Das Zertifikat ist aktuell noch nicht käuflich - trag dich in die Warteliste ein und dein Preis von 5 Euro ist dir sicher, auch wenn er später steigt.",
+        answer: "Einmalig 5 Euro, kein Abo. Das Zertifikat ist aktuell noch nicht käuflich - trag dich in die Warteliste ein und dein Preis von 5 Euro ist dir sicher, auch wenn er später steigt. Wenn du den kompletten Kurs machst, ist das Zertifikat ohne Aufpreis enthalten.",
       },
       {
         question: "Wie bekomme ich mein Zertifikat?",
@@ -243,7 +243,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "How much does the typing certificate cost?",
-        answer: "A one-time 5 euros, no subscription. It's not purchasable yet - join the waitlist and your 5 euro price is locked in, even if it goes up later.",
+        answer: "A one-time 5 euros, no subscription. It's not purchasable yet - join the waitlist and your 5 euro price is locked in, even if it goes up later. If you take the full course, the certificate is included at no extra cost.",
       },
       {
         question: "How do I get my certificate?",
@@ -264,7 +264,7 @@ export const certificateFAQ: Record<string, { title: string; items: FAQItem[] }>
     items: [
       {
         question: "Combien coûte le certificat de dactylographie ?",
-        answer: "5 euros en une fois, pas d'abonnement. Il n'est pas encore disponible à l'achat - inscris-toi sur la liste d'attente et ce prix de 5 euros est garanti, même s'il augmente plus tard.",
+        answer: "5 euros en une fois, pas d'abonnement. Il n'est pas encore disponible à l'achat - inscris-toi sur la liste d'attente et ce prix de 5 euros est garanti, même s'il augmente plus tard. Si tu suis le cours complet, le certificat est inclus sans supplément.",
       },
       {
         question: "Comment obtenir mon certificat ?",

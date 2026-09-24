@@ -89,7 +89,7 @@ const i18n: Record<Locale, {
     benefit4Title: "Unbegrenzt wiederholbar",
     benefit4Desc: "Nicht zufrieden? Mach den Test nochmal - jeder Versuch ist inklusive.",
     priceLabel: "Tippzertifikat",
-    priceNote: "Einmalzahlung, kein Abo",
+    priceNote: "Einmalzahlung, kein Abo. Im Kurs ist das Zertifikat inklusive.",
     founderNote: "Trag dich jetzt ein und sichere dir diesen Preis fest, auch wenn er später steigt.",
     includesTitle: "Enthalten:",
     includes: [
@@ -127,7 +127,7 @@ const i18n: Record<Locale, {
     benefit4Title: "Unlimited retakes",
     benefit4Desc: "Not satisfied? Take the test again - every attempt is included.",
     priceLabel: "Typing certificate",
-    priceNote: "One-time payment, no subscription",
+    priceNote: "One-time payment, no subscription. Included in the course.",
     founderNote: "Sign up now and this price is locked in for you, even if it goes up later.",
     includesTitle: "Included:",
     includes: [
@@ -165,7 +165,7 @@ const i18n: Record<Locale, {
     benefit4Title: "Reprises illimitées",
     benefit4Desc: "Pas satisfait ? Repasse le test - chaque tentative est incluse.",
     priceLabel: "Certificat de frappe",
-    priceNote: "Paiement unique, pas d'abonnement",
+    priceNote: "Paiement unique, pas d'abonnement. Inclus dans le cours.",
     founderNote: "Inscris-toi maintenant et garde ce prix, même s'il augmente plus tard.",
     includesTitle: "Inclus :",
     includes: [

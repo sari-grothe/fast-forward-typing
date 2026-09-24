@@ -26,7 +26,7 @@ const FACTS = `- Fast Forward >> Typing is a web-based touch-typing course for a
 - Available in German (QWERTZ keyboard layout), English (QWERTY) and French (AZERTY). Each language has its own curriculum written for its keyboard layout, not a translation.
 - Unique approach: an adaptive placement test ("Einstufung") measures per-key accuracy and speed, then builds an individual training plan. Learners who already master some keys get a suggestion to skip those lessons; every lesson stays accessible.
 - Each lesson includes a short learning-science note ("Gut zu wissen") explaining why the practice method works (myelination, spacing effect, chunking).
-- For individuals: the typing speed test and the first 6 lessons are free, no account needed. The rest of the course (lesson 7 onward) and the official typing certificate (speed + accuracy, 5 euros one-time) are Pro features - not purchasable yet, both currently collect a waitlist signup instead. No subscriptions for individuals.
+- For individuals: the typing speed test and the first 6 lessons are free, no account needed. The rest of the course (lesson 7 onward) and the official typing certificate (speed + accuracy) are Pro features - not purchasable yet, both currently collect a waitlist signup instead. The certificate is included in the full course at no extra cost, and can also be bought separately without the course for 5 euros one-time. No subscriptions for individuals.
 - For companies: team training on an annual per-employee license, with before/after measurement and certificates for each participant. Pricing on request via the contact form on the companies page.
 - Works with any keyboard (laptop, desktop, mechanical). Runs in the browser, no installation.
 - Typical outcome: noticeable improvement after 2-3 weeks of 10-15 minutes daily practice.`;
@@ -62,7 +62,7 @@ export function buildLlmsTxt(): string {
 
   return `# Fast Forward >> Typing
 
-> Adaptive touch-typing course for adults in German (QWERTZ), English (QWERTY) and French (AZERTY). A placement test measures what you already master and builds an individual training plan through ${lessonCount} lessons. Speed test and first lessons are free; the full course and the official certificate (5 euros one-time) are paid.
+> Adaptive touch-typing course for adults in German (QWERTZ), English (QWERTY) and French (AZERTY). A placement test measures what you already master and builds an individual training plan through ${lessonCount} lessons. Speed test and first lessons are free; the full course (certificate included) is paid, and the certificate is also available separately for 5 euros one-time.
 
 ## Facts
 
