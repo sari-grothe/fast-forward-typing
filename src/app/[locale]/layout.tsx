@@ -14,17 +14,25 @@ import { ConsentManager } from "@/components/consent/ConsentManager";
 import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
 import "../globals.css";
 
+// Only the weights actually used (400 body, 500/600/700/800 headings and
+// buttons; 900 was never referenced) and only the latin subset, which
+// already covers every German and French character (ß, ä, é, œ, ç ...).
+// Fewer preloaded font files compete with the render-blocking CSS on slow
+// mobile connections, which is what delayed the hero text paint (LCP).
 const poppins = Poppins({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-poppins",
 });
 
+// Used for keycaps and the typing area only, never above the fold on the
+// marketing pages, so it is not preloaded and loads when first needed.
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: false,
   variable: "--font-jetbrains",
 });
 
