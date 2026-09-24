@@ -241,8 +241,11 @@ export function LessonsList({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      {/* Placement CTA (no profile yet) or plan summary */}
-      {loaded && !placement && (
+      {/* Placement CTA (no profile yet) or plan summary. The CTA card is
+          also the server-rendered default (before local progress is
+          read), so first visits and crawlers get no layout shift; only
+          returning users see it swap for their plan summary. */}
+      {(!loaded || !placement) && (
         <div className="rounded-2xl border-2 border-indigo/20 bg-gradient-to-b from-white to-lavender/30 dark:from-dark-surface dark:to-dark p-6 sm:p-7 space-y-3">
           <div className="flex flex-col sm:flex-row sm:items-center gap-4">
             <div className="flex-1">

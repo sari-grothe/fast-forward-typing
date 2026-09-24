@@ -256,8 +256,11 @@ function KeyCap({
   homeKeys?: string[];
 }) {
   const width = keyDef.width ?? 40;
+  // Modifier keys are de-emphasised via lighter border/background, not
+  // opacity: opacity 0.4 dropped the 10px label to 1.8:1 contrast and
+  // failed the accessibility audit on every keyboard page.
   const style = keyDef.isModifier
-    ? { opacity: 0.4 }
+    ? undefined
     : getKeyStyle(keyDef.key, locale, activeKey, activeKeys, pressedKey, showFingers, homeKeys);
   const isActive = !keyDef.isModifier && activeKey?.toLowerCase() === keyDef.key.toLowerCase();
   const isHome = !keyDef.isModifier && homeKeys?.includes(keyDef.key.toLowerCase());
@@ -265,10 +268,10 @@ function KeyCap({
   return (
     <div
       className={[
-        "relative flex items-center justify-center rounded-lg border bg-white dark:bg-dark-surface select-none transition-all duration-75",
+        "relative flex items-center justify-center rounded-lg border select-none transition-all duration-75",
         keyDef.isModifier
-          ? "border-zinc-100 dark:border-dark-border text-[10px] text-zinc-600 dark:text-zinc-600 font-sans"
-          : "border-zinc-200 dark:border-dark-border text-sm font-mono font-medium shadow-[0_2px_0_0_rgba(0,0,0,0.05)] dark:shadow-[0_2px_0_0_rgba(255,255,255,0.03)]",
+          ? "border-zinc-100 dark:border-dark-border/60 bg-zinc-50 dark:bg-dark-surface/60 text-[10px] text-zinc-600 dark:text-zinc-500 font-sans"
+          : "border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface text-sm font-mono font-medium shadow-[0_2px_0_0_rgba(0,0,0,0.05)] dark:shadow-[0_2px_0_0_rgba(255,255,255,0.03)]",
       ].join(" ")}
       style={{ width, height: 40, ...style }}
     >
