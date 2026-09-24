@@ -3,6 +3,8 @@ import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { PlacementTest } from "@/components/typing/PlacementTest";
 import { localizedPath } from "@/i18n/routes";
+import { Markdown } from "@/lib/markdown";
+import { placementExplainer } from "@/lib/tool-explainers";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -54,6 +56,9 @@ export default async function PlacementPage({ params }: Props) {
         <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">{m.intro}</p>
       </div>
       <PlacementTest locale={locale as Locale} />
+      <section className="pt-8">
+        <Markdown content={placementExplainer(locale as Locale)} />
+      </section>
     </div>
   );
 }

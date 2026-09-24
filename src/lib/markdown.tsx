@@ -40,10 +40,13 @@ function processInline(text: string): string {
       /`(.+?)`/g,
       '<code class="px-1.5 py-0.5 rounded-md bg-zinc-100 dark:bg-dark-surface text-sm font-mono">$1</code>'
     )
-    .replace(
-      /\[(.+?)\]\((.+?)\)/g,
-      '<a href="$2" class="text-indigo hover:underline font-medium">$1</a>'
-    );
+    // External links open in a new tab so the reader never leaves the
+    // site; internal links (relative or same-domain) stay in the tab.
+    .replace(/\[(.+?)\]\((.+?)\)/g, (_m, label: string, href: string) => {
+      const external = /^https?:\/\//.test(href) && !href.startsWith("https://fastforwardtyping.com");
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${href}"${attrs} class="text-indigo hover:underline font-medium">${label}</a>`;
+    });
 }
 
 function markdownToHtml(md: string): string {

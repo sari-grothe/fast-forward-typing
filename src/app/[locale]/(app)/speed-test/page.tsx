@@ -3,6 +3,8 @@ import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { SpeedTest } from "./SpeedTest";
 import { localizedPath } from "@/i18n/routes";
+import { Markdown } from "@/lib/markdown";
+import { speedTestExplainer } from "@/lib/tool-explainers";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -47,7 +49,14 @@ export default async function SpeedTestPage({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
-      <SpeedTest locale={locale as Locale} />
+      <SpeedTest
+        locale={locale as Locale}
+        explainer={
+          <section className="mt-12 mb-4">
+            <Markdown content={speedTestExplainer(locale as Locale)} />
+          </section>
+        }
+      />
     </div>
   );
 }

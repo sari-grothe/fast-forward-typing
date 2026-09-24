@@ -183,6 +183,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={localizedPath(locale, "resources")} className="hover:text-indigo transition-colors">{dict.footer.resourcesLink}</Link>
                   <Link href={localizedPath(locale, "help")} className="hover:text-indigo transition-colors">{dict.footer.helpCenter}</Link>
+                  <Link href={localizedPath(locale, "about")} className="hover:text-indigo transition-colors">{dict.footer.about}</Link>
                   <Link href={localizedPath(locale, "contact")} className="hover:text-indigo transition-colors">{dict.footer.contact}</Link>
                 </div>
               </div>

@@ -34,14 +34,14 @@ keine Personennennung, jede Seite in DE/EN/FR.
 
 | # | Maßnahme | Warum |
 |---|---|---|
-| 0.1 | Google Search Console: Domain-Property, Sitemap einreichen | ohne Index kein SEO |
+| 0.1 | Google Search Console: Domain-Property, Sitemap einreichen. Entscheidung 24.09.: erst nach mindestens 10 eingetragenen Backlinks (0.5), geplant 25.09. | ohne Index kein SEO |
 | 0.2 | Bing Webmaster Tools: Import aus GSC, IndexNow-Key in Vercel hinterlegen | ChatGPT-Suche und Copilot lesen Bings Index |
 | 0.3 | Vercel Speed Insights an | Google rankt nach Felddaten, nicht nach Lighthouse |
 | 0.4 | GA4: Aufbewahrung 14 Monate, Signals aus, Werbe-Personalisierung aus; Conversions: Test beendet, Lektion 1 gestartet, Warteliste, B2B-Formular | Messung der Roadmap |
 | 0.5 | Verzeichnisse Tier 1 (Skill directory-submissions): alternativeto.net (als Alternative zu Tipp10, TypingClub, typing.com, Monkeytype), saashub.com, capterra.com, g2.com, crunchbase.com, softonic.com, webwiki.de | erste Backlinks und AI-sichtbare Drittquellen; Product Hunt erst, wenn poliert |
 | 0.6 | AI-Baseline: die 10 Prüffragen (unten) in ChatGPT, Perplexity, Gemini stellen, Ergebnis in `docs/ai-visibility-log.md` protokollieren | Nullpunkt vor jeder Änderung |
 | 0.7 | Middleware: Großbuchstaben im Locale-Segment lowercase-redirecten | 404 auf `/DE/hilfe` |
-| 0.8 | Entscheidung G1 (Tipptest-Vokabel) und G3 (Zeichenzähler) treffen | blockieren Phase 1 und 2 |
+| 0.8 | Entscheidung G1 (Tipptest-Vokabel) treffen | blockiert 1.2 |
 
 ## Phase 1: Zitierbar werden (Oktober 2026)
 
@@ -70,7 +70,8 @@ the money month"). Jede Woche zählt.
 | 2.5 | **Listicle-Outreach**: DE t3n.de (Artikel "10-Finger-Schreiben lernen"), chip.de, effektiveslernen.de, karrierebibel.de; EN skillscouter.com, contentmavericks.com, whenyouwrite.com, courselounge.com, typinglounge.com, officeskills.org; FR outilstice.com, clubic.com. Pitch: moderner Trainer für Erwachsene, DE/FR-Layouts, Einstufung | 10 Listicles = Zitatquellen für LLMs | Outreach |
 | 2.6 | **Reddit**: 4 Wochen ohne Link Karma in r/typing, r/learntyping, r/de_EDV, r/FragReddit, r/homeoffice_de; danach Antworten mit Daten aus 1.1, nie "check out my tool", Wettbewerber mitnennen | Perplexity zieht 46,7 % der Zitate aus Reddit | laufend |
 | 2.7 | Ressourcen-Hub: Kategorietexte (je 100-150 Wörter), CollectionPage bleibt | interne Verlinkung | x3 |
-| 2.8 | Technik-Rest: Startseite unter 150 KB (SVGs als `<img>`), Mono-Font auf Tipp-Seiten preloaden, 7 Descriptions kürzen, Kontakt-Priorität 0,3, CSP-Header | Felddaten, Snippets | klein |
+| 2.8 | **Zeichen-/Wortzähler** DE+FR (Entscheidung 24.09.: Phase 2, nicht zum Go-live): reiner Link-Magnet mit CTA zum Tipptest, saisonal stark Oktober bis März | DE zeichenzähler 20.000, wörter zählen online 700/8; FR compteur de mots 25.000/22, compteur de caractères 13.000/20 | Tool + Seite x2 |
+| 2.9 | Technik-Rest: Startseite unter 150 KB (SVGs als `<img>`), Mono-Font auf Tipp-Seiten preloaden, 7 Descriptions kürzen, Kontakt-Priorität 0,3, CSP-Header | Felddaten, Snippets | klein |
 
 ## Phase 3: Cluster und eigene Daten (Januar bis März 2027)
 
@@ -78,7 +79,7 @@ the money month"). Jede Woche zählt.
 |---|---|---|
 | 3.1 | **Themencluster, 10 Artikel je Sprache auf Suchintention**: WPM nach Beruf, Tipptest für die Bewerbung, Shortcuts Excel/Outlook/Slack, Ergonomie am Schreibtisch, Tippen mit Handgelenkschmerzen, AZERTY vs QWERTY für Vielschreiber, 10-Finger-System im Lebenslauf (40/0), Tastatur lernen (300/35), FR Sonderzeichen-Serie (comment taper # sur clavier azerty 450/2, euro 100/0, arobase), EN what is touch typing (1.800/3), how long does it take to learn touch typing (70/5) | Persona bleibt Erwachsene im Büro |
 | 3.2 | **Erste Benchmark-Seite mit eigenen Daten**, sobald 1.000 Tests vorliegen: "Tippgeschwindigkeit in Deutschland 2027" mit Stichprobe, Methode, Layout-Vergleich QWERTZ/QWERTY/AZERTY. Danach programmatische Segment-Seiten (Beruf, Alter, Layout) nach `content/pseo-data-moat-strategy.md` | einzige Daten, die kein LLM selbst kennt |
-| 3.3 | **Zeichen-/Wortzähler** DE+FR, falls Entscheidung G3 = ja: reiner Link-Magnet mit CTA zum Tipptest, saisonal stark Oktober bis März | DE zeichenzähler 20.000, FR compteur de mots 25.000/22, compteur de caractères 13.000/20 |
+| 3.3 | **Kinder-Cluster** (Entscheidung 24.09.: Phase 2 oder 3, nicht zum Go-live): eine Landingpage je Sprache für Eltern, die für ihr Kind suchen, ohne das Produkt kindlich zu machen | DE 10 finger schreiben lernen kinder 400/41, tipptrainer für kinder 60/30, tippen lernen kinder 100/17, Cluster ~880 |
 | 3.4 | Product-Hunt-Launch, wenn Kurs komplett und Zertifikat live; Show HN; alternativeto-Bewertungen einsammeln | Drittquellen |
 | 3.5 | `sameAs` im Organization-Schema (LinkedIn-Unternehmensseite, Product Hunt, Crunchbase), später Wikidata | Entität festigen |
 | 3.6 | Quartals-Sweep: Wettbewerber, die 90+ Tage nichts veröffentlicht haben, flaggen; deren Keywords angreifen (Tipp10, TippenAkademie, typista sind Kandidaten) | Content-Gap-Refresh |
@@ -96,8 +97,8 @@ the money month"). Jede Woche zählt.
 | # | Frage | Empfehlung |
 |---|---|---|
 | G1 | "Tipptest" als sichtbares Wort auf der Tipptest-Seite erlauben? | Ja, nur dort: H2 und FAQ-Fragen. Rest der Site bleibt Tippgeschwindigkeit. Sonst ~7.500/Monat bei KD 0-15 abschreiben |
-| G3 | Zeichen-/Wortzähler bauen? | Ja in Phase 3, als Link-Magnet. Ratatype.de holt damit die meistbesuchte Seite; ~60.000/Monat |
-| G5 | Kinder-Cluster (~880/Monat)? | Nein. Persona |
+| G3 | Zeichen-/Wortzähler bauen? | Entschieden 24.09.: ja, Phase 2 (2.8), nicht zum Go-live |
+| G5 | Kinder-Cluster (~880/Monat)? | Entschieden 24.09.: ja, Phase 2 oder 3 (3.3), nicht zum Go-live |
 
 ## Messung und Kadenz
 
@@ -153,3 +154,4 @@ einer der 10 Fragen, 1.000 Tests für 3.2, 25 Referring Domains.
   (Mono-Font, noindex, kein SEO-Hebel); Lektionen und Rechtsseiten SEO 66 =
   is-crawlable, beabsichtigt.
 - 24.09.2026: Audit und diese Roadmap.
+- 24.09.2026: Inhalt, erster Block (Roadmap 1.2, 1.3, 1.4 teilweise): Direktantwort-Absatz und Quellen-Abschnitt mit verlinkten Quellen auf allen 28 Artikeln, externe Links öffnen in neuem Tab, Artikel im DOM vor dem Inhaltsverzeichnis; erklärender Text mit Benchmark-Tabelle und Quellen unter Tipptest, Einstufung und Tastaturlayout-Tool (DE/EN/FR); Über-uns im Footer verlinkt (war verwaist). Die Behauptung "40-60 % schneller" wurde in den Artikeln durch belegte Zahlen ersetzt (Zwei-Finger-Tipper 27/37 WPM, Zehn-Finger 40-60, Aalto 8,4 vs 5,3 Finger), weil keine Studie sie stützt; auf Home, Über uns und Unternehmen steht sie noch (Entscheidung offen).

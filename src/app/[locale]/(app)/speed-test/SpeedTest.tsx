@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, type ReactNode } from "react";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingArea } from "@/components/typing/TypingArea";
@@ -14,6 +14,9 @@ import { localizedPath } from "@/i18n/routes";
 
 type Props = {
   locale: Locale;
+  // Server-rendered explanatory copy (what the test measures, benchmarks,
+  // sources) shown between the tool and the FAQ in both views.
+  explainer?: ReactNode;
 };
 
 const funFacts: Record<Locale, (wpm: number) => string> = {
@@ -232,7 +235,7 @@ const i18n: Record<Locale, {
   },
 };
 
-export function SpeedTest({ locale }: Props) {
+export function SpeedTest({ locale, explainer }: Props) {
   const [seconds, setSeconds] = useState<(typeof durations)[number]>(60);
   const [text, setText] = useState(() => getInitialText(locale, 60));
   const [result, setResult] = useState<TypingState | null>(null);
@@ -437,6 +440,7 @@ export function SpeedTest({ locale }: Props) {
             {copied ? l.shareCopied : l.shareResult}
           </button>
         </div>
+        {explainer}
       </div>
     );
   }
@@ -487,6 +491,8 @@ export function SpeedTest({ locale }: Props) {
         </svg>
         {l.newTest}
       </button>
+
+      {explainer}
 
       <div className="pt-12">
         <FAQ title={speedTestFAQ[locale]?.title || speedTestFAQ.en.title} items={speedTestFAQ[locale]?.items || speedTestFAQ.en.items} />

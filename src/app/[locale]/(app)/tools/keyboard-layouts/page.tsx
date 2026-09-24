@@ -8,6 +8,8 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { KeyboardComparison } from "@/components/tools/KeyboardComparison";
 import { organization } from "@/lib/schema";
 import { localizedPath } from "@/i18n/routes";
+import { Markdown } from "@/lib/markdown";
+import { keyboardLayoutsExplainer } from "@/lib/tool-explainers";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -118,6 +120,12 @@ export default async function KeyboardLayoutsPage({ params }: Props) {
             </div>
           </ScrollReveal>
         )}
+
+        <ScrollReveal delay={160}>
+          <section className="mt-14 mx-auto max-w-3xl">
+            <Markdown content={keyboardLayoutsExplainer(l)} />
+          </section>
+        </ScrollReveal>
 
         <div className="mt-12">
           <FinalCTA

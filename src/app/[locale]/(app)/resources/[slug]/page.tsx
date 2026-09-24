@@ -104,13 +104,10 @@ export default async function ResourceArticlePage({ params }: Props) {
 
       <div className="mx-auto max-w-7xl px-6 py-10">
         <div className="lg:grid lg:grid-cols-[240px_minmax(0,1fr)_300px] lg:gap-8 lg:items-start">
-          {/* Left: table of contents, sticky, desktop only - hidden entirely
-              on short articles (see ArticleToc's own 3-heading minimum). */}
-          <aside className="hidden lg:block sticky top-24 self-start">
-            <ArticleToc headings={headings} label={ui.tocLabel} />
-          </aside>
-
-          <article className="min-w-0">
+          {/* The article comes first in the DOM so crawlers and AI
+              extractors read the lead paragraph before any sidebar; the
+              grid column placement keeps the visual order TOC | article | CTA. */}
+          <article className="min-w-0 lg:col-start-2 lg:row-start-1">
             {/* Back link + meta */}
             <ScrollReveal>
               <div className="flex items-center justify-between mb-6">
@@ -246,11 +243,17 @@ export default async function ResourceArticlePage({ params }: Props) {
             )}
           </article>
 
+          {/* Left: table of contents, sticky, desktop only - hidden entirely
+              on short articles (see ArticleToc's own 3-heading minimum). */}
+          <aside className="hidden lg:block sticky top-24 self-start lg:col-start-1 lg:row-start-1">
+            <ArticleToc headings={headings} label={ui.tocLabel} />
+          </aside>
+
           {/* Right: sticky CTA card, desktop only - a mobile version would
               either float awkwardly mid-content or duplicate the bottom
               FinalCTA banner one scroll later, so mobile relies on that
               banner instead. */}
-          <aside className="hidden lg:block sticky top-24 self-start">
+          <aside className="hidden lg:block sticky top-24 self-start lg:col-start-3 lg:row-start-1">
             <ArticleCtaCard
               locale={locale}
               title={ui.tryCta}
