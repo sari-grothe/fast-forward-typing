@@ -100,6 +100,68 @@ the money month"). Jede Woche zählt.
 | G3 | Zeichen-/Wortzähler bauen? | Entschieden 24.09.: ja, Phase 2 (2.8), nicht zum Go-live |
 | G5 | Kinder-Cluster (~880/Monat)? | Entschieden 24.09.: ja, Phase 2 oder 3 (3.3), nicht zum Go-live |
 
+## Später: Sprach- und Layout-Ausbau (Entscheidung 24.09.2026)
+
+Nicht jetzt. Erst Indexierung, Backlinks und Phase 1 auf DE/EN/FR, dann mit
+echten Search-Console-Daten entscheiden. **Entscheidungstermin: Januar 2027**,
+Ziel: falls ja, live vor dem Stripe-Start im Mai 2027.
+
+Begründung: Der Engpass ist Sichtbarkeit, nicht Sprachabdeckung (0 Backlinks,
+nicht indexiert). Reichweite muss pro Sprachmarkt einzeln aufgebaut werden,
+und jede weitere Sprache macht jede künftige Änderung um ein Drittel teurer
+(Regel: jede Änderung in allen Sprachen). Vor Mai 2027 gibt es keinen Umsatz.
+
+### Spanisch
+
+Vorbereitung jetzt (etwa 1 Stunde, Sarah): spanische Keyword-Daten in Ahrefs
+für Spanien und Mexiko ziehen (mecanografía, curso de mecanografía, test de
+mecanografía, velocidad de escritura, ...). Der Ahrefs-Zugang über Claude
+meldet "Insufficient plan", die Research in business-ideas hat keine ES-Daten.
+
+Kriterien für Januar: Welche der drei Sprachen bringt Besucher und
+Wartelisten-Einträge? Lohnt Spanisch laut Keyword-Daten (Volumen, KD)? Bringt
+Englisch kaum Traffic, ist Spanisch womöglich der bessere dritte Markt.
+
+Befunde aus der Aufwandsprüfung (24.09.2026):
+
+- **Zwei Tastaturlayouts.** Spanien nutzt das spanische Layout, Mexiko,
+  Mittel- und Südamerika das lateinamerikanische. Beide QWERTY, Ñ rechts neben
+  L, Buchstaben und Grundreihe identisch. Unterschiede: Akzent-Tottaste ´
+  (Spanien rechts neben Ñ in der Grundreihe, Lateinamerika rechts neben P),
+  @ (Spanien AltGr+2, Lateinamerika AltGr+Q), Satzzeichen wie ¿ ¡ teils
+  anders. Lösung: ein Kurs mit Layout-Wahl, die Tastatur-Grafik,
+  Akzent-Lektion und Satzzeichen-Lektion umschaltet.
+- **Eine neutrale Sprachversion "es"** statt es-ES und es-419: "tú",
+  kein "vosotros", Länderwörter umgehen (ordenador/computadora,
+  móvil/celular).
+- **Tipp-Engine:** wertet nur fertige Zeichen aus (typing-engine.ts), Tottasten
+  funktionieren für Französisch; für beide spanischen Layouts auf Windows und
+  Mac testen.
+- **Aufwand:** etwa eine Woche Umsetzung plus 10 bis 15 Stunden
+  Muttersprach-Durchsicht durch Sarah. Technik 1 bis 2 Tage (Locale, Routen,
+  rund 30 Dateien mit Record<Locale>, zwei Layouts), eigener Kurs mit 31
+  Lektionen nach spanischer Buchstabenhäufigkeit 1 Tag, Texte rund 12.000
+  Wörter, Rechtstexte rund 6.000 Wörter (Recht für Spanien und für
+  Lateinamerika, z. B. Datenschutz Mexiko, vorher prüfen lassen).
+- **Schlanker Start möglich:** Startseite, Tipptest, Kurs, Einstufung,
+  Rechtstexte zuerst, Artikel nach und nach. Spart gut ein Drittel am Anfang.
+
+### Länder- und Tastatur-Varianten der bestehenden Sprachen
+
+Ebenfalls später, gleicher Entscheidungstermin. Details der Belegungen vor
+der Umsetzung jeweils an einer Primärquelle prüfen.
+
+- **Belgien:** belgisches AZERTY weicht bei Ziffernreihe und Sonderzeichen vom
+  französischen AZERTY ab.
+- **Schweiz:** Schweizer QWERTZ (keine ß-Taste, eigene Tasten für Umlaute und
+  Akzente), gilt für Deutsch- und Französischsprachige. Im
+  Tastaturlayout-Vergleich schon als QWERTZ-CH enthalten, im Kurs noch nicht.
+- **Québec/Kanada:** französischsprachige Nutzer tippen meist auf einer
+  QWERTY-basierten kanadischen Belegung, nicht auf AZERTY.
+- **Großbritannien vs. USA:** UK-QWERTY hat @ und " vertauscht, eine £-Taste
+  und eine andere Position für #.
+- **Österreich:** nutzt die deutsche QWERTZ-Belegung, kein Umbau nötig.
+
 ## Messung und Kadenz
 
 **Wöchentlich (5 Minuten):** GSC Abdeckung und hreflang-Fehler, Bing Index-Zahl.
