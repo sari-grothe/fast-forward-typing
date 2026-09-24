@@ -12,9 +12,9 @@ export const company = {
   email: "support@fastforwardtyping.com",
   // Full postal address incl. country, e.g. "12 rue Exemple, 75000 Paris, France".
   // A commercial domiciliation address is allowed if the home address should not be public.
-  address: null as string | null,
+  address: "20 allée Georges Récipon, 75019 Paris, France" as string | null,
   // French law requires a phone number in the mentions légales of a professional.
-  phone: null as string | null,
+  phone: "0171204266" as string | null,
   siret: null as string | null,
   // Only once registered for VAT (e.g. for EU one-stop-shop); micro-entreprise in franchise has none.
   vatId: null as string | null,

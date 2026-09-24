@@ -21,10 +21,13 @@ clauses once before real money moves. Law changes: re-check this file every 6 mo
 
 ## Must be done before go-live
 
-1. **Fill `company.ts`:** postal address (a business domiciliation address is allowed if the
-   home address should not be public), phone number (French law requires one for a
-   professional), SIRET (after the guichet unique registration), consumer mediator.
-2. **Consumer mediator (mandatory for B2C sales from France, Code de la consommation L.612-1):**
+1. **Fill `company.ts`:** address and phone are filled (24.09.2026, address is the home address;
+   a business domiciliation address or a separate business number can be swapped in later in
+   one place). Still open: SIRET (after the guichet unique registration) and the consumer
+   mediator. Check the phone number: it has 10 digits and German mobile numbers usually have 11;
+   use the international format (for example +33 or +49).
+2. **Consumer mediator - needed before the FIRST consumer sale, not for testing, and usually only
+   possible after the SIRET exists (mandatory for B2C sales from France, Code de la consommation L.612-1):**
    choose a mediator from the list of the CECMC (economie.gouv.fr, "médiateurs de la
    consommation"), sign their membership contract, then enter name, website and address.
 3. **VAT status:** the texts assume "franchise en base de TVA" (Art. 293 B CGI). Confirm.
@@ -77,3 +80,23 @@ clauses once before real money moves. Law changes: re-check this file every 6 mo
 - User accounts go live: check that Supabase runs in an EU region and update section 7.
 - Change wording of a legal text in all three languages in the same commit and bump the
   `updated` date of that document.
+
+## Also needed before the first sale (beyond the texts)
+
+- **Register the micro-entreprise** (guichet unique) and open a separate business bank account.
+  The SIRET is required by Stripe, by the imprint and by invoices.
+- **Invoices** must show name, address, SIRET, date, number, description, price and the VAT
+  sentence (Art. 293 B CGI). Ask an accountant about the French e-invoicing roll-out for B2B.
+- **Testimonials:** collect the written approval of Thomas L., Eva S., Lino M. and Lola L.
+  (open item in golive-checklist.md). Fake or unapproved reviews are illegal.
+- **Claims and comparisons:** every statistic needs a source (for example the Cambridge and Aalto
+  figures). Comparison posts need a "status as of" date and only facts you can prove.
+- **Product page information before payment:** price, what is included, access duration,
+  supported devices, contact. Show it next to the buy button.
+- **Trademark check** for "Fast Forward Typing" (INPI and EUIPO databases) before investing in
+  the brand.
+- **Forms:** set Formspree to accept submissions only from your domain, and delete submissions
+  older than the retention periods.
+- **Test purchase** with Stripe in test mode, including the withdrawal checkbox, the confirmation
+  email with terms and withdrawal notice, and a refund.
+- **Internal GDPR documents:** see [legal-processing-register.md](legal-processing-register.md).

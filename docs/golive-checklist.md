@@ -39,3 +39,7 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 ## Rechtstexte und Cookie-Einwilligung
 
 - [ ] Alles aus [legal-golive.md](legal-golive.md) abarbeiten (Firmenangaben in `src/lib/legal/company.ts`, Verbrauchermediator, GA-ID, AV-Verträge, Checkout-Pflichten)
+- [ ] **Verbrauchermediator wählen** (vor dem ersten Verkauf an Verbraucher, nach Erhalt der SIRET; Liste der CECMC auf economie.gouv.fr)
+- [ ] **Checkout-Pflichten bauen** (Stripe-Anbindung): Button "Zahlungspflichtig bestellen", Häkchen für Verzicht auf das Widerrufsrecht bei digitalen Inhalten, Links zu AGB/Widerruf/Datenschutz, Bestätigungsmail mit AGB und Widerrufsbelehrung
+- [ ] **Verträge zur Auftragsverarbeitung** mit Vercel, Stripe, Supabase, Resend, Formspree, ALL-INKL und Google abschließen (siehe legal-golive.md Punkt 5)
+- [ ] Telefonnummer in `company.ts` prüfen (10 Stellen, internationales Format)
