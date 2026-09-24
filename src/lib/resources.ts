@@ -540,7 +540,9 @@ Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlic
 
 **Gibt es bei TypingClub ein Zertifikat?** Nein, TypingClub bietet aktuell keinen offiziellen Nachweis der Tippgeschwindigkeit.
 
-**Unterstützt TypingClub Deutsch?** Ja, es gibt einen deutschen Sprachkurs, allerdings mit demselben schulischen Design wie die englische Version.`,
+**Unterstützt TypingClub Deutsch?** Ja, es gibt einen deutschen Sprachkurs, allerdings mit demselben schulischen Design wie die englische Version.
+
+*Stand der Angaben zu TypingClub: September 2026. Preise und Funktionen können sich ändern. Alle Angaben ohne Gewähr, Quelle ist die öffentliche Website des Anbieters.*`,
   },
   {
     slug: "agile-fingers-alternative",
@@ -594,7 +596,9 @@ Fast Forward Typing misst ebenfalls Geschwindigkeit und Genauigkeit, vor und nac
 
 **Bietet AgileFingers ein Zertifikat?** Nein, auf der Seite wird kein offizielles Zertifikat oder Nachweis erwähnt.
 
-**Unterstützt AgileFingers Deutsch?** Ja, das Tool unterstützt über 20 Sprachen und Tastaturlayouts, darunter Deutsch und QWERTZ.`,
+**Unterstützt AgileFingers Deutsch?** Ja, das Tool unterstützt über 20 Sprachen und Tastaturlayouts, darunter Deutsch und QWERTZ.
+
+*Stand der Angaben zu AgileFingers: September 2026. Funktionen können sich ändern. Alle Angaben ohne Gewähr, Quelle ist die öffentliche Website des Anbieters.*`,
   },
 
   // ─── EN ARTICLES ──────────────────────────────────────────
@@ -995,7 +999,9 @@ Important to understand: with TypingClub, the subscription doesn't unlock more l
 
 **Does TypingClub offer a certificate?** No, TypingClub currently offers no official proof of typing speed.
 
-**Does TypingClub work in other languages?** Yes, TypingClub offers full lesson series in French, German and several other languages, though the school-style design stays the same across languages.`,
+**Does TypingClub work in other languages?** Yes, TypingClub offers full lesson series in French, German and several other languages, though the school-style design stays the same across languages.
+
+*Information about TypingClub as of September 2026. Prices and features can change. No guarantee, the source is the provider's public website.*`,
   },
   {
     slug: "agile-fingers-alternative",
@@ -1049,7 +1055,9 @@ Fast Forward Typing also measures your speed and accuracy, before and after the 
 
 **Does AgileFingers offer a certificate?** No, the site doesn't mention any official certificate or proof.
 
-**Does AgileFingers work in English?** Yes, the tool supports over 20 languages and keyboard layouts, including English and QWERTY.`,
+**Does AgileFingers work in English?** Yes, the tool supports over 20 languages and keyboard layouts, including English and QWERTY.
+
+*Information about AgileFingers as of September 2026. Features can change. No guarantee, the source is the provider's public website.*`,
   },
 
   // ─── FR ARTICLES ──────────────────────────────────────────
@@ -1495,7 +1503,9 @@ Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le
 
 **AgileFingers propose-t-il un certificat ?** Non, aucun certificat ou attestation n'est mentionné sur le site.
 
-**AgileFingers fonctionne-t-il en français ?** Oui, l'outil prend en charge plus de 20 langues et dispositions de clavier, dont le français et l'AZERTY.`,
+**AgileFingers fonctionne-t-il en français ?** Oui, l'outil prend en charge plus de 20 langues et dispositions de clavier, dont le français et l'AZERTY.
+
+*Informations sur AgileFingers à jour en septembre 2026. Les fonctionnalités peuvent évoluer. Sans garantie, la source est le site public du fournisseur.*`,
   },
   {
     slug: "typingclub-alternative",
@@ -1551,7 +1561,9 @@ Point important : chez TypingClub, l'abonnement ne débloque pas plus de contenu
 
 **TypingClub propose-t-il un certificat ?** Non, TypingClub ne propose actuellement aucune preuve officielle de la vitesse de frappe.
 
-**TypingClub fonctionne-t-il dans d'autres langues ?** Oui, TypingClub propose des séries de leçons complètes en français, en allemand et dans plusieurs autres langues, avec le même design scolaire que la version anglaise.`,
+**TypingClub fonctionne-t-il dans d'autres langues ?** Oui, TypingClub propose des séries de leçons complètes en français, en allemand et dans plusieurs autres langues, avec le même design scolaire que la version anglaise.
+
+*Informations sur TypingClub à jour en septembre 2026. Les prix et fonctionnalités peuvent évoluer. Sans garantie, la source est le site public du fournisseur.*`,
   },
 ];
 

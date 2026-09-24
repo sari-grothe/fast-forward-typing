@@ -93,8 +93,9 @@ clauses once before real money moves. Law changes: re-check this file every 6 mo
   figures). Comparison posts need a "status as of" date and only facts you can prove.
 - **Product page information before payment:** price, what is included, access duration,
   supported devices, contact. Show it next to the buy button.
-- **Trademark check** for "Fast Forward Typing" (INPI and EUIPO databases) before investing in
-  the brand.
+- **Trademark check:** first screening done 2026-09-24, see [trademark-check.md](trademark-check.md).
+  Result: no identical mark, but four "Fast Forward" marks in education/software classes. Get an
+  attorney's similarity opinion before investing in the brand.
 - **Forms:** set Formspree to accept submissions only from your domain, and delete submissions
   older than the retention periods.
 - **Test purchase** with Stripe in test mode, including the withdrawal checkbox, the confirmation
