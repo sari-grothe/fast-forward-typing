@@ -35,3 +35,7 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 
 - [ ] Paywall aktiv (Stripe verdrahtet) - ohne sie sind alle 28 Lektionen gratis
 - [ ] Zertifikatskauf funktioniert Ende-zu-Ende (Checkout → PDF → E-Mail)
+
+## Rechtstexte und Cookie-Einwilligung
+
+- [ ] Alles aus [legal-golive.md](legal-golive.md) abarbeiten (Firmenangaben in `src/lib/legal/company.ts`, Verbrauchermediator, GA-ID, AV-Verträge, Checkout-Pflichten)

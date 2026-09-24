@@ -137,11 +137,6 @@
       "error": "Das hat nicht geklappt. Bitte versuch es gleich noch einmal."
     }
   },
-  "privacy": {
-    "title": "Datenschutz",
-    "placeholder": "Die Datenschutzerklärung wird gerade erstellt und ist in Kürze hier verfügbar.",
-    "contactCta": "Fragen zum Datenschutz? Schreib uns."
-  },
   "footer": {
     "learnTyping": "10-Finger-System",
     "typingTest": "Tippgeschwindigkeit",
@@ -160,7 +155,10 @@
     "terms": "AGB",
     "imprint": "Impressum",
     "darkMode": "Dark Mode",
-    "resourcesLink": "Ressourcen"
+    "resourcesLink": "Ressourcen",
+    "withdrawal": "Widerruf",
+    "cookieSettings": "Cookie-Einstellungen",
+    "businessTerms": "Geschäftsbedingungen"
   },
   "companies": {
     "meta": {

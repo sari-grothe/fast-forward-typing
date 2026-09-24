@@ -137,11 +137,6 @@
       "error": "That didn't work. Please try again in a moment."
     }
   },
-  "privacy": {
-    "title": "Privacy Policy",
-    "placeholder": "The privacy policy is being written and will be available here shortly.",
-    "contactCta": "Questions about privacy? Write to us."
-  },
   "footer": {
     "learnTyping": "Learn to type",
     "typingTest": "Typing Test",
@@ -157,10 +152,13 @@
     "contact": "Contact",
     "legal": "Legal",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "imprint": "Imprint",
+    "terms": "Terms",
+    "imprint": "Legal notice",
     "darkMode": "Dark mode",
-    "resourcesLink": "Resources"
+    "resourcesLink": "Resources",
+    "withdrawal": "Withdrawal",
+    "cookieSettings": "Cookie settings",
+    "businessTerms": "Business terms"
   },
   "companies": {
     "meta": {

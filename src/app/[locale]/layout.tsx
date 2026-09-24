@@ -10,6 +10,8 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { MobileMenu } from "@/components/MobileMenu";
 import { organization, BASE_URL } from "@/lib/schema";
+import { ConsentManager } from "@/components/consent/ConsentManager";
+import { CookieSettingsButton } from "@/components/consent/CookieSettingsButton";
 import "../globals.css";
 
 const poppins = Poppins({
@@ -152,6 +154,7 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <div className="flex flex-col gap-2 text-zinc-500">
                   <Link href={companiesPath(locale)} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
                   <Link href={`${companiesPath(locale)}#${companiesAnchorId(locale, "pricing")}`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
+                  <Link href={`/${locale}/business-terms`} className="hover:text-indigo transition-colors">{dict.footer.businessTerms}</Link>
                 </div>
               </div>
               <div>
@@ -174,7 +177,11 @@ export default async function LocaleLayout({ children, params }: Props) {
               <span className="text-zinc-300 dark:text-dark-border">·</span>
               <Link href={`/${locale}/terms`} className="hover:text-indigo transition-colors">{dict.footer.terms}</Link>
               <span className="text-zinc-300 dark:text-dark-border">·</span>
+              <span className="text-zinc-300 dark:text-dark-border">·</span>
+              <Link href={`/${locale}/withdrawal`} className="hover:text-indigo transition-colors">{dict.footer.withdrawal}</Link>
+              <span className="text-zinc-300 dark:text-dark-border">·</span>
               <Link href={`/${locale}/imprint`} className="hover:text-indigo transition-colors">{dict.footer.imprint}</Link>
+              <CookieSettingsButton label={dict.footer.cookieSettings} />
             </div>
             <div className="flex items-center justify-between text-sm text-zinc-500">
               <p>&copy; {new Date().getFullYear()} Fast Forward <span className="text-indigo">&gt;&gt;</span> Typing</p>
@@ -182,6 +189,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             </div>
           </div>
         </footer>
+        <ConsentManager locale={locale as Locale} />
       </body>
     </html>
   );

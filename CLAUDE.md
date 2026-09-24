@@ -31,7 +31,7 @@ Quick reference:
 ## Legal (French auto-entrepreneur)
 
 - DSGVO/RGPD compliant: cookie banner before GA loads
-- Required pages: mentions legales (with SIRET), CGV, privacy policy
+- Required pages: mentions legales (with SIRET), CGV, privacy policy. All six legal texts (imprint, privacy incl. cookies, terms, withdrawal, business-terms, dpa) live in `src/lib/legal/`, business facts in `src/lib/legal/company.ts` - read [docs/legal-golive.md](docs/legal-golive.md) before touching them. Never type SIRET/address into a text, use the `{{tokens}}`; change all three languages in one commit.
 - All legal pages in all three languages
 
 ## llms.txt maintenance

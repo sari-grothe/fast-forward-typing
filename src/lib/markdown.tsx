@@ -9,7 +9,7 @@ function slugify(text: string): string {
     .replace(/`(.+?)`/g, "$1")
     .replace(/\[(.+?)\]\(.+?\)/g, "$1")
     .toLowerCase()
-    .replace(/[^a-z0-9äöüß\s-]/g, "")
+    .replace(/[^a-z0-9äöüßàâçéèêëîïôùûœ\s-]/g, "")
     .trim()
     .replace(/\s+/g, "-");
 }
@@ -108,10 +108,10 @@ function markdownToHtml(md: string): string {
     .join("\n");
 }
 
-export function Markdown({ content }: { content: string }) {
+export function Markdown({ content, className = "" }: { content: string; className?: string }) {
   return (
     <div
-      className="space-y-4 text-zinc-700 dark:text-zinc-300 text-base"
+      className={`space-y-4 text-zinc-700 dark:text-zinc-300 text-base ${className}`}
       dangerouslySetInnerHTML={{ __html: markdownToHtml(content) }}
     />
   );

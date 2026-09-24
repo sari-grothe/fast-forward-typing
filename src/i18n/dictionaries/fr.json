@@ -137,11 +137,6 @@
       "error": "Ça n'a pas marché. Réessaie dans un instant."
     }
   },
-  "privacy": {
-    "title": "Politique de confidentialité",
-    "placeholder": "La politique de confidentialité est en cours de rédaction et sera bientôt disponible ici.",
-    "contactCta": "Des questions sur la confidentialité ? Écris-nous."
-  },
   "footer": {
     "learnTyping": "Apprendre à taper",
     "typingTest": "Test de dactylographie",
@@ -160,7 +155,10 @@
     "terms": "CGV",
     "imprint": "Mentions légales",
     "darkMode": "Dark Mode",
-    "resourcesLink": "Ressources"
+    "resourcesLink": "Ressources",
+    "withdrawal": "Rétractation",
+    "cookieSettings": "Paramètres des cookies",
+    "businessTerms": "CGV entreprises"
   },
   "companies": {
     "meta": {
