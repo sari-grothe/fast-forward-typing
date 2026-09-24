@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageTitle, ogImages } from "@/lib/seo";
 import Link from "next/link";
 import { locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -13,8 +14,8 @@ type Props = {
 
 const meta: Record<Locale, { title: string; description: string }> = {
   de: {
-    title: "QWERTY vs AZERTY vs QWERTZ - Keyboard Layout Vergleich",
-    description: "Vergleiche QWERTY, AZERTY und QWERTZ Tastaturlayouts interaktiv. Sieh die Unterschiede auf einen Blick und finde heraus, welches Layout in deinem Land verwendet wird.",
+    title: "QWERTY vs AZERTY vs QWERTZ - Tastaturlayouts im Vergleich",
+    description: "Vergleiche QWERTY, AZERTY und QWERTZ interaktiv: alle Unterschiede auf einen Blick und welches Tastaturlayout in deinem Land verwendet wird.",
   },
   en: {
     title: "QWERTY vs AZERTY vs QWERTZ - Keyboard Layout Comparison",
@@ -22,7 +23,7 @@ const meta: Record<Locale, { title: string; description: string }> = {
   },
   fr: {
     title: "QWERTY vs AZERTY vs QWERTZ - Comparaison des claviers",
-    description: "Compare les dispositions clavier QWERTY, AZERTY et QWERTZ de manière interactive. Repère les différences en un coup d'œil et découvre quelle disposition est utilisée dans ton pays.",
+    description: "Compare les claviers QWERTY, AZERTY et QWERTZ de manière interactive : toutes les différences en un coup d'œil et la disposition utilisée dans ton pays.",
   },
 };
 
@@ -36,9 +37,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const m = meta[l] ?? meta.en;
 
   return {
-    title: `${m.title} - Fast Forward >> Typing`,
+    title: pageTitle(m.title),
     description: m.description,
-    openGraph: { title: m.title, description: m.description, type: "website" },
+    openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/tools/keyboard-layouts`,
       languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/tools/keyboard-layouts`])),

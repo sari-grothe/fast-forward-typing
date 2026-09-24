@@ -2,19 +2,19 @@ import type { MetadataRoute } from "next";
 import { locales, type Locale } from "@/i18n/config";
 import { companiesPath } from "@/i18n/routes";
 import { getAllResourceSlugs } from "@/lib/resources";
-import { getLessons } from "@/lib/lessons";
 
 const BASE_URL = "https://fastforwardtyping.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  // No lastModified on static pages: a build timestamp on every URL is
+  // noise that search engines learn to ignore. Articles carry their real
+  // date instead.
 
   const staticPages = ["", "/speed-test", "/lessons", "/placement", "/certificate", "/resources", "/about", "/tools/keyboard-layouts", "/help", "/contact"];
 
   const staticEntries = staticPages.flatMap((page) =>
     locales.map((locale) => ({
       url: `${BASE_URL}/${locale}${page}`,
-      lastModified: now,
       changeFrequency: page === "/resources" ? ("weekly" as const) : ("monthly" as const),
       priority: page === "" ? 1.0 : page === "/resources" ? 0.9 : 0.7,
     }))
@@ -22,31 +22,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const companiesEntries = locales.map((locale) => ({
     url: `${BASE_URL}${companiesPath(locale)}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  const resourceEntries = getAllResourceSlugs().map(({ slug, locale }) => ({
+  const resourceEntries = getAllResourceSlugs().map(({ slug, locale, date }) => ({
+    lastModified: date,
     url: `${BASE_URL}/${locale}/resources/${slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
 
-  // Only the free lessons (0-6): the paid ones show the Pro paywall to
-  // anonymous visitors including crawlers, not lesson content, so they
-  // stay out of the sitemap (see lessons/[id]/page.tsx generateMetadata).
-  const lessonEntries = locales.flatMap((locale) =>
-    getLessons(locale as Locale)
-      .filter((lesson) => lesson.isFree)
-      .map((lesson) => ({
-        url: `${BASE_URL}/${locale}/lessons/${lesson.id}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
-        priority: 0.6,
-      }))
-  );
-
-  return [...staticEntries, ...companiesEntries, ...resourceEntries, ...lessonEntries];
+  return [...staticEntries, ...companiesEntries, ...resourceEntries];
 }

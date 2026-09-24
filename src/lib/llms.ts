@@ -134,12 +134,15 @@ Each locale has its own curriculum authored for its keyboard layout.`);
 ${phaseBlocks}`);
   }
 
-  const guides = getResourcesByLocale("en")
-    .map((t) => `- [${t.title}](${BASE_URL}/en/resources/${t.slug}) (${t.category}): ${t.description}`)
-    .join("\n");
-  sections.push(`## Guides (English editions; German and French exist under /de/resources and /fr/resources)
-
-${guides}`);
+  for (const locale of locales) {
+    const articles = getResourcesByLocale(locale)
+      .map(
+        (t) =>
+          `### ${t.title}\n\nURL: ${BASE_URL}/${locale}/resources/${t.slug}\nCategory: ${t.category}. Updated: ${t.date}.\n\n${t.content.replace(/^## /gm, "#### ").replace(/^### /gm, "##### ")}`
+      )
+      .join("\n\n");
+    sections.push(`## Guides in ${localeNames[locale]} (full text)\n\n${articles}`);
+  }
 
   const faq = homeFAQ["en"];
   if (faq) {

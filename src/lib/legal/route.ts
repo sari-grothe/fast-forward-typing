@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { locales, type Locale } from "@/i18n/config";
 import { BASE_URL } from "@/lib/schema";
+import { ogImages } from "@/lib/seo";
 import { legalDocs } from "@/lib/legal/docs";
 import { missingCompanyFields } from "@/lib/legal/company";
 import type { LegalKey } from "@/lib/legal/types";
@@ -18,6 +19,7 @@ export function legalMetadata(key: LegalKey, locale: string): Metadata {
     title: `${doc.title} | Fast Forward >> Typing`,
     description: doc.description,
     robots: { index: complete, follow: true },
+    openGraph: { title: doc.title, description: doc.description, type: "website", images: ogImages(l) },
     alternates: {
       canonical: `${BASE_URL}/${l}/${key}`,
       languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/${key}`])),

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { PlacementTest } from "@/components/typing/PlacementTest";
 
@@ -9,7 +10,7 @@ type Props = {
 const meta: Record<Locale, { title: string; description: string; h1: string; intro: string }> = {
   de: {
     title: "Einstufung - Wo stehst du beim 10-Finger-System?",
-    description: "3 kurze Runden zeigen, welche Tasten sitzen und welche Training brauchen. Danach bekommst du deinen individuellen Trainingsplan - beherrschte Lektionen werden übersprungen.",
+    description: "3 kurze Runden zeigen, welche Tasten sitzen und welche Training brauchen. Danach bekommst du deinen individuellen Trainingsplan für das 10-Finger-System.",
     h1: "Deine Einstufung",
     intro: "3 kurze Runden - je nach Tempo 2 bis 6 Minuten. Wir messen pro Taste, was sitzt und was Training braucht - danach startet dein Kurs genau da, wo du stehst.",
   },
@@ -21,7 +22,7 @@ const meta: Record<Locale, { title: string; description: string; h1: string; int
   },
   fr: {
     title: "Évaluation - Où en es-tu avec la frappe à dix doigts ?",
-    description: "3 manches courtes montrent quelles touches sont en place et lesquelles demandent de l'entraînement. Tu reçois un plan personnel - les leçons maîtrisées sont sautées.",
+    description: "3 manches courtes montrent quelles touches sont acquises et lesquelles restent à travailler. Tu reçois ensuite ton plan d'entraînement personnel.",
     h1: "Ton évaluation",
     intro: "3 manches courtes - de 2 à 6 minutes selon ton rythme. Nous mesurons touche par touche ce qui est en place et ce qui demande du travail - ensuite ton cours démarre exactement là où tu en es.",
   },
@@ -31,8 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const m = meta[locale as Locale] ?? meta.en;
   return {
-    title: `${m.title} - Fast Forward >> Typing`,
+    title: pageTitle(m.title),
     description: m.description,
+    openGraph: { title: m.title, description: m.description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/placement`,
       languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/placement`])),

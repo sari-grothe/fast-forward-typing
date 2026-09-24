@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Locale } from "@/i18n/config";
-import { locales } from "@/i18n/config";
-import { getResource, getRelatedResources, getAllResourceSlugs, categoryLabels, resourcesUi } from "@/lib/resources";
+import { getResource, getRelatedResources, getAllResourceSlugs, getTranslations, categoryLabels, resourcesUi } from "@/lib/resources";
+import { pageTitle, ogImages } from "@/lib/seo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Markdown, extractHeadings } from "@/lib/markdown";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -27,14 +27,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const resource = getResource(slug, locale as Locale);
   if (!resource) return {};
 
-  const title = `${resource.title} - Fast Forward >> Typing`;
+  const title = pageTitle(resource.title);
+  const translations = getTranslations(slug, locale as Locale);
+  const languages = Object.fromEntries(
+    Object.entries(translations).map(([l, s]) => [l, `/${l}/resources/${s}`])
+  );
   return {
     title,
     description: resource.description,
-    openGraph: { title, description: resource.description, type: "article" },
+    openGraph: { title, description: resource.description, type: "article", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/resources/${slug}`,
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}/resources/${slug}`])),
+      // Only editions that exist; a single-language article gets none.
+      ...(Object.keys(languages).length > 1 ? { languages } : {}),
     },
   };
 }
@@ -122,6 +127,10 @@ export default async function ResourceArticlePage({ params }: Props) {
                     {categoryLabels[locale as Locale][resource.category]}
                   </span>
                   <span className="text-zinc-400">{resource.readingTime} {ui.readingTime}</span>
+                  <span className="text-zinc-300 dark:text-zinc-600">·</span>
+                  <time dateTime={resource.date} className="text-zinc-400">
+                    {ui.updatedLabel} {new Intl.DateTimeFormat(locale, { day: "numeric", month: "long", year: "numeric" }).format(new Date(resource.date))}
+                  </time>
                 </div>
               </div>
             </ScrollReveal>

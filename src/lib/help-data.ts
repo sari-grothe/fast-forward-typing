@@ -42,7 +42,7 @@ export const helpUi: Record<Locale, {
   },
   fr: {
     metaTitle: "Centre d'aide - Toutes les réponses Fast Forward Typing",
-    metaDescription: "Questions sur le cours, le test de dactylographie, le certificat ou Fast Forward Typing pour les entreprises - toutes les réponses au même endroit, avec recherche.",
+    metaDescription: "Questions sur le cours, le test de dactylographie, le certificat ou l'offre pour les entreprises : toutes les réponses au même endroit.",
     title: "Centre d'aide",
     subtitle: "Toutes les réponses sur le cours, le test de dactylographie, le certificat et plus encore - au même endroit.",
     searchPlaceholder: "Chercher une question ou un mot-clé ...",

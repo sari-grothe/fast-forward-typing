@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageTitle, ogImages } from "@/lib/seo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { CtaButton } from "@/components/CtaButton";
@@ -24,9 +25,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = introExcerpt[l] ?? introExcerpt.en;
 
   return {
-    title: `${a.title} - Fast Forward >> Typing`,
+    title: pageTitle(a.title),
     description,
-    openGraph: { title: a.title, description, type: "website" },
+    openGraph: { title: a.title, description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `https://fastforwardtyping.com/${locale}/about`,
       languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/about`])),

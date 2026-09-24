@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { getHelpCategories, helpUi, strengths } from "@/lib/help-data";
 import { HelpCenter } from "@/components/help/HelpCenter";
@@ -13,9 +14,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const l = helpUi[locale as Locale] ?? helpUi.en;
 
   return {
-    title: `${l.metaTitle} | Fast Forward >> Typing`,
+    title: pageTitle(l.metaTitle),
     description: l.metaDescription,
-    openGraph: { title: l.metaTitle, description: l.metaDescription, type: "website" },
+    openGraph: { title: l.metaTitle, description: l.metaDescription, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `${BASE_URL}/${locale}/help`,
       languages: Object.fromEntries(locales.map((loc) => [loc, `/${loc}/help`])),

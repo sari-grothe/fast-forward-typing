@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ogImages } from "@/lib/seo";
 import { getDictionary } from "@/i18n/dictionaries";
 import { locales, type Locale } from "@/i18n/config";
 import { companiesPath, companiesAnchorId } from "@/i18n/routes";
@@ -52,6 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: meta.title,
       description: meta.description,
       type: "website",
+      images: ogImages(locale),
     },
   };
 }

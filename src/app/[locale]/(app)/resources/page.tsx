@@ -6,6 +6,7 @@ import { getResourcesByLocale, resourcesUi } from "@/lib/resources";
 import { ResourcesOverview } from "@/components/resources/ResourcesOverview";
 import { FinalCTA } from "@/components/FinalCTA";
 import { BASE_URL } from "@/lib/schema";
+import { pageTitle, ogImages } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -14,13 +15,13 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const ui = resourcesUi[locale as Locale];
-  const title = `${ui.pageTitle} - Fast Forward >> Typing`;
-  const description = ui.pageSubtitle;
+  const title = pageTitle(ui.pageTitle);
+  const description = ui.metaDescription;
 
   return {
     title,
     description,
-    openGraph: { title, description },
+    openGraph: { title, description, type: "website", images: ogImages(locale) },
     alternates: {
       canonical: `${BASE_URL}/${locale}/resources`,
       languages: Object.fromEntries(locales.map((l) => [l, `/${l}/resources`])),

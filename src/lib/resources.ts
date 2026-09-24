@@ -37,6 +37,8 @@ export const resourcesUi: Record<Locale, {
   featured: string;
   readArticle: string;
   tocLabel: string;
+  metaDescription: string;
+  updatedLabel: string;
   teamCtaTitle: string;
   teamCtaDesc: string;
   teamCtaLink: string;
@@ -68,6 +70,8 @@ export const resourcesUi: Record<Locale, {
     featured: "Empfohlen",
     readArticle: "Artikel lesen",
     tocLabel: "Inhalt",
+    metaDescription: "Guides zum 10-Finger-System, Tastenkombinationen für Windows und Mac, Tipps für schnelleres Tippen und ehrliche Vergleiche mit anderen Tippkursen.",
+    updatedLabel: "Aktualisiert am",
     teamCtaTitle: "Für dein Team?",
     teamCtaDesc: "Team-Training mit Vorher-Nachher-Messung, für Unternehmen.",
     teamCtaLink: "Team-Training anfragen",
@@ -97,6 +101,8 @@ export const resourcesUi: Record<Locale, {
     featured: "Featured",
     readArticle: "Read article",
     tocLabel: "Contents",
+    metaDescription: "Guides on touch typing, keyboard shortcuts for Windows and Mac, tips for typing faster and honest comparisons with other typing courses.",
+    updatedLabel: "Updated on",
     teamCtaTitle: "For your team?",
     teamCtaDesc: "Team training with before/after measurement, for companies.",
     teamCtaLink: "Request team training",
@@ -126,6 +132,8 @@ export const resourcesUi: Record<Locale, {
     featured: "À la une",
     readArticle: "Lire l'article",
     tocLabel: "Sommaire",
+    metaDescription: "Guides sur la dactylographie, raccourcis clavier Windows et Mac, astuces pour taper plus vite et comparatifs honnêtes avec d'autres cours de frappe.",
+    updatedLabel: "Mis à jour le",
     teamCtaTitle: "Pour ton équipe ?",
     teamCtaDesc: "Formation d'équipe avec mesure avant/après, pour les entreprises.",
     teamCtaLink: "Demander une formation d'équipe",
@@ -1513,7 +1521,7 @@ Fast Forward Typing mesure aussi ta vitesse et ta précision, avant et après le
     type: "article",
     category: "comparisons",
     title: "Alternative à TypingClub pour adultes : le comparatif",
-    description: "TypingClub est gratuit, mais clairement pensé pour les écoles et les enfants. Voici le comparatif honnête pour les adultes qui veulent apprendre la frappe à dix doigts.",
+    description: "TypingClub est gratuit, mais pensé pour les écoles et les enfants. Le comparatif honnête pour les adultes qui veulent apprendre la frappe à dix doigts.",
     readingTime: 5,
     date: "2026-09-23",
     content: `## En résumé
@@ -1584,6 +1592,34 @@ export function getRelatedResources(slug: string, locale: Locale, limit = 3): Re
   return [...sameCategory, ...others].slice(0, limit);
 }
 
-export function getAllResourceSlugs(): { slug: string; locale: string }[] {
-  return resources.map((t) => ({ slug: t.slug, locale: t.locale }));
+// Articles that are translations of each other. Slugs differ per language
+// (SEO-native URLs), so hreflang needs this map to point at the real
+// sibling instead of guessing the same slug in every language.
+const translationGroups: string[][] = [
+  ["zehn-finger-schreiben-lernen", "learn-touch-typing", "apprendre-dactylographie"],
+  ["schneller-tippen-handy", "faster-typing-phone", "taper-plus-vite-telephone"],
+  ["tastenkombinationen-windows", "keyboard-shortcuts-windows", "raccourcis-clavier-windows"],
+  ["tastenkombinationen-mac", "keyboard-shortcuts-mac", "raccourcis-clavier-mac"],
+  ["emoji-tastenkombinationen", "emoji-keyboard-shortcuts", "raccourcis-clavier-emoji"],
+  ["was-ist-das-10-finger-system", "what-is-touch-typing", "dactylographie-definition"],
+  ["schneller-tippen-techniken", "how-to-type-faster", "taper-plus-vite-techniques"],
+  ["typingclub-alternative"],
+  ["agile-fingers-alternative"],
+];
+
+// Every existing language edition of an article, keyed by locale. Only
+// locales that really have a page are returned, so hreflang never points
+// at a 404. The article itself is always included.
+export function getTranslations(slug: string, locale: Locale): Partial<Record<Locale, string>> {
+  const group = translationGroups.find((g) => g.includes(slug)) ?? [slug];
+  const out: Partial<Record<Locale, string>> = {};
+  for (const r of resources) {
+    if (group.includes(r.slug)) out[r.locale] = r.slug;
+  }
+  if (!out[locale]) out[locale] = slug;
+  return out;
+}
+
+export function getAllResourceSlugs(): { slug: string; locale: string; date: string }[] {
+  return resources.map((t) => ({ slug: t.slug, locale: t.locale, date: t.date }));
 }
