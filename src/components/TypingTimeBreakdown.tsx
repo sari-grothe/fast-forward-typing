@@ -20,7 +20,7 @@ type Props = {
 
 // The 40/60/80/100 WPM time-per-day bars, shared between the home page's
 // productivity section and the B2B savings section - same underlying
-// assumption (20 emails x 500 words/day), same source citation, so this
+// assumption (2,400 words/day, see TeamSavingsCalculator), same source, so this
 // stays a single component instead of two copies drifting apart. Doesn't
 // render the source citation itself - callers place that outside their
 // own card (fine print under the box, not inside it), see how each page

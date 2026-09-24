@@ -14,9 +14,12 @@ export type CalculatorLabels = {
   promise: string;
 };
 
-// Same baseline as the home page productivity section: 20 emails of
-// 500 words a day, 40 -> 60 WPM saves 4.2 min per email = 84 min/day.
-const HOURS_SAVED_PER_PERSON_PER_DAY = 1.4;
+// Same baseline as the home page productivity section: 2,400 words a
+// day (2,000 keystrokes per hour at the computer, measured by Wellnomics
+// across 60 organisations, x 6 hours / 5 keystrokes per word).
+// 40 -> 60 WPM: 60 min -> 40 min of typing = 20 min saved per day.
+const WORDS_PER_DAY = 2400;
+const HOURS_SAVED_PER_PERSON_PER_DAY = (WORDS_PER_DAY / 40 - WORDS_PER_DAY / 60) / 60;
 const WORKING_DAYS_PER_YEAR = 220;
 const HOURS_PER_WORKING_DAY = 8;
 const HOURS_PER_FTE_YEAR = WORKING_DAYS_PER_YEAR * HOURS_PER_WORKING_DAY;

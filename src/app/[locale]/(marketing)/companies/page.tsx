@@ -6,6 +6,7 @@ import { companiesPath, companiesAnchorId, localizedPath } from "@/i18n/routes";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
 import { KeyCharacter } from "@/components/KeyCharacter";
+import { InlineLinks } from "@/components/InlineLinks";
 import { TeamSavingsCalculator, type CalculatorLabels } from "@/components/companies/TeamSavingsCalculator";
 import { ContactForm, type ContactFormLabels } from "@/components/companies/ContactForm";
 import { CtaButton } from "@/components/CtaButton";
@@ -161,7 +162,7 @@ export default async function CompaniesPage({ params }: Props) {
                 ctaLabel={hero.ctaPrimary}
                 ctaHref={`#${contactId}`}
               />
-              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6">{savings.source}</p>
+              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6"><InlineLinks text={savings.source} /></p>
             </ScrollReveal>
           </div>
         </div>

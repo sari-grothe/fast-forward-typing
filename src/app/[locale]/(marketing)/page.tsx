@@ -11,6 +11,7 @@ import { CountUpOnView } from "@/components/CountUpOnView";
 import { KeyCharacter } from "@/components/KeyCharacter";
 import { FinalCTA } from "@/components/FinalCTA";
 import { CtaButton } from "@/components/CtaButton";
+import { InlineLinks } from "@/components/InlineLinks";
 import { TypingTimeBreakdown, type TypingTimeBreakdownLabels } from "@/components/TypingTimeBreakdown";
 import { organization } from "@/lib/schema";
 import { localizedPath } from "@/i18n/routes";
@@ -80,14 +81,14 @@ export default async function HomePage({ params }: Props) {
                 <div className="text-center mb-8">
                   <p className="text-xs font-semibold text-indigo/70 uppercase tracking-wider mb-3">{prod.heroLabel}</p>
                   <p className="text-6xl sm:text-7xl font-extrabold text-indigo leading-none">
-                    <CountUpOnView value={2.5} decimals={1} decimalSeparator={locale === "en" ? "." : ","} duration={1400} />
+                    <CountUpOnView value={110} duration={1400} />
                     <span className="text-2xl sm:text-3xl font-bold ml-2 align-middle">{prod.heroUnit}</span>
                   </p>
                   <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-3">{prod.heroCaption}</p>
                 </div>
 
                 {/* Time-per-day bars: the whole argument in one glance -
-                    shrinking bars for the same 20 emails, saved time as
+                    shrinking bars for the same 2,400 words, saved time as
                     a chip per speed tier. */}
                 <div className="border-t border-zinc-200 dark:border-dark-border pt-6 mb-6">
                   <TypingTimeBreakdown labels={prod as unknown as TypingTimeBreakdownLabels} />
@@ -100,7 +101,7 @@ export default async function HomePage({ params }: Props) {
                 </div>
               </div>
               {/* Source: fine print under the box, not inside it. */}
-              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6">{prod.source}</p>
+              <p className="text-center text-[11px] text-zinc-600/70 max-w-md mx-auto mt-6"><InlineLinks text={prod.source} /></p>
             </ScrollReveal>
           </div>
         </div>
