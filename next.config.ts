@@ -16,6 +16,12 @@ const aboutSlugs: Record<(typeof locales)[number], string> = { de: "ueber-uns", 
 const nextConfig: NextConfig = {
   async headers() {
     return [
+      // Gated lead-magnet PDFs (public/downloads): reachable for anyone
+      // who unlocked them, but never a search result of their own.
+      {
+        source: "/downloads/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         source: "/(.*)",
         headers: [

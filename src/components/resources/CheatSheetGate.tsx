@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { PrintButton } from "@/components/resources/PrintButton";
 
 type Labels = {
   gateTitle: string;
@@ -21,6 +20,9 @@ type Labels = {
 type Props = {
   locale: string;
   title: string;
+  // Branded worksheet built by scripts/cheatsheets/build.ts, served
+  // from public/downloads/<slug>.pdf.
+  pdfUrl: string;
   labels: Labels;
 };
 
@@ -31,14 +33,19 @@ const MIN_FILL_TIME_MS = 2000;
 
 type Status = "idle" | "sending" | "error";
 
-// Gates the download behind a name+email capture instead of exposing
-// the print button outright - the whole point of a lead magnet. No
-// actual PDF is emailed (no send infra for that yet): unlocking here
-// just reveals the same print-to-PDF flow immediately, in-session.
-export function CheatSheetGate({ locale, title, labels }: Props) {
+// Gates the download behind a name+email capture - the whole point of
+// a lead magnet. No PDF is emailed (no send infra for that yet):
+// unlocking starts the download of the branded worksheet right here,
+// in-session, and leaves a button in case the browser blocked it.
+export function CheatSheetGate({ locale, title, pdfUrl, labels }: Props) {
   const [unlocked, setUnlocked] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const mountedAt = useRef(Date.now());
+  const downloadRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (unlocked) downloadRef.current?.click();
+  }, [unlocked]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -69,8 +76,18 @@ export function CheatSheetGate({ locale, title, labels }: Props) {
 
   if (unlocked) {
     return (
-      <div className="flex items-center gap-3 pt-2">
-        <PrintButton label={labels.downloadPdf} />
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3 pt-2" role="status" aria-live="polite">
+        <a
+          ref={downloadRef}
+          href={pdfUrl}
+          download
+          className="inline-flex items-center gap-2 rounded-xl bg-dark-text dark:bg-white px-5 py-2.5 text-sm font-semibold text-white dark:text-dark-text hover:scale-[1.02] active:scale-[0.98] transition-all"
+        >
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+          {labels.downloadPdf}
+        </a>
         <span className="text-xs text-zinc-600">{labels.downloadHint}</span>
       </div>
     );

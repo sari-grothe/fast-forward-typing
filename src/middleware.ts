@@ -39,5 +39,7 @@ export function middleware(request: NextRequest) {
 export const config = {
   // apple-icon is the root-level generated icon route (src/app/apple-icon.tsx);
   // without the exclusion it was redirected to /en/apple-icon (404).
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|icon.svg|apple-icon).*)"],
+  // downloads/ holds the gated cheat-sheet PDFs (public/downloads), not
+  // locale pages.
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|llms.txt|llms-full.txt|icon.svg|apple-icon|downloads/).*)"],
 };

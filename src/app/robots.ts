@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         // (waitlist, benefits, FAQ) and should be crawlable - it's
         // kept out of index only per-lesson via noindex, see
         // lessons/[id]/page.tsx, not blocked wholesale here.
-        disallow: ["/api/", "/*/dashboard"],
+        disallow: ["/api/", "/*/dashboard", "/downloads/"],
       },
     ],
     sitemap: "https://fastforwardtyping.com/sitemap.xml",

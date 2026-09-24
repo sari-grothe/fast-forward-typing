@@ -150,6 +150,7 @@ export default async function ResourceArticlePage({ params }: Props) {
                   <CheatSheetGate
                     locale={locale}
                     title={resource.title}
+                    pdfUrl={`/downloads/${resource.slug}.pdf`}
                     labels={{
                       gateTitle: ui.gateTitle,
                       gateDesc: ui.gateDesc,
