@@ -31,7 +31,7 @@ done
 wait
 
 python3 - "$OUT" "$BASE" <<'EOF'
-import json, glob, sys
+import json, glob, re, sys
 out, base = sys.argv[1], sys.argv[2]
 bad = []
 print(f"{'URL':60} {'P':>3} {'A':>3} {'BP':>3} {'SEO':>3} {'LCP':>7} {'CLS':>6}")
@@ -48,7 +48,9 @@ for f in sorted(glob.glob(out + "/*.json")):
     print(f"{u:60} {s['performance']:>3} {s['accessibility']:>3} {s['best-practices']:>3} {s['seo']:>3} {lcp:>6.1f}s {cls:>6.3f}")
     # Legal pages are noindex on purpose until the SIRET is filled in
     # (src/lib/legal/company.ts), so "is-crawlable" is expected there.
-    legal = any(seg in u for seg in ("/privacy", "/imprint", "/terms", "/withdrawal", "/business-terms", "/dpa"))
+    # Lesson pages (/<course-slug>/<id>) are noindex by design too, see
+    # lessons/[id]/page.tsx.
+    legal = any(seg in u for seg in ("/privacy", "/imprint", "/terms", "/withdrawal", "/business-terms", "/dpa")) or bool(re.search(r"/(lessons|10-finger-schreiben-lernen|cours-de-dactylographie)/\d+$", u))
     for k in ("accessibility", "best-practices", "seo"):
         if s[k] < 100:
             fails = [n for n, v in a.items() if v.get("score") is not None and v["score"] < 1 and n in [r["id"] for r in c[k]["auditRefs"] if r.get("weight", 0) > 0]]

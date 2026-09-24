@@ -107,7 +107,20 @@ export function ConsentManager({ locale }: { locale: Locale }) {
 
   useEffect(() => {
     sync();
-    setReady(true);
+    // Show the bar only once web fonts are in: the fixed bar itself
+    // doesn't push content, but its text reflowing from the fallback
+    // font to Poppins counted as a layout shift (CLS 0.16 on FR pages,
+    // where the copy wraps onto an extra line).
+    let shown = false;
+    const show = () => {
+      if (!shown) {
+        shown = true;
+        setReady(true);
+      }
+    };
+    const fallback = window.setTimeout(show, 1500);
+    if (document.fonts?.ready) document.fonts.ready.then(show, show);
+    else show();
     const onOpen = () => {
       setDraft(readConsent()?.analytics === true);
       setPanelOpen(true);
@@ -115,6 +128,7 @@ export function ConsentManager({ locale }: { locale: Locale }) {
     window.addEventListener(CONSENT_EVENT, sync);
     window.addEventListener(OPEN_SETTINGS_EVENT, onOpen);
     return () => {
+      window.clearTimeout(fallback);
       window.removeEventListener(CONSENT_EVENT, sync);
       window.removeEventListener(OPEN_SETTINGS_EVENT, onOpen);
     };
