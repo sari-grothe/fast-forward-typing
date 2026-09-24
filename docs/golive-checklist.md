@@ -51,3 +51,4 @@ Vor dem öffentlichen Launch / ersten Verkauf abarbeiten. Stand: 2026-07-06.
 - [x] SEO-Audit 24.09.2026 umgesetzt (hreflang, Titel, OG-Bilder, Lektionen noindex, Sitemap-Daten, llms-full) - Commit 83a3986
 - [ ] **Inhalt ausbauen** (Hebel für die großen Keywords): je Sprache die drei Kernartikel (10-Finger-System lernen, schneller tippen, was ist das 10-Finger-System) auf 1.500 bis 2.000 Wörter mit Bildern, Übungen und Quellen; Quellen für alle Zahlen (Cambridge, Aalto, 40-60 %) im Text nennen
 - [ ] Startseite verschlanken (462 KB HTML: 260 KB eingebettete Daten, 135 KB Inline-SVG) für Core Web Vitals auf Mobil
+- [x] Technisches SEO abgeschlossen 24.09.2026 (Commits 83a3986 bis 790e6ac): Lighthouse mobil Startseite 100/100/100/100, B2B 100/100/100/100, Artikel 99/100/100/100; 0 kaputte hreflang-Ziele, alle Titel unter 60 Zeichen, OG-Bild und x-default auf allen Seiten, Sicherheits-Header, keine Konsolenfehler
