@@ -20,13 +20,13 @@ const meta: Record<Locale, { title: string; description: string; h1: string; int
   },
   en: {
     title: "Word Counter: Count Words and Characters Online, Free",
-    description: "Count words, characters with and without spaces, sentences and paragraphs, plus reading and typing time and the limits for Google, SMS, X and LinkedIn. Free, no sign-up.",
+    description: "Count words, characters with and without spaces, sentences and paragraphs, plus reading and typing time and the limits for Google, SMS and X. Free, no sign-up.",
     h1: "Word and character counter",
     intro: "Paste a text and see it at once: words, characters with and without spaces, sentences, paragraphs, reading time and how long it takes to type. All in your browser, nothing is sent.",
   },
   fr: {
     title: "Compteur de mots et de caractères en ligne, gratuit",
-    description: "Compte les mots, les caractères avec et sans espaces, les phrases et les paragraphes, plus le temps de lecture et de frappe et les limites Google, SMS, X, LinkedIn. Gratuit.",
+    description: "Compte mots, caractères avec et sans espaces, phrases et paragraphes, plus temps de lecture et de frappe et les limites Google, SMS, X, LinkedIn. Gratuit.",
     h1: "Compteur de mots et de caractères",
     intro: "Colle un texte et vois tout de suite : mots, caractères avec et sans espaces, phrases, paragraphes, temps de lecture et temps de frappe. Tout reste dans ton navigateur.",
   },
