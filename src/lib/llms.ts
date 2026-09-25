@@ -42,6 +42,7 @@ const STATIC_PAGES: { key: PageKey | "home" | "companies"; label: string; note: 
   { key: "resources", label: "Guides", note: "articles on typing technique, shortcuts and productivity" },
   { key: "keyboardLayouts", label: "Keyboard layouts", note: "QWERTZ, QWERTY and AZERTY compared" },
   { key: "practiceTexts", label: "Practice texts", note: "18 workplace paragraphs per language (emails, meeting notes, prompts, numbers) to copy or load into the speed test" },
+  { key: "wordCounter", label: "Word and character counter", note: "counts words, characters, sentences, paragraphs, reading/speaking/typing time and common character limits, entirely in the browser" },
   { key: "help", label: "Help center", note: "FAQ covering the whole product, searchable, organized by category" },
   { key: "companies", label: "For companies", note: "team training for companies: annual per-employee license, before/after measurement, certificates, pricing on request" },
 ];

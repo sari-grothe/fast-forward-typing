@@ -319,7 +319,7 @@ Tipptrainer fangen mit "asdf jklö" an, und für die ersten Tage ist das richtig
 1. **Schwierigkeit wählen.** Leicht heißt nur Buchstaben und Punkt, Mittel bringt Zahlen und Doppelpunkte, Schwer Klammern, Sonderzeichen und Groß-Klein-Wechsel. Fang eine Stufe unter dem an, was du dir zutraust.
 2. **Genauigkeit vor Tempo.** Tippe einen Text so, dass du unter 3 Fehlern bleibst, auch wenn es langsam ist. Erst dann den nächsten. Tempo kommt von allein, Fehler werden zur Gewohnheit.
 3. **Kurz und täglich.** Ein Text pro Tag, 10 bis 15 Minuten. Das ist mehr wert als eine Stunde am Sonntag, weil die Bewegungen zwischen den Einheiten gefestigt werden.
-4. **Messen.** Mit "Jetzt üben" lädst du den Text in den [Test der Tippgeschwindigkeit](page:speedTest) und bekommst WPM und Genauigkeit. Trag den Wert in den [Fortschritts-Tracker](article:fortschritts-tracker-4-wochen) ein.
+4. **Messen.** Mit "Jetzt üben" lädst du den Text in den [Test der Tippgeschwindigkeit](page:speedTest) und bekommst WPM und Genauigkeit. Trag den Wert in den [Fortschritts-Tracker](article:fortschritts-tracker-4-wochen) ein. Eigenen Text mitgebracht? Der [Zeichenzähler](page:wordCounter) sagt dir vorher, wie lange das Tippen dauert.
 
 ## Was ein guter Wert bei diesen Texten ist
 
@@ -358,7 +358,7 @@ Les logiciels de dactylographie commencent par « qsdf jklm », et pour les prem
 1. **Choisis la difficulté.** Facile : lettres et points seulement ; moyen : chiffres et deux-points ; difficile : parenthèses, caractères spéciaux, majuscules. Commence un niveau en dessous de ce que tu penses maîtriser.
 2. **La précision avant la vitesse.** Tape un texte en restant sous 3 erreurs, même lentement. Seulement ensuite, passe au suivant. La vitesse vient seule, les erreurs deviennent des habitudes.
 3. **Court et quotidien.** Un texte par jour, 10 à 15 minutes. Ça vaut plus qu'une heure le dimanche, parce que les mouvements se consolident entre les séances.
-4. **Mesure.** Avec « S'entraîner », tu charges le texte dans le [test de vitesse de frappe](page:speedTest) et tu obtiens MPM et précision. Note la valeur dans le [suivi de progression](article:suivi-progression-4-semaines).
+4. **Mesure.** Avec « S'entraîner », tu charges le texte dans le [test de vitesse de frappe](page:speedTest) et tu obtiens MPM et précision. Note la valeur dans le [suivi de progression](article:suivi-progression-4-semaines). Tu as ton propre texte ? Le [compteur de mots](page:wordCounter) te dit d'avance combien de temps il faut pour le taper.
 
 ## Ce qu'est un bon score sur ces textes
 
@@ -396,7 +396,7 @@ Typing programs start with "asdf jkl;", and for the first few days that is right
 1. **Pick the difficulty.** Easy means letters and full stops only, medium adds numbers and colons, hard adds brackets, symbols and case changes. Start one level below what you think you can do.
 2. **Accuracy before speed.** Type a text staying under 3 errors, even if it is slow. Only then move to the next one. Speed comes on its own, errors become habits.
 3. **Short and daily.** One text a day, 10 to 15 minutes. That beats an hour on Sunday, because the movements consolidate between sessions.
-4. **Measure.** "Practice now" loads the text into the [typing speed test](page:speedTest) and gives you WPM and accuracy. Write the value into the [progress tracker](article:progress-tracker-4-weeks).
+4. **Measure.** "Practice now" loads the text into the [typing speed test](page:speedTest) and gives you WPM and accuracy. Write the value into the [progress tracker](article:progress-tracker-4-weeks). Brought your own text? The [word counter](page:wordCounter) tells you beforehand how long typing it takes.
 
 ## What a good score is on these texts
 
@@ -424,4 +424,164 @@ Yes, the collection grows. If a type of text is missing for you, tell us through
 
 - [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016: preparing the next keystroke and little hand movement predict typing speed.
 - [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354) - Cepeda et al., Psychological Bulletin 2006: spaced practice beats massed practice.`;
+}
+
+// Word/character counter page. Explains the counting rules (so numbers
+// that differ from Word or Google Docs are explainable), the common
+// limits, and bridges to the typing product via typing time.
+export function wordCounterExplainer(locale: Locale): string {
+  if (locale === "de") {
+    return `## So zählt der Zeichenzähler
+
+**Wörter:** Jede Folge von Zeichen zwischen zwei Leerzeichen oder Zeilenumbrüchen zählt als ein Wort. "E-Mail" ist ein Wort, "10 Uhr" sind zwei, eine Zahl wie "2026" ebenfalls eins. Das entspricht der Zählweise von Word und Google Docs.
+
+**Zeichen:** Gezählt wird jedes Zeichen inklusive Satzzeichen und Umlaute. "Zeichen ohne Leerzeichen" lässt Leerzeichen, Tabulatoren und Zeilenumbrüche weg. Für Zeichenlimits in sozialen Netzwerken und bei Google gilt immer die Zahl mit Leerzeichen.
+
+**Sätze:** Ein Satz endet mit Punkt, Fragezeichen, Ausrufezeichen oder einem Zeilenumbruch. Abkürzungen wie "z. B." werden als Satzende gezählt, deshalb kann der Wert bei Texten mit vielen Abkürzungen etwas zu hoch liegen.
+
+**Absätze:** Durch eine Leerzeile getrennte Blöcke.
+
+**Lesezeit** rechnet mit 200 Wörtern pro Minute, dem üblichen Wert für stilles Lesen von Sachtexten. **Sprechzeit** mit 130 Wörtern pro Minute, dem Tempo einer Präsentation. **Tippzeit** mit 40 Wörtern pro Minute, der [durchschnittlichen Tippgeschwindigkeit](article:durchschnittliche-tippgeschwindigkeit) von Erwachsenen.
+
+## Die wichtigsten Zeichenlimits
+
+| Wo | Limit | Bemerkung |
+|---|---|---|
+| Google-Titel (Title-Tag) | etwa 60 Zeichen | Länger wird in den Suchergebnissen abgeschnitten |
+| Meta-Description | etwa 160 Zeichen | Google zeigt oft 120 bis 160 |
+| SMS | 160 Zeichen | mit Umlauten nur 70, danach wird geteilt |
+| X (Twitter) | 280 Zeichen | Links zählen als 23 Zeichen |
+| Instagram-Bildtext | 2.200 Zeichen | in der Vorschau nur die ersten 125 |
+| LinkedIn-Beitrag | 3.000 Zeichen | "Mehr anzeigen" nach etwa 210 |
+| Bewerbung, Motivationsschreiben | eine Seite, etwa 2.500 bis 3.500 Zeichen | je nach Vorgabe |
+
+## Warum die Tippzeit dabeisteht
+
+Wer 500 Wörter zählt, tippt sie auch irgendwann. Bei 40 Wörtern pro Minute sind das 12 bis 13 Minuten, bei 60 WPM acht, mit zwei Fingern bei 27 WPM fast zwanzig. Für jede E-Mail, jedes Protokoll und jeden Bericht. Der Zähler zeigt die Zeit beim Durchschnitt; wie es bei dir aussieht, sagt der [Test der Tippgeschwindigkeit](page:speedTest) in einer Minute. Und wer den eigenen Text gleich als Übung nutzen will: Die [Übungstexte](page:practiceTexts) zeigen, wie echte Arbeitstexte als Training funktionieren, der Weg zu 60 WPM steht im [10-Finger-System-Kurs](page:lessons).
+
+## Häufige Fragen
+
+### Wird mein Text gespeichert?
+
+Nein. Die Zählung läuft komplett in deinem Browser. Der Text wird weder gesendet noch gespeichert; nach dem Schließen der Seite ist er weg.
+
+### Warum weicht die Wortzahl von Word ab?
+
+Meist wegen Bindestrichen, Schrägstrichen und Zahlen: Word zählt "und/oder" als ein Wort, manche Tools als zwei. Unterschiede von ein bis zwei Prozent sind normal. Für Limits zählt das Werkzeug, das die Vorgabe macht.
+
+### Zählen Leerzeichen bei Zeichenlimits mit?
+
+Ja. Google, X, LinkedIn und SMS zählen Leerzeichen mit. "Zeichen ohne Leerzeichen" ist nur für Übersetzungs- und Textpreise üblich, die pro Normseite oder pro 1.000 Zeichen ohne Leerzeichen abrechnen.
+
+### Wie viele Zeichen sind 1.000 Wörter?
+
+Im Deutschen etwa 6.500 bis 7.500 Zeichen mit Leerzeichen, weil deutsche Wörter im Schnitt länger sind als englische (dort etwa 5.500 bis 6.000).
+
+## Quellen
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - Lesegeschwindigkeit etwa 200 bis 250 Wörter pro Minute, Sprechtempo etwa 130 bis 150, Zwei-Finger-Tipper 27 WPM.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University und University of Cambridge, CHI 2018: Durchschnitt 51,6 WPM bei 168.000 Teilnehmern.`;
+  }
+  if (locale === "fr") {
+    return `## Comment compte le compteur
+
+**Mots :** toute suite de caractères entre deux espaces ou sauts de ligne compte pour un mot. « e-mail » est un mot, « 10 heures » en fait deux, un nombre comme « 2026 » un aussi. C'est la méthode de Word et de Google Docs.
+
+**Caractères :** chaque caractère est compté, ponctuation et accents compris. « Caractères sans espaces » retire les espaces, tabulations et sauts de ligne. Pour les limites des réseaux sociaux et de Google, c'est toujours le nombre avec espaces qui compte.
+
+**Phrases :** une phrase se termine par un point, un point d'interrogation, un point d'exclamation ou un saut de ligne. Les abréviations comme « p. ex. » sont comptées comme fin de phrase, le chiffre peut donc être un peu élevé pour des textes riches en abréviations.
+
+**Paragraphes :** blocs séparés par une ligne vide.
+
+**Temps de lecture** : 200 mots par minute, la valeur habituelle pour la lecture silencieuse. **Temps de parole** : 130 mots par minute, le rythme d'une présentation. **Temps de frappe** : 40 mots par minute, la [vitesse de frappe moyenne](article:vitesse-de-frappe-moyenne) des adultes.
+
+## Les limites de caractères à connaître
+
+| Où | Limite | Remarque |
+|---|---|---|
+| Titre Google (balise title) | environ 60 caractères | au-delà, coupé dans les résultats |
+| Meta description | environ 160 caractères | Google affiche souvent 120 à 160 |
+| SMS | 160 caractères | 70 seulement avec des accents, puis le message est découpé |
+| X (Twitter) | 280 caractères | un lien compte 23 caractères |
+| Légende Instagram | 2 200 caractères | seuls les 125 premiers en aperçu |
+| Post LinkedIn | 3 000 caractères | « voir plus » après environ 210 |
+| Lettre de motivation | une page, environ 2 500 à 3 500 caractères | selon la consigne |
+
+## Pourquoi le temps de frappe est affiché
+
+Qui compte 500 mots finira par les taper. À 40 mots par minute, ça fait 12 à 13 minutes ; à 60 MPM, huit ; à deux doigts, à 27 MPM, près de vingt. Pour chaque e-mail, compte rendu et rapport. Le compteur affiche le temps à la moyenne ; pour connaître le tien, le [test de vitesse de frappe](page:speedTest) prend une minute. Et pour utiliser ton propre texte comme exercice : les [textes d'exercice](page:practiceTexts) montrent comment de vrais textes de travail servent d'entraînement, et le chemin vers 60 MPM est dans le [cours de dactylographie](page:lessons).
+
+## Questions fréquentes
+
+### Mon texte est-il enregistré ?
+
+Non. Le comptage se fait entièrement dans ton navigateur. Le texte n'est ni envoyé ni stocké ; il disparaît à la fermeture de la page.
+
+### Pourquoi le nombre de mots diffère de Word ?
+
+Le plus souvent à cause des traits d'union, des barres obliques et des nombres : Word compte « et/ou » comme un mot, d'autres outils comme deux. Un écart de un à deux pour cent est normal. Pour une limite, c'est l'outil qui fixe la consigne qui compte.
+
+### Les espaces comptent-ils dans les limites ?
+
+Oui. Google, X, LinkedIn et les SMS comptent les espaces. « Sans espaces » ne sert que pour les tarifs de traduction et de rédaction facturés aux 1 000 caractères.
+
+### Combien de caractères font 1 000 mots ?
+
+En français, environ 6 000 à 6 800 caractères espaces comprises ; en anglais, environ 5 500 à 6 000, les mots y étant plus courts.
+
+## Sources
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, en anglais) - lecture environ 200 à 250 mots par minute, parole environ 130 à 150, typistes à deux doigts 27 MPM.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University et University of Cambridge, CHI 2018 : moyenne 51,6 MPM sur 168 000 participants.`;
+  }
+  return `## How the counter counts
+
+**Words:** every run of characters between two spaces or line breaks is one word. "E-mail" is one word, "10 am" is two, a number like "2026" is one. That matches how Word and Google Docs count.
+
+**Characters:** every character is counted, punctuation included. "Characters without spaces" leaves out spaces, tabs and line breaks. For limits on social networks and Google, the number with spaces is always the one that counts.
+
+**Sentences:** a sentence ends with a full stop, question mark, exclamation mark or a line break. Abbreviations like "e.g." count as a sentence end, so the number can run slightly high for texts with many abbreviations.
+
+**Paragraphs:** blocks separated by an empty line.
+
+**Reading time** uses 200 words per minute, the usual figure for silent reading of non-fiction. **Speaking time** uses 130 words per minute, the pace of a presentation. **Typing time** uses 40 words per minute, the [average typing speed](article:average-typing-speed) of adults.
+
+## The character limits that matter
+
+| Where | Limit | Note |
+|---|---|---|
+| Google title (title tag) | about 60 characters | longer gets cut off in the results |
+| Meta description | about 160 characters | Google often shows 120 to 160 |
+| SMS | 160 characters | only 70 with special characters, then it splits |
+| X (Twitter) | 280 characters | a link counts as 23 characters |
+| Instagram caption | 2,200 characters | only the first 125 show in the preview |
+| LinkedIn post | 3,000 characters | "see more" after about 210 |
+| Cover letter | one page, about 2,500 to 3,500 characters | depending on the brief |
+
+## Why typing time is shown
+
+Whoever counts 500 words will type them at some point. At 40 words per minute that is 12 to 13 minutes, at 60 WPM eight, with two fingers at 27 WPM almost twenty. For every email, every set of notes, every report. The counter shows the time at the average; to see yours, the [typing speed test](page:speedTest) takes one minute. And if you want to use your own text as practice: the [practice paragraphs](page:practiceTexts) show how real work texts work as training, and the way to 60 WPM is in the [touch typing course](page:lessons).
+
+## Frequently asked questions
+
+### Is my text stored?
+
+No. Counting runs entirely in your browser. The text is neither sent nor saved; it is gone when you close the page.
+
+### Why does the word count differ from Word?
+
+Usually because of hyphens, slashes and numbers: Word counts "and/or" as one word, some tools as two. Differences of one or two percent are normal. For a limit, the tool that sets the rule is the one that counts.
+
+### Do spaces count toward character limits?
+
+Yes. Google, X, LinkedIn and SMS all count spaces. "Without spaces" is only common for translation and copywriting rates billed per 1,000 characters.
+
+### How many characters are 1,000 words?
+
+In English about 5,500 to 6,000 characters including spaces; in German about 6,500 to 7,500, because German words are longer on average.
+
+## Sources
+
+- [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - reading about 200 to 250 words per minute, speaking about 130 to 150, two-finger typists 27 WPM.
+- [Observations on Typing from 136 Million Keystrokes](https://userinterfaces.aalto.fi/136Mkeystrokes/) - Aalto University and University of Cambridge, CHI 2018: average 51.6 WPM across 168,000 participants.`;
 }
