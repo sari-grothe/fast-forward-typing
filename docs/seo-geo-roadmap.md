@@ -64,13 +64,13 @@ the money month"). Jede Woche zählt.
 | # | Maßnahme | Ziel-Keywords | Umfang |
 |---|---|---|---|
 | 2.1 | **Vergleichs-Cluster je Sprache** (Skill competitor-alternatives): "Die besten Tipptrainer 2026 im Vergleich", "Tipp10 Alternative", "TypingClub vs Tipp10 vs Fast Forward". Faire Tabellen, Preise, Stand-Datum, monatliches Update | DE 10-finger schreiben lernen testsieger 90/26 (CPC 30 EUR), tipp10 alternative; EN best typing software; FR meilleur logiciel dactylographie | 3 Seiten x3 |
-| 2.2 | **Tastatur-Tester** als Tool-Seite (DE `/tastatur-test`, FR `/test-clavier` mit AZERTY als Default, EN `/keyboard-tester`), 300 Wörter Text, WebApplication-Schema | DE tastatur test 1.400/1, tastatur tester 500/0, Cluster 3.040/2; FR test clavier 2.300/5, test clavier azerty 900/2, Cluster 4.750/7; EN keyboard tester 69.000/63 (nur mitnehmen) | Tool + Seite x3 |
-| 2.3 | **Übungstexte-Seite** je Sprache mit thematischen Texten (Büro, E-Mail, KI-Prompts), Link in die Lektionen | DE 10-finger schreiben übungstexte 200/0 + Cluster 580/9; EN typing practice paragraphs 2.600/31, paragraph typing practice 700/19; FR exercices dactylographie 750/33 | x3 |
+| 2.2 | **Tastatur-Tester** (von Sarah am 25.09.2026 zurückgestellt: nächstes Tool nach Freigabe; Aufwand 3 bis 4 Stunden, Bildschirmtastatur aus `src/lib/keyboard-layouts.ts` wiederverwendbar) als Tool-Seite (DE `/tastatur-test`, FR `/test-clavier` mit AZERTY als Default, EN `/keyboard-tester`), 300 Wörter Text, WebApplication-Schema | DE tastatur test 1.400/1, tastatur tester 500/0, Cluster 3.040/2; FR test clavier 2.300/5, test clavier azerty 900/2, Cluster 4.750/7; EN keyboard tester 69.000/63 (nur mitnehmen) | Tool + Seite x3 |
+| 2.3 | ~~**Übungstexte-Seite**~~ erledigt 25.09.2026 (`/de/uebungstexte`, `/en/typing-practice-paragraphs`, `/fr/textes-dactylographie`, 18 Texte je Sprache, Laden in den Tipptest) je Sprache mit thematischen Texten (Büro, E-Mail, KI-Prompts), Link in die Lektionen | DE 10-finger schreiben übungstexte 200/0 + Cluster 580/9; EN typing practice paragraphs 2.600/31, paragraph typing practice 700/19; FR exercices dactylographie 750/33 | x3 |
 | 2.4 | **Drei Kernartikel je Sprache auf 1.500-2.000 Wörter** (10-Finger-System lernen, schneller tippen, was ist das 10-Finger-System): Bilder, Übungen, Quellen | Pillar-Cluster "10 finger schreiben" TP 23.000 | 9 Artikel |
 | 2.5 | **Listicle-Outreach**: DE t3n.de (Artikel "10-Finger-Schreiben lernen"), chip.de, effektiveslernen.de, karrierebibel.de; EN skillscouter.com, contentmavericks.com, whenyouwrite.com, courselounge.com, typinglounge.com, officeskills.org; FR outilstice.com, clubic.com. Pitch: moderner Trainer für Erwachsene, DE/FR-Layouts, Einstufung | 10 Listicles = Zitatquellen für LLMs | Outreach |
 | 2.6 | **Reddit**: 4 Wochen ohne Link Karma in r/typing, r/learntyping, r/de_EDV, r/FragReddit, r/homeoffice_de; danach Antworten mit Daten aus 1.1, nie "check out my tool", Wettbewerber mitnennen | Perplexity zieht 46,7 % der Zitate aus Reddit | laufend |
 | 2.7 | Ressourcen-Hub: Kategorietexte (je 100-150 Wörter), CollectionPage bleibt | interne Verlinkung | x3 |
-| 2.8 | **Zeichen-/Wortzähler** DE+FR (Entscheidung 24.09.: Phase 2, nicht zum Go-live): reiner Link-Magnet mit CTA zum Tipptest, saisonal stark Oktober bis März | DE zeichenzähler 20.000, wörter zählen online 700/8; FR compteur de mots 25.000/22, compteur de caractères 13.000/20 | Tool + Seite x2 |
+| 2.8 | ~~**Zeichen-/Wortzähler**~~ erledigt 25.09.2026 in DE, EN und FR (`/de/zeichenzaehler`, `/en/word-counter`, `/fr/compteur-de-mots`) DE+FR (Entscheidung 24.09.: Phase 2, nicht zum Go-live): reiner Link-Magnet mit CTA zum Tipptest, saisonal stark Oktober bis März | DE zeichenzähler 20.000, wörter zählen online 700/8; FR compteur de mots 25.000/22, compteur de caractères 13.000/20 | Tool + Seite x2 |
 | 2.9 | Technik-Rest: Startseite unter 150 KB (SVGs als `<img>`), Mono-Font auf Tipp-Seiten preloaden, 7 Descriptions kürzen, Kontakt-Priorität 0,3, CSP-Header | Felddaten, Snippets | klein |
 
 ## Phase 3: Cluster und eigene Daten (Januar bis März 2027)
@@ -193,6 +193,16 @@ GSC-Impressionen auf Tool-Keywords. Bis 31.03.2027 erste AI-Erwähnung auf
 einer der 10 Fragen, 1.000 Tests für 3.2, 25 Referring Domains.
 
 ## Erledigt-Log
+
+- 25.09.2026: WPM-Benchmark-Artikel DE/EN/FR (1.1), DE-TypingClub-Artikel auf
+  "typingclub deutsch" ausgerichtet (1.5), Übungstexte-Tool (2.3), Wörter-/
+  Zeichenzähler (2.8), Course-Schema auf der Kursseite (1.6), FR-Titel mit
+  "test de dactylographie" und "dix doigts", 21 Arbeitsblatt-Artikel mit
+  E-Mail-Gate und 30 PDFs in public/downloads, AGB für Unternehmen in der
+  Rechtszeile des Footers. Vollprüfung: crawl.py 0 Fehler auf 88 Sitemap-URLs,
+  Lighthouse A11y/BP/SEO 100 auf allen 70 messbaren Seiten (18 durch Vercels
+  Bot-Sperre nicht messbar, gestern 99 bis 100). Offen aus Phase 2: 2.2
+  Tastatur-Tester (zurückgestellt).
 
 - 24.09.2026: Technischer SEO-Pass abgeschlossen (Commits 83a3986 bis 790e6ac):
   hreflang inkl. x-default, Titel, OG-Bilder, Lektionen noindex, Sitemap-Daten,
