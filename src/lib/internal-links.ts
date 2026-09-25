@@ -27,6 +27,13 @@ function resolveTarget(kind: string, key: string, locale: Locale): string {
   return `${localizedPath(locale, "resources")}/${key}`;
 }
 
+// A single "page:key" / "article:slug" target, for links outside markdown
+// (e.g. help-center answers). Throws on unknown targets like the rest.
+export function resolveInternalHref(target: string, locale: Locale): string {
+  const [kind, key] = target.split(":");
+  return resolveTarget(kind, key, locale);
+}
+
 export function resolveInternalLinks(md: string, locale: Locale): string {
   return md.replace(LINK, (_m, kind: string, key: string) => `](${resolveTarget(kind, key, locale)})`);
 }

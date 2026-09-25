@@ -5,6 +5,7 @@ import { getHelpCategories, helpUi, strengths } from "@/lib/help-data";
 import { HelpCenter } from "@/components/help/HelpCenter";
 import { BASE_URL } from "@/lib/schema";
 import { localizedPath } from "@/i18n/routes";
+import { resolveInternalHref } from "@/lib/internal-links";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -28,7 +29,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HelpPage({ params }: Props) {
   const { locale } = await params;
   const l = locale as Locale;
-  const categories = getHelpCategories(l);
+  // Link keys resolve here on the server, so the client bundle never pulls
+  // in the article registry; an unknown key fails the build.
+  const categories = getHelpCategories(l).map((cat) => ({
+    ...cat,
+    items: cat.items.map((item) =>
+      item.link ? { ...item, link: { ...item.link, to: resolveInternalHref(item.link.to, l) } } : item
+    ),
+  }));
 
   // One consolidated FAQPage schema for the whole page (all categories),
   // not one per section - multiple FAQPage blocks on a single page can

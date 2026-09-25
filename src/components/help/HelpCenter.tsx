@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import type { Locale } from "@/i18n/config";
 import type { HelpCategory, Strength } from "@/lib/help-data";
 import { helpUi } from "@/lib/help-data";
@@ -148,6 +149,11 @@ export function HelpCenter({ locale, categories, strengths }: Props) {
                       </button>
                       <div className={`overflow-hidden transition-all duration-200 ${open ? "max-h-96 pb-4" : "max-h-0"}`}>
                         <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.answer}</p>
+                        {item.link && (
+                          <Link href={item.link.to} className="inline-block mt-2 text-sm font-semibold text-indigo hover:underline">
+                            {item.link.label} &gt;&gt;
+                          </Link>
+                        )}
                       </div>
                     </div>
                   );
