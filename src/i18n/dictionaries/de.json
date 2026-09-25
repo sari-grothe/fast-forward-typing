@@ -187,6 +187,7 @@
     "savings": {
       "title": "So viel Zeit kann dein Team sparen",
       "teamSize": "Teamgröße",
+      "teamUnit": "Mitarbeitende",
       "sliderHint": "Regler verschieben, um deine Teamgröße einzustellen",
       "perDay": "Stunden pro Tag",
       "perYear": "Stunden pro Jahr",

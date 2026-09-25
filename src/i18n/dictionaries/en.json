@@ -187,6 +187,7 @@
     "savings": {
       "title": "How much time your team can save",
       "teamSize": "Team size",
+      "teamUnit": "employees",
       "sliderHint": "Drag the slider to set your team size",
       "perDay": "hours per day",
       "perYear": "hours per year",

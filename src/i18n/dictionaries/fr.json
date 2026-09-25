@@ -187,6 +187,7 @@
     "savings": {
       "title": "Tout le temps que ton équipe peut gagner",
       "teamSize": "Taille de l'équipe",
+      "teamUnit": "collaborateurs",
       "sliderHint": "Déplace le curseur pour indiquer la taille de ton équipe",
       "perDay": "heures par jour",
       "perYear": "heures par an",

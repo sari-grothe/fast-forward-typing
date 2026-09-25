@@ -5,6 +5,9 @@ import { CtaButton } from "@/components/CtaButton";
 
 export type CalculatorLabels = {
   teamSize: string;
+  // Unit shown next to the number ("300 Mitarbeitende"), so the big
+  // figure reads as a headcount at a glance.
+  teamUnit: string;
   sliderHint: string;
   resultIntro: string;
   perDay: string;
@@ -41,7 +44,9 @@ type Props = {
 const INTL_LOCALE: Record<string, string> = { de: "de-DE", en: "en-US", fr: "fr-FR" };
 
 export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Props) {
-  const [teamSize, setTeamSize] = useState(25);
+  // 300 as the default: the mid-sized company the B2B page addresses,
+  // and a figure whose savings are large enough to read as a case.
+  const [teamSize, setTeamSize] = useState(300);
   // The slider is the whole point of the card, but a range input alone
   // reads as decoration - so the hint pulses until the first interaction.
   const [touched, setTouched] = useState(false);
@@ -62,7 +67,7 @@ export function TeamSavingsCalculator({ locale, labels, ctaLabel, ctaHref }: Pro
           <label htmlFor="team-size" className="text-sm font-semibold text-zinc-600 dark:text-zinc-300">
             {labels.teamSize}
           </label>
-          <span className="text-2xl font-extrabold text-indigo tabular-nums">{whole.format(teamSize)}</span>
+          <span className="text-2xl font-extrabold text-indigo tabular-nums">{whole.format(teamSize)} <span className="text-base font-semibold">{labels.teamUnit}</span></span>
         </div>
         <input
           id="team-size"
