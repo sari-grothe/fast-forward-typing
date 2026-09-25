@@ -218,6 +218,10 @@ Der Trick ist, die ersten 7 Tage durchzuhalten. Danach spürst du den Fortschrit
 
 Vier Arbeitsblätter begleiten den Kurs: die [Finger-Tastatur-Karte mit dem Fingersatz](article:finger-tastatur-karte-qwertz) für neben die Tastatur, das [leere Layout zum Ausfüllen](article:leeres-layout-qwertz) als Zwei-Minuten-Test, der [Fortschritts-Tracker für vier Wochen](article:fortschritts-tracker-4-wochen) und der [Selbsttest mit acht Fragen](article:selbsttest-wo-stehst-du), der dir den passenden Einstieg zeigt.
 
+## Andere Anbieter im Vergleich
+
+Wer vorher vergleichen will: Die Artikel zur [TypingClub-Alternative für Erwachsene](article:typingclub-alternative) und zur [AgileFingers-Alternative](article:agile-fingers-alternative) stellen die bekanntesten kostenlosen Trainer diesem Kurs gegenüber, mit Stand-Datum.
+
 ## Quellen
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - Zwei-Finger-Tipper etwa 27 WPM beim Abschreiben und 37 aus dem Kopf, Profis 43 bis 80 WPM; die deutsche Einheit erklärt [Anschläge pro Minute](https://de.wikipedia.org/wiki/Anschl%C3%A4ge_pro_Minute).
@@ -865,6 +869,10 @@ The trick is to push through the first 7 days. After that, you'll feel the progr
 
 Four worksheets go with the course: the [finger keyboard map](article:finger-keyboard-map-qwerty) for next to your keyboard, the [blank layout to fill in](article:blank-layout-qwerty) as a two-minute test, the [four-week progress tracker](article:progress-tracker-4-weeks) and the [eight-question self-test](article:self-test-where-do-you-stand) that shows you the right starting point.
 
+## Other tools compared
+
+If you want to compare first: the articles on the [TypingClub alternative for adults](article:typingclub-alternative) and the [AgileFingers alternative](article:agile-fingers-alternative) put the best-known free trainers side by side with this course, with a date stamp.
+
 ## Sources
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - two-finger typists about 27 WPM when copying and 37 from memory, professional typists 43 to 80 WPM.
@@ -1508,6 +1516,10 @@ Le truc, c'est de tenir les 7 premiers jours. Après ça, tu sens le progrès. S
 ## À imprimer
 
 Quatre fiches accompagnent le cours : la [carte doigts-clavier](article:carte-doigts-clavier-azerty) à poser à côté du clavier, le [clavier vierge à compléter](article:clavier-vierge-azerty) comme test de deux minutes, le [suivi de progression sur quatre semaines](article:suivi-progression-4-semaines) et l'[auto-évaluation en huit questions](article:auto-evaluation-ou-en-es-tu) qui indique le bon point de départ.
+
+## Les autres outils, comparés
+
+Pour comparer d'abord : les articles sur l'[alternative à TypingClub pour adultes](article:typingclub-alternative) et l'[alternative à AgileFingers](article:agile-fingers-alternative) mettent les entraîneurs gratuits les plus connus face à ce cours, avec la date de mise à jour.
 
 ## Sources
 

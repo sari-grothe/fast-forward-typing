@@ -23,10 +23,13 @@ run_one() {
     --only-categories=performance,accessibility,best-practices,seo >/dev/null 2>&1
 }
 
+# Parallelism defaults to 1: three parallel Chromes tripped Vercel's
+# attack challenge (403 "Security Checkpoint") on 2026-09-24.
+PAR="${PAR:-1}"
 i=0
 for u in $URLS; do
   run_one "$u" &
-  i=$((i+1)); [ $((i % 3)) -eq 0 ] && wait
+  i=$((i+1)); [ $((i % PAR)) -eq 0 ] && wait
 done
 wait
 

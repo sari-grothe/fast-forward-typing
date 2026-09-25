@@ -3,6 +3,7 @@ import { pageTitle, ogImages } from "@/lib/seo";
 import { locales, type Locale } from "@/i18n/config";
 import { LessonsList } from "./LessonsList";
 import { localizedPath } from "@/i18n/routes";
+import { organization } from "@/lib/schema";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -41,5 +42,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function LessonsPage({ params }: Props) {
   const { locale } = await params;
-  return <LessonsList locale={locale as Locale} />;
+  const m = meta[locale as Locale] ?? meta.en;
+
+  // Course entity on the course page itself, not only on the home page
+  // (docs/seo-geo-roadmap.md 1.6); same shape as the home page schema.
+  const courseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: m.title,
+    description: m.description,
+    url: `https://fastforwardtyping.com${localizedPath(locale, "lessons")}`,
+    provider: organization,
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "online",
+      courseWorkload: "PT15M",
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "EUR",
+      availability: "https://schema.org/InStock",
+    },
+    inLanguage: [locale],
+  };
+
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <LessonsList locale={locale as Locale} />
+    </>
+  );
 }
