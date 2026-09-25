@@ -38,6 +38,7 @@ const SKIP_HEADINGS = new Set([
   // cross-link sections added to the web articles (docs/article-template.md rule 8)
   "Passende Karten", "Matching sheets", "Fiches associées", "Zum Ausdrucken", "Printables", "À imprimer",
   "Fürs Büro", "For the office", "Pour le bureau", "Zum Aufhängen", "For the wall", "À afficher",
+  "Vergleichswerte", "Benchmarks", "Repères", "Was am Ende drin ist", "What to expect at the end", "Ce qu'on peut viser",
 ]);
 const TIP_HEADINGS = new Set(["Profi-Tipp", "Pro tip", "Astuce pro", "Astuce"]);
 

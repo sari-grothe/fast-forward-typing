@@ -52,7 +52,7 @@ Achte auf die Genauigkeit: Unter 95 Prozent lohnt es sich, langsamer und saubere
 
 ## Und dann?
 
-Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum. Wie du im nächsten Tipptest besser abschneidest und was im Schreibtest für die Bewerbung zählt, steht im [Tipptest-Ratgeber](article:tipptest).
+Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum. Wie du im nächsten Tipptest besser abschneidest und was im Schreibtest für die Bewerbung zählt, steht im [Tipptest-Ratgeber](article:tipptest). Was ein guter Wert ist, nach Alter und Beruf, zeigt die [durchschnittliche Tippgeschwindigkeit im Vergleich](article:durchschnittliche-tippgeschwindigkeit).
 
 ## Quellen
 
@@ -91,7 +91,7 @@ Watch your accuracy: below 95 percent, slowing down and typing cleanly pays off.
 
 ## What next?
 
-If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date. How to score higher next time, and what counts in a typing test for a job, is in the [typing test guide](article:typing-test).
+If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date. How to score higher next time, and what counts in a typing test for a job, is in the [typing test guide](article:typing-test). What counts as a good score, by age and profession, is in the [average typing speed benchmarks](article:average-typing-speed).
 
 ## Sources
 
@@ -130,7 +130,7 @@ Surveille ta précision : en dessous de 95 %, ralentir et taper proprement rappo
 
 ## Et ensuite ?
 
-Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date. Pour faire mieux au prochain essai et savoir ce qui compte dans un test de frappe pour un emploi, lis le [guide du test de frappe](article:test-de-frappe).
+Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date. Pour faire mieux au prochain essai et savoir ce qui compte dans un test de frappe pour un emploi, lis le [guide du test de frappe](article:test-de-frappe). Ce qu'est un bon score, par âge et par métier : la [vitesse de frappe moyenne en repères](article:vitesse-de-frappe-moyenne).
 
 ## Sources
 

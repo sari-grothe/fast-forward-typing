@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { worksheetResources } from "./resources-worksheets";
+import { benchmarkResources } from "./resources-benchmarks";
 
 export type ResourceCategory = "learning" | "shortcuts" | "productivity" | "comparisons";
 export type ResourceType = "article" | "lead-magnet";
@@ -221,6 +222,10 @@ Vier Arbeitsblätter begleiten den Kurs: die [Finger-Tastatur-Karte mit dem Fing
 ## Andere Anbieter im Vergleich
 
 Wer vorher vergleichen will: Die Artikel zur [TypingClub-Alternative für Erwachsene](article:typingclub-alternative) und zur [AgileFingers-Alternative](article:agile-fingers-alternative) stellen die bekanntesten kostenlosen Trainer diesem Kurs gegenüber, mit Stand-Datum.
+
+## Was am Ende drin ist
+
+Welche Werte realistisch sind und was Arbeitgeber erwarten, steht in den [WPM-Vergleichswerten nach Alter und Beruf](article:durchschnittliche-tippgeschwindigkeit).
 
 ## Quellen
 
@@ -793,6 +798,10 @@ Ein Tipptest zeigt dir, wo du stehst. Schneller wirst du durch Übung. Die [Eins
 
 Wer den Wert festhalten will, trägt ihn in den [Fortschritts-Tracker](article:fortschritts-tracker-4-wochen) ein und misst nach vier Wochen erneut. Ob du vorher am Fingersatz oder erst am Tempo arbeiten solltest, verrät der [Selbsttest mit acht Fragen](article:selbsttest-wo-stehst-du).
 
+## Vergleichswerte
+
+Wo dein Ergebnis im Vergleich zu anderen liegt, nach Perzentil, Alter und Beruf, zeigt der Artikel zur [durchschnittlichen Tippgeschwindigkeit](article:durchschnittliche-tippgeschwindigkeit).
+
 ## Quellen
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - 5 Zeichen = 1 Wort, Studie von 1999 mit 32,5 WPM beim Abschreiben, Zwei-Finger-Tipper 27 WPM, Schreibkräfte 43 bis 80 WPM, manche Stellen 80 bis 95 WPM.
@@ -872,6 +881,10 @@ Four worksheets go with the course: the [finger keyboard map](article:finger-key
 ## Other tools compared
 
 If you want to compare first: the articles on the [TypingClub alternative for adults](article:typingclub-alternative) and the [AgileFingers alternative](article:agile-fingers-alternative) put the best-known free trainers side by side with this course, with a date stamp.
+
+## What to expect at the end
+
+Which values are realistic and what employers expect is in the [WPM benchmarks by age and profession](article:average-typing-speed).
 
 ## Sources
 
@@ -1441,6 +1454,10 @@ A typing test shows where you stand. Practice is what makes you faster. The [pla
 
 To keep the value, write it into the [progress tracker](article:progress-tracker-4-weeks) and measure again after four weeks. Whether to work on finger placement first or on speed, the [eight-question self-test](article:self-test-where-do-you-stand) tells you.
 
+## Benchmarks
+
+Where your result sits compared with others, by percentile, age and profession, is in the article on [average typing speed](article:average-typing-speed).
+
 ## Sources
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - 5 characters = 1 word, a 1999 study with 32.5 WPM for copying, two-finger typists at 27 WPM, professional typists 43 to 80 WPM, some positions 80 to 95 WPM.
@@ -1520,6 +1537,10 @@ Quatre fiches accompagnent le cours : la [carte doigts-clavier](article:carte-do
 ## Les autres outils, comparés
 
 Pour comparer d'abord : les articles sur l'[alternative à TypingClub pour adultes](article:typingclub-alternative) et l'[alternative à AgileFingers](article:agile-fingers-alternative) mettent les entraîneurs gratuits les plus connus face à ce cours, avec la date de mise à jour.
+
+## Ce qu'on peut viser
+
+Quelles valeurs sont réalistes et ce qu'attendent les employeurs : les [repères en mots par minute par âge et par métier](article:vitesse-de-frappe-moyenne).
 
 ## Sources
 
@@ -2144,6 +2165,10 @@ Un test de frappe te montre où tu en es. C'est l'entraînement qui te rend plus
 
 Pour garder la valeur, note-la dans le [suivi de progression](article:suivi-progression-4-semaines) et mesure à nouveau après quatre semaines. Pour savoir s'il faut d'abord travailler la position des doigts ou la vitesse, fais l'[auto-évaluation en huit questions](article:auto-evaluation-ou-en-es-tu).
 
+## Repères
+
+Où se situe ton résultat par rapport aux autres, par percentile, âge et métier : l'article sur la [vitesse de frappe moyenne](article:vitesse-de-frappe-moyenne).
+
 ## Sources
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, en anglais) - 5 caractères = 1 mot, étude de 1999 à 32,5 MPM en recopie, frappe à deux doigts à 27 MPM, dactylos professionnels de 43 à 80 MPM, certains postes 80 à 95 MPM.
@@ -2153,6 +2178,7 @@ Pour garder la valeur, note-la dans le [suivi de progression](article:suivi-prog
 - [Typing](https://en.wikipedia.org/wiki/Typing) (Wikipedia, en anglais) - le record de 216 MPM, Stella Pajunas-Garnand, 1946.`,
   },
   ...worksheetResources,
+  ...benchmarkResources,
 ];
 
 export function getResourcesByLocale(locale: Locale): ResourceMeta[] {
@@ -2195,6 +2221,7 @@ const translationGroups: string[][] = [
   ["poster-welcher-finger-tippt-was-qwertz", "poster-which-finger-types-what-qwerty", "affiche-quel-doigt-tape-quoi-azerty"],
   ["selbsttest-wo-stehst-du", "self-test-where-do-you-stand", "auto-evaluation-ou-en-es-tu"],
   ["sonderzeichen-karte-qwertz", "special-characters-qwerty", "caracteres-speciaux-azerty"],
+  ["durchschnittliche-tippgeschwindigkeit", "average-typing-speed", "vitesse-de-frappe-moyenne"],
 ];
 
 // Every existing language edition of an article, keyed by locale. Only
