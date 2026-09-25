@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingArea } from "@/components/typing/TypingArea";
 import { getRandomText, getInitialText } from "@/lib/sample-texts";
-import { getPracticeText } from "@/lib/practice-texts";
+import { buildPracticeRun } from "@/lib/practice-texts";
 import type { TypingState } from "@/lib/typing-engine";
 import { calculateWPM, calculateAccuracy } from "@/lib/typing-engine";
 import type { Locale } from "@/i18n/config";
@@ -241,15 +241,19 @@ export function SpeedTest({ locale, explainer }: Props) {
   const [text, setText] = useState(() => getInitialText(locale, 60));
   const [result, setResult] = useState<TypingState | null>(null);
   const [copied, setCopied] = useState(false);
+  // Practice paragraph picked on the practice-texts page (?text=<id>); kept
+  // so switching to 2 or 5 minutes still starts with that paragraph.
+  const [practiceId, setPracticeId] = useState<string | null>(null);
 
   // ?text=<id> from the practice-texts page loads that paragraph. Read
   // on the client after mount so the page stays statically rendered
   // (searchParams on the server would make it dynamic).
   useEffect(() => {
     const id = new URLSearchParams(window.location.search).get("text");
-    const custom = id ? getPracticeText(locale, id) : undefined;
-    if (custom) {
-      setText(custom.text);
+    const custom = id ? buildPracticeRun(locale, id, 60) : undefined;
+    if (id && custom) {
+      setPracticeId(id);
+      setText(custom);
       setResult(null);
     }
   }, [locale]);
@@ -258,14 +262,30 @@ export function SpeedTest({ locale, explainer }: Props) {
     setResult(state);
   }, []);
 
+  // "New text" deliberately leaves the picked paragraph behind and drops
+  // ?text= from the URL, so a reload does not bring it back.
   function handleNewText() {
+    if (practiceId) {
+      setPracticeId(null);
+      const url = new URL(window.location.href);
+      url.searchParams.delete("text");
+      window.history.replaceState(null, "", url);
+    }
     setText(getRandomText(locale, seconds));
+    setResult(null);
+  }
+
+  // "Try again" after a result repeats the picked paragraph, if there is one.
+  function handleTryAgain() {
+    const practice = practiceId ? buildPracticeRun(locale, practiceId, seconds) : undefined;
+    setText(practice ?? getRandomText(locale, seconds));
     setResult(null);
   }
 
   function handleDuration(s: (typeof durations)[number]) {
     setSeconds(s);
-    setText(getRandomText(locale, s));
+    const practice = practiceId ? buildPracticeRun(locale, practiceId, s) : undefined;
+    setText(practice ?? getRandomText(locale, s));
     setResult(null);
   }
 
@@ -424,7 +444,7 @@ export function SpeedTest({ locale, explainer }: Props) {
         {/* --- Try again + Share --- */}
         <div className="flex items-center justify-center gap-3 pt-2">
           <button
-            onClick={handleNewText}
+            onClick={handleTryAgain}
             className="inline-flex items-center gap-2 rounded-lg border border-zinc-200 dark:border-dark-border bg-white dark:bg-dark-surface px-5 py-2.5 text-sm font-medium text-zinc-600 hover:text-indigo hover:border-indigo/30 transition-colors"
           >
             <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

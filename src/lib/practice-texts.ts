@@ -139,6 +139,23 @@ export function getPracticeText(locale: Locale, id: string): PracticeText | unde
   return getPracticeTexts(locale).find((t) => t.id === id);
 }
 
+// Text for the speed test when a practice paragraph was picked: the chosen
+// paragraph always comes first, whatever the duration. Longer tests append
+// other paragraphs of the same difficulty (same target length as the
+// sample texts: 2 chars per second), so the level stays consistent.
+export function buildPracticeRun(locale: Locale, id: string, durationSeconds: number): string | undefined {
+  const chosen = getPracticeText(locale, id);
+  if (!chosen) return undefined;
+  const rest = getPracticeTexts(locale).filter((t) => t.difficulty === chosen.difficulty && t.id !== id);
+  const targetChars = durationSeconds * 2;
+  let combined = chosen.text;
+  for (const t of rest) {
+    if (combined.length >= targetChars) break;
+    combined += " " + t.text;
+  }
+  return combined;
+}
+
 export function wordCount(text: string): number {
   return text.trim().split(/\s+/).length;
 }
