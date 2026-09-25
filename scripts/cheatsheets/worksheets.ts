@@ -66,30 +66,40 @@ const keyboardCss = `
 
 // ------------------------------------------------------------------- hands
 
-// Two schematic hands, palms down, fingertips colored by finger. Left
-// hand drawn once, right hand mirrored.
+// Two schematic hands, palms down, fingertips colored by finger. The left
+// hand is drawn once and mirrored for the right. Outline-then-fill order
+// makes palm, fingers and thumb read as one seamless shape: all black
+// outlines first, then all white fills on top.
 function handsHtml(): string {
-  const left: Finger[] = ["left-pinky", "left-ring", "left-middle", "left-index"];
-  const right: Finger[] = ["right-index", "right-middle", "right-ring", "right-pinky"];
-  const finger = (x: number, len: number, color: string) =>
-    `<rect x="${x}" y="${120 - len}" width="22" height="${len + 40}" rx="11" fill="#fff" stroke="#050111" stroke-width="2.5"/>
-     <circle cx="${x + 11}" cy="${120 - len + 12}" r="8" fill="${color}"/>`;
-  const hand = (fingers: Finger[], mirror: boolean) => {
-    const lens = mirror ? [78, 88, 80, 62] : [62, 80, 88, 78];
-    const xs = [8, 38, 68, 98];
-    const thumb = mirror
-      ? `<rect x="-22" y="118" width="20" height="58" rx="10" transform="rotate(35 -12 118)" fill="#fff" stroke="#050111" stroke-width="2.5"/><circle cx="-33" cy="132" r="7" fill="${fingerColors.thumb}" transform="rotate(35 -12 118)"/>`
-      : `<rect x="130" y="118" width="20" height="58" rx="10" transform="rotate(-35 140 118)" fill="#fff" stroke="#050111" stroke-width="2.5"/><circle cx="140" cy="132" r="7" fill="${fingerColors.thumb}" transform="rotate(-35 140 118)"/>`;
-    return `<g>
-      <rect x="4" y="128" width="120" height="96" rx="26" fill="#fff" stroke="#050111" stroke-width="2.5"/>
-      ${fingers.map((f, i) => finger(xs[i], lens[i], fingerColors[f])).join("")}
-      <rect x="6" y="130" width="116" height="60" fill="#fff"/>
-      ${thumb}
-    </g>`;
-  };
-  return `<svg viewBox="-60 20 420 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    ${hand(left, false)}
-    <g transform="translate(300,0) scale(-1,1)">${hand(right, true)}</g>
+  // xs[0] is the outer finger (pinky) of the un-mirrored hand; the right
+  // hand is the same geometry mirrored, so it gets the right-hand colors
+  // in the same outer-to-inner order.
+  const leftFingers: Finger[] = ["left-pinky", "left-ring", "left-middle", "left-index"];
+  const rightFingers: Finger[] = ["right-pinky", "right-ring", "right-middle", "right-index"];
+  const xs = [14, 44, 74, 104];
+  const lens = [56, 74, 82, 70];
+  const outline = (x: number, len: number) =>
+    `<rect x="${x}" y="${128 - len}" width="24" height="${len + 60}" rx="12" fill="none" stroke="#050111" stroke-width="3"/>`;
+  const fill = (x: number, len: number) =>
+    `<rect x="${x}" y="${128 - len}" width="24" height="${len + 60}" rx="12" fill="#fff"/>`;
+  const tip = (x: number, len: number, color: string) =>
+    `<circle cx="${x + 12}" cy="${128 - len + 14}" r="8.5" fill="${color}"/>`;
+  // Thumb: a capsule from inside the palm out to the side, drawn as a
+  // thick line with round caps.
+  const thumb = { x1: 122, y1: 178, x2: 168, y2: 122 };
+  const hand = (fingers: Finger[]) => `<g>
+    <rect x="10" y="132" width="122" height="104" rx="30" fill="none" stroke="#050111" stroke-width="3"/>
+    ${fingers.map((_, i) => outline(xs[i], lens[i])).join("")}
+    <line x1="${thumb.x1}" y1="${thumb.y1}" x2="${thumb.x2}" y2="${thumb.y2}" stroke="#050111" stroke-width="30" stroke-linecap="round"/>
+    <rect x="10" y="132" width="122" height="104" rx="30" fill="#fff"/>
+    ${fingers.map((_, i) => fill(xs[i], lens[i])).join("")}
+    <line x1="${thumb.x1}" y1="${thumb.y1}" x2="${thumb.x2}" y2="${thumb.y2}" stroke="#fff" stroke-width="24" stroke-linecap="round"/>
+    ${fingers.map((f, i) => tip(xs[i], lens[i], fingerColors[f])).join("")}
+    <circle cx="${thumb.x2 - 3}" cy="${thumb.y2 + 4}" r="8.5" fill="${fingerColors.thumb}"/>
+  </g>`;
+  return `<svg viewBox="0 30 400 220" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    ${hand(leftFingers)}
+    <g transform="translate(400,0) scale(-1,1)">${hand(rightFingers)}</g>
   </svg>`;
 }
 

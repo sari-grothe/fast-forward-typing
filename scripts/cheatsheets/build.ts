@@ -33,7 +33,12 @@ const CHROME =
     : "google-chrome");
 
 // Sections that only make sense on the web page.
-const SKIP_HEADINGS = new Set(["Nächster Schritt", "Quellen", "Next step", "Sources", "Prochaine étape"]);
+const SKIP_HEADINGS = new Set([
+  "Nächster Schritt", "Quellen", "Next step", "Sources", "Prochaine étape",
+  // cross-link sections added to the web articles (docs/article-template.md rule 8)
+  "Passende Karten", "Matching sheets", "Fiches associées", "Zum Ausdrucken", "Printables", "À imprimer",
+  "Fürs Büro", "For the office", "Pour le bureau", "Zum Aufhängen", "For the wall", "À afficher",
+]);
 const TIP_HEADINGS = new Set(["Profi-Tipp", "Pro tip", "Astuce pro", "Astuce"]);
 
 const copy: Record<Locale, { tip: string; cta: string; footer: string }> = {
@@ -93,7 +98,7 @@ const shell: Shell = ({ locale, title, body, extraCss = "", ctaLabel, ctaUrl, fo
   <main>${body}</main>
   <footer>
     <div class="cta">${escapeHtml(ctaLabel)}: <b>${escapeHtml(ctaUrl)}</b></div>
-    <div>${escapeHtml(footer)} © ${new Date().getFullYear()} Fast Forward &gt;&gt; Typing</div>
+    <div>© ${new Date().getFullYear()} Fast Forward &gt;&gt; Typing</div>
   </footer>
 </body>
 </html>`;
