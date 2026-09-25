@@ -183,7 +183,7 @@ const i18n: Record<Locale, {
     speed: "Words per minute",
     accuracy: "Accuracy",
     wpmUnit: "WPM",
-    errors: "Errors",
+    errors: "errors",
     benchmarkSection: "How you compare",
     benchmarkYou: "You",
     benchmarkAvg: "Average",
@@ -213,7 +213,7 @@ const i18n: Record<Locale, {
     speed: "Mots par minute",
     accuracy: "Précision",
     wpmUnit: "MPM",
-    errors: "Erreurs",
+    errors: "erreurs",
     benchmarkSection: "Ton classement",
     benchmarkYou: "Toi",
     benchmarkAvg: "Moyenne",
@@ -326,7 +326,7 @@ export function SpeedTest({ locale, explainer }: Props) {
               <AnimatedCounter value={accuracy} duration={1200} suffix="%" />
             </p>
             <p className="text-base sm:text-lg font-medium mt-2 text-white/80">
-              {l.accuracy} · {result.errors.length} {l.errors.toLowerCase()}
+              {l.accuracy} · {result.errors.length} {l.errors}
             </p>
           </div>
         </div>
