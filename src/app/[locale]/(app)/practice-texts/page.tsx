@@ -15,19 +15,19 @@ type Props = {
 const meta: Record<Locale, { title: string; description: string; h1: string; intro: string }> = {
   de: {
     title: "Übungstexte zum Tippen: 18 Texte fürs 10-Finger-Schreiben",
-    description: "Kostenlose Übungstexte zum Abtippen: E-Mails, Meeting-Notizen, KI-Prompts, Zahlen und Sonderzeichen, nach Schwierigkeit sortiert. Kopieren oder direkt im Tipptest üben.",
+    description: "Kostenlose Übungstexte zum Abtippen: E-Mails, Meeting-Notizen, KI-Prompts, Zahlen und Sonderzeichen nach Schwierigkeit. Kopieren oder direkt im Tipptest üben.",
     h1: "Übungstexte zum 10-Finger-Schreiben",
     intro: "18 Texte aus dem Arbeitsalltag, von der kurzen E-Mail bis zur Bestellung voller Sonderzeichen. Kopiere sie in dein Übungsprogramm oder lade sie mit einem Klick in den Tipptest.",
   },
   en: {
     title: "Typing Practice Paragraphs: 18 Real Texts to Type",
-    description: "Free typing practice paragraphs: emails, meeting notes, AI prompts, numbers and symbols, sorted by difficulty. Copy them or load one straight into the speed test.",
+    description: "Free typing practice paragraphs: emails, meeting notes, AI prompts, numbers and symbols by difficulty. Copy them or load one straight into the speed test.",
     h1: "Typing practice paragraphs",
     intro: "18 texts from everyday office work, from a short email to an order full of symbols. Copy them into any typing program or load one into the speed test with one click.",
   },
   fr: {
     title: "Textes de dactylographie : 18 exercices à taper",
-    description: "Textes d'exercice gratuits pour la dactylographie : e-mails, comptes rendus, prompts IA, chiffres et caractères spéciaux, classés par difficulté. À copier ou à charger dans le test.",
+    description: "Textes d'exercice gratuits pour la dactylographie : e-mails, comptes rendus, prompts IA, chiffres et signes, par difficulté. À copier ou à charger dans le test.",
     h1: "Textes d'exercice pour la dactylographie",
     intro: "18 textes tirés du quotidien au bureau, du court e-mail à la commande pleine de caractères spéciaux. Copie-les dans ton programme d'entraînement ou charge-les dans le test de frappe en un clic.",
   },
