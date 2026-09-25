@@ -52,7 +52,7 @@ Achte auf die Genauigkeit: Unter 95 Prozent lohnt es sich, langsamer und saubere
 
 ## Und dann?
 
-Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum. Wie du im nächsten Tipptest besser abschneidest und was im Schreibtest für die Bewerbung zählt, steht im [Tipptest-Ratgeber](article:tipptest). Was ein guter Wert ist, nach Alter und Beruf, zeigt die [durchschnittliche Tippgeschwindigkeit im Vergleich](article:durchschnittliche-tippgeschwindigkeit).
+Wenn du wissen willst, welche Tasten dich bremsen, mach die [Einstufung](${placement}): Sie misst pro Taste und baut deinen Trainingsplan. Wer sein Ergebnis belegen will, bekommt es als [Tippzertifikat](${cert}) mit WPM, Genauigkeit und Datum. Wie du im nächsten Tipptest besser abschneidest und was im Schreibtest für die Bewerbung zählt, steht im [Tipptest-Ratgeber](article:tipptest). Was ein guter Wert ist, nach Alter und Beruf, zeigt die [durchschnittliche Tippgeschwindigkeit im Vergleich](article:durchschnittliche-tippgeschwindigkeit). Lieber mit echten Arbeitstexten statt Zufallswörtern testen? Die [Übungstexte](page:practiceTexts) lassen sich mit einem Klick hier laden.
 
 ## Quellen
 
@@ -91,7 +91,7 @@ Watch your accuracy: below 95 percent, slowing down and typing cleanly pays off.
 
 ## What next?
 
-If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date. How to score higher next time, and what counts in a typing test for a job, is in the [typing test guide](article:typing-test). What counts as a good score, by age and profession, is in the [average typing speed benchmarks](article:average-typing-speed).
+If you want to know which keys are holding you back, take the [placement test](${placement}): it measures every key and builds your training plan. If you want proof of your result, get it as a [typing certificate](${cert}) with WPM, accuracy and date. How to score higher next time, and what counts in a typing test for a job, is in the [typing test guide](article:typing-test). What counts as a good score, by age and profession, is in the [average typing speed benchmarks](article:average-typing-speed). Prefer real work texts over random words? The [practice paragraphs](page:practiceTexts) load into this test with one click.
 
 ## Sources
 
@@ -130,7 +130,7 @@ Surveille ta précision : en dessous de 95 %, ralentir et taper proprement rappo
 
 ## Et ensuite ?
 
-Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date. Pour faire mieux au prochain essai et savoir ce qui compte dans un test de frappe pour un emploi, lis le [guide du test de frappe](article:test-de-frappe). Ce qu'est un bon score, par âge et par métier : la [vitesse de frappe moyenne en repères](article:vitesse-de-frappe-moyenne).
+Pour savoir quelles touches te freinent, passe l'[évaluation](${placement}) : elle mesure chaque touche et construit ton plan d'entraînement. Pour prouver ton résultat, obtiens-le sous forme de [certificat de dactylographie](${cert}) avec MPM, précision et date. Pour faire mieux au prochain essai et savoir ce qui compte dans un test de frappe pour un emploi, lis le [guide du test de frappe](article:test-de-frappe). Ce qu'est un bon score, par âge et par métier : la [vitesse de frappe moyenne en repères](article:vitesse-de-frappe-moyenne). Tu préfères de vrais textes de travail aux mots aléatoires ? Les [textes d'exercice](page:practiceTexts) se chargent ici en un clic.
 
 ## Sources
 
@@ -303,4 +303,125 @@ Celle de ton pays. C'est celle que tu trouveras sur chaque clavier au bureau, à
 - [How We Type](${FE}) - Aalto University, CHI 2016 : ce qui prédit vraiment la vitesse de frappe.`;
 
   return { de, en, fr }[locale];
+}
+
+// Practice-texts page (typing practice paragraphs). Explains why real
+// prose beats drills, how to practice with the texts, and links into the
+// product and the guides.
+export function practiceTextsExplainer(locale: Locale, count: number): string {
+  if (locale === "de") {
+    return `## Warum echte Texte statt Buchstabensalat
+
+Tipptrainer fangen mit "asdf jklö" an, und für die ersten Tage ist das richtig: Die Finger lernen ihre Plätze. Danach bringt es wenig, weil beim echten Schreiben nicht einzelne Tasten zählen, sondern der Fluss von Wort zu Wort. Die Aalto-Studie "How We Type" hat gemessen, was schnelle Tipper auszeichnet: Sie bereiten den nächsten Anschlag vor, während der aktuelle noch läuft. Das lernt man nur an Wörtern und Sätzen, in denen die nächste Taste vorhersehbar ist. Die ${count} Übungstexte hier sind deshalb echte Arbeitstexte: E-Mails, Protokolle, Kundenantworten, Projekt-Updates, KI-Prompts. Was du im Job tippst, übst du hier.
+
+## So übst du mit den Texten
+
+1. **Schwierigkeit wählen.** Leicht heißt nur Buchstaben und Punkt, Mittel bringt Zahlen und Doppelpunkte, Schwer Klammern, Sonderzeichen und Groß-Klein-Wechsel. Fang eine Stufe unter dem an, was du dir zutraust.
+2. **Genauigkeit vor Tempo.** Tippe einen Text so, dass du unter 3 Fehlern bleibst, auch wenn es langsam ist. Erst dann den nächsten. Tempo kommt von allein, Fehler werden zur Gewohnheit.
+3. **Kurz und täglich.** Ein Text pro Tag, 10 bis 15 Minuten. Das ist mehr wert als eine Stunde am Sonntag, weil die Bewegungen zwischen den Einheiten gefestigt werden.
+4. **Messen.** Mit "Jetzt üben" lädst du den Text in den [Test der Tippgeschwindigkeit](page:speedTest) und bekommst WPM und Genauigkeit. Trag den Wert in den [Fortschritts-Tracker](article:fortschritts-tracker-4-wochen) ein.
+
+## Was ein guter Wert bei diesen Texten ist
+
+Die Texte enthalten Zahlen, Satzzeichen und Sonderzeichen, deshalb liegen die Werte hier unter denen eines reinen Wörtertests. 30 WPM bei einem schweren Text mit weniger als 3 Fehlern ist ein gutes Zwischenziel; 50 WPM heißt, dass Zahlenreihe und Shift-Griffe sitzen. Welche Werte im Beruf erwartet werden, steht bei der [durchschnittlichen Tippgeschwindigkeit nach Alter und Beruf](article:durchschnittliche-tippgeschwindigkeit).
+
+## Wenn die Texte noch zu schwer sind
+
+Dann fehlt die Grundlage, nicht die Übung. Die [Einstufung](page:placement) zeigt, welche Tasten sitzen und wo du im [10-Finger-System-Kurs](page:lessons) einsteigst. Die Sonderzeichen, die in den schweren Texten vorkommen, stehen mit Taste und Finger auf der [Sonderzeichen-Karte](article:sonderzeichen-karte-qwertz).
+
+## Häufige Fragen
+
+### Darf ich die Texte in ein anderes Programm kopieren?
+
+Ja, dafür ist der Button "Text kopieren" da. Die Texte sind für Übungszwecke frei verwendbar.
+
+### Warum haben die Texte Umlaute und Sonderzeichen?
+
+Weil deutsche Texte sie haben. Wer ö, ä, ü, ß und das €-Zeichen nie übt, sucht sie im Job jedes Mal. Die schweren Texte sind genau dafür da.
+
+### Kommen neue Texte dazu?
+
+Ja, die Sammlung wächst. Wenn dir ein Texttyp fehlt, schreib uns über die [Kontaktseite](page:contact).
+
+## Quellen
+
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016: die Vorbereitung des nächsten Anschlags und wenig Handbewegung sagen die Geschwindigkeit voraus.
+- [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354) - Cepeda et al., Psychological Bulletin 2006: verteiltes Üben schlägt geballtes Üben.`;
+  }
+  if (locale === "fr") {
+    return `## Pourquoi de vrais textes plutôt que des suites de lettres
+
+Les logiciels de dactylographie commencent par « qsdf jklm », et pour les premiers jours c'est juste : les doigts apprennent leur place. Ensuite, ça n'apporte plus grand-chose, parce qu'en écrivant vraiment, ce ne sont pas les touches isolées qui comptent mais le flux d'un mot à l'autre. L'étude « How We Type » de l'université Aalto a mesuré ce qui distingue les typistes rapides : ils préparent la frappe suivante pendant que la frappe en cours se termine. On n'apprend ça qu'avec des mots et des phrases où la touche suivante est prévisible. Les ${count} textes ici sont donc de vrais textes de travail : e-mails, comptes rendus, réponses client, points projet, prompts IA. Ce que tu tapes au travail, tu l'entraînes ici.
+
+## Comment t'entraîner avec ces textes
+
+1. **Choisis la difficulté.** Facile : lettres et points seulement ; moyen : chiffres et deux-points ; difficile : parenthèses, caractères spéciaux, majuscules. Commence un niveau en dessous de ce que tu penses maîtriser.
+2. **La précision avant la vitesse.** Tape un texte en restant sous 3 erreurs, même lentement. Seulement ensuite, passe au suivant. La vitesse vient seule, les erreurs deviennent des habitudes.
+3. **Court et quotidien.** Un texte par jour, 10 à 15 minutes. Ça vaut plus qu'une heure le dimanche, parce que les mouvements se consolident entre les séances.
+4. **Mesure.** Avec « S'entraîner », tu charges le texte dans le [test de vitesse de frappe](page:speedTest) et tu obtiens MPM et précision. Note la valeur dans le [suivi de progression](article:suivi-progression-4-semaines).
+
+## Ce qu'est un bon score sur ces textes
+
+Les textes contiennent des chiffres, de la ponctuation et des caractères spéciaux, donc les scores ici sont inférieurs à ceux d'un test de mots simples. 30 MPM sur un texte difficile avec moins de 3 erreurs est un bon objectif intermédiaire ; 50 MPM signifie que la rangée des chiffres et les combinaisons avec Maj sont acquises. Les valeurs attendues au travail sont dans l'article sur la [vitesse de frappe moyenne par âge et par métier](article:vitesse-de-frappe-moyenne).
+
+## Si les textes sont encore trop difficiles
+
+Alors c'est la base qui manque, pas l'entraînement. L'[évaluation](page:placement) montre quelles touches sont acquises et où commencer dans le [cours de dactylographie](page:lessons). Les caractères spéciaux des textes difficiles sont sur la [fiche des caractères spéciaux](article:caracteres-speciaux-azerty), avec la touche et le doigt.
+
+## Questions fréquentes
+
+### Puis-je copier les textes dans un autre programme ?
+
+Oui, c'est à ça que sert le bouton « Copier le texte ». Les textes sont libres d'utilisation pour l'entraînement.
+
+### Pourquoi les textes contiennent-ils des accents et des caractères spéciaux ?
+
+Parce que les textes français en contiennent. Qui n'entraîne jamais é, è, ç, le « et le symbole € les cherche au travail à chaque fois. Les textes difficiles sont faits pour ça.
+
+### Y aura-t-il de nouveaux textes ?
+
+Oui, la collection s'agrandit. S'il te manque un type de texte, écris-nous via la [page de contact](page:contact).
+
+## Sources
+
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016 : la préparation de la frappe suivante et peu de mouvement des mains prédisent la vitesse.
+- [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354) - Cepeda et al., Psychological Bulletin 2006 : la pratique espacée bat la pratique massée.`;
+  }
+  return `## Why real texts instead of letter drills
+
+Typing programs start with "asdf jkl;", and for the first few days that is right: the fingers learn their places. After that it adds little, because in real writing single keys don't matter, the flow from word to word does. The Aalto University study "How We Type" measured what sets fast typists apart: they prepare the next keystroke while the current one is still landing. You only learn that on words and sentences where the next key is predictable. The ${count} practice paragraphs here are therefore real work texts: emails, meeting notes, customer replies, project updates, AI prompts. What you type at work is what you practice here.
+
+## How to practice with the texts
+
+1. **Pick the difficulty.** Easy means letters and full stops only, medium adds numbers and colons, hard adds brackets, symbols and case changes. Start one level below what you think you can do.
+2. **Accuracy before speed.** Type a text staying under 3 errors, even if it is slow. Only then move to the next one. Speed comes on its own, errors become habits.
+3. **Short and daily.** One text a day, 10 to 15 minutes. That beats an hour on Sunday, because the movements consolidate between sessions.
+4. **Measure.** "Practice now" loads the text into the [typing speed test](page:speedTest) and gives you WPM and accuracy. Write the value into the [progress tracker](article:progress-tracker-4-weeks).
+
+## What a good score is on these texts
+
+The texts contain numbers, punctuation and symbols, so scores here sit below those of a plain-words test. 30 WPM on a hard text with fewer than 3 errors is a good intermediate goal; 50 WPM means the number row and the Shift combinations have sunk in. What employers expect is in the article on [average typing speed by age and profession](article:average-typing-speed).
+
+## If the texts are still too hard
+
+Then the foundation is missing, not the practice. The [placement test](page:placement) shows which keys you already have and where to start in the [touch typing course](page:lessons). The symbols that appear in the hard texts are on the [special characters sheet](article:special-characters-qwerty), with key and finger.
+
+## Frequently asked questions
+
+### Can I copy the texts into another program?
+
+Yes, that is what the "Copy text" button is for. The texts are free to use for practice.
+
+### Why do the texts contain symbols and numbers?
+
+Because real work texts do. Anyone who never practices @, %, brackets and the dollar sign hunts for them at work every time. The hard texts exist for exactly that.
+
+### Will there be new texts?
+
+Yes, the collection grows. If a type of text is missing for you, tell us through the [contact page](page:contact).
+
+## Sources
+
+- [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016: preparing the next keystroke and little hand movement predict typing speed.
+- [Distributed practice in verbal recall tasks: A review and quantitative synthesis](https://doi.org/10.1037/0033-2909.132.3.354) - Cepeda et al., Psychological Bulletin 2006: spaced practice beats massed practice.`;
 }

@@ -31,7 +31,8 @@ export type PageKey =
   | "resources"
   | "help"
   | "contact"
-  | "keyboardLayouts";
+  | "keyboardLayouts"
+  | "practiceTexts";
 
 export const pageRoutes: Record<PageKey, { internal: string; slug: Record<Locale, string> }> = {
   speedTest: { internal: "speed-test", slug: { de: "tippgeschwindigkeit", en: "speed-test", fr: "test-de-dactylographie" } },
@@ -42,6 +43,7 @@ export const pageRoutes: Record<PageKey, { internal: string; slug: Record<Locale
   help: { internal: "help", slug: { de: "hilfe", en: "help", fr: "aide" } },
   contact: { internal: "contact", slug: { de: "kontakt", en: "contact", fr: "contact" } },
   keyboardLayouts: { internal: "tools/keyboard-layouts", slug: { de: "tools/tastaturlayouts", en: "tools/keyboard-layouts", fr: "outils/dispositions-clavier" } },
+  practiceTexts: { internal: "practice-texts", slug: { de: "uebungstexte", en: "typing-practice-paragraphs", fr: "textes-dactylographie" } },
 };
 
 function asLocale(locale: string): Locale {

@@ -833,6 +833,10 @@ Wer den Wert festhalten will, trägt ihn in den [Fortschritts-Tracker](article:f
 
 Wo dein Ergebnis im Vergleich zu anderen liegt, nach Perzentil, Alter und Beruf, zeigt der Artikel zur [durchschnittlichen Tippgeschwindigkeit](article:durchschnittliche-tippgeschwindigkeit).
 
+## Mit echten Texten üben
+
+Wer nicht mit Zufallswörtern, sondern mit E-Mails, Protokollen und Zahlen üben will, findet 18 [Übungstexte zum 10-Finger-Schreiben](page:practiceTexts), die sich direkt in den Test laden lassen.
+
 ## Quellen
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - 5 Zeichen = 1 Wort, Studie von 1999 mit 32,5 WPM beim Abschreiben, Zwei-Finger-Tipper 27 WPM, Schreibkräfte 43 bis 80 WPM, manche Stellen 80 bis 95 WPM.
@@ -1488,6 +1492,10 @@ To keep the value, write it into the [progress tracker](article:progress-tracker
 ## Benchmarks
 
 Where your result sits compared with others, by percentile, age and profession, is in the article on [average typing speed](article:average-typing-speed).
+
+## Practice with real texts
+
+If you would rather practice on emails, meeting notes and numbers than on random words, there are 18 [typing practice paragraphs](page:practiceTexts) that load straight into the test.
 
 ## Sources
 
@@ -2199,6 +2207,10 @@ Pour garder la valeur, note-la dans le [suivi de progression](article:suivi-prog
 ## Repères
 
 Où se situe ton résultat par rapport aux autres, par percentile, âge et métier : l'article sur la [vitesse de frappe moyenne](article:vitesse-de-frappe-moyenne).
+
+## S'entraîner sur de vrais textes
+
+Pour t'entraîner sur des e-mails, des comptes rendus et des chiffres plutôt que sur des mots aléatoires, 18 [textes de dactylographie](page:practiceTexts) se chargent directement dans le test.
 
 ## Sources
 

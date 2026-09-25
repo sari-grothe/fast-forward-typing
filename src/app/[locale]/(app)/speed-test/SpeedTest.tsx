@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useCallback, type ReactNode } from "react";
+import { useState, useCallback, type ReactNode, useEffect } from "react";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { TypingArea } from "@/components/typing/TypingArea";
 import { getRandomText, getInitialText } from "@/lib/sample-texts";
+import { getPracticeText } from "@/lib/practice-texts";
 import type { TypingState } from "@/lib/typing-engine";
 import { calculateWPM, calculateAccuracy } from "@/lib/typing-engine";
 import type { Locale } from "@/i18n/config";
@@ -240,6 +241,18 @@ export function SpeedTest({ locale, explainer }: Props) {
   const [text, setText] = useState(() => getInitialText(locale, 60));
   const [result, setResult] = useState<TypingState | null>(null);
   const [copied, setCopied] = useState(false);
+
+  // ?text=<id> from the practice-texts page loads that paragraph. Read
+  // on the client after mount so the page stays statically rendered
+  // (searchParams on the server would make it dynamic).
+  useEffect(() => {
+    const id = new URLSearchParams(window.location.search).get("text");
+    const custom = id ? getPracticeText(locale, id) : undefined;
+    if (custom) {
+      setText(custom.text);
+      setResult(null);
+    }
+  }, [locale]);
 
   const handleComplete = useCallback((state: TypingState) => {
     setResult(state);
