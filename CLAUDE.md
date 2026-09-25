@@ -58,6 +58,41 @@ Lesson from 2026-09-24: three "final" checks in a row each sampled 4-6 pages
 and missed a CLS bug, a contrast bug, streamed metadata on the certificate
 page and a 404 apple-touch-icon that the full run found immediately.
 
+## Parallel sessions: one worktree per session (rule since 2026-09-25)
+
+Sarah runs several Claude sessions on this repo at once. They must never share
+a working tree: a shared folder means shared uncommitted changes, a shared
+`.next` (one session's `next build` crashed another's dev server with 500s on
+2026-09-25) and commits of one session rewritten or pushed by another.
+
+**Session start (first action, before reading or editing anything):**
+1. If the session is not already in a worktree the desktop app made for it,
+   call `EnterWorktree` with a short topic name (e.g. `helpcenter`). That
+   creates `.claude/worktrees/<name>` on its own branch from origin/main.
+2. `cp ../../../.env.local .` (env files are not in git) and `npm install`.
+3. Dev server: never port 3000 from a worktree, that belongs to the main
+   folder. Use `fft-dev-3001` / `fft-dev-3002` / `fft-dev-3003` from
+   `.claude/launch.json`; take the first free one (`lsof -i :3001`).
+4. Tell Sarah in one line: worktree name, branch, port.
+
+**While working:** commit only on the session's own branch. `next build` is
+fine inside the own worktree (own `.next`). Never touch another worktree,
+never run git commands that change the main folder's checkout.
+
+**Shipping to main (Sarah says "pushen"/"live"):**
+1. `git fetch && git rebase origin/main` inside the worktree; resolve
+   conflicts there (typical hotspots: `src/i18n/dictionaries/*.json`).
+2. `npx tsc --noEmit -p .` must pass.
+3. `git push origin HEAD:main`. Vercel deploys main.
+4. Report the pushed hashes. Never push, rebase or amend commits that another
+   session made.
+
+**Session end:** after the push, `ExitWorktree` with `remove` (refuses if
+anything is unpushed, then ask Sarah).
+
+The main folder `~/Claude/Fast-Forward-Typing` stays on `main` and is only a
+base; no session edits files there.
+
 ## Conventions
 
 - Push directly to main, no PRs
