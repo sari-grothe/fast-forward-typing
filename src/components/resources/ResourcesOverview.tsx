@@ -9,7 +9,6 @@ import { KeyCharacter } from "@/components/KeyCharacter";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { CtaButton } from "@/components/CtaButton";
 import { localizedPath } from "@/i18n/routes";
-import { WorksheetGallery } from "@/components/resources/WorksheetGallery";
 
 // Same icon per category everywhere it appears (section headers, badges),
 // so a category reads as one visual identity across the page - matters
@@ -205,11 +204,6 @@ export function ResourcesOverview({ items, locale, finalCta }: Props) {
           <FeaturedCard item={featured} locale={locale} />
         </ScrollReveal>
       )}
-
-      {/* Printable worksheets (lead magnets beyond the shortcut articles) */}
-      <ScrollReveal delay={110}>
-        <WorksheetGallery locale={locale} />
-      </ScrollReveal>
 
       {/* Every article, grouped by category, all visible at once */}
       <div className="space-y-10">

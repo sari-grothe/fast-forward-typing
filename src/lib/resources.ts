@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { worksheetResources } from "./resources-worksheets";
 
 export type ResourceCategory = "learning" | "shortcuts" | "productivity" | "comparisons";
 export type ResourceType = "article" | "lead-magnet";
@@ -44,9 +45,6 @@ export const resourcesUi: Record<Locale, {
   teamCtaLink: string;
   searchPlaceholder: string;
   searchNoResults: string;
-  worksheetsTitle: string;
-  worksheetsSubtitle: string;
-  worksheetFree: string;
   gateTitle: string;
   gateDesc: string;
   namePlaceholder: string;
@@ -78,9 +76,6 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Für dein Team?",
     teamCtaDesc: "Team-Training mit Vorher-Nachher-Messung, für Unternehmen.",
     teamCtaLink: "Team-Training anfragen",
-    worksheetsTitle: "Arbeitsblätter zum Ausdrucken",
-    worksheetsSubtitle: "Finger-Karte, Leer-Layout, Tracker, Nummernblock, Poster, Selbsttest, Sonderzeichen. Jedes Blatt eine A4-Seite, für deine Tastatur (QWERTZ).",
-    worksheetFree: "ohne Anmeldung",
     gateTitle: "Trag dich ein und lade sofort herunter",
     gateDesc: "Vorname und E-Mail reichen - kein Spam, nur dein Cheat Sheet.",
     namePlaceholder: "Vorname",
@@ -112,9 +107,6 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "For your team?",
     teamCtaDesc: "Team training with before/after measurement, for companies.",
     teamCtaLink: "Request team training",
-    worksheetsTitle: "Printable worksheets",
-    worksheetsSubtitle: "Finger map, blank layout, tracker, numpad, poster, self-test, special characters. One A4 page each, for your keyboard (QWERTY).",
-    worksheetFree: "no sign-up",
     gateTitle: "Enter your details for instant access",
     gateDesc: "First name and email is all it takes - no spam, just your cheat sheet.",
     namePlaceholder: "First name",
@@ -146,9 +138,6 @@ export const resourcesUi: Record<Locale, {
     teamCtaTitle: "Pour ton équipe ?",
     teamCtaDesc: "Formation d'équipe avec mesure avant/après, pour les entreprises.",
     teamCtaLink: "Demander une formation d'équipe",
-    worksheetsTitle: "Fiches à imprimer",
-    worksheetsSubtitle: "Carte des doigts, clavier vierge, suivi, pavé numérique, affiche, auto-évaluation, caractères spéciaux. Une page A4 chacune, pour ton clavier (AZERTY).",
-    worksheetFree: "sans inscription",
     gateTitle: "Inscris-toi pour un accès immédiat",
     gateDesc: "Prénom et e-mail suffisent - pas de spam, juste ta fiche pratique.",
     namePlaceholder: "Prénom",
@@ -224,6 +213,10 @@ Das klingt nach viel. Aber rechne mal (Beispielrechnung): Wenn du jeden Tag 3 St
 Mal ehrlich: Am Anfang tippst du *langsamer* als vorher. Das ist normal und dauert etwa eine Woche. Danach beschleunigst du schnell.
 
 Der Trick ist, die ersten 7 Tage durchzuhalten. Danach spürst du den Fortschritt. Sieben Gewohnheiten, die dich zusätzlich beschleunigen, findest du unter [Schneller tippen: 7 Techniken](article:schneller-tippen-techniken).
+
+## Zum Ausdrucken
+
+Vier Arbeitsblätter begleiten den Kurs: die [Finger-Tastatur-Karte mit dem Fingersatz](article:finger-tastatur-karte-qwertz) für neben die Tastatur, das [leere Layout zum Ausfüllen](article:leeres-layout-qwertz) als Zwei-Minuten-Test, der [Fortschritts-Tracker für vier Wochen](article:fortschritts-tracker-4-wochen) und der [Selbsttest mit acht Fragen](article:selbsttest-wo-stehst-du), der dir den passenden Einstieg zeigt.
 
 ## Quellen
 
@@ -365,6 +358,10 @@ Lerne nicht alle auf einmal. Nimm dir **3 Shortcuts pro Woche** vor und nutze si
 ## Nächster Schritt
 
 Tastenkürzel sparen Klicks, blindes Tippen spart Zeit bei jedem Wort. Miss zuerst kostenlos [deine Tippgeschwindigkeit](page:speedTest), dann weißt du, wie viel drin ist. Wie das 10-Finger-System funktioniert, erklärt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
+
+## Passende Karten
+
+Zu den Kürzeln gehören zwei weitere Blätter: die [Sonderzeichen-Karte](article:sonderzeichen-karte-qwertz) mit @, €, Klammern und Backslash und die [Nummernblock-Karte](article:nummernblock-karte) für alle, die Zahlen blind eingeben wollen.
 
 ## Quellen
 
@@ -517,6 +514,10 @@ Zwei-Finger-Tipper kommen beim Abschreiben auf rund 27 Wörter pro Minute, Zehn-
 
 Die Grundlagen sitzen nach 2-4 Wochen regelmäßigem Üben, ein natürliches Tempo stellt sich nach 2-3 Monaten ein - vorausgesetzt, du übst 15-20 Minuten am Tag. Es ist keine Begabung, sondern eine Frage von Wiederholung. Den Weg Schritt für Schritt beschreibt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen), der [10-Finger-System-Kurs](page:lessons) führt dich in 31 Lektionen hindurch.
 
+## Zum Aufhängen
+
+Wer die Zuordnung täglich sehen will, hängt das [Tastatur-Poster mit den Farbzonen](article:poster-welcher-finger-tippt-was-qwertz) neben den Monitor.
+
 ## Quellen
 
 - [Zehnfingersystem](https://www.duden.de/rechtschreibung/Zehnfingersystem) - Duden, Wortbedeutung.
@@ -567,6 +568,10 @@ Was du nicht misst, verbesserst du nicht bewusst. Eine kurze wöchentliche [Mess
 ## Was am meisten bringt
 
 Von allen sieben Punkten hat die Kombination aus "nicht auf die Tastatur schauen" und "täglich kurz üben" den größten Effekt. Beides zusammen ist im Kern das 10-Finger-System - alle anderen Techniken bauen darauf auf. Wie du es lernst, zeigt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen). Am Handy gelten eigene Regeln: [Schneller tippen am Handy](article:schneller-tippen-handy).
+
+## Fürs Büro
+
+Die Fingerzuordnung als Wandbild: das [Tastatur-Poster fürs Büro](article:poster-welcher-finger-tippt-was-qwertz) zeigt sie auf einer A4-Seite quer, ohne Erklärtext.
 
 ## Quellen
 
@@ -780,6 +785,10 @@ Ein Tipptest zeigt dir, wo du stehst. Schneller wirst du durch Übung. Die [Eins
 
 **Wie schnell kann ich tippen?** Das zeigt dir ein Tipptest in einer Minute. Danach weißt du, wie viel Luft nach oben ist.
 
+## Zum Ausdrucken
+
+Wer den Wert festhalten will, trägt ihn in den [Fortschritts-Tracker](article:fortschritts-tracker-4-wochen) ein und misst nach vier Wochen erneut. Ob du vorher am Fingersatz oder erst am Tempo arbeiten solltest, verrät der [Selbsttest mit acht Fragen](article:selbsttest-wo-stehst-du).
+
 ## Quellen
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, englisch) - 5 Zeichen = 1 Wort, Studie von 1999 mit 32,5 WPM beim Abschreiben, Zwei-Finger-Tipper 27 WPM, Schreibkräfte 43 bis 80 WPM, manche Stellen 80 bis 95 WPM.
@@ -851,6 +860,10 @@ Sounds like a lot. But do the math (a worked example): if you type 3 hours a day
 Let's be honest: at first, you'll type *slower* than before. That's normal and lasts about a week. After that, you accelerate quickly.
 
 The trick is to push through the first 7 days. After that, you'll feel the progress. Seven habits that speed you up further: [How to Type Faster](article:how-to-type-faster).
+
+## Printables
+
+Four worksheets go with the course: the [finger keyboard map](article:finger-keyboard-map-qwerty) for next to your keyboard, the [blank layout to fill in](article:blank-layout-qwerty) as a two-minute test, the [four-week progress tracker](article:progress-tracker-4-weeks) and the [eight-question self-test](article:self-test-where-do-you-stand) that shows you the right starting point.
 
 ## Sources
 
@@ -992,6 +1005,10 @@ Don't learn them all at once. Pick **3 shortcuts per week** and use them deliber
 ## Next step
 
 Shortcuts save clicks, touch typing saves time on every word. Start with a free [typing speed test](page:speedTest) to see how much room there is. How touch typing works is explained in the [complete touch typing guide](article:learn-touch-typing).
+
+## Matching sheets
+
+Two more sheets go with the shortcuts: the [special characters sheet](article:special-characters-qwerty) with @, #, brackets and backslash, and the [numpad map](article:numpad-map) for everyone who wants to enter numbers without looking.
 
 ## Sources
 
@@ -1144,6 +1161,10 @@ Two-finger typists reach about 27 words per minute when copying text, touch typi
 
 The basics click after 2-4 weeks of regular practice, and it starts feeling natural after 2-3 months - assuming 15-20 minutes of practice a day. It's not a talent, it's repetition. The [complete touch typing guide](article:learn-touch-typing) walks you through it step by step, and the [touch typing course](page:lessons) takes you there in 31 lessons.
 
+## For the wall
+
+To see the assignment every day, hang the [keyboard poster with the color zones](article:poster-which-finger-types-what-qwerty) next to the monitor.
+
 ## Sources
 
 - [Touch typing](https://en.wikipedia.org/wiki/Touch_typing) - Wikipedia, history and home row.
@@ -1193,6 +1214,10 @@ What you don't measure, you don't consciously improve. A quick weekly [typing sp
 ## What matters most
 
 Of all seven, "stop looking at the keyboard" combined with "short daily practice" makes the biggest difference. Together, that's essentially the 10-finger system - every other technique here builds on top of it. The [complete touch typing guide](article:learn-touch-typing) shows how to learn it. On a phone, different rules apply: [Faster Typing on Your Phone](article:faster-typing-phone).
+
+## For the office
+
+The finger assignment as a wall chart: the [keyboard poster for the office](article:poster-which-finger-types-what-qwerty) shows it on one A4 landscape page, no explanation needed.
 
 ## Sources
 
@@ -1404,6 +1429,10 @@ A typing test shows where you stand. Practice is what makes you faster. The [pla
 
 **What is the average typing speed?** Between 33 and 52 WPM, depending on the study. A one-minute test tells you where you stand.
 
+## Printables
+
+To keep the value, write it into the [progress tracker](article:progress-tracker-4-weeks) and measure again after four weeks. Whether to work on finger placement first or on speed, the [eight-question self-test](article:self-test-where-do-you-stand) tells you.
+
 ## Sources
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia) - 5 characters = 1 word, a 1999 study with 32.5 WPM for copying, two-finger typists at 27 WPM, professional typists 43 to 80 WPM, some positions 80 to 95 WPM.
@@ -1475,6 +1504,10 @@ Réponse courte : **2 à 4 semaines** pour les bases, **2 à 3 mois** pour que �
 Soyons honnêtes : au début, tu tapes *plus lentement* qu'avant. C'est normal et ça dure environ une semaine. Après, tu accélères vite.
 
 Le truc, c'est de tenir les 7 premiers jours. Après ça, tu sens le progrès. Sept habitudes pour aller encore plus vite : [Taper plus vite : 7 techniques](article:taper-plus-vite-techniques).
+
+## À imprimer
+
+Quatre fiches accompagnent le cours : la [carte doigts-clavier](article:carte-doigts-clavier-azerty) à poser à côté du clavier, le [clavier vierge à compléter](article:clavier-vierge-azerty) comme test de deux minutes, le [suivi de progression sur quatre semaines](article:suivi-progression-4-semaines) et l'[auto-évaluation en huit questions](article:auto-evaluation-ou-en-es-tu) qui indique le bon point de départ.
 
 ## Sources
 
@@ -1616,6 +1649,10 @@ N'apprends pas tout d'un coup. Choisis **3 raccourcis par semaine** et utilise-l
 ## Prochaine étape
 
 Les raccourcis font gagner des clics, la frappe à dix doigts fait gagner du temps sur chaque mot. Commence par un [test de vitesse de frappe](page:speedTest) gratuit pour voir ta marge de progression. Le fonctionnement de la méthode est expliqué dans le [guide complet de la dactylographie](article:apprendre-dactylographie).
+
+## Fiches associées
+
+Deux autres fiches complètent les raccourcis : la [fiche des caractères spéciaux](article:caracteres-speciaux-azerty) avec @, €, # et les crochets, et la [carte du pavé numérique](article:carte-pave-numerique) pour saisir les chiffres sans regarder.
 
 ## Sources
 
@@ -1823,6 +1860,10 @@ Qui tape à deux doigts recopie un texte à environ 27 mots par minute, un dacty
 
 Les bases sont acquises en 2 à 4 semaines de pratique régulière, et le geste devient naturel après 2 à 3 mois - à raison de 15 à 20 minutes d'entraînement par jour. Ce n'est pas un talent, c'est de la répétition. Le [guide complet de la dactylographie](article:apprendre-dactylographie) détaille chaque étape, et le [cours de dactylographie](page:lessons) t'y amène en 31 leçons.
 
+## À afficher
+
+Pour voir l'attribution chaque jour, accroche l'[affiche clavier à zones de couleur](article:affiche-quel-doigt-tape-quoi-azerty) à côté de l'écran.
+
 ## Sources
 
 - [Dactylographie](https://www.larousse.fr/dictionnaires/francais/dactylographie/21363) - Larousse, définition.
@@ -1873,6 +1914,10 @@ Ce qu'on ne mesure pas, on ne l'améliore pas consciemment. Un [test de vitesse 
 ## Ce qui compte le plus
 
 Sur ces sept points, "arrêter de regarder le clavier" combiné à "s'entraîner un peu chaque jour" fait la plus grande différence. Ensemble, c'est essentiellement la méthode des dix doigts - toutes les autres techniques s'appuient dessus. Le [guide complet de la dactylographie](article:apprendre-dactylographie) explique comment l'apprendre. Sur téléphone, les règles changent : [Taper plus vite sur ton téléphone](article:taper-plus-vite-telephone).
+
+## Pour le bureau
+
+L'attribution des doigts en version murale : l'[affiche clavier pour le bureau](article:affiche-quel-doigt-tape-quoi-azerty) la montre sur une page A4 paysage, sans texte explicatif.
 
 ## Sources
 
@@ -2083,6 +2128,10 @@ Un test de frappe te montre où tu en es. C'est l'entraînement qui te rend plus
 
 **Le test fonctionne-t-il en AZERTY ?** Oui. Les textes sont en français, avec accents, sur une disposition [AZERTY](article:qwerty-azerty-qwertz).
 
+## À imprimer
+
+Pour garder la valeur, note-la dans le [suivi de progression](article:suivi-progression-4-semaines) et mesure à nouveau après quatre semaines. Pour savoir s'il faut d'abord travailler la position des doigts ou la vitesse, fais l'[auto-évaluation en huit questions](article:auto-evaluation-ou-en-es-tu).
+
 ## Sources
 
 - [Words per minute](https://en.wikipedia.org/wiki/Words_per_minute) (Wikipedia, en anglais) - 5 caractères = 1 mot, étude de 1999 à 32,5 MPM en recopie, frappe à deux doigts à 27 MPM, dactylos professionnels de 43 à 80 MPM, certains postes 80 à 95 MPM.
@@ -2091,6 +2140,7 @@ Un test de frappe te montre où tu en es. C'est l'entraînement qui te rend plus
 - [How We Type: Movement Strategies and Performance in Everyday Typing](https://userinterfaces.aalto.fi/how-we-type/) - Aalto University, CHI 2016 : regard sur l'écran, attribution fixe doigt-touche.
 - [Typing](https://en.wikipedia.org/wiki/Typing) (Wikipedia, en anglais) - le record de 216 MPM, Stella Pajunas-Garnand, 1946.`,
   },
+  ...worksheetResources,
 ];
 
 export function getResourcesByLocale(locale: Locale): ResourceMeta[] {
@@ -2126,6 +2176,13 @@ const translationGroups: string[][] = [
   ["tipptest", "typing-test", "test-de-frappe"],
   ["typingclub-alternative"],
   ["agile-fingers-alternative"],
+  ["finger-tastatur-karte-qwertz", "finger-keyboard-map-qwerty", "carte-doigts-clavier-azerty"],
+  ["leeres-layout-qwertz", "blank-layout-qwerty", "clavier-vierge-azerty"],
+  ["fortschritts-tracker-4-wochen", "progress-tracker-4-weeks", "suivi-progression-4-semaines"],
+  ["nummernblock-karte", "numpad-map", "carte-pave-numerique"],
+  ["poster-welcher-finger-tippt-was-qwertz", "poster-which-finger-types-what-qwerty", "affiche-quel-doigt-tape-quoi-azerty"],
+  ["selbsttest-wo-stehst-du", "self-test-where-do-you-stand", "auto-evaluation-ou-en-es-tu"],
+  ["sonderzeichen-karte-qwertz", "special-characters-qwerty", "caracteres-speciaux-azerty"],
 ];
 
 // Every existing language edition of an article, keyed by locale. Only

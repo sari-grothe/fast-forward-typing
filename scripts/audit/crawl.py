@@ -160,7 +160,7 @@ def main():
 
     # hreflang targets must be in the sitemap (canonical, indexable)
     for u in sitemap_urls:
-        if any(r["noindex"] for r in rows if r["url"] == u):
+        if any(r.get("noindex") for r in rows if r["url"] == u):
             fail(u, "noindex URL listed in sitemap")
 
     # Second pass: every internal link must resolve with 200 directly, or

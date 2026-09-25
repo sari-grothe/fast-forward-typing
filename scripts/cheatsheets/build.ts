@@ -222,8 +222,11 @@ function main() {
   mkdirSync(OUT_DIR, { recursive: true });
   const only = process.argv[2];
   let count = 0;
+  // Worksheet articles share their slug with the worksheet PDF; they are
+  // rendered by renderWorksheet below, not from their article text.
+  const worksheetSlugs = new Set(worksheets.flatMap((w) => Object.values(w.file)));
   for (const locale of locales) {
-    for (const r of getResourcesByLocale(locale).filter((r) => r.type === "lead-magnet")) {
+    for (const r of getResourcesByLocale(locale).filter((r) => r.type === "lead-magnet" && !worksheetSlugs.has(r.slug))) {
       if (only && r.slug !== only) continue;
       console.log(`${locale}  ${toPdf(r.slug, renderArticle(r), false).replace(process.cwd() + "/", "")}`);
       count += 1;
