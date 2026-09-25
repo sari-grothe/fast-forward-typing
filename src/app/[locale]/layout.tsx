@@ -169,7 +169,6 @@ export default async function LocaleLayout({ children, params }: Props) {
                 <div className="flex flex-col gap-2 text-zinc-600">
                   <Link href={companiesPath(locale)} className="hover:text-indigo transition-colors">{dict.footer.teamTraining}</Link>
                   <Link href={`${companiesPath(locale)}#${companiesAnchorId(locale, "pricing")}`} className="hover:text-indigo transition-colors">{dict.footer.pricing}</Link>
-                  <Link href={`/${locale}/business-terms`} className="hover:text-indigo transition-colors">{dict.footer.businessTerms}</Link>
                 </div>
               </div>
               <div>
@@ -192,6 +191,7 @@ export default async function LocaleLayout({ children, params }: Props) {
               <span className="text-zinc-300 dark:text-dark-border">·</span>
               <Link href={`/${locale}/terms`} className="hover:text-indigo transition-colors">{dict.footer.terms}</Link>
               <span className="text-zinc-300 dark:text-dark-border">·</span>
+              <Link href={`/${locale}/business-terms`} className="hover:text-indigo transition-colors">{dict.footer.businessTerms}</Link>
               <span className="text-zinc-300 dark:text-dark-border">·</span>
               <Link href={`/${locale}/withdrawal`} className="hover:text-indigo transition-colors">{dict.footer.withdrawal}</Link>
               <span className="text-zinc-300 dark:text-dark-border">·</span>

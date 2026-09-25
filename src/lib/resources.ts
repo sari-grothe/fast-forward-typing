@@ -593,65 +593,96 @@ Die Fingerzuordnung als Wandbild: das [Tastatur-Poster fürs Büro](article:post
     locale: "de",
     type: "article",
     category: "comparisons",
-    title: "TypingClub Alternative für Erwachsene: Der Vergleich",
-    description: "TypingClub ist kostenlos, aber klar für Schulen und Kinder gebaut. Hier der ehrliche Vergleich für alle, die als Erwachsene tippen lernen wollen.",
-    readingTime: 5,
-    date: "2026-09-23",
-    content: `TypingClub ist die richtige Wahl, wenn du ein kostenloses Schulprogramm mit Spielen willst. Fast Forward Typing, wenn du als Erwachsener einen Kurs mit Ende und Zertifikat willst. Kurzvergleich: TypingClub hat 23 Millionen Nutzer, ist kostenlos und bietet kein Zertifikat; Fast Forward Typing hat 31 Lektionen, Einmalzahlung und Zertifikat inklusive.
+    title: "TypingClub Deutsch: Tippdschungel im Check + Alternative",
+    description: "TypingClub auf Deutsch heißt Tippdschungel: 506 Lektionen, QWERTZ, kostenlos, aber Schuldesign, Werbung, kein Zertifikat. Der ehrliche Check für Erwachsene.",
+    readingTime: 7,
+    date: "2026-09-25",
+    content: `TypingClub gibt es auf Deutsch: Der Kurs heißt Tippdschungel, läuft auf dem QWERTZ-Layout, umfasst 506 Lektionen mit Videos und Spielen und ist kostenlos, auch ohne Konto. Gebaut ist er für Schulen und Kinder, mit Sternen, Punkten und Geschichten-Serien, und ein Abschluss oder Zertifikat fehlt. Wer als Erwachsener das 10-Finger-System lernen will, bekommt hier den ehrlichen Überblick: was TypingClub Deutsch kann, wo es hakt, und wann Fast Forward Typing die bessere Wahl ist.
 
-## Kurz zusammengefasst
+## Gibt es TypingClub auf Deutsch?
 
-TypingClub ist kostenlos, riesig ([23 Millionen Nutzer weltweit](https://www.typingclub.com/)) und funktioniert technisch einwandfrei. Aber das Programm ist für Schulen und Kinder entwickelt - Sterne, Abzeichen, Maskottchen-Geschichten, ein eigener Modus für Grundschulkinder. Fast Forward Typing ist von Grund auf für Erwachsene gebaut: kein Kinderkram, dafür ein klar definierter Kurs mit Ende und echtem Zertifikat. Wähle TypingClub, wenn dir Kosten wichtiger sind als Design. Wähle Fast Forward Typing, wenn du als Erwachsener ernst genommen werden willst.
+Ja. TypingClub gehört zum US-Anbieter edclub und wird in mehr als 20 Sprachen angeboten. Die deutsche Ausgabe trägt den Namen **Tippdschungel** und ist unter edclub.com/de erreichbar. Laut Anbieter enthält sie "über 500 Lektionen, Tippspiele, Videos und andere Aktivitäten für alle Lernstufen" und führt "über Zahlen und Interpunktion bis hin zum Ziel von 65 Wörtern pro Minute". Die Oberfläche, die Lehrvideos und die virtuellen Handführungen sind auf Deutsch, das Tastaturlayout ist das deutsche QWERTZ mit Umlauten. Angegeben sind 506 Lektionen und mehr als 5 Millionen Schüler.
 
-## Design und Zielgruppe
+Ein Konto braucht man nicht, der Fortschritt wird dann aber nicht gespeichert. Mit kostenlosem Konto bleibt er erhalten.
 
-TypingClub wurde für den Schuleinsatz entwickelt und das merkt man auf jeder Seite: Sterne sammeln, Level aufsteigen, animierte Geschichten-Serien mit Charakteren, ein separater "Jungle Junior"-Modus extra für jüngere Kinder. Für ein Klassenzimmer ist das genau richtig. Für einen Erwachsenen, der zwischen zwei Meetings kurz üben will, fühlt es sich schnell unpassend an.
+## Was der deutsche Kurs gut macht
 
-Fast Forward Typing hat kein Maskottchen-Universum und keine Abzeichen-Sammlung. Die Lektionen sind sachlich aufgebaut, die Sprache ist die eines Erwachsenenprodukts, nicht die eines Schulprogramms.
+- **Umfang.** 506 Lektionen decken jede Taste, Zahlen und Satzzeichen ab. Wer einfach nur Material zum Üben will, findet hier mehr als genug.
+- **Handführung.** Eine animierte Hand zeigt bei jeder Lektion, welcher Finger dran ist. Für die ersten Wochen ist das hilfreich.
+- **Wiedergabe.** Jede Lektion lässt sich als Aufzeichnung ansehen, Fehler und Schwachstellen werden sichtbar.
+- **Kostenlos.** Der Kernkurs kostet nichts, auch für Erwachsene, auch ohne Zeitlimit.
 
-## Kurs und Lernpfad
+## Was fehlt, wenn du Erwachsener bist
 
-TypingClub bietet eine riesige Zahl an Lektionen, Spielen und Videos - aber ohne ein klar definiertes Ende. Man übt, sammelt Sterne, macht weiter. Wann man "fertig" ist, bleibt offen.
+**Kein Ende.** 506 Lektionen sind ein Vorrat, kein Weg. Man sammelt fünf Sterne pro Lektion und macht weiter; wann man "fertig" ist, bleibt offen. Für Schüler, die über Jahre begleitet werden, ist das in Ordnung. Für einen Berufstätigen, der in sechs Wochen blind tippen will, fehlt die Ziellinie.
 
-Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: eine [Einstufung](page:placement) zeigt den Startpunkt, [31 Lektionen](page:lessons) führen strukturiert zum Ziel, ein Abschluss ist klar erkennbar. Wer eine Ziellinie will, statt endlos zu üben, findet die hier.
+**Kein Zertifikat.** TypingClub stellt keinen Nachweis über Tippgeschwindigkeit und Genauigkeit aus. Wer das Ergebnis für Lebenslauf, LinkedIn oder eine Bewerbung braucht, muss es woanders belegen.
+
+**Schuldesign.** Sterne, Punkte, Anzeigetafel, Geschichten-Serien wie "Ava und der Hase" und "Das perfekte Spiel", eine Kategorie "Klassenstufen". Der Anbieter schreibt selbst durchgehend von Schülern und Lehrern. Zwischen zwei Meetings fühlt sich das schnell falsch an.
+
+**Werbung und Tracking.** Die kostenlose Version zeigt Werbung. Der Cookie-Hinweis nennt 131 Partner, die Daten für Werbung, Analyse und Profilbildung verarbeiten. Werbefrei wird es erst im Bezahlplan.
+
+**Keine Einstufung.** Der Kurs beginnt bei Lektion 1, egal ob du schon acht Finger nutzt oder zwei. Wer Vorkenntnisse hat, klickt sich durch Dutzende Lektionen, die er nicht braucht.
 
 ## Preise
 
-| | TypingClub | Fast Forward Typing |
+| | TypingClub Deutsch (Tippdschungel) | Fast Forward Typing |
 |---|---|---|
-| Kostenlose Version | Ja, voller Kernkurs | Erste 6 Lektionen |
-| Bezahlversion | 7,50 €/Monat oder 29,50 €/Jahr | Einmalzahlung, kein Abo |
-| Was das Bezahl-Upgrade bringt | Werbefrei, mehr Spiele, mehr Themes, "Story Typing" - nicht mehr Lerninhalt | Alle restlichen Lektionen bis zum Kursabschluss |
-| Zertifikat | Nicht vorhanden | [Inklusive](page:certificate) |
+| Kostenlos | Kompletter Kernkurs, mit Werbung | Tippgeschwindigkeit messen, Einstufung, erste 6 Lektionen |
+| Bezahlversion | 7,50 € pro Monat oder 29,50 € pro Jahr | Einmalzahlung, kein Abo |
+| Was das Bezahlen bringt | Werbefrei, mehr Spiele und Themes, "Story Typing"; kein zusätzlicher Lerninhalt | Alle restlichen Lektionen bis zum Abschluss |
+| Zertifikat | Nicht vorhanden | [Inklusive](page:certificate), auch einzeln erhältlich |
+| Für Schulen | Schul-Edition Free und Pro, Lizenz pro Schüler | Team-Lizenzen für Unternehmen |
 
-Wichtig zu verstehen: Bei TypingClub kaufst du dir mit dem Abo keinen zusätzlichen Lerninhalt frei, sondern Komfort-Features. Der eigentliche Kurs ist bei beiden Anbietern kostenlos zugänglich - der Unterschied liegt im Zertifikat und im Design. Einen zweiten Vergleich findest du unter [AgileFingers Alternative](article:agile-fingers-alternative).
+Entscheidend: Bei TypingClub kaufst du mit dem Abo Komfort, keinen Lernfortschritt. Der Kurs selbst bleibt kostenlos. Wer nur Übungsmaterial will und Werbung aushält, zahlt dort nichts.
 
-## Wer sollte TypingClub nutzen
+## TypingClub Deutsch oder Fast Forward Typing?
 
-- Wer eine Schulklasse oder mehrere Kinder gleichzeitig unterrichten will
-- Wer maximale Spielauswahl und Gamification möchte
-- Wer kein Budget hat und Werbung im Programm nicht stört
+| | TypingClub Deutsch | Fast Forward Typing |
+|---|---|---|
+| Zielgruppe | Schulen, Kinder, alle Klassenstufen | Erwachsene im Beruf |
+| Layout | QWERTZ | QWERTZ, dazu QWERTY und AZERTY mit eigenem Curriculum |
+| Kursstruktur | 506 Lektionen, offenes Ende | 31 Lektionen, klarer Abschluss |
+| Startpunkt | Lektion 1 für alle | [Einstufung](page:placement) pro Taste, Überspringen erlaubt |
+| Übungstexte | Buchstabenfolgen, Spiele, Geschichten | Echte Sätze und Texte aus dem Arbeitsalltag |
+| Nachweis | keiner | Zertifikat mit WPM, Genauigkeit und Datum |
+| Werbung | ja, in der Gratisversion | keine |
+| Preis | kostenlos, Abo für Komfort | Einmalzahlung |
 
-## Wer sollte Fast Forward Typing nutzen
+Fast Forward Typing ist als Kurs mit Anfang und Ende gebaut: Die Einstufung zeigt, welche Tasten schon sitzen, [31 Lektionen](page:lessons) führen in 15 Minuten am Tag zum Ziel, und am Ende steht das Zertifikat. Wie der Weg im Detail aussieht, beschreibt der [Guide zum 10-Finger-Schreiben](article:zehn-finger-schreiben-lernen).
 
-- Erwachsene, die zwischendurch üben wollen, ohne sich wie im Schulunterricht zu fühlen
-- Wer einen klar definierten Kursabschluss mit Zertifikat für Lebenslauf oder LinkedIn will
-- Wer 15 Minuten am Tag investieren will, mit einem Ende in Sicht statt endlosem Üben
+## Für wen TypingClub Deutsch die richtige Wahl ist
+
+- Lehrkräfte, die eine Klasse unterrichten und Fortschritt pro Schüler sehen wollen
+- Eltern, deren Kinder spielerisch tippen lernen sollen
+- Alle, die kein Budget haben und mit Werbung und Sternen leben können
+
+## Für wen Fast Forward Typing die richtige Wahl ist
+
+- Erwachsene, die neben dem Job in wenigen Wochen zum blinden Tippen kommen wollen, ohne Schulgefühl
+- Wer einen Abschluss mit Zertifikat für Bewerbung oder LinkedIn braucht
+- Wer Vorkenntnisse hat und nicht bei Lektion 1 anfangen will
+- Wer ohne Werbung und ohne 131 Tracking-Partner üben möchte
 
 ## Häufige Fragen
 
-**Ist TypingClub wirklich kostenlos?** Ja, der Kernkurs ist dauerhaft kostenlos, auch für Erwachsene. Das Bezahl-Abo ist optional und betrifft vor allem Komfort-Features.
+**Ist TypingClub auf Deutsch kostenlos?** Ja. Der Kurs Tippdschungel ist komplett kostenlos, auch ohne Konto. Das optionale Abo entfernt Werbung und schaltet Spiele und Themes frei, keine zusätzlichen Lektionen.
 
-**Gibt es bei TypingClub ein Zertifikat?** Nein, TypingClub bietet aktuell keinen offiziellen Nachweis der Tippgeschwindigkeit.
+**Nutzt TypingClub Deutsch das QWERTZ-Layout?** Ja, der deutsche Kurs ist laut Anbieter für ein Standard-QWERTZ-Layout gebaut, inklusive Umlaute.
 
-**Unterstützt TypingClub Deutsch?** Ja, es gibt einen deutschen Sprachkurs, allerdings mit demselben schulischen Design wie die englische Version.
+**Gibt es bei TypingClub ein Zertifikat?** Nein. TypingClub bietet keinen Nachweis über Tippgeschwindigkeit oder Kursabschluss. Ein [Tippzertifikat](page:certificate) mit WPM und Genauigkeit gibt es bei Fast Forward Typing.
+
+**Wie viele Lektionen hat Tippdschungel?** 506, laut Kursseite des Anbieters, mit dem Ziel von 65 Wörtern pro Minute.
+
+**Welche Alternative passt für Erwachsene?** Neben Fast Forward Typing lohnt der Blick auf [AgileFingers](article:agile-fingers-alternative), ebenfalls kostenlos und schlanker als TypingClub, aber ohne Kursstruktur und Zertifikat.
 
 *Stand der Angaben zu TypingClub: September 2026. Preise und Funktionen können sich ändern. Alle Angaben ohne Gewähr, Quelle ist die öffentliche Website des Anbieters.*
 
 ## Quellen
 
-- [TypingClub](https://www.typingclub.com/) - offizielle Website, Nutzerzahlen und Kursumfang.
-- [edclub Pricing](https://www.edclub.com/pricing) - offizielle Preisseite des Anbieters (Stand September 2026).`,
+- [Tippdschungel - 10 Finger Schreiben lernen](https://www.edclub.com/de/library/tippdschungel) - Kursseite des Anbieters: 506 Lektionen, QWERTZ, Ziel 65 Wörter pro Minute, Sprache Deutsch, alle Klassenstufen, 5 Millionen Schüler.
+- [TypingClub](https://www.typingclub.com/) - offizielle Website, Sprachauswahl mit Deutsch, Nutzerzahlen.
+- [edclub Pricing](https://www.edclub.com/pricing) - Schul-Edition Free und Pro; Einzelpreise 7,50 € pro Monat und 29,50 € pro Jahr laut Anbieter (Stand September 2026).`,
   },
   {
     slug: "agile-fingers-alternative",
