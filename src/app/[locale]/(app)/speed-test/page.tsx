@@ -23,7 +23,7 @@ const meta: Record<Locale, { title: string; description: string }> = {
     description: "Measure your typing speed in a few minutes - free, no signup required. Compare yourself to the average, then start the touch-typing course.",
   },
   fr: {
-    title: "Test de vitesse de frappe gratuit",
+    title: "Test de dactylographie gratuit : ta vitesse de frappe",
     description: "Mesure ta vitesse de frappe en quelques minutes - gratuit, sans inscription. Compare-toi à la moyenne, puis commence le cours de dactylographie.",
   },
 };

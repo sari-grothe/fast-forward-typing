@@ -19,7 +19,7 @@ const meta: Record<Locale, { title: string; description: string }> = {
     description: "Learn the 10-finger system in 15 minutes a day. 31 structured lessons, free to start, certificate at the end.",
   },
   fr: {
-    title: "Apprendre la dactylographie - Cours pour adultes",
+    title: "Apprendre à taper à dix doigts - Cours pour adultes",
     description: "Apprends le système à 10 doigts à raison de 15 minutes par jour. 31 leçons structurées, gratuit pour commencer, certificat à la clé.",
   },
 };
